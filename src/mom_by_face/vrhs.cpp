@@ -34,7 +34,7 @@ IncidentPlaneWave getIncidentPlaneWave(double &theta,
     return plane_wave;
 }
 
-std::complex<double> getVrhsValueForIncidentPlaneWave(int &edge_index,
+std::complex<double> getVrhsValueForIncidentPlaneWave(int edge_index,
                                                       IncidentPlaneWave &plane_wave,
                                                       std::vector<Triangle> &triangles,
                                                       std::vector<Edge> &edges)
