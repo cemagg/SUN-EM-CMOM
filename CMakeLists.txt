@@ -34,7 +34,12 @@ if(MPI)
                 src/file_io/mom_file_reader.cpp
                 src/mom_by_face/quadrature.cpp
                 src/mom_by_face/vrhs.cpp
-                src/mom_by_face/zmn_by_face.cpp)
+                src/mom_by_face/zmn_by_face.cpp
+                src/parallel_mom/mpi_fill_vrhs.cpp
+                src/parallel_mom/mpi_fill_zmn.cpp
+                src/parallel_mom/mpi_fill_ilhs.cpp
+                src/parallel_mom/mpi_mom.cpp
+                src/parallel_mom/main_mpi.cpp)
     add_executable(mom_mpi ${SOURCES})
 
     if(ATLAS OR PARALLEL)
