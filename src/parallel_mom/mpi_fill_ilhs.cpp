@@ -26,7 +26,7 @@ void mpiFillIlhs(std::complex<double> *zmn,
     pzgetrf_(&matrix_size, &matrix_size, zmn, &one, &one, zmn_desc, local_pivot, &info); 
 
     // Lets solve for I
-    pzgetrs_("N", &matrix_size, &one, zmn, &one, &one, zmn_desc, local_pivot, vrhs, &one, &one, vrhs_desc, &info);
+    pzgetrs_("T", &matrix_size, &one, zmn, &one, &one, zmn_desc, local_pivot, vrhs, &one, &one, vrhs_desc, &info);
 
 
 }

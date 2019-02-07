@@ -6,6 +6,7 @@
 #include <map>
 #include <string>
 #include <iostream>
+#include <fstream>
 
 #include "../mom_by_face/vrhs.h"
 #include "../data_structures/triangle.h"
