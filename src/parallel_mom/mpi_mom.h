@@ -22,6 +22,9 @@ extern "C"
     void Cblacs_get(int , int, int*);
     void Cblacs_gridinit(int*, const char*, int, int);
     void Cblacs_gridinfo(int, int*, int*, int*,int*);
+
+    void Czgesd2d(int, int, int, std::complex<double>*, int, int, int);
+    void Czgerv2d(int, int, int, std::complex<double>*, int, int, int);
 	
 	int numroc_(int*, int*, int*, int*, int*);
 }

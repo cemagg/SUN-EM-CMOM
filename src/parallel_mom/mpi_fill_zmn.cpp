@@ -68,7 +68,7 @@ void mpiFillZmn(std::complex<double> *zmn,
 							}
 							int local_col_index = indxg2l_(&global_observation_edge_index, &block_size, &zero, &zero, &total_proc_cols) - 1;
 
-							zmn[local_col_index + local_row_index * num_cols] +=
+							zmn[local_row_index + local_col_index * num_cols] +=
 								delta_zmn(p, q, edges, triangles, r, e, a_and_phi, omega);
 							// if(global_observation_edge_index == 1 &&
 							// 	global_source_edge_index == 1)

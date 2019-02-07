@@ -11,6 +11,10 @@ void mpi_fill_vrhs(std::complex<double> *vrhs,
                    std::vector<Edge> &edges)
                    
 {
+
+    // std::ofstream file;
+    // std::string file_name = std::to_string(proc_row) + std::to_string(proc_col) +".txt"; 
+    // file.open(file_name);
     int zero = 0;
     int one = 1;
 
@@ -27,13 +31,18 @@ void mpi_fill_vrhs(std::complex<double> *vrhs,
                                                         propagation_direction,
                                                         wavenumber);
 
-    for(int i = 1; i < (edges.size() + 1); i++)
+    int index;
+    for(int i = 1; i < edges.size() + 1; i++)
     {
-        if(indxg2p_(&i, &block_size, &zero, &zero, &total_proc_rows) == proc_row &&
+        index = i;
+        if(indxg2p_(&index, &block_size, &zero, &zero, &total_proc_rows) == proc_row &&
            indxg2p_(&one, &block_size, &zero, &zero, &total_proc_cols) == proc_col)
-        {   
-            vrhs[indxg2l_(&i, &block_size, &zero, &zero, &total_proc_rows) - 1] = 
-                getVrhsValueForIncidentPlaneWave((i - 1), plane_wave, triangles, edges);
+        {
+
+            vrhs[(indxg2l_(&index, &block_size, &zero, &zero, &total_proc_rows) - 1)] +=
+                 getVrhsValueForIncidentPlaneWave((i-1), plane_wave, triangles, edges);
+          // file << proc_row << " | " << proc_col <<" | " << index << " | " << indxg2l_(&index, &block_size, &zero, &zero, &total_proc_rows)
+          // << " | " << getVrhsValueForIncidentPlaneWave((i - 1), plane_wave, triangles, edges) << std::endl;
         } 
     }
 }
