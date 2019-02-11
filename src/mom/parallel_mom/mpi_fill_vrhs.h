@@ -8,9 +8,9 @@
 #include <iostream>
 #include <fstream>
 
-#include "../mom_by_face/vrhs.h"
-#include "../data_structures/triangle.h"
-#include "../data_structures/edge.h"
+#include "../mom_helpers/vrhs.h"
+#include "../../data_structures/triangle.h"
+#include "../../data_structures/edge.h"
 
 extern "C"
 {

@@ -34,14 +34,15 @@ if(MPI)
                 src/data_structures/node.h
                 src/data_structures/triangle.h
                 src/file_io/mom_file_reader.cpp
-                src/mom_by_face/quadrature.cpp
-                src/mom_by_face/vrhs.cpp
-                src/mom_by_face/zmn_by_face.cpp
-                src/parallel_mom/mpi_fill_vrhs.cpp
-                src/parallel_mom/mpi_fill_zmn.cpp
-                src/parallel_mom/mpi_fill_ilhs.cpp
-                src/parallel_mom/mpi_mom.cpp
-                src/parallel_mom/main_mpi.cpp)
+                src/file_io/mom_file_writer.cpp
+                src/mom/mom_helpers/quadrature.cpp
+                src/mom/mom_helpers/vrhs.cpp
+                src/mom/mom_helpers/zmn_by_face.cpp
+                src/mom/parallel_mom/mpi_fill_vrhs.cpp
+                src/mom/parallel_mom/mpi_fill_zmn.cpp
+                src/mom/parallel_mom/mpi_fill_ilhs.cpp
+                src/mom/parallel_mom/mpi_mom.cpp
+                src/main_mpi.cpp)
     add_executable(mom_mpi ${SOURCES})
 
     if(ATLAS OR PARALLEL)
@@ -69,14 +70,14 @@ else()
                 src/data_structures/node.h
                 src/data_structures/triangle.h
                 src/file_io/mom_file_reader.cpp
-                src/file_io/write_ilhs_to_file.cpp
-                src/mom_by_face/quadrature.cpp
-                src/mom_by_face/vrhs.cpp
-                src/mom_by_face/zmn_by_face.cpp
-                src/mom/fill_vrhs.cpp
-                src/mom/fill_zmn.cpp
-                src/mom/fill_ilhs.cpp
-                src/mom/main.cpp)
+                src/file_io/mom_file_writer.cpp
+                src/mom/mom_helpers/quadrature.cpp
+                src/mom/mom_helpers/vrhs.cpp
+                src/mom/mom_helpers/zmn_by_face.cpp
+                src/mom/serial_mom/fill_vrhs.cpp
+                src/mom/serial_mom/fill_zmn.cpp
+                src/mom/serial_mom/fill_ilhs.cpp
+                src/main.cpp)
     add_executable(mom ${SOURCES})
     target_link_libraries(mom   -L/${CMAKE_CURRENT_SOURCE_DIR}/lib/scalapack
                                 -lreflapack

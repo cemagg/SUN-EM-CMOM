@@ -7,11 +7,11 @@
 #include <iostream>
 #include <fstream>
 
-#include "../data_structures/node.h"
-#include "../data_structures/edge.h"
-#include "../data_structures/triangle.h"
-#include "../mom_by_face/quadrature.h"
-#include "../mom_by_face/zmn_by_face.h"
+#include "../../data_structures/node.h"
+#include "../../data_structures/edge.h"
+#include "../../data_structures/triangle.h"
+#include "../mom_helpers/quadrature.h"
+#include "../mom_helpers/zmn_by_face.h"
 
 extern "C"
 {

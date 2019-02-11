@@ -4,3 +4,7 @@ src/build-mom-Desktop_Qt_5_12_0_MinGW_64_bit-Debug/
 build/
 
 build_mpi/
+
+cmom\.sublime-project
+
+cmom\.sublime-workspace

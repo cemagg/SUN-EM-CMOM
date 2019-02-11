@@ -7,16 +7,11 @@
 #include <vector>
 #include <string>
 
-#include "../file_io/mom_file_reader.h"
-#include "../data_structures/node.h"
-#include "fill_vrhs.h"
-#include "fill_zmn.h"
-#include "../../lib/args/args.hxx"
+#include "../lib/args/args.hxx"
 //**********************************
 
 int main(int argc, char **argv)
 {
-//    MoMFileReader reader("C:\\Users\\Tameez\\Documents\\git\\CMoM\\src\\build-mom-Desktop_Qt_5_12_0_MinGW_64_bit-Debug\\debug\\pec_plate.mom");
 
 	args::ArgumentParser parser("CMoM: C++ Method of Moments Solver", "");
 	args::HelpFlag help(parser, "help", "Display this menu", {'h', "help"});

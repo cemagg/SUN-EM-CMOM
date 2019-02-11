@@ -4,9 +4,9 @@
 void mpiPerformMoM(std::map<std::string, std::string> &const_map,
                    std::vector<Triangle> &triangles,
                    std::vector<Edge> &edges,
-                   std::vector<Node<double>> nodes)
+                   std::vector<Node<double>> nodes,
+                   std::string file_name)
 {
-    MPI_Init(NULL, NULL);
 	// Some constants
 	int zero = 0;
 	int one = 1;
@@ -35,9 +35,9 @@ void mpiPerformMoM(std::map<std::string, std::string> &const_map,
 	int num_vrhs_cols = numroc_(&one, &block_size, &proc_col, &zero, &total_proc_cols);
 
 	//************************************
-	std::ofstream file;
-	std::string file_name = std::to_string(proc_row) + std::to_string(proc_col) +".txt"; 
-	file.open(file_name);
+	// std::ofstream file;
+	// std::string file_name = std::to_string(proc_row) + std::to_string(proc_col) +".txt"; 
+	// file.open(file_name);
 	// file << "vrhs rows -> " <<num_vrhs_rows << std::endl;
 	// file << "vrhs cols -> "<<num_vrhs_cols << std::endl;
 	//************************************
@@ -162,16 +162,18 @@ void mpiPerformMoM(std::map<std::string, std::string> &const_map,
 
     if(proc_row == 0 && proc_col == 0)
     {
-        file << "++++++++++++++++++++++" << std::endl;
-        for(int i = 0; i < matrix_size; i++)
-        {
-            file << gathered_ilhs[i] << std::endl;
-        }
-        file << "++++++++++++++++++++++" << std::endl;
+       writeIlhsToFile(gathered_ilhs,
+                        matrix_size,
+                        file_name); 
+        // file << "++++++++++++++++++++++" << std::endl;
+        // for(int i = 0; i < matrix_size; i++)
+        // {
+        //     file << gathered_ilhs[i] << std::endl;
+        // }
+        // file << "++++++++++++++++++++++" << std::endl;
     }
 
 
     // file << vrhs[0] << std::endl;
     // file << zmn[0] << std::endl;
-    MPI_Finalize();
 }
