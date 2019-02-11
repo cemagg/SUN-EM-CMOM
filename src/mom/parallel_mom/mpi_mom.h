@@ -12,9 +12,10 @@
 #include "mpi_fill_vrhs.h"
 #include "mpi_fill_zmn.h"
 #include "mpi_fill_ilhs.h"
-#include "../data_structures/node.h"
-#include "../data_structures/edge.h"
-#include "../data_structures/triangle.h"
+#include "../../data_structures/node.h"
+#include "../../data_structures/edge.h"
+#include "../../data_structures/triangle.h"
+#include "../../file_io/mom_file_writer.h"
 
 extern "C"
 {
@@ -32,6 +33,7 @@ extern "C"
 void mpiPerformMoM(std::map<std::string, std::string> &const_map,
                    std::vector<Triangle> &triangles,
                    std::vector<Edge> &edges,
-                   std::vector<Node<double>> nodes);
+                   std::vector<Node<double>> nodes,
+                   std::string file_name);
 
 #endif

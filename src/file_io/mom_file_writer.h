@@ -1,5 +1,5 @@
-#ifndef WRITE_ILHS_TO_FILE_H
-#define WRITE_ILHS_TO_FILE_H
+#ifndef MOM_FILE_WRITER_H
+#define MOM_FILE_WRITER_H
 
 #include <complex>
 #include <string>

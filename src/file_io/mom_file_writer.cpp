@@ -1,4 +1,4 @@
-#include "write_ilhs_to_file.h"
+#include "mom_file_writer.h"
 
 void writeIlhsToFile(std::complex<double> *ilhs,
 					 int &matrix_size,
