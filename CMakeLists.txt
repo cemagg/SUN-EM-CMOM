@@ -27,8 +27,10 @@ if(MPI)
         SET(SCALAPACK_LIBRARIES "/usr/lib/scalapack/build/lib/libscalapack.so")
     endif()
 
+    message(${CMAKE_SOURCE_DIR})
     include_directories(${MPI_INCLUDE_PATH})
-    set(SOURCES src/data_structures/edge.h
+    set(SOURCES lib/args/args.hxx
+                src/data_structures/edge.h
                 src/data_structures/node.h
                 src/data_structures/triangle.h
                 src/file_io/mom_file_reader.cpp
@@ -62,15 +64,18 @@ if(MPI)
 
 else()
     MESSAGE("COMPILING WITHOUT MPI")
-    set(SOURCES src/data_structures/edge.h
+    set(SOURCES lib/args/args.hxx
+                src/data_structures/edge.h
                 src/data_structures/node.h
                 src/data_structures/triangle.h
                 src/file_io/mom_file_reader.cpp
+                src/file_io/write_ilhs_to_file.cpp
                 src/mom_by_face/quadrature.cpp
                 src/mom_by_face/vrhs.cpp
                 src/mom_by_face/zmn_by_face.cpp
                 src/mom/fill_vrhs.cpp
                 src/mom/fill_zmn.cpp
+                src/mom/fill_ilhs.cpp
                 src/mom/main.cpp)
     add_executable(mom ${SOURCES})
     target_link_libraries(mom   -L/${CMAKE_CURRENT_SOURCE_DIR}/lib/scalapack
