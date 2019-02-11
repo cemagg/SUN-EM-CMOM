@@ -12,10 +12,7 @@ void mpi_fill_vrhs(std::complex<double> *vrhs,
                    
 {
 
-    // std::ofstream file;
-    // std::string file_name = std::to_string(proc_row) + std::to_string(proc_col) +".txt"; 
-    // file.open(file_name);
-    int zero = 0;
+     int zero = 0;
     int one = 1;
 
     // Read in details of the plane wave from const_map
@@ -41,8 +38,6 @@ void mpi_fill_vrhs(std::complex<double> *vrhs,
 
             vrhs[(indxg2l_(&index, &block_size, &zero, &zero, &total_proc_rows) - 1)] +=
                  getVrhsValueForIncidentPlaneWave((i-1), plane_wave, triangles, edges);
-          // file << proc_row << " | " << proc_col <<" | " << index << " | " << indxg2l_(&index, &block_size, &zero, &zero, &total_proc_rows)
-          // << " | " << getVrhsValueForIncidentPlaneWave((i - 1), plane_wave, triangles, edges) << std::endl;
         } 
     }
 }
