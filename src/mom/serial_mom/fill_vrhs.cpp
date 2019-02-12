@@ -13,15 +13,6 @@ std::vector<std::complex<double>> serialFillVrhs(std::map<std::string, std::stri
                                                  std::vector<Triangle> &triangles, 
                                                  std::vector<Edge> &edges)
 {
-    // This function fills Vrhs for a serial MoM solver
-    //
-    // Arguments:
-    // std::map<std::string, std::string> &const_map -> A map that dictates the solver behaviour
-    // std::vector<Triangle> &triangles              -> A vector of all triangles
-    // std::vector<Edge> &edges                      -> A vector of all edges
-    //
-    // Returns:
-    // std::vector<std::complex<double>> vrhs        -> A vector of the calculated vrhs values
 
     std::vector<std::complex<double>> vrhs;
     vrhs.resize(edges.size());

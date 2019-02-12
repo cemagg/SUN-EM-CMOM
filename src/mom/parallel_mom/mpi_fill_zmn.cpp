@@ -12,10 +12,6 @@ void mpiFillZmn(std::complex<double> *zmn,
                 std::vector<Edge> &edges,
                 std::vector<Node<double>> nodes)
 {
-	// std::ofstream file;
-	// std::string file_name = std::to_string(proc_row) + std::to_string(proc_col) +".txt"; 
-	// file.open(file_name);
-
 	int zero = 0;
 	std::vector<bool> flag(triangles.size());
 	std::vector<Node<std::complex<double>>> a_and_phi;
@@ -70,13 +66,6 @@ void mpiFillZmn(std::complex<double> *zmn,
 
 							zmn[local_row_index + local_col_index * num_cols] +=
 								delta_zmn(p, q, edges, triangles, r, e, a_and_phi, omega);
-							// if(global_observation_edge_index == 1 &&
-							// 	global_source_edge_index == 1)
-							// {
-							// 	file << delta_zmn(p, q, edges, triangles, r, e, a_and_phi, omega) << std::endl;
-							// 	file << local_row_index << " " << local_col_index << std::endl << std::endl;
-							// }
-
 						}
 					}
 				}
