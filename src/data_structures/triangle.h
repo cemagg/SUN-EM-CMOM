@@ -5,7 +5,6 @@
 
 #include "node.h"
 
-
 struct Triangle
 {
     int vertex_1;
