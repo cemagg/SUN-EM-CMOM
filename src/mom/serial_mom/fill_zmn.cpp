@@ -15,17 +15,7 @@ void serialFillZmn(std::complex<double> *z_mn,
                    std::vector<Node<double>> nodes,
                    std::map<std::string, std::string> &const_map)
 {
-    // This function fills Zmn for a serial MoM solver
-    //
-    // Arguments:
-    // std::complex<double> *z_mn,                   -> An empty Zmn 2D matrix
-    // std::vector<Edge> &edges,                     -> A vector of all the edges
-    // std::vector<Triangle> &triangles,             -> A vector of all the triangles
-    // std::vector<Node<double>> nodes,              -> A vector of all the nodes
-    // std::map<std::string, std::string> &const_map -> A map that dictates the solver behaviour
-    //
-    // Returns:
-    // std::complex<double>> *z_mn                   -> A vector of the calculated vrhs values 
+
 
     // Get the quadrature weights and values
     std::vector<std::array<double, 4>> quad_weights_values = getQuadratureWeightsAndValues(6);

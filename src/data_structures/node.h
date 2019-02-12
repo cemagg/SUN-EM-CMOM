@@ -77,40 +77,4 @@ double euclideanDistance(Node<T> node1, Node<T> node2)
     return norm(temp_node);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #endif // NODE_H
