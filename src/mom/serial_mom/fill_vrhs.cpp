@@ -9,13 +9,14 @@
  *
  */
 
-std::vector<std::complex<double>> serialFillVrhs(std::map<std::string, std::string> &const_map,
+void serialFillVrhs(std::map<std::string, std::string> &const_map,
                                                  std::vector<Triangle> &triangles, 
-                                                 std::vector<Edge> &edges)
+                                                 std::vector<Edge> &edges,
+                                                 std::complex<double> *vrhs)
 {
 
-    std::vector<std::complex<double>> vrhs;
-    vrhs.resize(edges.size());
+    // std::vector<std::complex<double>> vrhs;
+    // vrhs.resize(edges.size());
 
     // Test whether(sp?) the excitation is an edge feed or plane wave
     if(std::stoi(const_map["edge_feed"]) == 1)
@@ -43,6 +44,4 @@ std::vector<std::complex<double>> serialFillVrhs(std::map<std::string, std::stri
             vrhs[i] = getVrhsValueForIncidentPlaneWave(i, incident_plane_wave, triangles, edges);
         }
     }
-
-    return vrhs;
 }
