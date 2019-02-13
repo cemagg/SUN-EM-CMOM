@@ -10,6 +10,9 @@ extern "C"
     void pzgetrf_(int*, int*, std::complex<double>*, int*, int*, int*, int*, int*);
     void pzgetrs_(const char*, int*, int*, std::complex<double>*, int*, int*,int* ,int*, std::complex<double>*, int*, int*, int*, int*);
 
+    void Czgesd2d(int, int, int, std::complex<double>*, int, int, int);
+    void Czgerv2d(int, int, int, std::complex<double>*, int, int, int);
+
 }
 
 void mpiFillIlhs(std::complex<double> *zmn,
@@ -20,5 +23,6 @@ void mpiFillIlhs(std::complex<double> *zmn,
 				 int &block_size,
 				 int &context);
 
+void gatherIlhs(int &matrix_size, int &block_size, int &total_proc_rows, std::complex<double> *vrhs, std::complex<double> *gathered_ilhs);
 
 #endif
