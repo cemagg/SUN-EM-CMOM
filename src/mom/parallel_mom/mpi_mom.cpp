@@ -4,8 +4,8 @@
 void mpiPerformMoM(std::map<std::string, std::string> &const_map,
                    std::vector<Triangle> &triangles,
                    std::vector<Edge> &edges,
-                   std::vector<Node<double>> nodes,
-                   std::string file_name)
+                   std::vector<Node<double>> &nodes,
+                   std::complex<double> *ilhs)
 {
 	// Some constants
 	int zero = 0;
@@ -35,8 +35,7 @@ void mpiPerformMoM(std::map<std::string, std::string> &const_map,
 	int num_vrhs_cols = numroc_(&one, &block_size, &proc_col, &zero, &total_proc_cols);
 
  
-     std::complex<double> *vrhs = new std::complex<double>[num_vrhs_rows * num_vrhs_cols]();
-  
+  std::complex<double> *vrhs = new std::complex<double>[num_vrhs_rows * num_vrhs_cols]();
 
 	mpi_fill_vrhs(vrhs,
            	      total_proc_rows,
@@ -80,48 +79,7 @@ void mpiPerformMoM(std::map<std::string, std::string> &const_map,
          context);
 
 
-    std::complex<double> *gathered_ilhs;
-
-    if(proc_col == 0 && proc_col == 0)
-    {
-        gathered_ilhs = new std::complex<double>[matrix_size];
-    }
-
-    // int send_row = 0;
-    // int vrhs_local_index = 0;
-    // for(int i = 0; i < matrix_size; i+= block_size)
-    // {
-    //     int num_rows = block_size;
-    //     if(matrix_size - i < block_size)
-    //     {
-    //         num_rows = matrix_size - i;
-    //     }
-
-    //     if(send_row >= total_proc_rows)
-    //     {
-    //         send_row = 0;
-    //     }
-
-    //     if(proc_row == send_row && proc_col == 0)
-    //     {
-    //         Czgesd2d(context, num_rows, 1, vrhs + vrhs_local_index , matrix_size, 0, 0);
-
-    //         vrhs_local_index += block_size;
-    //     }
-    //     if(proc_row == 0 && proc_col == 0)
-    //     {
-    //         Czgerv2d(context, num_rows, 1, gathered_ilhs + i, num_vrhs_rows, send_row, 0);   
-    //     }
-    //     send_row++;
-    // }
-	gatherIlhs(context, matrix_size, block_size, proc_row, proc_col, num_vrhs_rows,
-			total_proc_rows, vrhs, gathered_ilhs);
-    for(int i = 0; i < matrix_size; i++)
-    {
-        if(proc_row == 0 && proc_col == 0)
-        {
-            std::cout << gathered_ilhs[i] << std::endl;
-        }
-    }
-
+    gatherIlhs(context, matrix_size, block_size, proc_row, proc_col, num_vrhs_rows,
+			total_proc_rows, vrhs, ilhs);
+    
 }
