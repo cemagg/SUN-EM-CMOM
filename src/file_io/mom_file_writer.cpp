@@ -1,7 +1,7 @@
 #include "mom_file_writer.h"
 
 void writeIlhsToFile(std::complex<double> *ilhs,
-					 int &matrix_size,
+					 int matrix_size,
 					 std::string file_name)
 {
 	// Lets write the current vector to a file
@@ -14,7 +14,7 @@ void writeIlhsToFile(std::complex<double> *ilhs,
 
 	// Lets open the file
 	std::ofstream file;	
-	file.open(file_name);
+	file.open(file_name.substr(0 , file_name.size() - 3) + "sol");
 
 	for(int i = 0; i < matrix_size; i++)
 	{
