@@ -23,6 +23,7 @@ void mpiFillIlhs(std::complex<double> *zmn,
 				 int &block_size,
 				 int &context);
 
-void gatherIlhs(int &matrix_size, int &block_size, int &total_proc_rows, std::complex<double> *vrhs, std::complex<double> *gathered_ilhs);
+void gatherIlhs(int &context, int &matrix_size, int &block_size, int &proc_row, int &proc_col,
+	int &num_vrhs_rows, int &total_proc_rows, std::complex<double> *vrhs, std::complex<double> *gathered_ilhs);
 
 #endif
