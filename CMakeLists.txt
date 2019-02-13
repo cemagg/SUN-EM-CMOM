@@ -77,6 +77,7 @@ else()
                 src/mom/serial_mom/fill_vrhs.cpp
                 src/mom/serial_mom/fill_zmn.cpp
                 src/mom/serial_mom/fill_ilhs.cpp
+                src/mom/serial_mom/mom.cpp
                 src/main.cpp)
     add_executable(mom ${SOURCES})
     target_link_libraries(mom   -L/${CMAKE_CURRENT_SOURCE_DIR}/lib/scalapack
