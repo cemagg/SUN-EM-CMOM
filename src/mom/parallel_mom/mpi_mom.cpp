@@ -87,39 +87,41 @@ void mpiPerformMoM(std::map<std::string, std::string> &const_map,
         gathered_ilhs = new std::complex<double>[matrix_size];
     }
 
-    int send_row = 0;
-    int vrhs_local_index = 0;
-    for(int i = 0; i < matrix_size; i+= block_size)
+    // int send_row = 0;
+    // int vrhs_local_index = 0;
+    // for(int i = 0; i < matrix_size; i+= block_size)
+    // {
+    //     int num_rows = block_size;
+    //     if(matrix_size - i < block_size)
+    //     {
+    //         num_rows = matrix_size - i;
+    //     }
+
+    //     if(send_row >= total_proc_rows)
+    //     {
+    //         send_row = 0;
+    //     }
+
+    //     if(proc_row == send_row && proc_col == 0)
+    //     {
+    //         Czgesd2d(context, num_rows, 1, vrhs + vrhs_local_index , matrix_size, 0, 0);
+
+    //         vrhs_local_index += block_size;
+    //     }
+    //     if(proc_row == 0 && proc_col == 0)
+    //     {
+    //         Czgerv2d(context, num_rows, 1, gathered_ilhs + i, num_vrhs_rows, send_row, 0);   
+    //     }
+    //     send_row++;
+    // }
+    gatherIlhs(matrix_size, block_size, total_proc_rows, vrhs, gathered_ilhs);
+
+    for(int i = 0; i < matrix_size; i++)
     {
-        int num_rows = block_size;
-        if(matrix_size - i < block_size)
-        {
-            num_rows = matrix_size - i;
-        }
-
-        if(send_row >= total_proc_rows)
-        {
-            send_row = 0;
-        }
-
-        if(proc_row == send_row && proc_col == 0)
-        {
-            Czgesd2d(context, num_rows, 1, vrhs + vrhs_local_index , matrix_size, 0, 0);
-
-            vrhs_local_index += block_size;
-        }
         if(proc_row == 0 && proc_col == 0)
         {
-            Czgerv2d(context, num_rows, 1, gathered_ilhs + i, num_vrhs_rows, send_row, 0);   
+            std::cout << gathered_ilhs[i] << std::endl;
         }
-        send_row++;
     }
 
-    if(proc_row == 0 && proc_col == 0)
-    {
-       writeIlhsToFile(gathered_ilhs,
-                        matrix_size,
-                        file_name); 
-
-    }
 }
