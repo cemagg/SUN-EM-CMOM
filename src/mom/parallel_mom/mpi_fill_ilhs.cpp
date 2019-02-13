@@ -31,7 +31,8 @@ void mpiFillIlhs(std::complex<double> *zmn,
 
 }
 
-void gatherIlhs(int &matrix_size, int &block_size, int &total_proc_rows, std::complex<double> *vrhs, std::complex<double> *gathered_ilhs)
+void gatherIlhs(int &context, int &matrix_size, int &block_size, int &proc_row, int &proc_col,
+	int &num_vrhs_rows, int &total_proc_rows, std::complex<double> *vrhs, std::complex<double> *gathered_ilhs)
 {
     int send_row = 0;
     int vrhs_local_index = 0;

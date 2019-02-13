@@ -114,8 +114,8 @@ void mpiPerformMoM(std::map<std::string, std::string> &const_map,
     //     }
     //     send_row++;
     // }
-    gatherIlhs(matrix_size, block_size, total_proc_rows, vrhs, gathered_ilhs);
-
+	gatherIlhs(context, matrix_size, block_size, proc_row, proc_col, num_vrhs_rows,
+			total_proc_rows, vrhs, gathered_ilhs);
     for(int i = 0; i < matrix_size; i++)
     {
         if(proc_row == 0 && proc_col == 0)
