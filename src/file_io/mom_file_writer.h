@@ -6,7 +6,7 @@
 #include <fstream>
 
 void writeIlhsToFile(std::complex<double> *ilhs,
-					 int &matrix_size,
+					 int matrix_size,
 					 std::string file_name);
 
 #endif
