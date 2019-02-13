@@ -2,7 +2,7 @@
 
 void serialFillIlhs(std::complex<double> *zmn,
                     std::complex<double> *vrhs,
-                    int &matrix_size)
+                    int matrix_size)
 {
     int zmn_lda = std::max(1, matrix_size);
     int pivot_vector[matrix_size];

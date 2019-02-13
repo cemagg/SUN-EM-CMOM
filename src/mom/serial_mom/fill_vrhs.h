@@ -10,8 +10,9 @@
 #include "../../data_structures/triangle.h"
 #include "../../data_structures/edge.h"
 
-std::vector<std::complex<double>> serialFillVrhs(std::map<std::string, std::string> &const_map,
+void serialFillVrhs(std::map<std::string, std::string> &const_map,
 												 std::vector<Triangle> &triangles,
-												 std::vector<Edge> &edges);
+												 std::vector<Edge> &edges,
+												 std::complex<double> *vrhs);
 
 #endif // FILL_VRHS_H

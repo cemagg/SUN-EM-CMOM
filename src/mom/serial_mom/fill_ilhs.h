@@ -12,6 +12,6 @@ extern "C"
 
 void serialFillIlhs(std::complex<double> *zmn,
                     std::complex<double> *vrhs,
-                    int &matrix_size);
+                    int matrix_size);
 
 #endif
