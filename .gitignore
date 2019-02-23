@@ -8,3 +8,5 @@ build_mpi/
 cmom\.sublime-project
 
 cmom\.sublime-workspace
+
+src/pre_processor/log\.txt
