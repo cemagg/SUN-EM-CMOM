@@ -10,3 +10,5 @@ cmom\.sublime-project
 cmom\.sublime-workspace
 
 src/pre_processor/log\.txt
+
+src/pre_processor/__pycache__/
