@@ -2,6 +2,11 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog
 
+from read_feko_files import FEKOFileReader
+from mom_file_writer import writeMoMFIle
+
+from log import log
+
 class gui:
 
     def __init__(self, master):
@@ -81,14 +86,32 @@ class gui:
 
 
     def onChooseFileClick(self):
-        file_name = filedialog.askopenfilename(initialdir="C:\\", title="Select File", filetypes = (("FEKO .out File", "*.out"),("All Files", "*.*")))
+        file_name = filedialog.askopenfilename(initialdir="C:\\", title="Select File", filetypes = (("FEKO .out File", "*.out"),
+                                                                                                    ("CMoM .mom File", "*.mom"),
+                                                                                                    ("All Files", "*.*")))
         #print(type(file_name), file_name)
         self.file_path_txt_var.set(file_name)     
 
     def onParseFileClick(self):
         # Call function to parse files
         # Call function to write .mom file
-        x=0
+        if self.file_path_txt_var.get()[-3:] == "mom":
+            self.printScreen("No need to parse a .mom file")
+        else:
+            self.reader = FEKOFileReader(self.file_path_txt_var.get())
+            self.printScreen("Parsing file: " + self.file_path_txt_var.get())
+
+            if self.reader.readFEKOOutFile():
+                self.printScreen("Parsed file successfully")
+            else:
+                self.printScreen("Unable to open file. See log for details")
+
+            write_file_name = self.file_path_txt_var.get()[:-3] + "mom"
+            writeMoMFIle(write_file_name, self.reader.const, self.reader.nodes, self.reader.triangles, self.reader.edges)
+            self.printScreen(".mom file written successfully")
+
+        
+
 
     def onCBoxModeChange(self, event):
         if self.cbox_mode.get() == "Serial":
@@ -101,7 +124,8 @@ class gui:
     
     def printScreen(self, message):
         self.t_message_window.configure(state='normal')
-        self.t_message_window.insert('end', message)
+        self.t_message_window.insert('end',"-> " + message + "\n")
+        self.t_message_window.configure(state='disabled')
 
 
         
