@@ -15,6 +15,8 @@ void writeIlhsToFile(std::complex<double> *ilhs,
 	// Lets open the file
 	std::ofstream file;	
 	file.open(file_name.substr(0 , file_name.size() - 3) + "sol");
+	file << "NUM_SOLS" << "\t" << 1 << std::endl;
+	file << "LENGTH" << "\t" << matrix_size << std::endl;
 
 	for(int i = 0; i < matrix_size; i++)
 	{
@@ -34,6 +36,7 @@ void writeIlhsToFile(std::complex<double> *ilhs,
 		}
 
 		// Lets write a+bi to the file
-		file << ilhs[i].real() << sign << temp_imag << "i" << std::endl;
+		// file << ilhs[i].real() << sign << temp_imag << "i" << std::endl;
+		file << ilhs[i] << std::endl;
 	}	
 }

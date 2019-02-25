@@ -59,6 +59,16 @@ MoMFileReader::MoMFileReader(std::string file_path)
                 // Now lets put the information from Const into the map (Dictionary) created in the class
                 this->const_map[line_vector[0]] = line_vector[1];
             }
+            //-------------------------------
+            //TODO: FIX FOR MULTIPLE FREQS
+            this->const_map["cppFreq"] = this->const_map["freq"];
+            this->const_map["cppFreq"].erase(0,1);
+            this->const_map["cppFreq"].pop_back();
+            //-------------------------------
+            // for(const auto &p : this->const_map)
+            // {
+            //     std::cout << p.first << " <-> " << p.second << std::endl;
+            // }
         }
         else
         {
