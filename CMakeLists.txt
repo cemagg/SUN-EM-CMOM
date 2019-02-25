@@ -9,6 +9,7 @@ option(PARALLEL "Explicit Parallel Atlas" OFF)
 
 if(MPI)
     MESSAGE("COMPILING WITH MPI")
+    add_definitions(-DPARALLEL)
 
     find_package(MPI REQUIRED)
     find_package(OpenMP REQUIRED)
@@ -38,11 +39,12 @@ if(MPI)
                 src/mom/mom_helpers/quadrature.cpp
                 src/mom/mom_helpers/vrhs.cpp
                 src/mom/mom_helpers/zmn_by_face.cpp
+                src/helpers/globals.cpp
                 src/mom/parallel_mom/mpi_fill_vrhs.cpp
                 src/mom/parallel_mom/mpi_fill_zmn.cpp
                 src/mom/parallel_mom/mpi_fill_ilhs.cpp
                 src/mom/parallel_mom/mpi_mom.cpp
-                src/main_mpi.cpp)
+                src/main.cpp)
     add_executable(mom_mpi ${SOURCES})
 
     if(ATLAS OR PARALLEL)
@@ -74,6 +76,7 @@ else()
                 src/mom/mom_helpers/quadrature.cpp
                 src/mom/mom_helpers/vrhs.cpp
                 src/mom/mom_helpers/zmn_by_face.cpp
+                src/helpers/globals.cpp
                 src/mom/serial_mom/fill_vrhs.cpp
                 src/mom/serial_mom/fill_zmn.cpp
                 src/mom/serial_mom/fill_ilhs.cpp
