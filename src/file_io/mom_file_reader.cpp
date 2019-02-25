@@ -151,7 +151,7 @@ MoMFileReader::MoMFileReader(std::string file_path)
                 {
                     getline(file, str);
 
-                    line_vector = this->numberLineReader(str, 7);
+                    line_vector = this->numberLineReader(str, 8);
 
                     // Lets read to the triangle class
                     // Lets first make a node to store the centre
@@ -164,11 +164,12 @@ MoMFileReader::MoMFileReader(std::string file_path)
                     // Also, minus 1 from the vertex indices due to MATLAB starting from 1 and
                     // everything else starting from 0
                     Triangle triangle;
-                    triangle.vertex_1 = std::stoi(line_vector[0]) - 1;
-                    triangle.vertex_2 = std::stoi(line_vector[1]) - 1;
-                    triangle.vertex_3 = std::stoi(line_vector[2]) - 1;
+                    triangle.vertex_1 = std::stoi(line_vector[0]);
+                    triangle.vertex_2 = std::stoi(line_vector[1]);
+                    triangle.vertex_3 = std::stoi(line_vector[2]);
                     triangle.centre = centre_node;
                     triangle.area = std::stod(line_vector[6]);
+                    triangle.label = std::stoi(line_vector[7]);
 
                     // Finally, lets push to vector
                     this->triangles.push_back(triangle);
@@ -235,21 +236,21 @@ MoMFileReader::MoMFileReader(std::string file_path)
                     // Now lets add the data into an Edge
                     // Also, lets reduce all indices by 1 due to MATLAB starting from 1 and everything
                     // else starting from 0
-                    Edge edge{std::stoi(line_vector[0]) - 1, // vertex_1
-                            std::stoi(line_vector[1]) - 1, // vertex_2
+                    Edge edge{std::stoi(line_vector[0]), // vertex_1
+                            std::stoi(line_vector[1]), // vertex_2
                             centre,                        // center
                             std::stod(line_vector[5]),     // length
-                            std::stoi(line_vector[6]) - 1, // minus_triangle_index
-                            std::stoi(line_vector[7]) - 1, // plus_triangle_index
-                            std::stoi(line_vector[8]) - 1, // minus_free_vertex
-                            std::stoi(line_vector[9]) - 1, // plus_free_vertex
+                            std::stoi(line_vector[6]), // minus_triangle_index
+                            std::stoi(line_vector[7]), // plus_triangle_index
+                            std::stoi(line_vector[8]), // minus_free_vertex
+                            std::stoi(line_vector[9]), // plus_free_vertex
                             rho_c_minus,                   // rho_c_minus
                             rho_c_plus};                   // rhos_c_plus
 
                     // Lets introduce an index to the edge in the plus and minus triangles
                     // This is needed for the calculation of Zmn by face.
-                    this->triangles[std::stoi(line_vector[6]) - 1].edge_indices.push_back(i);
-                    this->triangles[std::stoi(line_vector[7]) - 1].edge_indices.push_back(i);
+                    this->triangles[std::stoi(line_vector[6])].edge_indices.push_back(i);
+                    this->triangles[std::stoi(line_vector[7])].edge_indices.push_back(i);
                     // Finally lets push the Edge to a vector(edges)
                     this->edges.push_back(edge);
                 }
@@ -282,49 +283,7 @@ MoMFileReader::MoMFileReader(std::string file_path)
         {
             std::cout << "ERROR: THERE IS SOMETHING WRONG WITH THE FILE" << std::endl;
             std::cout << "ERROR: FEKO_DATA HAS NOT ENDED" << std::endl;
-        }
-
-        // Lets finally read the Vrhs data
-        // Lets check if the data is available to read
-        // Lets first start reading the empty line
-        getline(file, str);
-        getline(file, str);
-
-        if(str == "VRHS START")
-        {
-            // Lets first get the number of values
-            getline(file, str);
-            line_vector = this->constLineReader(str);
-            num_fields = std::stoi(line_vector[1]);
-
-            // Now lets read the data
-            // First lets read the empty line and the header
-            getline(file, str);
-            getline(file, str);
-
-            // The data is of the form VALUE
-            // No need for any processing
-            for(int i = 0; i < num_fields; i++)
-            {
-                getline(file, str);
-                //this->vrhs.push_back(std::stod(str));
-            }
-        }
-        else
-        {
-            std::cout << "ERROR: THERE IS SOMETHING WRONG WITH THE FILE" << std::endl;
-            std::cout << "ERROR: VRHS CANNOT BE FOUND" << std::endl;
-        }
-
-        // Lets finally check that all Vrhs data was read
-        getline(file, str);
-
-        if(!(str == "VRHS END"))
-        {
-            std::cout << "ERROR: THERE IS SOMETHING WRONG WITH THE FILE" << std::endl;
-            std::cout << "ERROR: THE NUMBER OF VRHS ENTRIES ARE WRONG" << std::endl;
-        }
-
+        }      
     }
     else
     {
