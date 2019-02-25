@@ -16,11 +16,11 @@ void mpi_fill_vrhs(std::complex<double> *vrhs,
     int one = 1;
 
     // Read in details of the plane wave from const_map
-    double theta = std::stod(const_map["theta_0"]) * std::stod(const_map["DEG2RAD"]);
-    double phi = std::stod(const_map["phi_0"]) * std::stod(const_map["DEG2RAD"]);
-    double efield_magnitude = std::stod(const_map["EMag"]);
-    int propagation_direction = std::stoi(const_map["prop_direction"]);
-    double wavenumber = 2 * M_PI / (std::stod(const_map["C0"]) / std::stod(const_map["cppFreq"]));
+    double theta = std::stod(const_map["theta"]) * DEG2RAD;
+    double phi = std::stod(const_map["phi"]) * DEG2RAD;
+    double efield_magnitude = std::stod(const_map["emag"]);
+    int propagation_direction = 0; //TODO: FIX
+    double wavenumber = 2 * M_PI / (C_0) / std::stod(const_map["cppFreq"]);
     
     IncidentPlaneWave plane_wave = getIncidentPlaneWave(theta,
                                                         phi,
