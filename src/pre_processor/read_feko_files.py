@@ -94,12 +94,18 @@ class FEKOFileReader:
                 line = file.readline() # second header
                 line = file.readline() # third header
                 line = file.readline() # fourth header
-                
+
+                label_list = []
+
                 for i in range(number_of_triangles):
                     line = file.readline() # row no label x1 y1 z1 edges 
                     content = line.split()
 
-                    label = content[1]
+                    if content[1] in label_list:
+                        label = label_list.index(content[1])
+                    else:
+                        label_list.append(content[1])
+                        label = label_list.index(content[1])
 
                     current_nodes = []
                     current_nodes.append(Node(float(content[2]), float(content[3]), float(content[4])))
@@ -130,11 +136,7 @@ class FEKOFileReader:
                                                    triangleCentreCalculator(current_nodes),
                                                    area,
                                                    label))
-
-                            
-
-
-
+                    
             if "DATA OF THE METALLIC EDGES" in line:
                 line = file.readline() # empty line
                 line = file.readline() # first header
@@ -173,6 +175,14 @@ class FEKOFileReader:
             
             line = file.readline()
         
+        # check if all geometric elements are the same
+        same_element_label_index = []
+        for item in label_list:
+            if "@" in item:
+                same_element_label_index.append(label_list.index(item))
+        
+        self.const["sameElem"] = same_element_label_index
+
         return True
 
 
