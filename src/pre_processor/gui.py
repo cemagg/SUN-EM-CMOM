@@ -2,8 +2,14 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog
 
+import numpy as np
+
+import os
+import subprocess
+
 from read_feko_files import FEKOFileReader
 from mom_file_writer import writeMoMFIle
+from mom_file_reader import readMoMFile
 
 from log import log
 
@@ -86,7 +92,7 @@ class gui:
 
 
     def onChooseFileClick(self):
-        file_name = filedialog.askopenfilename(initialdir="C:\\", title="Select File", filetypes = (("FEKO .out File", "*.out"),
+        file_name = filedialog.askopenfilename(initialdir="/home/", title="Select File", filetypes = (("FEKO .out File", "*.out"),
                                                                                                     ("CMoM .mom File", "*.mom"),
                                                                                                     ("All Files", "*.*")))
         #print(type(file_name), file_name)
@@ -120,7 +126,42 @@ class gui:
             self.f_parallel_options.grid()
 
     def onSolveButtonClick(self):
-        y=0
+
+        if self.cbox_mode.get() == "Serial":
+            serial_build_exec_flag = False
+            serial_create_dir_flag = False
+
+            if os.path.isdir("../../build") != True:
+                serial_build_exec_flag = True
+                serial_create_dir_flag = True
+            else:
+                if os.path.isfile("../../build/mom") != True:
+                    serial_build_exec_flag = True
+            
+            if serial_create_dir_flag:
+                os.mkdir("../../build")
+                self.printScreen("Serial build directory created")
+            
+            if serial_build_exec_flag:
+                cmd = "cd ../../build/; cmake ..; make"
+                self.run_cmd(cmd)
+
+            if self.file_path_txt_var.get()[-3:] == "mom":
+                cmd = "../../build/mom " + self.file_path_txt_var.get()
+            else:
+                cmd = "../../build/mom " + self.file_path_txt_var.get()[:-3] + "mom"
+            
+            self.run_cmd(cmd)
+            self.printScreen("Solver Complete")
+
+            isol = readMoMFile(self.file_path_txt_var.get()[:-3]+"sol")
+            self.printScreen("Solution Read")
+
+
+
+               
+
+        
     
     def printScreen(self, message):
         self.t_message_window.configure(state='normal')
@@ -128,4 +169,9 @@ class gui:
         self.t_message_window.configure(state='disabled')
 
 
-        
+    def run_cmd(self, command):
+        #https://stackoverflow.com/questions/17742789/running-multiple-bash-commands-with-subprocess
+        process = subprocess.Popen(command,stdout=subprocess.PIPE, shell=True)
+        proc_stdout = process.communicate()[0].strip()
+        self.printScreen(str(proc_stdout, 'utf-8'))
+
