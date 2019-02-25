@@ -1,6 +1,3 @@
-#include <iostream>
-
-
 //**********************************
 #include <complex>
 #include <iostream>
@@ -10,7 +7,15 @@
 #include "../lib/args/args.hxx"
 #include "file_io/mom_file_reader.h"
 #include "file_io/mom_file_writer.h"
+
+#ifndef PARALLEL
 #include "mom/serial_mom/mom.h"
+#endif
+
+#ifdef PARALLEL
+#include "mom/parallel_mom/mpi_mom.h"
+#include <mpi.h>
+#endif
 //**********************************
 
 int main(int argc, char **argv)
@@ -43,29 +48,57 @@ int main(int argc, char **argv)
         return 1;
     }
 
+    #ifdef PARALLEL
+    MPI_Init(NULL, NULL);
+    int size;
+    int rank;
+
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank); 
+    #endif
+
+    MoMFileReader reader(args::get(file_name_arg));
+
     if(cbfm)
     {
         std::cout << "TBD" << std::endl;
     }
     else
     {
-        MoMFileReader reader(args::get(file_name_arg));
         
-        std::complex<double> *ilhs = new std::complex<double>[reader.edges.size()];
+        std::complex<double> *ilhs; 
+
+        #ifndef PARALLEL
+        ilhs = new std::complex<double>[reader.edges.size()];
+        int rank = 0;
+        #endif
+
+        #ifdef PARALLEL
+        if(rank == 0)
+        {
+            ilhs = new std::complex<double>[reader.edges.size()];
+        }
+        #endif
 
         mpiPerformMoM(reader.const_map,
                         reader.triangles,
                         reader.edges,
                         reader.nodes,
-                        ilhs);
+                        ilhs);      
 
-        writeIlhsToFile(ilhs,
-                        reader.edges.size(),
-                        args::get(file_name_arg));
-        
-        delete ilhs;
+        if(rank == 0)
+        {
+            writeIlhsToFile(ilhs, reader.edges.size(), args::get(file_name_arg));   
+            std::cout << "SOLVER COMPLETE" << std::endl;
+            delete ilhs;
+        } 
 
-        std::cout << "SOLVER COMPLETE" << std::endl;
     }
+
+
+    #ifdef PARALLEL
+    MPI_Finalize();
+    #endif
+
     return 0;
 }
