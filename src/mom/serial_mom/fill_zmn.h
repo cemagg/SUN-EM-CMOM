@@ -10,6 +10,8 @@
 #include "../../data_structures/triangle.h"
 #include "../mom_helpers/quadrature.h"
 #include "../mom_helpers/zmn_by_face.h"
+#include "../../helpers/globals.h"
+
 
 void serialFillZmn(std::complex<double> *z_mn,
 				   std::vector<Edge> &edges,

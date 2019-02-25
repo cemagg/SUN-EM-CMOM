@@ -11,6 +11,7 @@
 #include "../mom_helpers/vrhs.h"
 #include "../../data_structures/triangle.h"
 #include "../../data_structures/edge.h"
+#include "../../helpers/globals.h"
 
 extern "C"
 {

@@ -20,10 +20,10 @@ void mpiFillZmn(std::complex<double> *zmn,
     std::vector<std::array<double, 4>> quad_weights_values = getQuadratureWeightsAndValues(6);
 
     // Get the necessary constants from const_map
-    double c = std::stod(const_map["C0"]);
+    double c = C_0;
     double frequency = std::stod(const_map["cppFreq"]);
-    double mu = std::stod(const_map["MU_0"]);
-    double epsilon = std::stod(const_map["EPS_0"]);
+    double mu = MU_0;
+    double epsilon = EPS_0;
 
     // Calculate secondary values based on the constants
     double omega = 2 * M_PI * frequency;

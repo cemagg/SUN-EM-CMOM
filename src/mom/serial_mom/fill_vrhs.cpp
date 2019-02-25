@@ -19,7 +19,8 @@ void serialFillVrhs(std::map<std::string, std::string> &const_map,
     // vrhs.resize(edges.size());
 
     // Test whether(sp?) the excitation is an edge feed or plane wave
-    if(std::stoi(const_map["edge_feed"]) == 1)
+    int edge_feed = 0; //TODO: FIX
+    if(edge_feed == 1)
     {
         int delta_gap_index = std::stoi(const_map["feed_edge"]) - 1;
         double efield_magnitude = std::stod(const_map["EMag"]);
@@ -29,11 +30,11 @@ void serialFillVrhs(std::map<std::string, std::string> &const_map,
     else
     {
         // Read in details of the plane wave from const_map
-        double theta = std::stod(const_map["theta_0"]) * std::stod(const_map["DEG2RAD"]);
-        double phi = std::stod(const_map["phi_0"]) * std::stod(const_map["DEG2RAD"]);
-        double efield_magnitude = std::stod(const_map["EMag"]);
-        int propagation_direction = std::stoi(const_map["prop_direction"]);
-        double wavenumber = 2 * M_PI / (std::stod(const_map["C0"]) / std::stod(const_map["cppFreq"]));
+        double theta = std::stod(const_map["theta"]) * DEG2RAD;
+        double phi = std::stod(const_map["phi"]) * DEG2RAD;
+        double efield_magnitude = std::stod(const_map["emag"]);
+        int propagation_direction = 0;//std::stoi(const_map["prop_direction"]);
+        double wavenumber = 2 * M_PI / (C_0) / std::stod(const_map["cppFreq"]);
 
         // Create a plane wave in the correct format
         // A conversion from spherical to cartesian is done
