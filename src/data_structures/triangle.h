@@ -13,6 +13,7 @@ struct Triangle
     Node<double> centre;
     double area;
     std::vector<int> edge_indices;
+    int label;
 };
 
 #endif // TRIANGLE_H
