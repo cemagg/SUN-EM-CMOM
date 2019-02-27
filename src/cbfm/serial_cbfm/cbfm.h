@@ -9,8 +9,10 @@
 #include "../../data_structures/node.h"
 #include "../../data_structures/edge.h"
 #include "../../data_structures/triangle.h"
+#include "../cbfm_helpers/cbfm_helpers.h"
 
-void performCCFM(std::map<std::string, std::string> &const_map,
+void performCBFM(std::map<std::string, std::string> &const_map,
+				 std::map<int, std::vector<int>> &label_map,
                    std::vector<Triangle> &triangles,
                    std::vector<Edge> &edges,
                    std::vector<Node<double>> &nodes,
