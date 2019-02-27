@@ -193,14 +193,16 @@ MoMFileReader::MoMFileReader(std::string file_path)
                     {
                         // Label is present in unique_labels
                         this->label_map[triangle.label][1] = i;
+                        this->label_map[triangle.label][2]++;
                     }
                     else
                     {
                         // Label is not present in unique_labels
                         unique_labels.push_back(triangle.label);
-                        this->label_map[triangle.label].resize(3);
+                        this->label_map[triangle.label].resize(4);
                         this->label_map[triangle.label][0] = i;
-                        this->label_map[triangle.label][2] = 0;
+                        this->label_map[triangle.label][2] = 1;
+                        this->label_map[triangle.label][3] = 0;
                     } 
                     //-------------------------------
                     
@@ -289,7 +291,7 @@ MoMFileReader::MoMFileReader(std::string file_path)
                     //TODO: Revisit
                     // Add number of edges per label
                     // Only use positive triangles so as not to double up
-                    this->label_map[this->triangles[std::stoi(line_vector[6])].label][2]++;
+                    this->label_map[this->triangles[std::stoi(line_vector[6])].label][3]++;
                     //-------------------------------
 
                     // Finally lets push the Edge to a vector(edges)
