@@ -24,6 +24,7 @@ class MoMFileReader
         std::vector<Edge> getEdges();
 
         std::map<std::string, std::string> const_map;
+        std::map<int, std::vector<int>> label_map;
         std::vector<Node<double>> nodes;
         std::vector<Triangle> triangles;
         std::vector<Edge> edges;
