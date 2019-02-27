@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd build/
+cd cbfm_build/
 cmake ..
 make
 ./mom ../examples/pec_plate.mom --cbfm
