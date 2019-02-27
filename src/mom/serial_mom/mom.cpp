@@ -9,7 +9,7 @@ void mpiPerformMoM(std::map<std::string, std::string> &const_map,
 	serialFillVrhs(const_map, triangles, edges, ilhs);
 
 	std::complex<double> *zmn = new std::complex<double>[edges.size() * edges.size()]();
-	serialFillZmn(zmn, edges, triangles, nodes, const_map);
+	serialFillZmn(zmn, edges, triangles, nodes, const_map, 0, edges.size(), 0, edges.size());
 
 	serialFillIlhs(zmn, ilhs, edges.size());	
 }
