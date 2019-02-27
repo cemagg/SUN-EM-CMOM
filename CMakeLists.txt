@@ -81,6 +81,8 @@ else()
                 src/mom/serial_mom/fill_zmn.cpp
                 src/mom/serial_mom/fill_ilhs.cpp
                 src/mom/serial_mom/mom.cpp
+                src/cbfm/cbfm_helpers/cbfm_helpers.cpp
+                src/cbfm/serial_cbfm/cbfm.cpp
                 src/main.cpp)
     add_executable(mom ${SOURCES})
     target_link_libraries(mom   -L/${CMAKE_CURRENT_SOURCE_DIR}/lib/scalapack
