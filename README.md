@@ -6,6 +6,9 @@
 - MPI Library (OpenMPI or MPICH)
 - OpenMP
 
+## Optional
+- Python 3
+
 ### Serial Install Guide
 
 1. mkdir build
@@ -21,4 +24,6 @@
 3. cmake -DMPI=ON ..
 4. make
 5. ./mom_mpi -h
+
+### Usage from Gui
 
