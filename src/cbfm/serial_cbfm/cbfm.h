@@ -5,10 +5,12 @@
 #include <complex>
 #include <vector>
 #include <string>
+#include <iostream>
 
 #include "../../data_structures/node.h"
 #include "../../data_structures/edge.h"
 #include "../../data_structures/triangle.h"
+#include "../../mom/serial_mom/fill_zmn.h"
 #include "../cbfm_helpers/cbfm_helpers.h"
 
 void performCBFM(std::map<std::string, std::string> &const_map,
