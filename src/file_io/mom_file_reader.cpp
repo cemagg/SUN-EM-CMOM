@@ -65,6 +65,11 @@ MoMFileReader::MoMFileReader(std::string file_path)
             this->const_map["cppFreq"].erase(0,1);
             this->const_map["cppFreq"].pop_back();
             //-------------------------------
+
+            //-------------------------------
+            //TODO: 
+            //-------------------------------
+            
             // for(const auto &p : this->const_map)
             // {
             //     std::cout << p.first << " <-> " << p.second << std::endl;
@@ -145,6 +150,7 @@ MoMFileReader::MoMFileReader(std::string file_path)
 
             if(str == "TRIANGLES START")
             {
+                std::vector<int> unique_labels;
                 // First lets get the number of triangles
                 getline(file, str);
                 line_vector = this->constLineReader(str);
@@ -180,7 +186,23 @@ MoMFileReader::MoMFileReader(std::string file_path)
                     triangle.centre = centre_node;
                     triangle.area = std::stod(line_vector[6]);
                     triangle.label = std::stoi(line_vector[7]);
-
+                    
+                    //-------------------------------
+                    //TODO: Come backe when changing labels to @
+                    if(std::find(unique_labels.begin(), unique_labels.end(), triangle.label) != unique_labels.end())
+                    {
+                        // Label is present in unique_labels
+                        this->label_map[triangle.label][1] = i;
+                    }
+                    else
+                    {
+                        // Label is not present in unique_labels
+                        unique_labels.push_back(triangle.label);
+                        this->label_map[triangle.label].resize(2);
+                        this->label_map[triangle.label][0] = i;
+                    } 
+                    //-------------------------------
+                    
                     // Finally, lets push to vector
                     this->triangles.push_back(triangle);
 
