@@ -3,4 +3,4 @@
 cd build/
 cmake ..
 make
-./mom ../examples/two_plate_array/two_plate_array_coarse.mom --cbfm
+./mom ../examples/pec_plate.mom --cbfm
