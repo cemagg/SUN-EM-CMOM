@@ -198,8 +198,9 @@ MoMFileReader::MoMFileReader(std::string file_path)
                     {
                         // Label is not present in unique_labels
                         unique_labels.push_back(triangle.label);
-                        this->label_map[triangle.label].resize(2);
+                        this->label_map[triangle.label].resize(3);
                         this->label_map[triangle.label][0] = i;
+                        this->label_map[triangle.label][2] = 0;
                     } 
                     //-------------------------------
                     
@@ -283,6 +284,14 @@ MoMFileReader::MoMFileReader(std::string file_path)
                     // This is needed for the calculation of Zmn by face.
                     this->triangles[std::stoi(line_vector[6])].edge_indices.push_back(i);
                     this->triangles[std::stoi(line_vector[7])].edge_indices.push_back(i);
+                    
+                    //-------------------------------
+                    //TODO: Revisit
+                    // Add number of edges per label
+                    // Only use positive triangles so as not to double up
+                    this->label_map[this->triangles[std::stoi(line_vector[6])].label][2]++;
+                    //-------------------------------
+
                     // Finally lets push the Edge to a vector(edges)
                     this->edges.push_back(edge);
                 }
