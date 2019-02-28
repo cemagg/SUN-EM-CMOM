@@ -14,12 +14,10 @@ void serialFillZmn(std::complex<double> *z_mn,
                    std::vector<Triangle> &triangles,
                    std::vector<Node<double>> &nodes,
                    std::map<std::string, std::string> &const_map,
-                   int source_triangle_start,
-                   int source_triangle_size,
-                   int observ_triangle_start,
-                   int observ_triangle_size)
+                   Label &source_label,
+                   Label &observ_label,
+                   bool cbfm)
 {
-
     // Get the quadrature weights and values
     std::vector<std::array<double, 4>> quad_weights_values = getQuadratureWeightsAndValues(6);
 
@@ -35,13 +33,13 @@ void serialFillZmn(std::complex<double> *z_mn,
     double wave_number = 2 * M_PI / lambda;
 
     // Loop over the source and observation triangles
-    for(int p = observ_triangle_start; p < (observ_triangle_size + observ_triangle_start); p++)
+    for(int p = 0; p < observ_label.triangle_indices.size(); p++)
     {
-        for(int q = source_triangle_start; q < (source_triangle_size + source_triangle_start); q++)
-        {
+        for(int q = 0; q < source_label.triangle_indices.size(); q++)
+        { 
             // Calculate the interactions between a source and observation triangle
-            std::vector<Node<std::complex<double>>> a_and_phi = calculateAAndPhi(p,
-                                                                                 q,
+            std::vector<Node<std::complex<double>>> a_and_phi = calculateAAndPhi(observ_label.triangle_indices[p],
+                                                                                 source_label.triangle_indices[q],
                                                                                  triangles,
                                                                                  nodes,
                                                                                  quad_weights_values,
@@ -51,18 +49,38 @@ void serialFillZmn(std::complex<double> *z_mn,
                                                                                  epsilon);
 
             // Loop over the edges of the source and observation triangles
-            for(int e = 0; e < triangles[q].edge_indices.size(); e++)
+            for(int e = 0; e < triangles[source_label.triangle_indices[q]].edge_indices.size(); e++)
             {
-                for(int r = 0; r < triangles[p].edge_indices.size(); r++)
+                for(int r = 0; r < triangles[observ_label.triangle_indices[p]].edge_indices.size(); r++)
                 {
                     // Calculate and add the edge contributions to Zmn
-                    z_mn[(triangles[p].edge_indices[r]-observ_triangle_start) + 
-                        (triangles[q].edge_indices[e]-source_triangle_start)
-                         * source_triangle_size] +=
-                         delta_zmn(p, q, edges, triangles, r, e, a_and_phi,omega);
-
+                    if(!cbfm)
+                    {
+                        z_mn[(triangles[observ_label.triangle_indices[p]].edge_indices[r]) + 
+                            (triangles[source_label.triangle_indices[q]].edge_indices[e])
+                            * source_label.edge_indices.size()] +=
+                            delta_zmn(observ_label.triangle_indices[p],
+                                   source_label.triangle_indices[q],
+                                   edges, triangles, r, e, a_and_phi,omega);
+                    }
+                    else
+                    {
+                        z_mn[ (distance(observ_label.edge_indices.begin(),
+                                       std::find(observ_label.edge_indices.begin(),
+                                       observ_label.edge_indices.end(),
+                                       triangles[observ_label.triangle_indices[p]].edge_indices[r]))) + 
+                              (distance(source_label.edge_indices.begin(),
+                                       std::find(source_label.edge_indices.begin(),
+                                       source_label.edge_indices.end(),
+                                       triangles[source_label.triangle_indices[q]].edge_indices[e])))
+                            * source_label.edge_indices.size()] +=
+                            delta_zmn(observ_label.triangle_indices[p],
+                                   source_label.triangle_indices[q],
+                                   edges, triangles, r, e, a_and_phi,omega);
+                    }
                 }
             }
         }
     }
 }
+
