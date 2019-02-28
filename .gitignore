@@ -12,3 +12,5 @@ cmom\.sublime-workspace
 src/pre_processor/log\.txt
 
 src/pre_processor/__pycache__/
+
+cbfm_build/

@@ -65,6 +65,11 @@ MoMFileReader::MoMFileReader(std::string file_path)
             this->const_map["cppFreq"].erase(0,1);
             this->const_map["cppFreq"].pop_back();
             //-------------------------------
+
+            //-------------------------------
+            //TODO: 
+            //-------------------------------
+            
             // for(const auto &p : this->const_map)
             // {
             //     std::cout << p.first << " <-> " << p.second << std::endl;
@@ -145,6 +150,7 @@ MoMFileReader::MoMFileReader(std::string file_path)
 
             if(str == "TRIANGLES START")
             {
+                std::vector<int> unique_labels;
                 // First lets get the number of triangles
                 getline(file, str);
                 line_vector = this->constLineReader(str);
@@ -180,7 +186,26 @@ MoMFileReader::MoMFileReader(std::string file_path)
                     triangle.centre = centre_node;
                     triangle.area = std::stod(line_vector[6]);
                     triangle.label = std::stoi(line_vector[7]);
-
+                    
+                    //-------------------------------
+                    //TODO: Come backe when changing labels to @
+                    if(std::find(unique_labels.begin(), unique_labels.end(), triangle.label) != unique_labels.end())
+                    {
+                        // Label is present in unique_labels
+                        this->label_map[triangle.label][1] = i;
+                        this->label_map[triangle.label][2]++;
+                    }
+                    else
+                    {
+                        // Label is not present in unique_labels
+                        unique_labels.push_back(triangle.label);
+                        this->label_map[triangle.label].resize(4);
+                        this->label_map[triangle.label][0] = i;
+                        this->label_map[triangle.label][2] = 1;
+                        this->label_map[triangle.label][3] = 0;
+                    } 
+                    //-------------------------------
+                    
                     // Finally, lets push to vector
                     this->triangles.push_back(triangle);
 
@@ -261,6 +286,14 @@ MoMFileReader::MoMFileReader(std::string file_path)
                     // This is needed for the calculation of Zmn by face.
                     this->triangles[std::stoi(line_vector[6])].edge_indices.push_back(i);
                     this->triangles[std::stoi(line_vector[7])].edge_indices.push_back(i);
+                    
+                    //-------------------------------
+                    //TODO: Revisit
+                    // Add number of edges per label
+                    // Only use positive triangles so as not to double up
+                    this->label_map[this->triangles[std::stoi(line_vector[6])].label][3]++;
+                    //-------------------------------
+
                     // Finally lets push the Edge to a vector(edges)
                     this->edges.push_back(edge);
                 }

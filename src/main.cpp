@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <map>
+#include <algorithm>
 
 #include "../lib/args/args.hxx"
 #include "file_io/mom_file_reader.h"
@@ -10,6 +12,7 @@
 
 #ifndef PARALLEL
 #include "mom/serial_mom/mom.h"
+#include "cbfm/serial_cbfm/cbfm.h"
 #endif
 
 #ifdef PARALLEL
@@ -58,16 +61,20 @@ int main(int argc, char **argv)
     #endif
 
     MoMFileReader reader(args::get(file_name_arg));
+    std::complex<double> *ilhs; 
 
     if(cbfm)
     {
         std::cout << "TBD" << std::endl;
+        performCBFM(reader.const_map,
+                    reader.label_map,
+                    reader.triangles,
+                    reader.edges,
+                    reader.nodes,
+                    ilhs);  
     }
     else
     {
-        
-        std::complex<double> *ilhs; 
-
         #ifndef PARALLEL
         ilhs = new std::complex<double>[reader.edges.size()];
         int rank = 0;
