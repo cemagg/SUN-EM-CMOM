@@ -7,7 +7,7 @@ void resizeCBFMZMatricesForEqualDomains(CBFMZMatrices &z_matrices, int num_domai
 	// Allocate memory for z_self, z_self_inv, and z_self_piv
 	z_matrices.z_self = new std::complex<double>[num_edges_per_domain * num_edges_per_domain]();
 	z_matrices.z_self_inv = new std::complex<double>[num_edges_per_domain * num_edges_per_domain]();
-	z_matrices.z_self_piv = new std::complex<double>[num_edges_per_domain]();
+	z_matrices.z_self_piv = new int[num_edges_per_domain]();
 
 	// Allocate for z_couple, z_couple_inv and z_couple_piv
 
@@ -28,7 +28,7 @@ void resizeCBFMZMatricesForEqualDomains(CBFMZMatrices &z_matrices, int num_domai
 			std::complex<double> *x = new std::complex<double>[num_edges_per_domain * num_edges_per_domain]();
 			z_matrices.z_couple[i][j] = x;//new std::complex<double>[num_edges_per_domain * num_edges_per_domain]();
 			z_matrices.z_couple_inv[i][j] = new std::complex<double>[num_edges_per_domain * num_edges_per_domain]();
-			z_matrices.z_couple_piv[i][j] = new std::complex<double>[num_edges_per_domain]();
+			z_matrices.z_couple_piv[i][j] = new int[num_edges_per_domain]();
 		}
 	}	
 }
