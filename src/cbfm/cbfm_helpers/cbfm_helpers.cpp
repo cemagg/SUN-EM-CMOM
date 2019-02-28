@@ -34,25 +34,26 @@ void resizeCBFMZMatricesForEqualDomains(CBFMZMatrices &z_matrices, int num_domai
 }
 
 
-void resizeCBFMVectorsForEqualDomains(CBFMVectors &v_vectors, int num_domains, int num_edges_per_domain, bool resize_j_cbfm)
+void resizeCBFMVectorsForEqualDomains(CBFMVectors &v_vectors, int num_domains, int num_edges_per_domain)
 {
-	if(!resize_j_cbfm)
+	// Resize the v_self, j_prim and j_sec(main) vectors and allocate memory 
+	v_vectors.v_self.resize(num_domains);
+	v_vectors.j_prim.resize(num_domains);
+	v_vectors.j_sec.resize(num_domains);
+    v_vectors.j_cbfm.resize(num_domains);
+
+	for(int i = 0; i < num_domains; i++)
 	{
-		// Resize the v_self, j_prim and j_sec(main) vectors and allocate memory 
-		v_vectors.v_self.resize(num_domains);
-		v_vectors.j_prim.resize(num_domains);
-		v_vectors.j_sec.resize(num_domains);
+		v_vectors.v_self[i] = new std::complex<double>[num_edges_per_domain]();	
+		v_vectors.j_prim[i] = new std::complex<double>[num_edges_per_domain]();
+        v_vectors.j_cbfm[i] = new std::complex<double>[num_domains * num_edges_per_domain]();	
 
-		for(int i = 0; i < num_domains; i++)
+		v_vectors.j_sec[i].resize(num_domains - 1);
+    
+    	for(int j = 0; j < (num_domains - 1); j++)
 		{
-			v_vectors.v_self[i] = new std::complex<double>[num_edges_per_domain]();	
-			v_vectors.j_prim[i] = new std::complex<double>[num_edges_per_domain]();	
-			v_vectors.j_sec[i].resize(num_domains - 1);
-
-			for(int j = 0; j < (num_domains - 1); j++)
-			{
-				v_vectors.j_sec[i][j] = new std::complex<double>[num_edges_per_domain]();
-			}
+			v_vectors.j_sec[i][j] = new std::complex<double>[num_edges_per_domain]();
 		}
 	}
+	
 }

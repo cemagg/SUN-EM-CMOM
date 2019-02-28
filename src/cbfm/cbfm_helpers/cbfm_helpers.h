@@ -21,10 +21,10 @@ struct CBFMVectors
 	std::vector<std::complex<double>*> v_self; // Normal Vm split by domain
 	std::vector<std::complex<double>*> j_prim; // Primary CBF's -> 1 per domain
 	std::vector<std::vector<std::complex<double>*>> j_sec; // Secondary CBF's -> multiple per domain
-	std::vector<std::vector<std::complex<double>*>> j_cbfm; // Concatenation of j_prim and j_sec per domain
+	std::vector<std::complex<double>*> j_cbfm; // Concatenation of j_prim and j_sec per domain
 };
 
 void resizeCBFMZMatricesForEqualDomains(CBFMZMatrices &z_matrices, int num_domains, int num_edges_per_domain);
-void resizeCBFMVectorsForEqualDomains(CBFMVectors &v_vectors, int num_domains, int num_edges_per_domain, bool resize_j_cbfm);
+void resizeCBFMVectorsForEqualDomains(CBFMVectors &v_vectors, int num_domains, int num_edges_per_domain);
 
 #endif
