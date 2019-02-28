@@ -10,11 +10,13 @@
 #include "../../data_structures/node.h"
 #include "../../data_structures/edge.h"
 #include "../../data_structures/triangle.h"
+#include "../../data_structures/label.h"
 #include "../../mom/serial_mom/fill_zmn.h"
+#include "../../mom/serial_mom/fill_vrhs.h"
 #include "../cbfm_helpers/cbfm_helpers.h"
 
 void performCBFM(std::map<std::string, std::string> &const_map,
-				 std::map<int, std::vector<int>> &label_map,
+				 std::map<int, Label> &label_map,
                    std::vector<Triangle> &triangles,
                    std::vector<Edge> &edges,
                    std::vector<Node<double>> &nodes,
