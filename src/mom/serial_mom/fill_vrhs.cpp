@@ -12,7 +12,8 @@
 void serialFillVrhs(std::map<std::string, std::string> &const_map,
                                                  std::vector<Triangle> &triangles, 
                                                  std::vector<Edge> &edges,
-                                                 std::complex<double> *vrhs)
+                                                 std::complex<double> *vrhs,
+                                                 Label label)
 {
 
     // std::vector<std::complex<double>> vrhs;
@@ -40,7 +41,7 @@ void serialFillVrhs(std::map<std::string, std::string> &const_map,
         // A conversion from spherical to cartesian is done
         IncidentPlaneWave incident_plane_wave = getIncidentPlaneWave(theta, phi, efield_magnitude, propagation_direction, wavenumber);
 
-        for(int i = 0; i < edges.size(); i++)
+        for(int i = 0; i < label.edge_indices.size(); i++)
         {
             vrhs[i] = getVrhsValueForIncidentPlaneWave(i, incident_plane_wave, triangles, edges);
         }

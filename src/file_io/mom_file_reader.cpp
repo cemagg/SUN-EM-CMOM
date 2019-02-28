@@ -13,9 +13,8 @@
  *
  */
 
-MoMFileReader::MoMFileReader(std::string file_path)
+MoMFileReader::MoMFileReader(std::string file_path, bool cbfm)
 {
-
     // Lets open the file
     std::ifstream file(file_path);
 
@@ -189,21 +188,14 @@ MoMFileReader::MoMFileReader(std::string file_path)
                     
                     //-------------------------------
                     //TODO: Come backe when changing labels to @
-                    if(std::find(unique_labels.begin(), unique_labels.end(), triangle.label) != unique_labels.end())
+                    if(cbfm)
                     {
-                        // Label is present in unique_labels
-                        this->label_map[triangle.label][1] = i;
-                        this->label_map[triangle.label][2]++;
+                        this->label_map[triangle.label].triangle_indices.push_back(i); 
                     }
                     else
                     {
-                        // Label is not present in unique_labels
-                        unique_labels.push_back(triangle.label);
-                        this->label_map[triangle.label].resize(4);
-                        this->label_map[triangle.label][0] = i;
-                        this->label_map[triangle.label][2] = 1;
-                        this->label_map[triangle.label][3] = 0;
-                    } 
+                        this->label_map[0].triangle_indices.push_back(i);
+                    }
                     //-------------------------------
                     
                     // Finally, lets push to vector
@@ -291,10 +283,16 @@ MoMFileReader::MoMFileReader(std::string file_path)
                     //TODO: Revisit
                     // Add number of edges per label
                     // Only use positive triangles so as not to double up
-                    this->label_map[this->triangles[std::stoi(line_vector[6])].label][3]++;
+                    if(cbfm)
+                    {
+                        this->label_map[this->triangles[std::stoi(line_vector[6])].label].edge_indices.push_back(i);
+                    }
+                    else
+                    {
+                        this->label_map[0].edge_indices.push_back(i);
+                    }
                     //-------------------------------
 
-                    // Finally lets push the Edge to a vector(edges)
                     this->edges.push_back(edge);
                 }
             }
