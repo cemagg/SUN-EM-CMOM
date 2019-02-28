@@ -60,7 +60,7 @@ int main(int argc, char **argv)
     MPI_Comm_rank(MPI_COMM_WORLD, &rank); 
     #endif
 
-    MoMFileReader reader(args::get(file_name_arg));
+    MoMFileReader reader(args::get(file_name_arg), cbfm);
     std::complex<double> *ilhs; 
 
     if(cbfm)
@@ -88,6 +88,7 @@ int main(int argc, char **argv)
         #endif
 
         mpiPerformMoM(reader.const_map,
+                        reader.label_map,
                         reader.triangles,
                         reader.edges,
                         reader.nodes,
