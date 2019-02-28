@@ -9,11 +9,11 @@ struct CBFMZMatrices
 {
 	std::complex<double> *z_self; // Zmn self matrix
 	std::complex<double> *z_self_inv; // Inverse of Zmn self matrix
-	std::complex<double> *z_self_piv; // Pivot vector of inverse Zmn self
+	int *z_self_piv; // Pivot vector of inverse Zmn self
 
 	std::vector<std::vector<std::complex<double>*>> z_couple; // Vector of vectors for Zmn coupling matrices
 	std::vector<std::vector<std::complex<double>*>> z_couple_inv; // Vector of vectors for inverse Zmn coupling matrices
-	std::vector<std::vector<std::complex<double>*>> z_couple_piv; // Vector of vectors for inverse Zmn coupling pivot vectors
+	std::vector<std::vector<int*>> z_couple_piv; // Vector of vectors for inverse Zmn coupling pivot vectors
 };
 
 struct CBFMVectors
