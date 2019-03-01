@@ -29,6 +29,7 @@ int main(int argc, char **argv)
 	args::Positional<std::string> file_name_arg(parser, "file_path", "The path to the .mom file");
     args::Group group(parser, "");
     args::Flag cbfm(group, "cbfm", "TBD", {"cbfm"});
+    args::Flag fpga(group, "fpga", "TBD", {"fpga"});
 
 	try
     {
@@ -71,7 +72,8 @@ int main(int argc, char **argv)
                     reader.triangles,
                     reader.edges,
                     reader.nodes,
-                    ilhs);  
+                    ilhs,
+                    fpga);  
     }
     else
     {
