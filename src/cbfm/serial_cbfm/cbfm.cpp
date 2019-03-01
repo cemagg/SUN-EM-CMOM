@@ -137,6 +137,8 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 		// Lets now loop and solve the reduced z matrices and v_vectors
 		for(int i = 0; i < num_domains; i++)
 		{
+			index = 0;
+
 			// Calculate the reduced v vector
 			zgemv_(&tran, &domain_size, &num_domains, &c_one, v_mom_v.j_cbfm[i], &domain_size,
 				   v_mom_v.v_self[i], &one, &c_zero, v_mom_v.v_red[i], &one);
@@ -146,7 +148,7 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 
 			for(int j = 0; j < num_domains; j++)
 			{
-				if(j == 0)
+				if(j == i)
 				{
 				    zgemm_(&tran, &norm, &domain_size, &num_domains, &domain_size, &c_one, v_mom_z.z_self,
     	        		   &z_lda, v_mom_v.j_cbfm[i], &j_lda, &c_zero, c_temp, &z_lda);	
@@ -156,11 +158,13 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 				}
 				else
 				{
-					zgemm_(&tran, &norm, &domain_size, &num_domains, &domain_size, &c_one, v_mom_z.z_couple[i][(j-1)],
+					zgemm_(&tran, &norm, &domain_size, &num_domains, &domain_size, &c_one, v_mom_z.z_couple[i][index],
     	        		   &z_lda, v_mom_v.j_cbfm[j], &j_lda, &c_zero, c_temp, &z_lda);	
 
 					zgemm_(&tran, &norm, &num_domains, &num_domains, &domain_size, &c_one, v_mom_v.j_cbfm[i],
     	        		   &domain_size, c_temp, &domain_size, &c_zero, v_mom_z.z_red[i][j], &num_domains);
+
+					index++;
 				}
 
 				for(int k = 0; k < num_domains; k++)
@@ -187,19 +191,22 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 		}
 	}
 
-	for(int i = 0; i < 4; i++)
-	{
-		std::cout << v_mom_z.z_red[0][0][i] << std::endl;
-	}
 	//-- Solve Irwg --//
 
+	int num_red_rows = num_domains * num_domains;
+	int z_red_piv[num_red_rows];
 
+	zgetrf_(&num_red_rows, &num_red_rows, v_mom_z.z_red_concat, &num_red_rows, z_red_piv, &info); 
+    zgetrs_(&tran, &num_red_rows, &one, v_mom_z.z_red_concat, &num_red_rows,
+            z_red_piv, v_mom_v.v_red_concat, &num_red_rows, &info);
 
+  	for(int i = 0; i < num_domains; i++)
+  	{
+  		for(int j = 0; j < num_domains; j++)
+  		{
 
-
-
-
-
+  		}
+  	} 
 
 
 
