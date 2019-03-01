@@ -67,6 +67,7 @@ int main(int argc, char **argv)
     if(cbfm)
     {
         std::cout << "TBD" << std::endl;
+        ilhs = new std::complex<double>[reader.edges.size()]();
         performCBFM(reader.const_map,
                     reader.label_map,
                     reader.triangles,
