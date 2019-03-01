@@ -67,6 +67,7 @@ int main(int argc, char **argv)
     if(cbfm)
     {
         std::cout << "TBD" << std::endl;
+        #ifndef PARALLEL
         ilhs = new std::complex<double>[reader.edges.size()]();
         performCBFM(reader.const_map,
                     reader.label_map,
@@ -75,6 +76,11 @@ int main(int argc, char **argv)
                     reader.nodes,
                     ilhs,
                     fpga);  
+        
+        writeIlhsToFile(ilhs, reader.edges.size(), args::get(file_name_arg));   
+        std::cout << "SOLVER COMPLETE" << std::endl;
+        delete ilhs;
+        #endif
     }
     else
     {
