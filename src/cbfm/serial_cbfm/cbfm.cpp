@@ -130,11 +130,14 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 		// Create temporary matrix for LAPACK to store intermediary matrix
 		std::complex<double> *c_temp = new std::complex<double>[num_domains * domain_size];	
 		bool fl = true;
-		std::complex<double> *CME = new std::complex<double>[num_domains * num_domains]();
+		std::complex<double> *CME = new std::complex<double>[num_domains];
 
-		// Lets now loop and solve the reduced z matrices
+		// Lets now loop and solve the reduced z matrices and v_vectors
 		for(int i = 0; i < num_domains; i++)
 		{
+			zgemv_(&tran, &domain_size, &num_domains, &c_one, v_mom_v.j_cbfm[i], &domain_size,
+				   v_mom_v.v_self[i], &one, &c_zero, v_mom_v.v_red[i], &one);
+
 			for(int j = 0; j < num_domains; j++)
 			{
 				if(j == 0)
@@ -160,7 +163,7 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 
 	//-- Solve Irwg --//
 
-
+	std::cout << "HERE" << std::endl;
 
 
 
@@ -266,6 +269,15 @@ void performCBFM(std::map<std::string, std::string> &const_map,
     }
     file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
     }}
+
+    for(int m = 0; m < num_domains; m++){
+    file << "--------------------------------------Z_REDD"<<m<<"------------------------------------------" << std::endl;
+    for(int i = 0; i < num_domains; i++)
+    {
+            file << v_mom_v.v_red[m][i] << std::endl;
+    }
+    file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
+    }
 
 	file.close();
 
