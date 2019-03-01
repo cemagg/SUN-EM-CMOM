@@ -11,20 +11,28 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 	file.open("cbfm.txt");
 
 	// Define some constants
-	int num_domains = label_map.size(); // number of domains
-	int domain_size = label_map[0].edge_indices.size();
+	int num_domains = label_map.size(); 							// number of domains
+	int domain_size = label_map[0].edge_indices.size();				// number of edges in domain
+   	int z_lda = std::max(1, domain_size);							// lda for LAPACK
+    int info = 0;													// needed for LAPACK
+    int one = 1;													// needed for LAPACK
+    char tran = 'T';												// needed for LAPACK
+    char norm = 'N';												// needed for LAPACK
+    int index;														// indexing variable
+	std::complex<double> minus_one = std::complex<double>(-1.0,0.0);// needed for LAPACK
+	std::complex<double> c_zero = std::complex<double>(0.0, 0.0);	// needed for LAPACK
 
-	//-- Create necessary Zmn Matrices --//
-	
-	// Create struct to store all z matrices and their inverses
-	CBFMZMatrices v_mom_z; // Struct storing the vanilla mom Zmn matrices
+
+	// Create struct to store all z matrices and v vectors
+	CBFMZMatrices v_mom_z; 
+    CBFMVectors v_mom_v;
+
 
 	// Lets resize all the struct elements to fit the problem
 	resizeCBFMZMatricesForEqualDomains(v_mom_z, num_domains, label_map[0].edge_indices.size());	
+	resizeCBFMVectorsForEqualDomains(v_mom_v, num_domains, domain_size);
 
-	// Lets fill the Z matrices
-
-	// Lets first fill v_mom_z.z_self
+	// Lets fill v_mom_z.z_self
 	serialFillZmn(v_mom_z.z_self,
 				  edges,
 				  triangles,
@@ -33,58 +41,52 @@ void performCBFM(std::map<std::string, std::string> &const_map,
                   label_map[0],
                   label_map[0],
                   false);
+	
+	// Now copy z_self to z_self_inv because LAPACK overwites the original matrix
 	memcpy(v_mom_z.z_self_inv,
    		   v_mom_z.z_self,
    		   domain_size * domain_size * sizeof(std::complex<double>));
 
-   	int z_lda = std::max(1, domain_size);
-    int info = 0;
-    int one = 1;
-    char tran = 'T';
-
+	// Now get the LU-decomp of z_self_inv
     zgetrf_(&domain_size, &domain_size, v_mom_z.z_self_inv, &z_lda, v_mom_z.z_self_piv, &info); 
-
-	// Lets now fill in v_mom_z.z_couple
-	//-- Create necessary Vm vectors --//
-	CBFMVectors v_mom_v;
-
-	// Lets resize some of the cbfm vectors
-	resizeCBFMVectorsForEqualDomains(v_mom_v, num_domains, domain_size);
 
 	// Lets now fill v_self vectors
 	for(int i = 0; i < num_domains; i++)
 	{
+		// fill v_self
 		serialFillVrhs(const_map,
 					   triangles,
 					   edges,
 					   v_mom_v.v_self[i],
 					   label_map[i]);
-		mempcpy(v_mom_v.j_prim[i], v_mom_v.v_self[i], domain_size * sizeof(std::complex<double>));
+
+		// Copy v_self to j_prim because of LAPACK overwrites
+		memcpy(v_mom_v.j_prim[i], v_mom_v.v_self[i], domain_size * sizeof(std::complex<double>));
 	}
 
-	//-- Calculate Primary CBF's --//
-    // Now lets calculate primary CBF's
+	// Lets now do four things
+	// 1. Calculate primary CBF's
+	// 2. Fill in coupling z matrices -> (v_mom_z.z_couple)
+	// 3. Calculate secondary CBF's
+	// 4. Concatenate primary and secondary CBF's
+	// All together in a double for loop for speed
 
-	//-- Calculate Secondary CBF's --//
-	// First copy coupling z matrices
-	// The secondary CBF's are calculated from the primary CBF's
-	// Copy the primary CBF's to the secondary CBF's - because LAPACK
-	int i_index;
-	std::complex<double> minus_one = std::complex<double>(-1.0,0.0);
-
-	int index;
-	std::complex<double> c_zero = std::complex<double>(0.0, 0.0);
 	for(int i = 0; i < num_domains; i++)
 	{
 		index = 0;
 
+		// Caclulate primary CBF's
     	zgetrs_(&tran, &domain_size, &one, v_mom_z.z_self_inv, &domain_size,
     	        v_mom_z.z_self_piv, v_mom_v.j_prim[i], &domain_size, &info);
+
+    	// Copy primary CBF's co concatenated matrix -> (v_mom_v.j_cbfm)
+    	std::copy(v_mom_v.j_prim[i], v_mom_v.j_prim[i] + domain_size, v_mom_v.j_cbfm[i]);
 
 		for(int j = 0; j < num_domains; j++)
 		{
 			if(j != i)
 			{
+				// Fill in coupling z matrices
 				serialFillZmn(v_mom_z.z_couple[j][index],
 					  		  edges,
 				  			  triangles,
@@ -94,11 +96,18 @@ void performCBFM(std::map<std::string, std::string> &const_map,
                   		  	  label_map[i],
                   		  	  true);   
 				
+				// Multiply coupling z with primary CBF's and with -1
+				// Send in v_mom_v.j_sec for LAPACK to write to
 				zgemv_(&tran, &domain_size, &domain_size, &minus_one, v_mom_z.z_couple[j][index], &z_lda,
                 	v_mom_v.j_prim[i], &one, &c_zero, v_mom_v.j_sec[j][index], &one);	
 
+				// Calculate secondary CBF's
 				zgetrs_(&tran, &domain_size, &one, v_mom_z.z_self_inv, &domain_size,
     	                v_mom_z.z_self_piv, v_mom_v.j_sec[j][index], &domain_size, &info);
+
+				// Copy secondary CBF's to concatenated matrix -> (v_mom_v.j_cbfm)
+				std::copy(v_mom_v.j_sec[j][index], v_mom_v.j_sec[j][index] + domain_size,
+						  v_mom_v.j_cbfm[j] + ((index+1) * domain_size));
 
 				index++;
 			}
