@@ -102,28 +102,52 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 	int i_index;
 	std::complex<double> minus_one = std::complex<double>(-1.0,0.0);
 
-	for(int i = (num_domains - 1); i > -1; i--)
-	{
-    	zgetrs_(&tran, &domain_size, &one, v_mom_z.z_self_inv, &domain_size, v_mom_z.z_self_piv, v_mom_v.j_prim[i], &domain_size, &info);
+	// for(int i = (num_domains - 1); i > -1; i--)
+	// {
+ //    	zgetrs_(&tran, &domain_size, &one, v_mom_z.z_self_inv, &domain_size, v_mom_z.z_self_piv, v_mom_v.j_prim[i], &domain_size, &info);
     	
-    	std::copy(v_mom_v.j_prim[i], v_mom_v.j_prim[i] + domain_size, v_mom_v.j_cbfm[i]);
-    	// std::copy(v_mom_v.j_prim[i], v_mom_v.j_prim[i] + domain_size, arr);
+ //    	std::copy(v_mom_v.j_prim[i], v_mom_v.j_prim[i] + domain_size, v_mom_v.j_cbfm[i]);
+ //    	// std::copy(v_mom_v.j_prim[i], v_mom_v.j_prim[i] + domain_size, arr);
     		
-		i_index = num_domains - 1 - i; 
+	// 	i_index = num_domains - 1 - i; 
 
-		for(int j = 0; j < (num_domains - 1); j++)
+	// 	for(int j = 0; j < (num_domains - 1); j++)
+	// 	{
+	// 		memcpy(v_mom_v.j_sec[i_index][j], v_mom_v.j_prim[i], domain_size * sizeof(std::complex<double>));
+    		
+	// 		zgetrs_(&tran, &domain_size, &one, v_mom_z.z_couple_inv[i_index][j], &domain_size, v_mom_z.z_couple_piv[i_index][j],
+	// 			    v_mom_v.j_sec[i_index][j], &domain_size, &info);
+
+ //    	    zscal_(&domain_size, &minus_one, v_mom_v.j_sec[i_index][j], &one);	
+
+ //    		zgetrs_(&tran, &domain_size, &one, v_mom_z.z_self_inv, &domain_size, v_mom_z.z_self_piv,
+ //    		        v_mom_v.j_sec[i_index][j], &domain_size, &info);
+
+	//     	std::copy(v_mom_v.j_sec[i_index][j], v_mom_v.j_sec[i_index][j] + domain_size, v_mom_v.j_cbfm[i_index] + ((j+1) * domain_size));
+	// 	}
+	// }
+
+
+	std::complex<double> c_zero = std::complex<double>(0.0, 0.0);
+	for(int i = 0; i < num_domains; i++)
+	{
+		index = 0;
+
+    	zgetrs_(&tran, &domain_size, &one, v_mom_z.z_self_inv, &domain_size,
+    	        v_mom_z.z_self_piv, v_mom_v.j_prim[i], &domain_size, &info);
+
+		for(int j = 0; j < num_domains; j++)
 		{
-			memcpy(v_mom_v.j_sec[i_index][j], v_mom_v.j_prim[i], domain_size * sizeof(std::complex<double>));
-    		
-			zgetrs_(&tran, &domain_size, &one, v_mom_z.z_couple_inv[i_index][j], &domain_size, v_mom_z.z_couple_piv[i_index][j],
-				    v_mom_v.j_sec[i_index][j], &domain_size, &info);
+			if(j != i)
+			{
+				zgemv_(&tran, &domain_size, &domain_size, &minus_one, v_mom_z.z_couple[j][index], &z_lda,
+                	v_mom_v.j_prim[i], &one, &c_zero, v_mom_v.j_sec[j][index], &one);	
 
-    	    zscal_(&domain_size, &minus_one, v_mom_v.j_sec[i_index][j], &one);	
+				zgetrs_(&tran, &domain_size, &one, v_mom_z.z_self_inv, &domain_size,
+    	                v_mom_z.z_self_piv, v_mom_v.j_sec[j][index], &domain_size, &info);
 
-    		zgetrs_(&tran, &domain_size, &one, v_mom_z.z_self_inv, &domain_size, v_mom_z.z_self_piv,
-    		        v_mom_v.j_sec[i_index][j], &domain_size, &info);
-
-	    	std::copy(v_mom_v.j_sec[i_index][j], v_mom_v.j_sec[i_index][j] + domain_size, v_mom_v.j_cbfm[i_index] + ((j+1) * domain_size));
+				index++;
+			}
 		}
 	}
 
@@ -217,6 +241,8 @@ void performCBFM(std::map<std::string, std::string> &const_map,
     file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
     }
 
+    std::cout << "After V_SELF" << std::endl;
+
 	for(int m = 0; m < num_domains; m++){
 	file << "--------------------------------------J_PRIM"<<m<<"------------------------------------------" << std::endl;
     for(int i = 0; i < domain_size; i++)
@@ -249,7 +275,9 @@ void performCBFM(std::map<std::string, std::string> &const_map,
     file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
     }
 
-
+    std::cout << "bef" << std::endl;
 
 	file.close();
+	    std::cout << "END" << std::endl;
+
 }
