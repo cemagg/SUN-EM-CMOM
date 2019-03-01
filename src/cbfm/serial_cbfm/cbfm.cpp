@@ -15,6 +15,8 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 	int num_domains = label_map.size(); 							// number of domains
 	int domain_size = label_map[0].edge_indices.size();				// number of edges in domain
    	int z_lda = std::max(1, domain_size);							// lda for LAPACK
+   	int j_lda = std::max(1, domain_size);							// lda for LAPACK
+   	int j_222 = std::max(1, num_domains);							// lda for LAPACK
     int info = 0;													// needed for LAPACK
     int one = 1;													// needed for LAPACK
     char tran = 'T';												// needed for LAPACK
@@ -22,6 +24,7 @@ void performCBFM(std::map<std::string, std::string> &const_map,
     int index;														// indexing variable
 	std::complex<double> minus_one = std::complex<double>(-1.0,0.0);// needed for LAPACK
 	std::complex<double> c_zero = std::complex<double>(0.0, 0.0);	// needed for LAPACK
+	std::complex<double> c_one = std::complex<double>(1.0, 0.0);	// needed for LAPACK
 
 
 	// Create struct to store all z matrices and v vectors
@@ -118,24 +121,44 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 
 	// Lets now calculate the reduced matrices and vectors
 	// Also lets add in a hook for FPGA shenanigans
-	if(!fpga)
-	{
-	}
-	else
+	if(fpga)
 	{
 		// FPGA stuff
 	}
+	else
+	{
+		// Create temporary matrix for LAPACK to store intermediary matrix
+		std::complex<double> *c_temp = new std::complex<double>[num_domains * domain_size];	
+		bool fl = true;
+		std::complex<double> *CME = new std::complex<double>[num_domains * num_domains]();
 
-	//-- Calculate reduced Vcbfm --//
+		// Lets now loop and solve the reduced z matrices
+		for(int i = 0; i < num_domains; i++)
+		{
+			for(int j = 0; j < num_domains; j++)
+			{
+				if(j == 0)
+				{
+				    zgemm_(&tran, &norm, &domain_size, &num_domains, &domain_size, &c_one, v_mom_z.z_self,
+    	        		   &z_lda, v_mom_v.j_cbfm[i], &j_lda, &c_zero, c_temp, &z_lda);	
+				    					// std::cout << i << " " << j << std::endl;
 
-	//-- Calculate reduced Icbfm --//
+				    zgemm_(&tran, &norm, &num_domains, &num_domains, &domain_size, &c_one, v_mom_v.j_cbfm[i],
+    	        		   &domain_size, c_temp, &domain_size, &c_zero, v_mom_z.z_red[i][j], &num_domains);
+				}
+				else
+				{
+					zgemm_(&tran, &norm, &domain_size, &num_domains, &domain_size, &c_one, v_mom_z.z_couple[i][(j-1)],
+    	        		   &z_lda, v_mom_v.j_cbfm[j], &j_lda, &c_zero, c_temp, &z_lda);	
+
+					zgemm_(&tran, &norm, &num_domains, &num_domains, &domain_size, &c_one, v_mom_v.j_cbfm[i],
+    	        		   &domain_size, c_temp, &domain_size, &c_zero, v_mom_z.z_red[i][j], &num_domains);
+				}	
+			}
+		}
+	}
 
 	//-- Solve Irwg --//
-
-
-
-
-
 
 
 
@@ -158,7 +181,7 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 	{
 		for(int j = 0; j < domain_size; j++)
 		{
-			file << v_mom_z.z_self[j + i * 4];
+			file << v_mom_z.z_self[j + i * domain_size];
 		}
 		file << std::endl;
 	}
@@ -169,7 +192,7 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 	{
 		for(int j = 0; j < domain_size; j++)
 		{
-			file << v_mom_z.z_self_inv[j + i * 4];
+			file << v_mom_z.z_self_inv[j + i * domain_size];
 		}
 		file << std::endl;
 	}
@@ -182,7 +205,7 @@ void performCBFM(std::map<std::string, std::string> &const_map,
     {
         for(int j = 0; j < domain_size; j++)
         {
-            file << v_mom_z.z_couple[m][n][j + i * 4];
+            file << v_mom_z.z_couple[m][n][j + i * domain_size];
         }
         file << std::endl;
     }
@@ -230,6 +253,19 @@ void performCBFM(std::map<std::string, std::string> &const_map,
     file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
     }
 
+    for(int m = 0; m < num_domains; m++){
+    for(int n = 0; n < num_domains; n++){	
+    file << "--------------------------------------Z_REDD"<<m<<n<<"-----------------------------------------" << std::endl;
+    for(int i = 0; i < num_domains; i++)
+    {
+        for(int j = 0; j < num_domains; j++)
+        {
+            file << v_mom_z.z_red[m][n][j + i * num_domains];
+        }
+        file << std::endl;
+    }
+    file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
+    }}
 
 	file.close();
 
