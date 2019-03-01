@@ -42,12 +42,14 @@ void resizeCBFMVectorsForEqualDomains(CBFMVectors &v_vectors, int num_domains, i
 	v_vectors.j_prim.resize(num_domains);
 	v_vectors.j_sec.resize(num_domains);
     v_vectors.j_cbfm.resize(num_domains);
+    v_vectors.v_red.resize(num_domains);
 
 	for(int i = 0; i < num_domains; i++)
 	{
 		v_vectors.v_self[i] = new std::complex<double>[num_edges_per_domain]();	
 		v_vectors.j_prim[i] = new std::complex<double>[num_edges_per_domain]();
-        v_vectors.j_cbfm[i] = new std::complex<double>[num_domains * num_edges_per_domain]();	
+        v_vectors.j_cbfm[i] = new std::complex<double>[num_domains * num_edges_per_domain]();
+        v_vectors.v_red[i] = new std::complex<double>[num_domains];	
 
 		v_vectors.j_sec[i].resize(num_domains - 1);
     
