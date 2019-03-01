@@ -142,7 +142,7 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 				   v_mom_v.v_self[i], &one, &c_zero, v_mom_v.v_red[i], &one);
 
 			// Copy reduced v vector to concatenated vector
-			// std::copy(v_mom_v.v_red[i], v_mom_v.v_red[i] + num_domains, v_mom_v.v_red_concat);
+			std::copy(v_mom_v.v_red[i], v_mom_v.v_red[i] + num_domains, v_mom_v.v_red_concat + (i * num_domains));
 
 			for(int j = 0; j < num_domains; j++)
 			{
@@ -318,6 +318,18 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 		file << std::endl;
 	}
 	file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
+
+	file << "---------------------------------------V_REDC------------------------------------------" << std::endl;
+	for(int i = 0; i < (num_domains * num_domains); i++)
+	{
+				
+		file << v_mom_v.v_red_concat[i];
+		file << std::endl;
+	}
+	file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
+
+
+
 	file.close();
 
 }
