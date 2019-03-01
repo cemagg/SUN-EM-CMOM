@@ -15,6 +15,8 @@ void resizeCBFMZMatricesForEqualDomains(CBFMZMatrices &z_matrices, int num_domai
 	z_matrices.z_couple.resize(num_domains);
 	z_matrices.z_red.resize(num_domains);
 
+	z_matrices.z_red_concat = new std::complex<double>[num_domains * num_domains * num_domains * num_domains];
+
 	// now resize the secondary vectors and allocate to the pointers
 	for(int i = 0; i < num_domains; i++)
 	{
@@ -43,6 +45,8 @@ void resizeCBFMVectorsForEqualDomains(CBFMVectors &v_vectors, int num_domains, i
 	v_vectors.j_sec.resize(num_domains);
     v_vectors.j_cbfm.resize(num_domains);
     v_vectors.v_red.resize(num_domains);
+
+    v_vectors.v_red_concat = new std::complex<double>[num_domains * num_domains];
 
 	for(int i = 0; i < num_domains; i++)
 	{
