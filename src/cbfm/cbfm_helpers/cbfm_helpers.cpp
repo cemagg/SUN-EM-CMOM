@@ -13,11 +13,18 @@ void resizeCBFMZMatricesForEqualDomains(CBFMZMatrices &z_matrices, int num_domai
 
 	// First resize the main vectors
 	z_matrices.z_couple.resize(num_domains);
+	z_matrices.z_red.resize(num_domains);
 
 	// now resize the secondary vectors and allocate to the pointers
 	for(int i = 0; i < num_domains; i++)
 	{
 		z_matrices.z_couple[i].resize(num_domains - 1);
+		z_matrices.z_red[i].resize(num_domains);
+
+		for(int k = 0; k < num_domains; k++)
+		{
+			z_matrices.z_red[i][k] = new std::complex<double>[num_domains * num_domains]();
+		}
 		
 		for(int j = 0; j < (num_domains - 1); j++)
 		{
