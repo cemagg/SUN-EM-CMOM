@@ -5,7 +5,8 @@ void performCBFM(std::map<std::string, std::string> &const_map,
                    std::vector<Triangle> &triangles,
                    std::vector<Edge> &edges,
                    std::vector<Node<double>> &nodes,
-                   std::complex<double> *ilhs)
+                   std::complex<double> *ilhs,
+                   bool fpga)
 {
 	std::ofstream file;
 	file.open("cbfm.txt");
@@ -114,8 +115,16 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 		}
 	}
 
-	//-- Calculate reduced Zcbfm --//
-	// zgemm
+
+	// Lets now calculate the reduced matrices and vectors
+	// Also lets add in a hook for FPGA shenanigans
+	if(!fpga)
+	{
+	}
+	else
+	{
+		// FPGA stuff
+	}
 
 	//-- Calculate reduced Vcbfm --//
 
