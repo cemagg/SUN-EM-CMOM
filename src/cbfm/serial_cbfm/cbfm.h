@@ -26,6 +26,9 @@ extern "C"
     void zgemm_(const char*, const char*, int*, int*, int*, std::complex<double>*, std::complex<double>*,
     	        int*, std::complex<double>*, int*, std::complex<double>*, std::complex<double>*, int*);
 
+    void zgemv_(const char*, int*, int*, std::complex<double>*, std::complex<double>*, int*,
+                std::complex<double>*, int*, std::complex<double>*, std::complex<double>*, int*);
+
     void zscal_(int*, std::complex<double>*, std::complex<double>*, int*);
 }
 
