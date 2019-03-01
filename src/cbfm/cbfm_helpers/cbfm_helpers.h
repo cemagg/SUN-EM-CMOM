@@ -13,7 +13,7 @@ struct CBFMZMatrices
 
 	std::vector<std::vector<std::complex<double>*>> z_couple; // Vector of vectors for Zmn coupling matrices
 
-	std::vector<std::vector<std::complex<double>*>> z_red;
+	std::vector<std::vector<std::complex<double>*>> z_red; // Reduced Z matrices
 };
 
 struct CBFMVectors
@@ -22,6 +22,7 @@ struct CBFMVectors
 	std::vector<std::complex<double>*> j_prim; // Primary CBF's -> 1 per domain
 	std::vector<std::vector<std::complex<double>*>> j_sec; // Secondary CBF's -> multiple per domain
 	std::vector<std::complex<double>*> j_cbfm; // Concatenation of j_prim and j_sec per domain
+	std::vector<std::complex<double>*> v_red; // Reduced v vectors
 };
 
 void resizeCBFMZMatricesForEqualDomains(CBFMZMatrices &z_matrices, int num_domains, int num_edges_per_domain);
