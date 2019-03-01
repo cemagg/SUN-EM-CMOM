@@ -131,12 +131,18 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 		std::complex<double> *c_temp = new std::complex<double>[num_domains * domain_size];	
 		bool fl = true;
 		std::complex<double> *CME = new std::complex<double>[num_domains];
+		int index_one = 0;
+		int index_two = 0;
 
 		// Lets now loop and solve the reduced z matrices and v_vectors
 		for(int i = 0; i < num_domains; i++)
 		{
+			// Calculate the reduced v vector
 			zgemv_(&tran, &domain_size, &num_domains, &c_one, v_mom_v.j_cbfm[i], &domain_size,
 				   v_mom_v.v_self[i], &one, &c_zero, v_mom_v.v_red[i], &one);
+
+			// Copy reduced v vector to concatenated vector
+			// std::copy(v_mom_v.v_red[i], v_mom_v.v_red[i] + num_domains, v_mom_v.v_red_concat);
 
 			for(int j = 0; j < num_domains; j++)
 			{
@@ -144,7 +150,6 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 				{
 				    zgemm_(&tran, &norm, &domain_size, &num_domains, &domain_size, &c_one, v_mom_z.z_self,
     	        		   &z_lda, v_mom_v.j_cbfm[i], &j_lda, &c_zero, c_temp, &z_lda);	
-				    					// std::cout << i << " " << j << std::endl;
 
 				    zgemm_(&tran, &norm, &num_domains, &num_domains, &domain_size, &c_one, v_mom_v.j_cbfm[i],
     	        		   &domain_size, c_temp, &domain_size, &c_zero, v_mom_z.z_red[i][j], &num_domains);
@@ -156,14 +161,38 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 
 					zgemm_(&tran, &norm, &num_domains, &num_domains, &domain_size, &c_one, v_mom_v.j_cbfm[i],
     	        		   &domain_size, c_temp, &domain_size, &c_zero, v_mom_z.z_red[i][j], &num_domains);
+				}
+
+				for(int k = 0; k < num_domains; k++)
+				{
+					if(k == 0)
+					{
+						index_one =  (i * num_domains * num_domains * num_domains) + 
+									 (j * num_domains);
+ 						index_two = index_one + (num_domains * num_domains);	
+
+						std::copy(v_mom_z.z_red[i][j],
+								  v_mom_z.z_red[i][j] + num_domains,
+								  v_mom_z.z_red_concat + index_one);
+					}
+					else
+					{
+						std::copy(v_mom_z.z_red[i][j] + (k * num_domains),
+								  v_mom_z.z_red[i][j] + ((k + 1) * num_domains),
+								  v_mom_z.z_red_concat + index_two);
+						index_two += (num_domains * num_domains); 
+					}
 				}	
 			}
 		}
 	}
 
+	for(int i = 0; i < 4; i++)
+	{
+		std::cout << v_mom_z.z_red[0][0][i] << std::endl;
+	}
 	//-- Solve Irwg --//
 
-	std::cout << "HERE" << std::endl;
 
 
 
@@ -271,7 +300,7 @@ void performCBFM(std::map<std::string, std::string> &const_map,
     }}
 
     for(int m = 0; m < num_domains; m++){
-    file << "--------------------------------------Z_REDD"<<m<<"------------------------------------------" << std::endl;
+    file << "--------------------------------------V_REDD"<<m<<"------------------------------------------" << std::endl;
     for(int i = 0; i < num_domains; i++)
     {
             file << v_mom_v.v_red[m][i] << std::endl;
@@ -279,6 +308,16 @@ void performCBFM(std::map<std::string, std::string> &const_map,
     file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
     }
 
+    file << "---------------------------------------Z_REDC------------------------------------------" << std::endl;
+	for(int i = 0; i < (num_domains * num_domains); i++)
+	{
+		for(int j = 0; j < (num_domains * num_domains); j++)
+		{
+			file << v_mom_z.z_red_concat[j + i * (num_domains * num_domains)];
+		}
+		file << std::endl;
+	}
+	file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
 	file.close();
 
 }
