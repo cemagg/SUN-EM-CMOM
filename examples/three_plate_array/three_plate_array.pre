@@ -13,10 +13,10 @@ IN   8 1055  "three_plate_array.cfm"
 FP: 0 : 0
 
 ** End of geometry
-EG: 1 : 0 : 0 :  :  : 1e-06 :  :  :  :  :  :  : 1
+EG: 0 : 0 : 0 :  :  : 1e-06 :  :  :  :  :  :  : 0
 
 ** Solution control
-PS: 0 : 0 : 3 : 1 :  : 1
+PS: 0 : 0 : 1 : 1 :  : 1
 CG: -1 :  : -1
 
 ** Set medium properties, coatings and skin effects
@@ -26,6 +26,9 @@ DI: 0 :  : -1 :  :  : 1 :  :  :  : 0 : 1000
 PW: 0
 
 ** Sources
+
+A0: 0 :  : 1 : 1 : 1 : 1 : 0 : 0 : 0 : 0 : 0 : 0 : 0   ** PlaneWaveSource1
+  :  :  :  :  :  :  :  : 0 : 0 : 0
 
 
 ** StandardConfiguration1
@@ -37,8 +40,10 @@ FR:  :  :  :  :  : 299792458.000176
 NC: StandardConfiguration1
 DA:  :  :  :  : 0
 
+OS:0
+
 
 ** End of file
 EN
 
-** CADFEKO Checksum: c5dbbb79d53ca8c38c4578e995ae1a91
+** CADFEKO Checksum: 9aaff7429b301d60b04e429d97d32fab
