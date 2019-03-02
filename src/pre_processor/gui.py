@@ -6,6 +6,7 @@ import numpy as np
 
 import os
 import subprocess
+from pathlib import Path
 
 from read_feko_files import FEKOFileReader
 from read_feko_files import readFEKOStrFile
@@ -21,7 +22,9 @@ class gui:
 
         # w = 400
         # h = 700
-        self.cwd = os.getcwd()
+        working_dir = os.getcwd()
+        sp = working_dir.split("src", 1);
+        self.cwd = sp[0]
         self.master = master
         self.master.title("CMoM PreProcessor")
         #self.master.geometry('{}x{}'.format(w, h))
@@ -162,7 +165,7 @@ class gui:
             cmom_sol = readMoMFile(self.file_path_txt_var.get()[:-3]+"sol")
             self.printScreen("CMoM Solution Read")
 
-            feko_sol = readFEKOStrFile(self.file_path_txt_var.get()[:-3]+"str")
+            feko_sol = readFEKOStrFile(self.file_path_txt_var.get()[:-3]+"str", self.cwd)
             self.printScreen("FEKO Solution Read")
 
             error = errNormPercentage(cmom_sol, feko_sol)
