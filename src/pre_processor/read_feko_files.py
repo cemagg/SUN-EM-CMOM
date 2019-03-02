@@ -1,6 +1,8 @@
 from data_structures import *
 from log import log
 import os
+import subprocess
+import numpy as np
 
 import math
 
@@ -188,16 +190,49 @@ class FEKOFileReader:
 
 def readFEKOStrFile(file_name):
 
+    cwd = os.getcwd() + "/bin/"
     file_separator = file_name.rsplit('/', 1) 
     file_separator[1] = "ascii_" + file_separator[1]
 
-    file_name = file_separator[0] + '/' + file_separator[1]
-    x=0
-    if os.path.isfile(file_name) != True:
+    ascii_file_name = file_separator[0] + '/' + file_separator[1]
+
+    if os.path.isfile(ascii_file_name) != True:
         print("FILE NOT FOUND")
+        cmd = "%sstr2ascii %s -r > %s 2>&1" % (cwd, file_name, ascii_file_name)
+        process = subprocess.Popen(cmd,stdout=subprocess.PIPE, shell=True)
+        proc_stdout = process.communicate()[0].strip()
+        print(str(proc_stdout, 'utf-8'))
+
+    file = open(ascii_file_name, "r")
+    line = file.readline()
+    line = file.readline()
+    line = file.readline()
+    num_isol = int(line)
+    line = file.readline()
+    line = file.readline()
+
+    isol = np.empty(num_isol, dtype=complex)
+    for i in range(num_isol):
+        line = file.readline()
+        content = line.split()
+        isol[i] = np.complex(float(content[1][:-1]), float(content[2][:-1]))
+    
+    return isol
+
+def errNormPercentage(isol, iref):
+    diff_sum = 0
+    ref_sum = 0
+
+    for i in range(isol.size):
+        diff_sum = diff_sum + np.power((np.abs(isol[i] - iref[i])), 2)
+        ref_sum = ref_sum + np.power(np.abs(iref[i]), 2)
+
+    return (np.sqrt(diff_sum) / np.sqrt(ref_sum)) * 100
+
+
 
 # freader = FEKOFileReader("C:\\Users\\Tameez\\Documents\\git\\SUN-EM\\examples\\two_plate_array\\pec_plate.out")
 # freader.readFEKOOutFile()
 # print("hello")
 
-readFEKOStrFile("C:/Users/Tameez/Desktop/a/pec_plate.str")
+#readFEKOStrFile("/home/tameez/github/SUN-EM-CMOM/examples/two_plate_array/two_plate_array_coarse.str")
