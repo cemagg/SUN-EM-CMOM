@@ -9,12 +9,12 @@ Computer: PC WIN64 EM64T MKL -- pc
           Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz; GenuineIntel family 6 model 12 stepping 3 brand id 0
           1 physical CPU with a total of 8 processors found (multi-core CPU with max. 4 cores per physical CPU)
 Threads:  OpenMP threading not used
-Date:     2019-03-02 17:21:45                     
+Date:     2019-03-02 20:46:57                     
 File:     two_plate_array
 Memory:   Unlimited, system allows maximum usage of 7.682 GByte
-          (installed memory 7.878 GByte, thereof free 2.274 GByte)
-MD5 Check:A254FDAC5629D40CF0F98C1659EC81B6
-MD5 Total:1AA54AB076154C221EEEDBE4784A3213
+          (installed memory 7.878 GByte, thereof free 3.945 GByte)
+MD5 Check:981D27D049CEE6D0A2C33ED316F0D181
+MD5 Total:5D595EF8199FDA53CABD74CF3CFCBAF7
  Licence:  Altair HyperWorks
 
  NOTE    35127: You are running a sequential version of FEKO, but it was detected that your CPU has more than one core. For best performance, it would be recommended to run the parallel FEKO kernel (your licence allows this)
@@ -22,7 +22,7 @@ MD5 Total:1AA54AB076154C221EEEDBE4784A3213
 
 SPICE
   Engine:      NGSPICE
-  Executable:  C:\Program Files\Altair\2017\feko\bin\vngspicec.exe
+  Executable:  C:\Program Files\Altair\2017\FEKO\bin\vngspicec.exe
 
           Surface of all triangles in m*m:     2.00000E+00
 
@@ -1621,11 +1621,100 @@ DI       0    0   -1    0    0 1.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
  read from input file:
 PW       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
  read from input file:
+A0       0    0    1    1    1 1.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+ read from input file:
 FR       0    0    0    0    0 2.998E+08 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
  read from input file:
 NC       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
  read from input file:
 DA       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+ read from input file:
+OS       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+ 
+ 
+      ==============
+      CONFIGURATION: StandardConfiguration1
+      ==============
+
+
+                                   DATA FOR DIELECTRIC MEDIA
+
+internal  relative     relative  conductivity   tan(delta)    tan(delta)    wavelength   mass density    volume     medium
+index  permittivity permeability   in S/m       (electric)    (magnetic)       in m       in kg/m^3      in m^3
+    0      1.00000      1.00000  0.00000E+00   0.00000E+00   0.00000E+00   1.00000E+00   1.00000E+03    infinite    Free space
+
+
+
+               EXCITATION BY INCIDENT PLANE ELECTROMAGNETIC WAVE 
+
+ Name:                          PlaneWaveSource1
+ Excitation index:              1
+ Frequency in Hz:               FREQ =    2.99792E+08
+ Wavelength in m:               LAMBDA =  1.00000E+00
+ Direction of incidence:        THETA =    0.00  PHI =    0.00
+ Polarisation:                  LINEAR
+ Axial ratio:                   V =      0.0000
+ Polarisation angle:            ETA =    0.00
+ Direction of propag.:          BETA0X =  0.00000E+00
+   (unit vector)                BETA0Y =  0.00000E+00
+                                BETA0Z = -1.00000E+00
+ Wave number:                   BETA0  = ( 6.28319E+00 +j 0.00000E+00)
+ Field strength in V/m:         |E0X| =  1.00000E+00   ARG(E0X) =   180.00
+   (Phase in degrees)           |E0Y| =  0.00000E+00   ARG(E0Y) =     0.00
+                                |E0Z| =  0.00000E+00   ARG(E0Z) =     0.00
+
+
+                         DATA FOR THE GREEN'S FUNCTION
+
+                                   free space
+
+
+               All segments and triangles are perfectly conducting.
+
+
+                          DATA FOR STORAGE OF THE MATRIX
+
+ Storage using double precision
+
+ Memory requirement for MoM matrix:       400 rows *      394 columns =      157600 complex numbers
+ For the MoM matrix, a memory of       157600 complex numbers is used (i.e. 2.405 MByte)
+ Storing the matrix and solving the linear set of equations in main memory (storage scheme 1)
+
+     A total of 2.542 MByte of memory has been allocated dynamically
+     (peak memory usage of 2.542 MByte so far)
+
+
+
+               PRE-CONDITIONING OF THE LINEAR SET OF EQUATIONS
+
+               Selected preconditioner algorithm: 1
+
+     CPU time for preconditioning:       0.001 seconds
+
+
+                    SOLUTION OF THE LINEAR SET OF EQUATIONS WITH LAPAGAU
+
+               Condition number of the matrix:  1.29117E+02
+
+               Floating point performance for LU decomposition:
+                    Not determined since computation time too short
+
+     CPU time for solving the linear set of equations:       0.037 seconds
+
+
+
+                              SUMMARY OF LOSSES
+
+          Metallic elements:                          0.0000E+00 W
+          Dielectric:                                 0.0000E+00 W
+          Mismatch at feed:                           0.0000E+00 W
+          Non-radiating networks:                     0.0000E+00 W
+          Cables:                                     0.0000E+00 W
+          Backward power at passive waveguide ports:  0.0000E+00 W
+          Backward power at passive modal ports:      0.0000E+00 W
+                                                     -------------
+                Sum of all losses:                    0.0000E+00 W
+
  read from input file:
 EN       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
 
@@ -1633,19 +1722,19 @@ EN       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
                     SUMMARY OF REQUIRED TIMES IN SECONDS
 
                                              CPU-time       runtime
- Reading and constructing the geometry          0.034         0.034
- Checking the geometry                          0.004         0.004
- Initialisation of the Green's function         0.000         0.000
+ Reading and constructing the geometry          0.028         0.028
+ Checking the geometry                          0.002         0.002
+ Initialisation of the Green's function         0.001         0.001
  Calcul. of coupling for PO/Fock                0.000         0.000
- Transformation to equivalent sources           0.000         0.000
+ Transformation to equivalent sources           0.001         0.001
  Ray launching/tracing phase of RL-GO           0.000         0.000
- Calcul. of matrix elements                     0.000         0.000
- Calcul. of right-hand side vector              0.000         0.000
- Preconditioning system of linear eqns.         0.000         0.000
- Solution of the system of linear eqns.         0.000         0.000
+ Calcul. of matrix elements                     0.208         0.208
+ Calcul. of right-hand side vector              0.003         0.003
+ Preconditioning system of linear eqns.         0.001         0.001
+ Solution of the system of linear eqns.         0.037         0.037
  Eigensolution for characteristic modes         0.000         0.000
- Determination of surface currents              0.000         0.000
- Calcul. of impedances/powers/losses            0.000         0.000
+ Determination of surface currents              0.001         0.001
+ Calcul. of impedances/powers/losses            0.011         0.011
  Calcul. of averaged SAR values                 0.000         0.000
  Calcul. of power receiving antenna             0.000         0.000
  Calcul. of cable coupling                      0.000         0.000
@@ -1653,11 +1742,11 @@ EN       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
  Calcul. of electric near field                 0.000         0.000
  Calcul. of magnetic near field                 0.000         0.000
  Calcul. of far field                           0.000         0.000
-                            other               0.038         0.038
+                            other               0.064         0.064
                                          ------------  ------------
-                         total times:           0.076         0.076
+                         total times:           0.357         0.357
                (total times in hours:           0.000         0.000)
 
- Peak memory usage during the whole solution: 139.020 kByte
+ Peak memory usage during the whole solution: 2.561 MByte
 
-Finished: 2019-03-02 17:21:45                     
+Finished: 2019-03-02 20:46:58                     
