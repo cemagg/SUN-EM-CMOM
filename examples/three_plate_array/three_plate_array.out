@@ -1,0 +1,119 @@
+FEKO      Version 2017.2-473 from 2017-06-12
+          PREFEKO Version 2017.2-38 from 2017-05-23 [FEK: default 158; used 158] BINARY
+          CADFEKO version 2017.2-305925 (x64) from 2017-06-21                             
+          Copyright (c) 1999-2014 Altair Development S.A. (Pty) Ltd
+          Copyright (c) 2014-2017 Altair Engineering, Inc.
+          Intel(R) MKL version 11.3.4 (build 20160823) on Intel(R) Advanced Vector Extensions 2 (Intel(R) AVX2) enabled processors, Intel(R) 64 architecture (1 thread)
+Computer: PC WIN64 EM64T MKL -- pc
+          Microsoft Windows 8.1 Professional  (Build 9600), Version 6.3.9600 x64 (SP 0.0)
+          Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz; GenuineIntel family 6 model 12 stepping 3 brand id 0
+          1 physical CPU with a total of 8 processors found (multi-core CPU with max. 4 cores per physical CPU)
+Threads:  OpenMP threading not used
+Date:     2019-03-02 17:23:43                     
+File:     three_plate_array
+Memory:   Unlimited, system allows maximum usage of 7.682 GByte
+          (installed memory 7.878 GByte, thereof free 2.268 GByte)
+MD5 Check:34369EED7533D59C89B8714AE4CA360B
+MD5 Total:895F75AA10138C8E47E034CAE9A67C9F
+ Licence:  Altair HyperWorks
+
+ NOTE    35127: You are running a sequential version of FEKO, but it was detected that your CPU has more than one core. For best performance, it would be recommended to run the parallel FEKO kernel (your licence allows this)
+ NOTE    35179: Compatible graphics card (GPU) found on this machine for possible hardware acceleration (your FEKO license allows GPU usage). Please use the command line option --use-gpu to use or enable the checkbox in the GUI
+
+SPICE
+  Engine:      NGSPICE
+  Executable:  C:\Program Files\Altair\2017\feko\bin\vngspicec.exe
+
+          Surface of all triangles in m*m:     3.00000E-02
+
+
+                                DATA FOR MEMORY USAGE
+
+ Number of metallic triangles:              12                                max. triangles:    MAXNDR    =       12
+ Number of dielectric triangles:             0
+ Number of aperture triangles:               0
+ Number of RL-GO triangles:                  0
+ Number of windscreen triangles:             0
+ Number of FEM surface triangles:            0
+ Number of modal port triangles:             0
+ Number of metallic segments:                0                                max. segments:     MAXNSEG   =        0
+ Number of combined MoM/MTL segments:        0
+ Number of dielectr./magnet. cuboids:        0                                max. cuboids:      MAXNQUA   =        0
+ Number of tetrahedra:                       0                                max. tetrahedra:   MAXNTETRA =        0
+ Number of edges in PO region:               0                                max. edges:        MAXPOKA   =        0
+ Number of wedges in PO region:              0                                max. wedges:       MAXPOKL   =        0
+ Number of Fock regions:                     0                                max. Fock regions: MAXFOGE   =        0
+ Number of polygonal surfaces:               0                                max. surfaces:     MAXPOLYF  =        0
+                                                                              max. corner pts.:  MAXPOLYP  =        0
+ Number of UTD cylinders:                    0
+
+ Number of metallic edges (MoM):            12  unknown:       12 (electr.)   max. edges:        MAXNKA    =       12
+                                             0  unknown:        0 (magnet.)
+ Number of metallic edges (PO):              0  unknown:        0 (electr.)
+                                                unknown:        0 (magnet.)
+ Number of dielectric edges (MoM):           0  unknown:        0 (electr.)
+                                             0                  0 (magnet.)
+ Number of dielectric edges (PO):            0  unknown:        0 (electr.)
+                                                unknown:        0 (magnet.)
+ Number of aperture edges (MoM):             0  unknown:        0 (magnet.) 
+ Number of edges FEM/MoM surface:            0  unknown:        0 (electr.)
+                                             0                  0 (magnet.)
+ Number of nodes between segments:           0  unknown:        0             max. nodes:        MAXNKNO   =        0
+ Number of connection points:                0  unknown:        0             max. conn.:        MAXNV     =        0
+ Number of dielectric cuboids:               0  unknown:        0             max. cuboids:      MAXNQUA   =        0
+ Number of magnetic cuboids:                 0  unknown:        0
+ Number of dielectric faces (VEP):           0  unknown:        0
+ Number of magnetic faces (VEP):             0  unknown:        0
+
+ Number of basis funct. for MoM:            12  unknown:       12             max. basisf.       MAXNZEILE =       18
+ Number of basis funct. for PO:              0  unknown:        0             max. basisf.       MAXNKAPO  =        0
+
+ read from input file:
+PS       0    0    3    1    0 1.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+ read from input file:
+CG      -1    0   -1    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00-1.000E+00-1.000E+00 0.000E+00 0.000E+00
+ read from input file:
+DI       0    0   -1    0    0 1.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 1.000E+03 0.000E+00 0.000E+00
+ read from input file:
+PW       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+ read from input file:
+FR       0    0    0    0    0 2.998E+08 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+ read from input file:
+NC       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+ read from input file:
+DA       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+ read from input file:
+EN       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+
+
+                    SUMMARY OF REQUIRED TIMES IN SECONDS
+
+                                             CPU-time       runtime
+ Reading and constructing the geometry          0.015         0.015
+ Checking the geometry                          0.000         0.000
+ Initialisation of the Green's function         0.000         0.000
+ Calcul. of coupling for PO/Fock                0.000         0.000
+ Transformation to equivalent sources           0.000         0.000
+ Ray launching/tracing phase of RL-GO           0.000         0.000
+ Calcul. of matrix elements                     0.000         0.000
+ Calcul. of right-hand side vector              0.000         0.000
+ Preconditioning system of linear eqns.         0.000         0.000
+ Solution of the system of linear eqns.         0.000         0.000
+ Eigensolution for characteristic modes         0.000         0.000
+ Determination of surface currents              0.000         0.000
+ Calcul. of impedances/powers/losses            0.000         0.000
+ Calcul. of averaged SAR values                 0.000         0.000
+ Calcul. of power receiving antenna             0.000         0.000
+ Calcul. of cable coupling                      0.000         0.000
+ Calcul. of error estimates                     0.000         0.000
+ Calcul. of electric near field                 0.000         0.000
+ Calcul. of magnetic near field                 0.000         0.000
+ Calcul. of far field                           0.000         0.000
+                            other               0.003         0.002
+                                         ------------  ------------
+                         total times:           0.018         0.017
+               (total times in hours:           0.000         0.000)
+
+ Peak memory usage during the whole solution: 21.631 kByte
+
+Finished: 2019-03-02 17:23:44                     
