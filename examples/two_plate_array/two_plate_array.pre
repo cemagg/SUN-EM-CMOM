@@ -27,6 +27,9 @@ PW: 0
 
 ** Sources
 
+A0: 0 :  : 1 : 1 : 1 : 1 : 0 : 0 : 0 : 0 : 0 : 0 : 0   ** PlaneWaveSource1
+  :  :  :  :  :  :  :  : 0 : 0 : 0
+
 
 ** StandardConfiguration1
 
@@ -37,8 +40,10 @@ FR:  :  :  :  :  : 299792458.000176
 NC: StandardConfiguration1
 DA:  :  :  :  : 0
 
+OS:0
+
 
 ** End of file
 EN
 
-** CADFEKO Checksum: 6e24bc89e7c342eec54da296ba84cec1
+** CADFEKO Checksum: 65b3be92cfdd4e7c86198472ce04dc1b
