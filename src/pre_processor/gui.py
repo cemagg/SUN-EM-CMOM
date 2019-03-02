@@ -8,6 +8,8 @@ import os
 import subprocess
 
 from read_feko_files import FEKOFileReader
+from read_feko_files import readFEKOStrFile
+from read_feko_files import errNormPercentage
 from mom_file_writer import writeMoMFIle
 from mom_file_reader import readMoMFile
 
@@ -19,7 +21,7 @@ class gui:
 
         # w = 400
         # h = 700
-
+        self.cwd = os.getcwd()
         self.master = master
         self.master.title("CMoM PreProcessor")
         #self.master.geometry('{}x{}'.format(w, h))
@@ -131,31 +133,44 @@ class gui:
             serial_build_exec_flag = False
             serial_create_dir_flag = False
 
-            if os.path.isdir("../../build") != True:
+            if os.path.isdir(self.cwd + "/build") != True:
                 serial_build_exec_flag = True
                 serial_create_dir_flag = True
             else:
-                if os.path.isfile("../../build/mom") != True:
+                if os.path.isfile(self.cwd + "/build/mom") != True:
                     serial_build_exec_flag = True
             
             if serial_create_dir_flag:
-                os.mkdir("../../build")
+                os.mkdir(self.cwd+"/build")
                 self.printScreen("Serial build directory created")
             
             if serial_build_exec_flag:
-                cmd = "cd ../../build/; cmake ..; make"
+                cmd = "cd " + self.cwd + "/build/; cmake ..; make"
                 self.run_cmd(cmd)
 
             if self.file_path_txt_var.get()[-3:] == "mom":
-                cmd = "../../build/mom " + self.file_path_txt_var.get()
+                cmd = self.cwd+"/build/mom " + self.file_path_txt_var.get()
             else:
-                cmd = "../../build/mom " + self.file_path_txt_var.get()[:-3] + "mom"
+                cmd = self.cwd+"/build/mom " + self.file_path_txt_var.get()[:-3] + "mom"
+            
+            if self.cbox_solver.get() == "CBFM":
+                cmd = cmd + " --cbfm"
             
             self.run_cmd(cmd)
             self.printScreen("Solver Complete")
 
-            isol = readMoMFile(self.file_path_txt_var.get()[:-3]+"sol")
-            self.printScreen("Solution Read")
+            cmom_sol = readMoMFile(self.file_path_txt_var.get()[:-3]+"sol")
+            self.printScreen("CMoM Solution Read")
+
+            feko_sol = readFEKOStrFile(self.file_path_txt_var.get()[:-3]+"str")
+            self.printScreen("FEKO Solution Read")
+
+            error = errNormPercentage(cmom_sol, feko_sol)
+            self.printScreen("Error: " + str(error))
+
+
+
+
 
 
 
