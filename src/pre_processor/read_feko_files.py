@@ -1,5 +1,6 @@
 from data_structures import *
 from log import log
+import os
 
 import math
 
@@ -185,7 +186,18 @@ class FEKOFileReader:
 
         return True
 
+def readFEKOStrFile(file_name):
+
+    file_separator = file_name.rsplit('/', 1) 
+    file_separator[1] = "ascii_" + file_separator[1]
+
+    file_name = file_separator[0] + '/' + file_separator[1]
+    x=0
+    if os.path.isfile(file_name) != True:
+        print("FILE NOT FOUND")
 
 # freader = FEKOFileReader("C:\\Users\\Tameez\\Documents\\git\\SUN-EM\\examples\\two_plate_array\\pec_plate.out")
 # freader.readFEKOOutFile()
 # print("hello")
+
+readFEKOStrFile("C:/Users/Tameez/Desktop/a/pec_plate.str")
