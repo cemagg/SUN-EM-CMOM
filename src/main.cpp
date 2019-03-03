@@ -66,7 +66,6 @@ int main(int argc, char **argv)
 
     if(cbfm)
     {
-        std::cout << "TBD" << std::endl;
         #ifndef PARALLEL
         ilhs = new std::complex<double>[reader.edges.size()]();
         performCBFM(reader.const_map,
