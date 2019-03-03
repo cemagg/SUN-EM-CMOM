@@ -98,7 +98,7 @@ class gui:
 
 
     def onChooseFileClick(self):
-        file_name = filedialog.askopenfilename(initialdir="/home/", title="Select File", filetypes = (("FEKO .out File", "*.out"),
+        file_name = filedialog.askopenfilename(initialdir=self.cwd + "/examples/", title="Select File", filetypes = (("FEKO .out File", "*.out"),
                                                                                                     ("CMoM .mom File", "*.mom"),
                                                                                                     ("All Files", "*.*")))
         #print(type(file_name), file_name)
