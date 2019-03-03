@@ -1,12 +1,13 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog
+import time
 
 import numpy as np
+import matplotlib as plt
 
 import os
 import subprocess
-from pathlib import Path
 
 from read_feko_files import FEKOFileReader
 from read_feko_files import readFEKOStrFile
@@ -159,8 +160,12 @@ class gui:
             if self.cbox_solver.get() == "CBFM":
                 cmd = cmd + " --cbfm"
             
+            start = time.time()
             self.run_cmd(cmd)
-            self.printScreen("Solver Complete")
+            end = time.time()
+            elapsed = end - start
+
+            self.printScreen("Solver Complete in " + str(elapsed) + "seconds")
 
             cmom_sol = readMoMFile(self.file_path_txt_var.get()[:-3]+"sol")
             self.printScreen("CMoM Solution Read")

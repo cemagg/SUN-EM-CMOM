@@ -190,7 +190,7 @@ class FEKOFileReader:
 
 def readFEKOStrFile(file_name, cwd):
 
-    cwd = cwd + "bin/"
+    cwd = cwd + "/bin/"
     print(cwd)
     file_separator = file_name.rsplit('/', 1) 
     file_separator[1] = "ascii_" + file_separator[1]

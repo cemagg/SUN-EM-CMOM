@@ -77,4 +77,17 @@ double euclideanDistance(Node<T> node1, Node<T> node2)
     return norm(temp_node);
 }
 
+template <typename T, typename U>
+Node<T> crossProduct(Node<T> node1, Node<U> node2)
+{
+    Node<T> temp_node;
+
+    temp_node.x_coord = node1.y_coord * node2.z_coord - node1.z_coord * node2.y_coord;
+    temp_node.y_coord = node1.z_coord * node2.x_coord - node1.x_coord * node2.z_coord;
+    temp_node.z_coord = node1.x_coord * node2.y_coord - node1.y_coord * node2.x_coord;
+    
+    return temp_node;
+}
+
+
 #endif // NODE_H
