@@ -8,6 +8,11 @@
 ** Import mesh model
 IN   8 1055  "simple_plate_array.cfm"
 
+** Finite antenna array
+FA: 0 : 2 : 2 :  :  :  :  :  :  :  : 0
+  :  :  :  :  :  : 0 : 0 : 0 :  :  : 0 : 0 : 0
+  :  :  :  :  :  : 0.4 : 0 : 0 :  :  : 0 : 0 : 0
+
 
 ** FEKO solution parameters
 FP: 0 : 0
@@ -46,4 +51,4 @@ OS:0
 ** End of file
 EN
 
-** CADFEKO Checksum: b6571e962e6c81381b9f77ce37151362
+** CADFEKO Checksum: 009a6dce47c1fa9000332570ccc11917
