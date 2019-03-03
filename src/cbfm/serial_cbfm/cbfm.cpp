@@ -197,35 +197,35 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 	int z_red_piv[num_red_rows];
 
 	zgetrf_(&num_red_rows, &num_red_rows, v_mom_z.z_red_concat, &num_red_rows, z_red_piv, &info); 
-    zgetrs_(&tran, &num_red_rows, &one, v_mom_z.z_red_concat, &num_red_rows,
+    zgetrs_(&norm, &num_red_rows, &one, v_mom_z.z_red_concat, &num_red_rows,
             z_red_piv, v_mom_v.v_red_concat, &num_red_rows, &info);
 
     index = 0;
     int rwg_pos = 0;
+    file << "-----------------" << std::endl;
 
   	for(int i = 0; i < num_domains; i++)
   	{
-  		if(i == (num_domains - 1))
-  		{
-  			rwg_pos = edges.size() - domain_size;
-  		}
 		zaxpy_(&domain_size, &v_mom_v.v_red_concat[index], v_mom_v.j_prim[i], &one, ilhs + rwg_pos, &one);
+		for(int i = 0; i < edges.size(); i++)
+  		{
+  			file << ilhs[i] << std::endl;
+  		}
+    	file << "-----------------" << std::endl;
+		index++;
 
   		for(int j = 0; j < (num_domains - 1); j++)
   		{
-
 			zaxpy_(&domain_size, &v_mom_v.v_red_concat[index], v_mom_v.j_sec[i][j], &one, ilhs + rwg_pos, &one);
-
+		for(int i = 0; i < edges.size(); i++)
+  		{
+  			file << ilhs[i] << std::endl;
+  		}
+    	file << "-----------------" << std::endl;
   			index++;
   		}
-  		rwg_pos++;
+  		rwg_pos += domain_size;
   	} 
-
-
-
-
-
-
 
 
 	file << "---------------------------------------Z_SELF------------------------------------------" << std::endl;

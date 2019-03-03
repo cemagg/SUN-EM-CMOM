@@ -4,7 +4,7 @@ from tkinter import filedialog
 import time
 
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt 
 
 import os
 import subprocess
@@ -176,6 +176,21 @@ class gui:
             error = errNormPercentage(cmom_sol, feko_sol)
             self.printScreen("Error: " + str(error))
 
+            # plot for debug
+
+            plt.figure(1)
+            plt.plot(feko_sol.real, label = "fekoreal")
+            plt.plot(cmom_sol.real, label = "cmomreal")
+            #plt.xlim(230, 270)
+            plt.legend()
+
+            plt.figure(2)
+            plt.plot(feko_sol.imag, label = "fekoimag")
+            plt.plot(cmom_sol.imag, label = "cmomimag")
+            #plt.xlim(230, 270)
+            plt.legend()
+
+            plt.show()
 
 
 
