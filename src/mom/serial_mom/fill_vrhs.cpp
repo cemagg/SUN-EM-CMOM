@@ -17,7 +17,7 @@ void serialFillVrhs(std::map<std::string, std::string> &const_map,
 {
 
     // std::vector<std::complex<double>> vrhs;
-    // vrhs.resize(edges.size());
+    // vrhs.resize(edges.size()); 
 
     // Test whether(sp?) the excitation is an edge feed or plane wave
     int edge_feed = 0; //TODO: FIX
@@ -43,7 +43,7 @@ void serialFillVrhs(std::map<std::string, std::string> &const_map,
 
         for(int i = 0; i < label.edge_indices.size(); i++)
         {
-            vrhs[i] = getVrhsValueForIncidentPlaneWave(i, incident_plane_wave, triangles, edges);
+            vrhs[i] = getVrhsValueForIncidentPlaneWave(label.edge_indices[i], incident_plane_wave, triangles, edges);
         }
     }
 }
