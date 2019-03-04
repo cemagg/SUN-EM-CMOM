@@ -1,9 +1,21 @@
+/**
+ * \file node.h
+ * Defining the data structure for three coordinates in a cartesian plane
+ * 
+ * \author Tameez Ebrahim
+ * \date   04 March 2019 
+ */
 #ifndef NODE_H
 #define NODE_H
 
 #include <complex>
 #include <vector>
 
+/**
+ * @brief      A sruct to store three coordinates in the cartesian plane
+ *
+ * @tparam     T     Can be any number. Tested on complex and double
+ */
 template<typename T>
 struct Node
 {
@@ -12,6 +24,17 @@ struct Node
     T z_coord;
 };
 
+/**
+ * @brief      Calculate the dot product between two nodes
+ *
+ * @param[in]  node1  A node
+ * @param[in]  node2  A node
+ *
+ * @tparam     T      A number
+ * @tparam     U      A number
+ *
+ * @return     A scalar answer to the dot product
+ */
 template <typename T, typename U>
 T dotProduct(Node<T> node1, Node<U> node2)
 {

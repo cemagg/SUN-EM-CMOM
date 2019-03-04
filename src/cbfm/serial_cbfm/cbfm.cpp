@@ -31,7 +31,6 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 	CBFMZMatrices v_mom_z; 
     CBFMVectors v_mom_v;
 
-
 	// Lets resize all the struct elements to fit the problem
 	resizeCBFMZMatricesForEqualDomains(v_mom_z, num_domains, label_map[0].edge_indices.size());	
 	resizeCBFMVectorsForEqualDomains(v_mom_v, num_domains, domain_size);
@@ -124,6 +123,12 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 	if(fpga)
 	{
 		// FPGA stuff
+		// Send concatenated CBF's 		-> amount: num_domains					   	-> From v_mom_v.j_cbfm
+		// Send self Zmn matrix 		-> amount: 1							   	-> From z_mom_z.z_self
+		// Send coupling Zmn matrices	-> amount: num_domains * (num_domains - 1) 	-> From z_mom_z.z_couple
+		// 
+		// Get reduced Zcbfm			-> amount: 1 								-> Place into z_mom_z.z_red_concat
+		// Get reduced Vcbfm			-> amount: 1 								-> Place into v_mom_v.v_red_concat
 	}
 	else
 	{
@@ -150,23 +155,28 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 			{
 				if(j == i)
 				{
+					// Calculate Zrwg_self * Jcbfm 
 				    zgemm_(&tran, &norm, &domain_size, &num_domains, &domain_size, &c_one, v_mom_z.z_self,
     	        		   &z_lda, v_mom_v.j_cbfm[i], &j_lda, &c_zero, c_temp, &z_lda);	
 
+				    // Calculate Zcbfm^-1 * [Zrwg_self * Jcbfm]
 				    zgemm_(&tran, &norm, &num_domains, &num_domains, &domain_size, &c_one, v_mom_v.j_cbfm[i],
     	        		   &domain_size, c_temp, &domain_size, &c_zero, v_mom_z.z_red[i][j], &num_domains);
 				}
 				else
 				{
+					// Calculate Zrwg_couple * Jcbfm 
 					zgemm_(&tran, &norm, &domain_size, &num_domains, &domain_size, &c_one, v_mom_z.z_couple[i][index],
     	        		   &z_lda, v_mom_v.j_cbfm[j], &j_lda, &c_zero, c_temp, &z_lda);	
 
+				    // Calculate Zcbfm^-1 * [Zrwg_couple * Jcbfm]
 					zgemm_(&tran, &norm, &num_domains, &num_domains, &domain_size, &c_one, v_mom_v.j_cbfm[i],
     	        		   &domain_size, c_temp, &domain_size, &c_zero, v_mom_z.z_red[i][j], &num_domains);
 
 					index++;
 				}
 
+				// Now move reduced Zcbfm to concatenated matrix
 				for(int k = 0; k < num_domains; k++)
 				{
 					if(k == 0)
@@ -196,37 +206,29 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 	int num_red_rows = num_domains * num_domains;
 	int z_red_piv[num_red_rows];
 
+	// Calculate Icbfm
 	zgetrf_(&num_red_rows, &num_red_rows, v_mom_z.z_red_concat, &num_red_rows, z_red_piv, &info); 
     zgetrs_(&norm, &num_red_rows, &one, v_mom_z.z_red_concat, &num_red_rows,
             z_red_piv, v_mom_v.v_red_concat, &num_red_rows, &info);
 
     index = 0;
     int rwg_pos = 0;
-    file << "-----------------" << std::endl;
 
+    // Map CBF's scaled by Icbfm to Irwg  
   	for(int i = 0; i < num_domains; i++)
   	{
 		zaxpy_(&domain_size, &v_mom_v.v_red_concat[index], v_mom_v.j_prim[i], &one, ilhs + rwg_pos, &one);
-		for(int i = 0; i < edges.size(); i++)
-  		{
-  			file << ilhs[i] << std::endl;
-  		}
-    	file << "-----------------" << std::endl;
 		index++;
 
   		for(int j = 0; j < (num_domains - 1); j++)
   		{
 			zaxpy_(&domain_size, &v_mom_v.v_red_concat[index], v_mom_v.j_sec[i][j], &one, ilhs + rwg_pos, &one);
-		for(int i = 0; i < edges.size(); i++)
-  		{
-  			file << ilhs[i] << std::endl;
-  		}
-    	file << "-----------------" << std::endl;
   			index++;
   		}
   		rwg_pos += domain_size;
   	} 
 
+  	// DEBUG --------------------------------------------------------------------------------------------------------------------
 
 	file << "---------------------------------------Z_SELF------------------------------------------" << std::endl;
 	for(int i = 0; i < domain_size; i++)
