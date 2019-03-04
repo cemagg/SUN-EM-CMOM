@@ -24,7 +24,7 @@ TBD
 
 TBD
 
-### <u>Features</u>
+### <u>Status</u>
 
 | Solver            | Serial | Parallel       |
 | ----------------- | ------ | -------------- |
