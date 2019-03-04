@@ -30,8 +30,8 @@ struct Node
  * @param[in]  node1  A node
  * @param[in]  node2  A node
  *
- * @tparam     T      A number
- * @tparam     U      A number
+ * @tparam     T      A number (double or std::complex<double> tested)
+ * @tparam     U      A number (double or std::complex<double> tested)
  *
  * @return     A scalar answer to the dot product
  */
@@ -43,6 +43,16 @@ T dotProduct(Node<T> node1, Node<U> node2)
             (node1.z_coord * node2.z_coord);
 }
 
+/**
+ * @brief      Multiply a node by a scalar number (std::complex<double> and double tested)
+ *
+ * @param[in]  node    The node
+ * @param[in]  scalar  The scalar number
+ *
+ * @tparam     T       Tested on double and std::complex<double>
+ *
+ * @return     The node multiplied by the scalar value
+ */
 template <typename T>
 Node<T> scalarMultiplication(Node<double> node, T scalar)
 {
