@@ -1,7 +1,5 @@
 #include "cbfm_helpers.h"
 
-
-
 void resizeCBFMZMatricesForEqualDomains(CBFMZMatrices &z_matrices, int num_domains, int num_edges_per_domain)
 {
 	// Allocate memory for z_self, z_self_inv, and z_self_piv
@@ -15,6 +13,7 @@ void resizeCBFMZMatricesForEqualDomains(CBFMZMatrices &z_matrices, int num_domai
 	z_matrices.z_couple.resize(num_domains);
 	z_matrices.z_red.resize(num_domains);
 
+	// Resize the matrix to store the concatenated reduced Z matrix
 	z_matrices.z_red_concat = new std::complex<double>[num_domains * num_domains * num_domains * num_domains];
 
 	// now resize the secondary vectors and allocate to the pointers
@@ -30,12 +29,10 @@ void resizeCBFMZMatricesForEqualDomains(CBFMZMatrices &z_matrices, int num_domai
 		
 		for(int j = 0; j < (num_domains - 1); j++)
 		{
-			// std::complex<double> *x = new std::complex<double>[num_edges_per_domain * num_edges_per_domain]();
 			z_matrices.z_couple[i][j] = new std::complex<double>[num_edges_per_domain * num_edges_per_domain]();
 		}
 	}	
 }
-
 
 void resizeCBFMVectorsForEqualDomains(CBFMVectors &v_vectors, int num_domains, int num_edges_per_domain)
 {
@@ -62,5 +59,4 @@ void resizeCBFMVectorsForEqualDomains(CBFMVectors &v_vectors, int num_domains, i
 			v_vectors.j_sec[i][j] = new std::complex<double>[num_edges_per_domain]();
 		}
 	}
-	
 }
