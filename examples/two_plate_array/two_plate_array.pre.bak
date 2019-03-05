@@ -6,13 +6,14 @@
 ** --- End CADFEKO checksum ignore
 
 ** Import mesh model
-IN   8 1055  "simple_plate_array.cfm"
+IN   8 1055  "two_plate_array.cfm"
 
 ** Finite antenna array
-FA: 0 : 2 : 2 :  :  :  :  :  :  :  : 0
+FA: 1 : 2 : 2 :  :  :  :  :  :  : 0 : 0
   :  :  :  :  :  : 0 : 0 : 0 :  :  : 0 : 0 : 0
-  :  :  :  :  :  : 0.4 : 0 : 0 :  :  : 0 : 0 : 0
+  :  :  :  :  :  : 2 : 0 : 0 :  :  : 0 : 0 : 0
 
+CB: r.Face1 : r
 
 ** FEKO solution parameters
 FP: 0 : 0
@@ -21,7 +22,7 @@ FP: 0 : 0
 EG: 0 : 0 : 0 :  :  : 1e-06 :  :  :  :  :  :  : 0
 
 ** Solution control
-PS: 0 : 1 : 1 : 1 :  : 1
+PS: 0 : 0 : 1 : 1 :  : 1
 CG: -1 :  : -1
 
 ** Set medium properties, coatings and skin effects
@@ -51,4 +52,4 @@ OS:0
 ** End of file
 EN
 
-** CADFEKO Checksum: 009a6dce47c1fa9000332570ccc11917
+** CADFEKO Checksum: c2bba6b858f9215071a54800dd93c6d9
