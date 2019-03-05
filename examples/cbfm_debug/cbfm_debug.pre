@@ -8,9 +8,8 @@
 ** Import mesh model
 IN   8 1055  "cbfm_debug.cfm"
 CB: t.Face1 : t
-
 ** Finite antenna array
-FA: 1 : 2 : 3 :  :  :  :  :  :  : 0 : 0
+FA: 0 : 2 : 3 :  :  :  :  :  :  :  : 0
   :  :  :  :  :  : 0 : 0 : 0 :  :  : 0 : 0 : 0
   :  :  :  :  :  : 0.2 : 0 : 0 :  :  : 0 : 0 : 0
   :  :  :  :  :  : 0.4 : 0 : 0 :  :  : 0 : 0 : 0
@@ -23,7 +22,7 @@ FP: 0 : 0
 EG: 0 : 0 : 0 :  :  : 1e-06 :  :  :  :  :  :  : 0
 
 ** Solution control
-PS: 0 : 0 : 1 : 1 :  : 1
+PS: 0 : 1 : 1 : 1 :  : 1
 CG: -1 :  : -1
 
 ** Set medium properties, coatings and skin effects
@@ -53,4 +52,4 @@ OS:0
 ** End of file
 EN
 
-** CADFEKO Checksum: 7bf411e0aafa8946e2405b2bb5ff11d8
+** CADFEKO Checksum: 9f5c437cf9645ecc41e81e1d21245dd4

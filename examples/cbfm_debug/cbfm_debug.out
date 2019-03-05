@@ -9,12 +9,12 @@ Computer: PC WIN64 EM64T MKL -- pc
           Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz; GenuineIntel family 6 model 12 stepping 3 brand id 0
           1 physical CPU with a total of 8 processors found (multi-core CPU with max. 4 cores per physical CPU)
 Threads:  OpenMP threading not used
-Date:     2019-03-05 16:35:54                     
+Date:     2019-03-05 18:08:28                     
 File:     cbfm_debug
 Memory:   Unlimited, system allows maximum usage of 7.682 GByte
-          (installed memory 7.878 GByte, thereof free 4.200 GByte)
-MD5 Check:9F6149825054D6D844CFE552162B23EA
-MD5 Total:CC02532DAC10A961A5DE9406C9BAAB0B
+          (installed memory 7.878 GByte, thereof free 3.125 GByte)
+MD5 Check:6EC51F6A30E6BFD1A005A85C7EA22587
+MD5 Total:8D29543B67AFE511D8205540A459AB87
  Licence:  Altair HyperWorks
 
  NOTE    35127: You are running a sequential version of FEKO, but it was detected that your CPU has more than one core. For best performance, it would be recommended to run the parallel FEKO kernel (your licence allows this)
@@ -148,12 +148,8 @@ SPICE
  Number of basis funct. for MoM:            12  unknown:       12             max. basisf.       MAXNZEILE =       18
  Number of basis funct. for PO:              0  unknown:        0             max. basisf.       MAXNKAPO  =        0
 
-
-
-                           DOMAIN GREEN'S FUNCTION METHOD (DGFM) is used
-
  read from input file:
-PS       0    0    1    1    0 1.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+PS       0    1    1    1    0 1.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
  read from input file:
 CG      -1    0   -1    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00-1.000E+00-1.000E+00 0.000E+00 0.000E+00
  read from input file:
@@ -216,12 +212,12 @@ index  permittivity permeability   in S/m       (electric)    (magnetic)       i
 
  Storage using double precision
 
- Memory requirement for MoM matrix:        16 rows *        4 columns =          64 complex numbers
- For the MoM matrix, a memory of           64 complex numbers is used (i.e. 1024 Byte)
+ Memory requirement for MoM matrix:        16 rows *       12 columns =         192 complex numbers
+ For the MoM matrix, a memory of          192 complex numbers is used (i.e. 3.000 kByte)
  Storing the matrix and solving the linear set of equations in main memory (storage scheme 1)
 
-     A total of 31.983 kByte of memory has been allocated dynamically
-     (peak memory usage of 31.983 kByte so far)
+     A total of 34.515 kByte of memory has been allocated dynamically
+     (peak memory usage of 34.515 kByte so far)
 
 
 
@@ -233,50 +229,13 @@ index  permittivity permeability   in S/m       (electric)    (magnetic)       i
 
 
                     SOLUTION OF THE LINEAR SET OF EQUATIONS WITH LAPAGAU
-                              DGFM -- DOMAIN NUMBER:            1
 
-               Condition number of the matrix:  3.33203E+01
+               Condition number of the matrix:  3.43254E+01
 
                Floating point performance for LU decomposition:
                     Not determined since computation time too short
 
      CPU time for solving the linear set of equations:       0.008 seconds
-
-
-               PRE-CONDITIONING OF THE LINEAR SET OF EQUATIONS
-
-               Selected preconditioner algorithm: 1
-
-     CPU time for preconditioning:       0.000 seconds
-
-
-                    SOLUTION OF THE LINEAR SET OF EQUATIONS WITH LAPAGAU
-                              DGFM -- DOMAIN NUMBER:            2
-
-               Condition number of the matrix:  3.30891E+01
-
-               Floating point performance for LU decomposition:
-                    Not determined since computation time too short
-
-     CPU time for solving the linear set of equations:       0.000 seconds
-
-
-               PRE-CONDITIONING OF THE LINEAR SET OF EQUATIONS
-
-               Selected preconditioner algorithm: 1
-
-     CPU time for preconditioning:       0.000 seconds
-
-
-                    SOLUTION OF THE LINEAR SET OF EQUATIONS WITH LAPAGAU
-                              DGFM -- DOMAIN NUMBER:            3
-
-               Condition number of the matrix:  3.33203E+01
-
-               Floating point performance for LU decomposition:
-                    Not determined since computation time too short
-
-     CPU time for solving the linear set of equations:       0.000 seconds
 
 
 
@@ -299,19 +258,19 @@ EN       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
                     SUMMARY OF REQUIRED TIMES IN SECONDS
 
                                              CPU-time       runtime
- Reading and constructing the geometry          0.010         0.010
+ Reading and constructing the geometry          0.011         0.011
  Checking the geometry                          0.000         0.000
  Initialisation of the Green's function         0.000         0.000
  Calcul. of coupling for PO/Fock                0.000         0.000
  Transformation to equivalent sources           0.000         0.000
  Ray launching/tracing phase of RL-GO           0.000         0.000
- Calcul. of matrix elements                     0.009         0.010
- Calcul. of right-hand side vector              0.001         0.000
+ Calcul. of matrix elements                     0.009         0.009
+ Calcul. of right-hand side vector              0.001         0.001
  Preconditioning system of linear eqns.         0.000         0.000
- Solution of the system of linear eqns.         0.008         0.009
+ Solution of the system of linear eqns.         0.008         0.008
  Eigensolution for characteristic modes         0.000         0.000
  Determination of surface currents              0.000         0.000
- Calcul. of impedances/powers/losses            0.001         0.001
+ Calcul. of impedances/powers/losses            0.011         0.011
  Calcul. of averaged SAR values                 0.000         0.000
  Calcul. of power receiving antenna             0.000         0.000
  Calcul. of cable coupling                      0.000         0.000
@@ -319,11 +278,11 @@ EN       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
  Calcul. of electric near field                 0.000         0.000
  Calcul. of magnetic near field                 0.000         0.000
  Calcul. of far field                           0.000         0.000
-                            other               0.006         0.004
+                            other               0.021         0.021
                                          ------------  ------------
-                         total times:           0.035         0.034
+                         total times:           0.061         0.061
                (total times in hours:           0.000         0.000)
 
- Peak memory usage during the whole solution: 32.187 kByte
+ Peak memory usage during the whole solution: 35.124 kByte
 
-Finished: 2019-03-05 16:35:55                     
+Finished: 2019-03-05 18:08:28                     
