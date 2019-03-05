@@ -9,12 +9,12 @@ Computer: PC WIN64 EM64T MKL -- pc
           Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz; GenuineIntel family 6 model 12 stepping 3 brand id 0
           1 physical CPU with a total of 8 processors found (multi-core CPU with max. 4 cores per physical CPU)
 Threads:  OpenMP threading not used
-Date:     2019-02-25 19:11:34                     
-File:     two_plate_array_coarse
+Date:     2019-03-02 20:48:31                     
+File:     three_plate_array
 Memory:   Unlimited, system allows maximum usage of 7.682 GByte
-          (installed memory 7.878 GByte, thereof free 3.728 GByte)
-MD5 Check:B24E3226C3CB08D94A4B6B2D087B03C2
-MD5 Total:32A37882B14E560F99760480E60E648C
+          (installed memory 7.878 GByte, thereof free 3.715 GByte)
+MD5 Check:C20D8F35DABF7DBB244429ED594AFCDB
+MD5 Total:A65DB237FF2C9DE21E856D4DD42E6A93
  Licence:  Altair HyperWorks
 
  NOTE    35127: You are running a sequential version of FEKO, but it was detected that your CPU has more than one core. For best performance, it would be recommended to run the parallel FEKO kernel (your licence allows this)
@@ -24,7 +24,7 @@ SPICE
   Engine:      NGSPICE
   Executable:  C:\Program Files\Altair\2017\FEKO\bin\vngspicec.exe
 
-          Surface of all triangles in m*m:     2.00000E-02
+          Surface of all triangles in m*m:     3.00000E-02
 
 
                          DATA OF THE METALLIC TRIANGLES
@@ -33,35 +33,51 @@ SPICE
           medium     x2 in m     y2 in m     z2 in m
           medium     x3 in m     y3 in m     z3 in m
                        nx          ny          nz          area in m*m
-        1 re.Fac   1.5000E-01  4.3878E-02  0.0000E+00            1         2           
-          Free s   2.0000E-01  1.0000E-01  0.0000E+00
+        1 r.Face   5.0000E-02  4.3878E-02  0.0000E+00            1         2           
           Free s   1.0000E-01  1.0000E-01  0.0000E+00
+          Free s   0.0000E+00  1.0000E-01  0.0000E+00
                    0.0000E+00  0.0000E+00  1.0000E+00      2.8061E-03
-        2 re.Fac   2.0000E-01  0.0000E+00  0.0000E+00            3         4           
-          Free s   1.5000E-01  4.3878E-02  0.0000E+00
-          Free s   1.0000E-01  0.0000E+00  0.0000E+00
+        2 r.Face   1.0000E-01  0.0000E+00  0.0000E+00            3         4           
+          Free s   5.0000E-02  4.3878E-02  0.0000E+00
+          Free s   0.0000E+00  0.0000E+00  0.0000E+00
                    0.0000E+00  0.0000E+00  1.0000E+00      2.1939E-03
-        3 re.Fac   1.5000E-01  4.3878E-02  0.0000E+00           -1        -3           
-          Free s   2.0000E-01  0.0000E+00  0.0000E+00
-          Free s   2.0000E-01  1.0000E-01  0.0000E+00
-                   0.0000E+00  0.0000E+00  1.0000E+00      2.5000E-03
-        4 re.Fac   1.5000E-01  4.3878E-02  0.0000E+00           -2        -4           
-          Free s   1.0000E-01  1.0000E-01  0.0000E+00
+        3 r.Face   5.0000E-02  4.3878E-02  0.0000E+00           -1        -3           
           Free s   1.0000E-01  0.0000E+00  0.0000E+00
+          Free s   1.0000E-01  1.0000E-01  0.0000E+00
                    0.0000E+00  0.0000E+00  1.0000E+00      2.5000E-03
-        5 no.Fac  -1.5000E-01  4.3878E-02  0.0000E+00            5         6           
+        4 r.Face   5.0000E-02  4.3878E-02  0.0000E+00           -2        -4           
+          Free s   0.0000E+00  1.0000E-01  0.0000E+00
+          Free s   0.0000E+00  0.0000E+00  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      2.5000E-03
+        5 l.Face   2.5000E-01  4.3878E-02  0.0000E+00            5         6           
+          Free s   3.0000E-01  1.0000E-01  0.0000E+00
+          Free s   2.0000E-01  1.0000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      2.8061E-03
+        6 l.Face   3.0000E-01  0.0000E+00  0.0000E+00            7         8           
+          Free s   2.5000E-01  4.3878E-02  0.0000E+00
+          Free s   2.0000E-01  0.0000E+00  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      2.1939E-03
+        7 l.Face   2.5000E-01  4.3878E-02  0.0000E+00           -5        -7           
+          Free s   3.0000E-01  0.0000E+00  0.0000E+00
+          Free s   3.0000E-01  1.0000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      2.5000E-03
+        8 l.Face   2.5000E-01  4.3878E-02  0.0000E+00           -6        -8           
+          Free s   2.0000E-01  1.0000E-01  0.0000E+00
+          Free s   2.0000E-01  0.0000E+00  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      2.5000E-03
+        9 m.Face  -1.5000E-01  4.3878E-02  0.0000E+00            9        10           
           Free s  -1.0000E-01  1.0000E-01  0.0000E+00
           Free s  -2.0000E-01  1.0000E-01  0.0000E+00
                    0.0000E+00  0.0000E+00  1.0000E+00      2.8061E-03
-        6 no.Fac  -1.5000E-01  4.3878E-02  0.0000E+00           -5         7           
+       10 m.Face  -1.5000E-01  4.3878E-02  0.0000E+00           -9        11           
           Free s  -2.0000E-01  1.0000E-01  0.0000E+00
           Free s  -2.0000E-01  0.0000E+00  0.0000E+00
                    0.0000E+00  0.0000E+00  1.0000E+00      2.5000E-03
-        7 no.Fac  -1.5000E-01  4.3878E-02  0.0000E+00           -7         8           
+       11 m.Face  -1.5000E-01  4.3878E-02  0.0000E+00          -11        12           
           Free s  -2.0000E-01  0.0000E+00  0.0000E+00
           Free s  -1.0000E-01  0.0000E+00  0.0000E+00
                    0.0000E+00  0.0000E+00  1.0000E+00      2.1939E-03
-        8 no.Fac  -1.5000E-01  4.3878E-02  0.0000E+00           -6        -8           
+       12 m.Face  -1.5000E-01  4.3878E-02  0.0000E+00          -10       -12           
           Free s  -1.0000E-01  0.0000E+00  0.0000E+00
           Free s  -1.0000E-01  1.0000E-01  0.0000E+00
                    0.0000E+00  0.0000E+00  1.0000E+00      2.5000E-03
@@ -75,15 +91,19 @@ SPICE
         2   1    7.5164E-02  Free s     -1      1      4      2      3       0      0      0  unknown  
         3   1    6.6523E-02  Free s     -1      2      3      3      3       0      0      0  unknown  
         4   1    6.6523E-02  Free s     -1      2      4      1      2       0      0      0  unknown  
-        5   1    7.5164E-02  Free s     -1      5      6      2      3       0      0      0  unknown  
-        6   1    7.5164E-02  Free s     -1      5      8      3      2       0      0      0  unknown  
-        7   1    6.6523E-02  Free s     -1      6      7      2      3       0      0      0  unknown  
-        8   1    6.6523E-02  Free s     -1      7      8      2      3       0      0      0  unknown  
+        5   1    7.5164E-02  Free s     -1      5      7      3      2       0      0      0  unknown  
+        6   1    7.5164E-02  Free s     -1      5      8      2      3       0      0      0  unknown  
+        7   1    6.6523E-02  Free s     -1      6      7      3      3       0      0      0  unknown  
+        8   1    6.6523E-02  Free s     -1      6      8      1      2       0      0      0  unknown  
+        9   1    7.5164E-02  Free s     -1      9     10      2      3       0      0      0  unknown  
+       10   1    7.5164E-02  Free s     -1      9     12      3      2       0      0      0  unknown  
+       11   1    6.6523E-02  Free s     -1     10     11      2      3       0      0      0  unknown  
+       12   1    6.6523E-02  Free s     -1     11     12      2      3       0      0      0  unknown  
 
 
                                 DATA FOR MEMORY USAGE
 
- Number of metallic triangles:               8                                max. triangles:    MAXNDR    =        8
+ Number of metallic triangles:              12                                max. triangles:    MAXNDR    =       12
  Number of dielectric triangles:             0
  Number of aperture triangles:               0
  Number of RL-GO triangles:                  0
@@ -101,7 +121,7 @@ SPICE
                                                                               max. corner pts.:  MAXPOLYP  =        0
  Number of UTD cylinders:                    0
 
- Number of metallic edges (MoM):             8  unknown:        8 (electr.)   max. edges:        MAXNKA    =        8
+ Number of metallic edges (MoM):            12  unknown:       12 (electr.)   max. edges:        MAXNKA    =       12
                                              0  unknown:        0 (magnet.)
  Number of metallic edges (PO):              0  unknown:        0 (electr.)
                                                 unknown:        0 (magnet.)
@@ -119,11 +139,11 @@ SPICE
  Number of dielectric faces (VEP):           0  unknown:        0
  Number of magnetic faces (VEP):             0  unknown:        0
 
- Number of basis funct. for MoM:             8  unknown:        8             max. basisf.       MAXNZEILE =       12
+ Number of basis funct. for MoM:            12  unknown:       12             max. basisf.       MAXNZEILE =       18
  Number of basis funct. for PO:              0  unknown:        0             max. basisf.       MAXNKAPO  =        0
 
  read from input file:
-PS       0    1    1    1    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+PS       0    0    1    1    0 1.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
  read from input file:
 CG      -1    0   -1    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00-1.000E+00-1.000E+00 0.000E+00 0.000E+00
  read from input file:
@@ -186,12 +206,12 @@ index  permittivity permeability   in S/m       (electric)    (magnetic)       i
 
  Storage using double precision
 
- Memory requirement for MoM matrix:        16 rows *        8 columns =         128 complex numbers
- For the MoM matrix, a memory of          128 complex numbers is used (i.e. 2.000 kByte)
+ Memory requirement for MoM matrix:        16 rows *       12 columns =         192 complex numbers
+ For the MoM matrix, a memory of          192 complex numbers is used (i.e. 3.000 kByte)
  Storing the matrix and solving the linear set of equations in main memory (storage scheme 1)
 
-     A total of 20.554 kByte of memory has been allocated dynamically
-     (peak memory usage of 20.554 kByte so far)
+     A total of 24.240 kByte of memory has been allocated dynamically
+     (peak memory usage of 24.240 kByte so far)
 
 
 
@@ -204,7 +224,7 @@ index  permittivity permeability   in S/m       (electric)    (magnetic)       i
 
                     SOLUTION OF THE LINEAR SET OF EQUATIONS WITH LAPAGAU
 
-               Condition number of the matrix:  3.34420E+01
+               Condition number of the matrix:  3.43254E+01
 
                Floating point performance for LU decomposition:
                     Not determined since computation time too short
@@ -232,14 +252,14 @@ EN       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
                     SUMMARY OF REQUIRED TIMES IN SECONDS
 
                                              CPU-time       runtime
- Reading and constructing the geometry          0.009         0.009
+ Reading and constructing the geometry          0.008         0.008
  Checking the geometry                          0.000         0.000
  Initialisation of the Green's function         0.000         0.000
  Calcul. of coupling for PO/Fock                0.000         0.000
  Transformation to equivalent sources           0.000         0.000
  Ray launching/tracing phase of RL-GO           0.000         0.000
- Calcul. of matrix elements                     0.008         0.008
- Calcul. of right-hand side vector              0.001         0.001
+ Calcul. of matrix elements                     0.009         0.009
+ Calcul. of right-hand side vector              0.000         0.000
  Preconditioning system of linear eqns.         0.000         0.000
  Solution of the system of linear eqns.         0.008         0.008
  Eigensolution for characteristic modes         0.000         0.000
@@ -252,11 +272,11 @@ EN       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
  Calcul. of electric near field                 0.000         0.000
  Calcul. of magnetic near field                 0.000         0.000
  Calcul. of far field                           0.000         0.000
-                            other               0.008         0.008
+                            other               0.005         0.005
                                          ------------  ------------
-                         total times:           0.035         0.035
+                         total times:           0.031         0.031
                (total times in hours:           0.000         0.000)
 
- Peak memory usage during the whole solution: 20.960 kByte
+ Peak memory usage during the whole solution: 24.850 kByte
 
-Finished: 2019-02-25 19:11:34                     
+Finished: 2019-03-02 20:48:31                     

@@ -6,7 +6,7 @@
 ** --- End CADFEKO checksum ignore
 
 ** Import mesh model
-IN   8 1055  "two_plate_array_coarse.cfm"
+IN   8 1055  "two_plate_array.cfm"
 
 
 ** FEKO solution parameters
@@ -16,7 +16,7 @@ FP: 0 : 0
 EG: 0 : 0 : 0 :  :  : 1e-06 :  :  :  :  :  :  : 0
 
 ** Solution control
-PS: 0 : 1 : 1 : 1 :  : 0
+PS: 0 : 0 : 1 : 1 :  : 1
 CG: -1 :  : -1
 
 ** Set medium properties, coatings and skin effects
@@ -46,4 +46,4 @@ OS:0
 ** End of file
 EN
 
-** CADFEKO Checksum: a237276b9f8f50883236649edc23e89b
+** CADFEKO Checksum: 65b3be92cfdd4e7c86198472ce04dc1b

@@ -10,7 +10,7 @@ def readMoMFile(file_path):
 
     isol = np.empty(sol_length, dtype=complex)
     index = 0
-
+ 
     while line:
         content = line.split()
         content = content[0][1:-1].split(',')

@@ -14,3 +14,7 @@ src/pre_processor/log\.txt
 src/pre_processor/__pycache__/
 
 cbfm_build/
+
+log\.txt
+
+cbfm\.txt

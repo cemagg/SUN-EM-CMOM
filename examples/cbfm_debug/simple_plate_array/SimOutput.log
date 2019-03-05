@@ -1,0 +1,134 @@
+3-3-2019, 18:58:52 =>  
+3-3-2019, 18:58:52 => ==================================================================================
+3-3-2019, 18:58:52 => ======                          SUN-EM                                      ======
+3-3-2019, 18:58:52 => ======                 Version 1.29 Date: 2018-9-9                         ======
+3-3-2019, 18:58:52 => ======                                                                      ======
+3-3-2019, 18:58:52 => ======      CEM toolkit and solvers from Stellenbosch University            ======
+3-3-2019, 18:58:52 => ======                      Copyright 2018                                  ======
+3-3-2019, 18:58:52 => ==================================================================================
+3-3-2019, 18:58:52 =>  
+3-3-2019, 18:58:52 =>  
+3-3-2019, 18:58:52 => ------------------------------------------------------------------------------------
+3-3-2019, 18:58:52 => Reading *.mat file from: simple_plate_array.mat
+3-3-2019, 18:58:52 => Read Zmn file version 5
+3-3-2019, 18:58:52 => Dim. of Zmn is m=34 and n=34
+3-3-2019, 18:58:52 => Zmn is stored in double precision
+3-3-2019, 18:58:52 => Read: 1 frequencies (number of Z-mats.)
+3-3-2019, 18:58:52 => Finished processing the *.mat file: simple_plate_array.mat
+3-3-2019, 18:58:52 =>  
+3-3-2019, 18:58:52 => ------------------------------------------------------------------------------------
+3-3-2019, 18:58:52 => Reading *.str file from: ascii_simple_plate_array.str
+3-3-2019, 18:58:52 => Read Xsol file version 4
+3-3-2019, 18:58:52 => No. of MoM basis = 34 and no. of FEM basis = 0
+3-3-2019, 18:58:52 => Read: 1 solutions (number of Xsols.)
+3-3-2019, 18:58:52 => Finished processing the *.str file: ascii_simple_plate_array.str
+3-3-2019, 18:58:52 =>  
+3-3-2019, 18:58:52 => ------------------------------------------------------------------------------------
+3-3-2019, 18:58:52 => Reading *.rhs file from: simple_plate_array.rhs
+3-3-2019, 18:58:52 => Read: 1 excitations (number of Yrhs.)
+3-3-2019, 18:58:52 => Finished processing the *.rhs file: simple_plate_array.rhs
+3-3-2019, 18:58:52 =>  
+3-3-2019, 18:58:52 => ------------------------------------------------------------------------------------
+3-3-2019, 18:58:52 => Initialising the configuration setup
+3-3-2019, 18:58:52 => Done
+3-3-2019, 18:58:52 =>  
+3-3-2019, 18:58:52 => ------------------------------------------------------------------------------------
+3-3-2019, 18:58:52 => Reading additional FEKO data from *.out file
+3-3-2019, 18:58:52 =>   *.out file: simple_plate_array.out
+3-3-2019, 18:58:52 => 
+  Number of frequencies: 1
+3-3-2019, 18:58:52 =>   Number of metallic triangles: 28
+3-3-2019, 18:58:52 =>   Number of metallic edges (RWG basis functions): 34
+3-3-2019, 18:58:52 =>   Number of MoM basis functions: 34
+3-3-2019, 18:58:52 =>   Number of finite array elements: -1
+3-3-2019, 18:58:52 =>   Number of MoM basis functions per array element : -1
+3-3-2019, 18:58:52 =>   Finished processing the *.out file: simple_plate_array.out
+3-3-2019, 18:58:52 =>  
+3-3-2019, 18:58:52 => ------------------------------------------------------------------------------------
+3-3-2019, 18:58:52 => Calculating MoM matrix internally
+3-3-2019, 18:58:52 =>   Calculating V-vector (RHS) 
+3-3-2019, 18:58:53 =>   Calculating Z-matrix 
+3-3-2019, 18:58:53 =>     Processing frequency 1 of 1 (299792000.00 Hz) 
+3-3-2019, 18:58:53 => Time for Z-matrix setup       : 0.278246 sec.
+3-3-2019, 18:58:53 => Time for V-vector (RHS) setup : 0.021435 sec.
+3-3-2019, 18:58:53 => Comparing matrices
+3-3-2019, 18:58:53 =>   Rel. error norm. for Z compared to FEKO sol. 8.511725 percent
+3-3-2019, 18:58:53 =>   Maximum difference in Z-matrix entry: 0.000035 + j*0.332047
+3-3-2019, 18:58:53 =>  
+3-3-2019, 18:58:53 => ------------------------------------------------------------------------------------
+3-3-2019, 18:58:53 => Running MoM solver
+3-3-2019, 18:58:53 =>   numSols : 1
+3-3-2019, 18:58:53 =>   numFreq : 1
+3-3-2019, 18:58:53 =>   numRHSperFreq : 1
+3-3-2019, 18:58:53 => Finished MoM solver in 0.103682 sec.
+3-3-2019, 18:58:53 => (Times for Z-setup : 0.016093 sec. and LU-fact. : 0.087590)
+3-3-2019, 18:58:53 => Memory usage of MoM 18.06 kb
+3-3-2019, 18:58:53 => Rel. error norm. for Sol. 1 of 1 of freq. 1 of 1 compared to reference sol. 6.543014 percent
+3-3-2019, 18:58:53 => Finished EM Solvers
+3-3-2019, 22:1:6 =>  
+3-3-2019, 22:1:6 => ==================================================================================
+3-3-2019, 22:1:6 => ======                          SUN-EM                                      ======
+3-3-2019, 22:1:6 => ======                 Version 1.29 Date: 2018-9-9                         ======
+3-3-2019, 22:1:6 => ======                                                                      ======
+3-3-2019, 22:1:6 => ======      CEM toolkit and solvers from Stellenbosch University            ======
+3-3-2019, 22:1:6 => ======                      Copyright 2018                                  ======
+3-3-2019, 22:1:6 => ==================================================================================
+3-3-2019, 22:1:6 =>  
+3-3-2019, 22:1:6 =>  
+3-3-2019, 22:1:6 => ------------------------------------------------------------------------------------
+3-3-2019, 22:1:6 => Reading *.mat file from: simple_plate_array.mat
+3-3-2019, 22:1:6 => Read Zmn file version 5
+3-3-2019, 22:1:6 => Dim. of Zmn is m=34 and n=34
+3-3-2019, 22:1:6 => Zmn is stored in double precision
+3-3-2019, 22:1:6 => Read: 1 frequencies (number of Z-mats.)
+3-3-2019, 22:1:6 => Finished processing the *.mat file: simple_plate_array.mat
+3-3-2019, 22:1:6 =>  
+3-3-2019, 22:1:6 => ------------------------------------------------------------------------------------
+3-3-2019, 22:1:6 => Reading *.str file from: ascii_simple_plate_array.str
+3-3-2019, 22:1:6 => Read Xsol file version 4
+3-3-2019, 22:1:6 => No. of MoM basis = 34 and no. of FEM basis = 0
+3-3-2019, 22:1:6 => Read: 1 solutions (number of Xsols.)
+3-3-2019, 22:1:6 => Finished processing the *.str file: ascii_simple_plate_array.str
+3-3-2019, 22:1:6 =>  
+3-3-2019, 22:1:6 => ------------------------------------------------------------------------------------
+3-3-2019, 22:1:6 => Reading *.rhs file from: simple_plate_array.rhs
+3-3-2019, 22:1:6 => Read: 1 excitations (number of Yrhs.)
+3-3-2019, 22:1:6 => Finished processing the *.rhs file: simple_plate_array.rhs
+3-3-2019, 22:1:6 =>  
+3-3-2019, 22:1:6 => ------------------------------------------------------------------------------------
+3-3-2019, 22:1:6 => Initialising the configuration setup
+3-3-2019, 22:1:6 => Done
+3-3-2019, 22:1:6 =>  
+3-3-2019, 22:1:6 => ------------------------------------------------------------------------------------
+3-3-2019, 22:1:6 => Reading additional FEKO data from *.out file
+3-3-2019, 22:1:6 =>   *.out file: simple_plate_array.out
+3-3-2019, 22:1:6 => 
+  Number of frequencies: 1
+3-3-2019, 22:1:6 =>   Number of metallic triangles: 28
+3-3-2019, 22:1:6 =>   Number of metallic edges (RWG basis functions): 34
+3-3-2019, 22:1:6 =>   Number of MoM basis functions: 34
+3-3-2019, 22:1:6 =>   Number of finite array elements: 2
+3-3-2019, 22:1:6 =>   Number of MoM basis functions per array element : 17
+3-3-2019, 22:1:6 =>   Finished processing the *.out file: simple_plate_array.out
+3-3-2019, 22:1:6 =>  
+3-3-2019, 22:1:6 => ------------------------------------------------------------------------------------
+3-3-2019, 22:1:6 => Calculating MoM matrix internally
+3-3-2019, 22:1:6 =>   Calculating V-vector (RHS) 
+3-3-2019, 22:1:6 =>   Calculating Z-matrix 
+3-3-2019, 22:1:6 =>     Processing frequency 1 of 1 (299792000.00 Hz) 
+3-3-2019, 22:1:6 => Time for Z-matrix setup       : 0.166786 sec.
+3-3-2019, 22:1:6 => Time for V-vector (RHS) setup : 0.005233 sec.
+3-3-2019, 22:1:6 => Comparing matrices
+3-3-2019, 22:1:6 =>   Rel. error norm. for Z compared to FEKO sol. 8.486775 percent
+3-3-2019, 22:1:6 =>   Maximum difference in Z-matrix entry: 0.000035 + j*0.332047
+3-3-2019, 22:1:6 =>  
+3-3-2019, 22:1:6 => ------------------------------------------------------------------------------------
+3-3-2019, 22:1:6 => Running MoM solver
+3-3-2019, 22:1:6 =>   numSols : 1
+3-3-2019, 22:1:6 =>   numFreq : 1
+3-3-2019, 22:1:6 =>   numRHSperFreq : 1
+3-3-2019, 22:1:6 => Finished MoM solver in 0.091636 sec.
+3-3-2019, 22:1:6 => (Times for Z-setup : 0.000419 sec. and LU-fact. : 0.091217)
+3-3-2019, 22:1:6 => Memory usage of MoM 18.06 kb
+3-3-2019, 22:1:6 => Rel. error norm. for Sol. 1 of 1 of freq. 1 of 1 compared to reference sol. 100.117760 percent
+3-3-2019, 22:1:6 => Finished EM Solvers
