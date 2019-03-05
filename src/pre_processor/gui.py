@@ -1,13 +1,17 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog
+import time
 
 import numpy as np
+import matplotlib.pyplot as plt 
 
 import os
 import subprocess
 
 from read_feko_files import FEKOFileReader
+from read_feko_files import readFEKOStrFile
+from read_feko_files import errNormPercentage
 from mom_file_writer import writeMoMFIle
 from mom_file_reader import readMoMFile
 
@@ -19,7 +23,9 @@ class gui:
 
         # w = 400
         # h = 700
-
+        working_dir = os.getcwd()
+        sp = working_dir.split("src", 1);
+        self.cwd = sp[0]
         self.master = master
         self.master.title("CMoM PreProcessor")
         #self.master.geometry('{}x{}'.format(w, h))
@@ -92,7 +98,7 @@ class gui:
 
 
     def onChooseFileClick(self):
-        file_name = filedialog.askopenfilename(initialdir="/home/", title="Select File", filetypes = (("FEKO .out File", "*.out"),
+        file_name = filedialog.askopenfilename(initialdir=self.cwd + "/examples/", title="Select File", filetypes = (("FEKO .out File", "*.out"),
                                                                                                     ("CMoM .mom File", "*.mom"),
                                                                                                     ("All Files", "*.*")))
         #print(type(file_name), file_name)
@@ -131,31 +137,63 @@ class gui:
             serial_build_exec_flag = False
             serial_create_dir_flag = False
 
-            if os.path.isdir("../../build") != True:
+            if os.path.isdir(self.cwd + "/build") != True:
                 serial_build_exec_flag = True
                 serial_create_dir_flag = True
             else:
-                if os.path.isfile("../../build/mom") != True:
+                if os.path.isfile(self.cwd + "/build/mom") != True:
                     serial_build_exec_flag = True
             
             if serial_create_dir_flag:
-                os.mkdir("../../build")
+                os.mkdir(self.cwd+"/build")
                 self.printScreen("Serial build directory created")
             
             if serial_build_exec_flag:
-                cmd = "cd ../../build/; cmake ..; make"
+                cmd = "cd " + self.cwd + "/build/; cmake ..; make"
                 self.run_cmd(cmd)
 
             if self.file_path_txt_var.get()[-3:] == "mom":
-                cmd = "../../build/mom " + self.file_path_txt_var.get()
+                cmd = self.cwd+"/build/mom " + self.file_path_txt_var.get()
             else:
-                cmd = "../../build/mom " + self.file_path_txt_var.get()[:-3] + "mom"
+                cmd = self.cwd+"/build/mom " + self.file_path_txt_var.get()[:-3] + "mom"
             
+            if self.cbox_solver.get() == "CBFM":
+                cmd = cmd + " --cbfm"
+            
+            start = time.time()
             self.run_cmd(cmd)
-            self.printScreen("Solver Complete")
+            end = time.time()
+            elapsed = end - start
 
-            isol = readMoMFile(self.file_path_txt_var.get()[:-3]+"sol")
-            self.printScreen("Solution Read")
+            self.printScreen("Solver Complete in " + str(elapsed) + "seconds")
+
+            cmom_sol = readMoMFile(self.file_path_txt_var.get()[:-3]+"sol")
+            self.printScreen("CMoM Solution Read")
+
+            feko_sol = readFEKOStrFile(self.file_path_txt_var.get()[:-3]+"str", self.cwd)
+            self.printScreen("FEKO Solution Read")
+
+            error = errNormPercentage(cmom_sol, feko_sol)
+            self.printScreen("Error: " + str(error))
+
+            # plot for debug
+
+            plt.figure(1)
+            plt.plot(feko_sol.real, label = "fekoreal")
+            plt.plot(cmom_sol.real, label = "cmomreal")
+            #plt.xlim(230, 270)
+            plt.legend()
+
+            plt.figure(2)
+            plt.plot(feko_sol.imag, label = "fekoimag")
+            plt.plot(cmom_sol.imag, label = "cmomimag")
+            #plt.xlim(230, 270)
+            plt.legend()
+
+            plt.show()
+
+
+
 
 
 

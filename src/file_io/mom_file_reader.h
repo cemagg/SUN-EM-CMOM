@@ -12,11 +12,12 @@
 #include "../data_structures/node.h"
 #include "../data_structures/edge.h"
 #include "../data_structures/triangle.h"
+#include "../data_structures/label.h"
 
 class MoMFileReader
 {
     public:
-        MoMFileReader(std::string file_path);
+        MoMFileReader(std::string file_path, bool cbfm);
 
         std::map<std::string, std::string> getConstMap();
         std::vector<Node<double>> getNodes();
@@ -24,7 +25,7 @@ class MoMFileReader
         std::vector<Edge> getEdges();
 
         std::map<std::string, std::string> const_map;
-        std::map<int, std::vector<int>> label_map;
+        std::map<int, Label> label_map;
         std::vector<Node<double>> nodes;
         std::vector<Triangle> triangles;
         std::vector<Edge> edges;
