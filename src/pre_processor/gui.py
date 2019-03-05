@@ -84,7 +84,7 @@ class gui:
         # Message Window
         self.f_message_window = tk.Frame(master)
         self.t_message_window = tk.Text(self.f_message_window, state="disabled")
-        self.t_message_window.pack(fill=tk.BOTH)
+        self.t_message_window.pack(fill=tk.BOTH, expand=True)
         
         # Pack all the frames
         self.f_file_chooser.grid(sticky=tk.W+tk.E+tk.N+tk.S)
