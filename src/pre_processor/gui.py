@@ -23,7 +23,7 @@ class gui:
 
         # w = 400
         # h = 700
-        working_dir = os.getcwd()
+        working_dir = os.path.dirname(os.path.abspath(__file__))
         sp = working_dir.split("src", 1);
         self.cwd = sp[0]
         self.master = master
@@ -137,25 +137,25 @@ class gui:
             serial_build_exec_flag = False
             serial_create_dir_flag = False
 
-            if os.path.isdir(self.cwd + "/build") != True:
+            if os.path.isdir(self.cwd + "build") != True:
                 serial_build_exec_flag = True
                 serial_create_dir_flag = True
             else:
-                if os.path.isfile(self.cwd + "/build/mom") != True:
+                if os.path.isfile(self.cwd + "build/mom") != True:
                     serial_build_exec_flag = True
             
             if serial_create_dir_flag:
-                os.mkdir(self.cwd+"/build")
+                os.mkdir(self.cwd+"build")
                 self.printScreen("Serial build directory created")
             
             if serial_build_exec_flag:
-                cmd = "cd " + self.cwd + "/build/; cmake ..; make"
+                cmd = "cd " + self.cwd + "build/; cmake ..; make"
                 self.run_cmd(cmd)
 
             if self.file_path_txt_var.get()[-3:] == "mom":
-                cmd = self.cwd+"/build/mom " + self.file_path_txt_var.get()
+                cmd = self.cwd+"build/mom " + self.file_path_txt_var.get()
             else:
-                cmd = self.cwd+"/build/mom " + self.file_path_txt_var.get()[:-3] + "mom"
+                cmd = self.cwd+"build/mom " + self.file_path_txt_var.get()[:-3] + "mom"
             
             if self.cbox_solver.get() == "CBFM":
                 cmd = cmd + " --cbfm"
