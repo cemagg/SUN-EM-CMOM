@@ -18,3 +18,5 @@ cbfm_build/
 log\.txt
 
 cbfm\.txt
+
+*.rhs
