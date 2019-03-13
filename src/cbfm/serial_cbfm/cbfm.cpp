@@ -2,11 +2,11 @@
 
 void performCBFM(std::map<std::string, std::string> &const_map,
 				 std::map<int, Label> &label_map,
-                   std::vector<Triangle> &triangles,
-                   std::vector<Edge> &edges,
-                   std::vector<Node<double>> &nodes,
-                   std::complex<double> *ilhs,
-                   bool fpga)
+                 std::vector<Triangle> &triangles,
+                 std::vector<Edge> &edges,
+                 std::vector<Node<double>> &nodes,
+                 std::complex<double> *ilhs,
+                 bool fpga)
 {
 	// std::ofstream file;
 	// file.open("cbfm.txt");
@@ -122,12 +122,17 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 		}
 	}
 
+    //---------------------------------------------------------
+    
+    
+    //---------------------------------------------------------
+
 	// Lets now calculate the reduced matrices and vectors
 	// Also lets add in a hook for FPGA shenanigans
 	if(fpga)
 	{
-		// FPGA stuff
-		//
+        // FPGA stuff
+        //
 		// NB: Make sure that the matrices going in and out are of the correct major.
 		// 	   Fortran, and by extension, LAPACK, use column_major indexing when compared to the row_major indexing
 		//     that is used normally.

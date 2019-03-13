@@ -3,4 +3,4 @@
 cd cbfm_build/
 cmake ..
 make
-./mom ../examples/two_plate_array/two_plate_array.mom --cbfm
+./mom ../examples/cbfm_debug/cbfm_debug.mom --cbfm

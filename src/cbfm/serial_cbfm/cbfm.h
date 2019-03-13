@@ -31,6 +31,10 @@ extern "C"
 
     void zaxpy_(int*, std::complex<double>*, std::complex<double>*, int*, std::complex<double>*, int*);
 
+    void zgesvd_(const char*, const char*, int*, int*, std::complex<double>*, int*, double*,
+                 std::complex<double>*, int*, std::complex<double>*, int*, std::complex<double>*,
+                 int*, double*, int*);
+
 }
 
 void performCBFM(std::map<std::string, std::string> &const_map,
