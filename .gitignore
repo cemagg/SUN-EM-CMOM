@@ -20,3 +20,7 @@ log\.txt
 cbfm\.txt
 
 *.rhs
+
+*.mom
+
+*.sol
