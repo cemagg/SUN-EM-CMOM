@@ -71,3 +71,76 @@ void resizeCBFMVectorsForEqualDomains(CBFMVectors &v_vectors, int num_domains, i
 		}
 	}
 }
+
+// This function allocates memory for Zself and Zcouple
+void resizeCBFMZMatricesForEDD(CBFMZMatrices &z, int num_domains, int domain_size)
+{
+    z.z_self = new std::complex<double>[domain_size * domain_size]();
+    z.z_self_inv = new std::complex<double>[domain_size * domain_size];
+    z.z_self_piv = new int[domain_size];
+
+    z.z_couple.resize(num_domains);
+    
+    for (int i = 0; i < num_domains; i++)
+    {
+        z.z_couple[i].resize(num_domains);
+
+        for (int j = 0; j < num_domains; j++)
+        {
+            if (j != i)
+            {
+                z.z_couple[i][j] = new std::complex<double>[num_domains * num_domains]();
+            }
+            else
+            {
+                z.z_couple[i][j] = NULL;
+            }
+        }
+    }
+}
+
+
+
+// This function allocates for Vself and the BF's
+void resizeCBFMVAndCBFsForEDD(CBFMVectors &v, int num_domains, int domain_size)
+{
+    v.v_self.resize(num_domains);
+    v.j_prim.resize(num_domains);
+    v.j_sec.resize(num_domains);
+    v.j_cbfm.resize(num_domains);
+
+    for (int i = 0; i < num_domains; i++)
+    {
+        v.v_self[i] = new std::complex<double>[domain_size]();
+        v.j_prim[i] = new std::complex<double>[domain_size]();
+        v.j_cbfm[i] = new std::complex<double>[domain_size]();
+
+        v.j_sec[i].resize(num_domains);
+
+        for (int j = 0; j < num_domains; j++)
+        {
+            if (j != i)
+            {
+                v.j_sec[i][j] = new std::complex<double>[domain_size];
+            }
+            else
+            {
+                v.j_sec[i][j] = NULL;
+            }
+        }
+    }
+}
+
+
+
+void resizeCBFMZredForEDD()
+{
+    
+}
+
+
+
+void resizeCBFMVredForEDD()
+{
+    
+}
