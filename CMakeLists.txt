@@ -84,6 +84,12 @@ else()
                 src/mom/serial_mom/mom.cpp
                 src/cbfm/cbfm_helpers/cbfm_helpers.cpp
                 src/cbfm/serial_cbfm/cbfm.cpp
+                src/cbfm/serial_cbfm/serial_same_disconnected_cbfm.cpp
+                src/cbfm/serial_cbfm/fill_self_matrices_vectors.cpp
+                src/cbfm/serial_cbfm/serial_cbf_reducer.cpp
+                src/cbfm/serial_cbfm/serial_cbfm_solve_ilhs.cpp
+                src/cbfm/serial_cbfm/serial_generate_cbfs.cpp
+                src/cbfm/serial_cbfm/serial_z_v_reducer.cpp
                 src/main.cpp)
     add_executable(mom ${SOURCES})
     target_link_libraries(mom   -L/${CMAKE_CURRENT_SOURCE_DIR}/lib/scalapack

@@ -29,5 +29,9 @@ struct CBFMVectors
 
 void resizeCBFMZMatricesForEqualDomains(CBFMZMatrices &z_matrices, int num_domains, int num_edges_per_domain);
 void resizeCBFMVectorsForEqualDomains(CBFMVectors &v_vectors, int num_domains, int num_edges_per_domain);
+void resizeCBFMZMatricesForEDD(CBFMZMatrices &z, int num_domains, int domain_size);
+void resizeCBFMVAndCBFsForEDD(CBFMVectors &v, int num_domains, int domain_size);
+void resizeCBFMZredForEDD();
+void resizeCBFMVredForEDD();
 
 #endif
