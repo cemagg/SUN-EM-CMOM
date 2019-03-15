@@ -27,11 +27,19 @@ struct CBFMVectors
 	std::complex<double> *v_red_concat; // Concatenated reduced V vectors
 };
 
+struct SizeMap
+{
+    int n_cbfs;
+};
+
 void resizeCBFMZMatricesForEqualDomains(CBFMZMatrices &z_matrices, int num_domains, int num_edges_per_domain);
 void resizeCBFMVectorsForEqualDomains(CBFMVectors &v_vectors, int num_domains, int num_edges_per_domain);
 void resizeCBFMZMatricesForEDD(CBFMZMatrices &z, int num_domains, int domain_size);
 void resizeCBFMVAndCBFsForEDD(CBFMVectors &v, int num_domains, int domain_size);
-void resizeCBFMZredForEDD();
+void resizeCBFMZredForEDD(CBFMZMatrices &z,
+                          CBFMVectors &v,
+                          std::vector<SizeMap> sizes,
+                          int domain_size);
 void resizeCBFMVredForEDD();
 
 #endif
