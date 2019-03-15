@@ -1,4 +1,4 @@
-#include "serial_same_disconnected_cbfm.h"
+#include "serial_edd_cbfm.h"
 
 // This function calculates the CBFM for identical non-connected elements
 void serialSameDisconnectedCBFM()
