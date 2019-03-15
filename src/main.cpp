@@ -84,8 +84,7 @@ int main(int argc, char **argv)
                     reader.triangles,
                     reader.edges,
                     reader.nodes,
-                    ilhs,
-                    fpga);  
+                    ilhs);  
         
         // Write the solution to a .sol file
         writeIlhsToFile(ilhs, reader.edges.size(), args::get(file_name_arg));   
