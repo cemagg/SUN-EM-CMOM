@@ -16,6 +16,14 @@
 #include "../../mom/serial_mom/fill_vrhs.h"
 #include "../../mom/serial_mom/fill_zmn.h"
 
-void fillZVSelfForEDD();
+void fillZVSelfForEDD(CBFMZMatrices &z,
+                      CBFMVectors &v,
+                      int num_domains,
+                      int domain_size,
+                      std::map<std::string, std::string> &const_map,
+                      std::map<int, Label> &label_map,
+                      std::vector<Triangle> &triangles,
+                      std::vector<Edge> &edges,
+                      std::vector<Node<double>> &nodes);
 
 #endif

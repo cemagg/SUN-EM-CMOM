@@ -24,3 +24,7 @@ cbfm\.txt
 *.mom
 
 *.sol
+
+doc/latex/
+
+doc/html/

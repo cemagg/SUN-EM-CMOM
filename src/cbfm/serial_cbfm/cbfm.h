@@ -1,8 +1,15 @@
 #ifndef CBFM_H
 #define CBFM_H
 
-#include "serial_same_disconnected_cbfm.h"
+#include <complex>
 
-void performCBFM();
+#include "serial_edd_cbfm.h"
+
+void performCBFM(std::map<std::string, std::string> &const_map,
+                 std::map<int, Label> &label_map,
+                 std::vector<Triangle> &triangles,
+                 std::vector<Edge> &edges,
+                 std::vector<Node<double>> &nodes,
+                 std::complex<double> *ilhs);
 
 #endif
