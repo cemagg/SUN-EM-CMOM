@@ -42,13 +42,25 @@ void serialEDDCBFM(std::map<std::string, std::string> &const_map,
                     nodes);
 
     // Do SVD if required, else skip
+    std::vector<SizeMap> cbf_sizes;
+    cbf_sizes.resize(num_domains);
+    
     bool svd = false;
     if (svd)
     {
         
     }
+    else
+    {
+        for (int i = 0; i < num_domains; i++)
+        {
+            cbf_sizes[i].n_cbfs = num_domains;
+        }
+    }
 
     // Calculare Vred and Zred
+    resizeCBFMZredForEDD(z_mat, v_vec, cbf_sizes, domain_size);
+    
 
     // Calculate Icbfm
 

@@ -133,9 +133,33 @@ void resizeCBFMVAndCBFsForEDD(CBFMVectors &v, int num_domains, int domain_size)
 
 
 
-void resizeCBFMZredForEDD()
+void resizeCBFMZredForEDD(CBFMZMatrices &z,
+                          CBFMVectors &v,
+                          std::vector<SizeMap> sizes,
+                          int domain_size)
 {
+    int z_sum = 0;
+    int v_sum = 0;
+    int z_red_size;
     
+    z.z_red.resize(sizes.size());
+    v.v_red.resize(sizes.size());
+
+    for (int i = 0; i < sizes.size(); i++)
+    {
+        v.v_red[i] = new std::complex<double>[sizes[i].n_cbfs];
+        v_sum += sizes[i].n_cbfs;
+        
+        for (int j = 0; j < sizes.size(); j++)
+        {
+            z_red_size = sizes[i].n_cbfs * sizes[j].n_cbfs;
+            z.z_red[i][j] = new std::complex<double>[z_red_size]();
+            z_sum += z_red_size;
+        }
+    }
+    
+    z.z_red_concat = new std::complex<double>[z_sum];
+    v.v_red_concat = new std::complex<double>[v_sum];
 }
 
 
