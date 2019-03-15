@@ -84,7 +84,7 @@ else()
                 src/mom/serial_mom/mom.cpp
                 src/cbfm/cbfm_helpers/cbfm_helpers.cpp
                 src/cbfm/serial_cbfm/cbfm.cpp
-                src/cbfm/serial_cbfm/serial_same_disconnected_cbfm.cpp
+                src/cbfm/serial_cbfm/serial_edd_cbfm.cpp
                 src/cbfm/serial_cbfm/fill_self_matrices_vectors.cpp
                 src/cbfm/serial_cbfm/serial_cbf_reducer.cpp
                 src/cbfm/serial_cbfm/serial_cbfm_solve_ilhs.cpp
