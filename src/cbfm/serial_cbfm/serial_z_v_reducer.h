@@ -17,4 +17,12 @@ extern "C"
                 std::complex<double>*, int*);
 }
 
+void serialZVReducerForEDD(CBFMZMatrices &z,
+                           CBFMVectors &v,
+                           std::vector<SizeMap> sizes,
+                           int num_domains,
+                           int domain_size,
+                           int red_size);
+
+
 #endif

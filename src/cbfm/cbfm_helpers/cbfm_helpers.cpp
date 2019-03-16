@@ -89,7 +89,8 @@ void resizeCBFMZMatricesForEDD(CBFMZMatrices &z, int num_domains, int domain_siz
         {
             if (j != i)
             {
-                z.z_couple[i][j] = new std::complex<double>[num_domains * num_domains]();
+                z.z_couple[i][j] = new std::complex<double>[domain_size *
+                                                            domain_size]();
             }
             else
             {
@@ -113,7 +114,7 @@ void resizeCBFMVAndCBFsForEDD(CBFMVectors &v, int num_domains, int domain_size)
     {
         v.v_self[i] = new std::complex<double>[domain_size]();
         v.j_prim[i] = new std::complex<double>[domain_size]();
-        v.j_cbfm[i] = new std::complex<double>[domain_size]();
+        v.j_cbfm[i] = new std::complex<double>[domain_size * num_domains]();
 
         v.j_sec[i].resize(num_domains);
 
@@ -144,9 +145,10 @@ void resizeCBFMZredForEDD(CBFMZMatrices &z,
     
     z.z_red.resize(sizes.size());
     v.v_red.resize(sizes.size());
-
     for (int i = 0; i < sizes.size(); i++)
     {
+        z.z_red[i].resize(sizes.size());
+        
         v.v_red[i] = new std::complex<double>[sizes[i].n_cbfs];
         v_sum += sizes[i].n_cbfs;
         
@@ -157,7 +159,6 @@ void resizeCBFMZredForEDD(CBFMZMatrices &z,
             z_sum += z_red_size;
         }
     }
-    
     z.z_red_concat = new std::complex<double>[z_sum];
     v.v_red_concat = new std::complex<double>[v_sum];
 }

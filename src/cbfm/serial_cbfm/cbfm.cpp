@@ -11,7 +11,7 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 
     if (edd_cbfm)
     {
-        serialEDDCBFM(const_map, label_map, triangles, edges, nodes);
+        serialEDDCBFM(const_map, label_map, triangles, edges, nodes, ilhs);
     }
     
 }

@@ -1,6 +1,6 @@
-#include "cbfm.h"
+#include "tmp_cbfm.h"
 
-void performCBFM(std::map<std::string, std::string> &const_map,
+void tperformCBFM(std::map<std::string, std::string> &const_map,
 				 std::map<int, Label> &label_map,
                  std::vector<Triangle> &triangles,
                  std::vector<Edge> &edges,
@@ -8,8 +8,8 @@ void performCBFM(std::map<std::string, std::string> &const_map,
                  std::complex<double> *ilhs,
                  bool fpga)
 {
-	// std::ofstream file;
-	// file.open("cbfm.txt");
+	std::ofstream file;
+	file.open("cbfm.txt");
 
 	// Define some constants
 	int num_domains = label_map.size(); 				// number of domains
@@ -211,7 +211,16 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 	}
 
 	//-- Solve Irwg --//
-
+    file << "---------------------------------------Z_REDC------------------------------------------" << std::endl;
+	for(int i = 0; i < (num_domains * num_domains); i++)
+	{
+		for(int j = 0; j < (num_domains * num_domains); j++)
+		{
+			file << v_mom_z.z_red_concat[j + i * (num_domains * num_domains)];
+		}
+		file << std::endl;
+	}
+	file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
 	int num_red_rows = num_domains * num_domains;
 	int z_red_piv[num_red_rows];
 
@@ -219,6 +228,15 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 	zgetrf_(&num_red_rows, &num_red_rows, v_mom_z.z_red_concat, &num_red_rows, z_red_piv, &info); 
 	zgetrs_(&norm, &num_red_rows, &one, v_mom_z.z_red_concat, &num_red_rows,
 		z_red_piv, v_mom_v.v_red_concat, &num_red_rows, &info);
+
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << "FROM OLD" << std::endl;
+	for(int i = 0; i < 9; i++)
+	{
+		std::cout << v_mom_v.v_red_concat[i] << std::endl;
+	}
 
 	index = 0;
 	int rwg_pos = 0;
@@ -288,25 +306,25 @@ void performCBFM(std::map<std::string, std::string> &const_map,
  //    file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
  //    }
 
-	// for(int m = 0; m < num_domains; m++){
-	// file << "--------------------------------------J_PRIM"<<m<<"------------------------------------------" << std::endl;
- //    for(int i = 0; i < domain_size; i++)
- //    {
- //    	file << v_mom_v.j_prim[m][i] << std::endl;
- //    }
- //    file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
- //    }
+	for(int m = 0; m < num_domains; m++){
+	file << "--------------------------------------J_PRIM"<<m<<"------------------------------------------" << std::endl;
+    for(int i = 0; i < domain_size; i++)
+    {
+    	file << v_mom_v.j_prim[m][i] << std::endl;
+    }
+    file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
+    }
 
-	// for(int m = 0; m < num_domains; m++){
- //    for(int n = 0; n < (num_domains); n++){
- //    if(m!=n){	
- //    file << "--------------------------------------J_SECC"<<m<<n<<"-----------------------------------------" << std::endl;
- //    for(int i = 0; i < domain_size; i++)
- //    {      
- //        file << v_mom_v.j_sec[m][n][i] << std::endl;
- //    }
- //    file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
- //    }}}
+	for(int m = 0; m < num_domains; m++){
+    for(int n = 0; n < (num_domains); n++){
+    if(m!=n){	
+    file << "--------------------------------------J_SECC"<<m<<n<<"-----------------------------------------" << std::endl;
+    for(int i = 0; i < domain_size; i++)
+    {      
+        file << v_mom_v.j_sec[m][n][i] << std::endl;
+    }
+    file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
+    }}}
 
  //    for(int m = 0; m < num_domains; m++){
 	// file << "--------------------------------------J_CBFM"<<m<<"------------------------------------------" << std::endl;
@@ -321,19 +339,19 @@ void performCBFM(std::map<std::string, std::string> &const_map,
  //    file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
  //    }
 
- //    for(int m = 0; m < num_domains; m++){
- //    for(int n = 0; n < num_domains; n++){	
- //    file << "--------------------------------------Z_REDD"<<m<<n<<"-----------------------------------------" << std::endl;
- //    for(int i = 0; i < num_domains; i++)
- //    {
- //        for(int j = 0; j < num_domains; j++)
- //        {
- //            file << v_mom_z.z_red[m][n][j + i * num_domains];
- //        }
- //        file << std::endl;
- //    }
- //    file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
- //    }}
+    for(int m = 0; m < num_domains; m++){
+    for(int n = 0; n < num_domains; n++){	
+    file << "--------------------------------------Z_REDD"<<m<<n<<"-----------------------------------------" << std::endl;
+    for(int i = 0; i < num_domains; i++)
+    {
+        for(int j = 0; j < num_domains; j++)
+        {
+            file << v_mom_z.z_red[m][n][j + i * num_domains];
+        }
+        file << std::endl;
+    }
+    file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
+    }}
 
  //    for(int m = 0; m < num_domains; m++){
  //    file << "--------------------------------------V_REDD"<<m<<"------------------------------------------" << std::endl;
@@ -344,16 +362,16 @@ void performCBFM(std::map<std::string, std::string> &const_map,
  //    file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
  //    }
 
- //    file << "---------------------------------------Z_REDC------------------------------------------" << std::endl;
-	// for(int i = 0; i < (num_domains * num_domains); i++)
-	// {
-	// 	for(int j = 0; j < (num_domains * num_domains); j++)
-	// 	{
-	// 		file << v_mom_z.z_red_concat[j + i * (num_domains * num_domains)];
-	// 	}
-	// 	file << std::endl;
-	// }
-	// file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
+    file << "---------------------------------------Z_REDC------------------------------------------" << std::endl;
+	for(int i = 0; i < (num_domains * num_domains); i++)
+	{
+		for(int j = 0; j < (num_domains * num_domains); j++)
+		{
+			file << v_mom_z.z_red_concat[j + i * (num_domains * num_domains)];
+		}
+		file << std::endl;
+	}
+	file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
 
 	// file << "---------------------------------------V_REDC------------------------------------------" << std::endl;
 	// for(int i = 0; i < (num_domains * num_domains); i++)
@@ -366,6 +384,6 @@ void performCBFM(std::map<std::string, std::string> &const_map,
 
 
 
-	// file.close();
+	file.close();
 
 }
