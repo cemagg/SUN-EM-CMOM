@@ -61,25 +61,23 @@ void serialSolveIlhsCBFM(CBFMZMatrices &z,
         std::cout << v.v_red_concat[i] << std::endl;
     }
     
-    // int index = 0;
-    // int rwg_pos = 0;
-    // for (int i = 0; i < num_domains; i++)
-    // {
-    //     for (int j = 0; j < sizes[i].n_cbfs; j++)
-    //     {
-    //         if (j == i)
-    //         {
-    //             zaxpy_(&domain_size, &v.v_red_concat[index], v.j_prim[i], &one,
-    //                    ilhs + rwg_pos, &one);
-    //         }
-    //         else
-    //         {
-    //             zaxpy_(&domain_size, &v.v_red_concat[index], v.j_sec[i][j], &one,
-    //                    ilhs + rwg_pos, &one);
-    
-    //         }
-    //         index++;
-    //         rwg_pos += domain_size;
-    //     }
-    // }
+    int index = 0;
+    int rwg_pos = 0;
+    for (int i = 0; i < num_domains; i++)
+    {
+        zaxpy_(&domain_size, &v.v_red_concat[index], v.j_prim[i], &one,
+               ilhs + rwg_pos, &one);
+        index++;
+        
+        for (int j = 0; j < sizes[i].n_cbfs; j++)
+        {
+            if(j != i)
+            {
+                zaxpy_(&domain_size, &v.v_red_concat[index], v.j_sec[i][j], &one,
+                       ilhs + rwg_pos, &one);
+                index++;
+            }
+        }
+        rwg_pos += domain_size;
+    }
 }

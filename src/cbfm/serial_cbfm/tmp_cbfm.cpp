@@ -123,7 +123,18 @@ void tperformCBFM(std::map<std::string, std::string> &const_map,
 	}
 
     //---------------------------------------------------------
-    
+       for(int m = 0; m < num_domains; m++){
+	file << "--------------------------------------J_CBFM"<<m<<"------------------------------------------" << std::endl;
+    for(int i = 0; i < num_domains; i++)
+    {
+    	for(int j = 0; j < domain_size; j++)
+    	{
+    		file << v_mom_v.j_cbfm[m][j + i * domain_size];
+    	}
+    	file << std::endl;
+    }
+    file << "---------------------------------------------------------------------------------------" << std::endl<<std::endl;
+    } 
     
     //---------------------------------------------------------
 
