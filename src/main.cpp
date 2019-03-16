@@ -13,6 +13,7 @@
 #ifndef PARALLEL
 #include "mom/serial_mom/mom.h"
 #include "cbfm/serial_cbfm/cbfm.h"
+#include "cbfm/serial_cbfm/tmp_cbfm.h"
 #endif
 
 #ifdef PARALLEL
@@ -85,13 +86,19 @@ int main(int argc, char **argv)
                     reader.edges,
                     reader.nodes,
                     ilhs);  
-        
+        tperformCBFM(reader.const_map,
+                    reader.label_map,
+                    reader.triangles,
+                    reader.edges,
+                    reader.nodes,
+                    ilhs,
+                    false);  
         // Write the solution to a .sol file
         writeIlhsToFile(ilhs, reader.edges.size(), args::get(file_name_arg));   
         std::cout << "SOLVER COMPLETE" << std::endl;
 
         // Cleanup
-        delete ilhs;
+        delete [] ilhs;
         #endif
     }
     else
@@ -138,6 +145,5 @@ int main(int argc, char **argv)
     #ifdef PARALLEL
     MPI_Finalize();
     #endif
-
     return 0;
 }

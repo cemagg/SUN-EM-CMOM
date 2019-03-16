@@ -90,6 +90,7 @@ else()
                 src/cbfm/serial_cbfm/serial_cbfm_solve_ilhs.cpp
                 src/cbfm/serial_cbfm/serial_generate_cbfs.cpp
                 src/cbfm/serial_cbfm/serial_z_v_reducer.cpp
+		src/cbfm/serial_cbfm/tmp_cbfm.cpp
                 src/main.cpp)
     add_executable(mom ${SOURCES})
     target_link_libraries(mom   -L/${CMAKE_CURRENT_SOURCE_DIR}/lib/scalapack

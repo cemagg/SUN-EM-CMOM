@@ -38,7 +38,8 @@ void generateEDDCBFs(CBFMZMatrices &z,
                 // Fill coupling Z matrices
                 serialFillZmn(z.z_couple[j][i], edges, triangles, nodes, const_map,
                               label_map[j], label_map[i], true);
-
+                
+                
                 // -Z_couple * J_prim
                 zgemv_(&tran, &domain_size, &domain_size, &c_minus_one, z.z_couple[j][i],
                        &domain_size, v.j_prim[i], &one, &c_zero, v.j_sec[j][i], &one);
@@ -49,12 +50,11 @@ void generateEDDCBFs(CBFMZMatrices &z,
                         z.z_self_piv, v.j_sec[j][i], &domain_size, &info);
 
                 // Copy secondary CBF's to concatenated CBF matrix
-                std::copy(v.j_sec[j][i], v.j_sec[i][j] + domain_size,
+                std::copy(v.j_sec[j][i], v.j_sec[j][i] + domain_size,
                           v.j_cbfm[j] + (copy_index[j] * domain_size));
 
                 copy_index[j]++;
             }
         }
     }
-    
 }

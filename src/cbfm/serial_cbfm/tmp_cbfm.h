@@ -1,5 +1,5 @@
-#ifndef CBFM_H
-#define CBFM_H
+#ifndef TMP_CBFM_H
+#define TMP_CBFM_H
 
 #include <map>
 #include <complex>
@@ -37,7 +37,7 @@ extern "C"
 
 }
 
-void performCBFM(std::map<std::string, std::string> &const_map,
+void tperformCBFM(std::map<std::string, std::string> &const_map,
 				 std::map<int, Label> &label_map,
                    std::vector<Triangle> &triangles,
                    std::vector<Edge> &edges,
