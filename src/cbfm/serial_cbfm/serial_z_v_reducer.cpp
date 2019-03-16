@@ -41,13 +41,13 @@ void serialZVReducerForEDD(CBFMZMatrices &z,
             if (j == i)
             {
                 zgemm_(&tran, &norm, &domain_size, &sizes[i].n_cbfs, &domain_size,
-                       &c_one, z.z_self, &domain_size, v.j_cbfm[i], &domain_size,
+                       &c_one, z.z_self, &domain_size, v.j_cbfm[j], &domain_size,
                        &c_zero, c_temp, &domain_size);
             }
             else
             {
                 zgemm_(&tran, &norm, &domain_size, &sizes[i].n_cbfs, &domain_size,
-                       &c_one, z.z_couple[i][j], &domain_size, v.j_cbfm[i], &domain_size,
+                       &c_one, z.z_couple[i][j], &domain_size, v.j_cbfm[j], &domain_size,
                        &c_zero, c_temp, &domain_size);
             }
 
@@ -55,17 +55,16 @@ void serialZVReducerForEDD(CBFMZMatrices &z,
                    &c_one, v.j_cbfm[i], &domain_size, c_temp, &domain_size, &c_zero,
                    z.z_red[i][j], &sizes[i].n_cbfs);
             
-            f << i << " " << j << std::endl;
             for (int m = 0; m < 3; m++)
             {
                 for (int n = 0; n < 3; n++)
                 {
-                    f << z.z_red[i][j][n + m * 3];
+                    std::cout << z.z_red[i][j][n + m * 3];
                 }
-                f << std::endl;
+                std::cout << std::endl;
                 
             }
-            f << "=========================================" << std::endl;
+            std::cout << "=========================================" << std::endl;
             for (int k = 0; k < sizes[i].n_cbfs; k++)
             {
 
