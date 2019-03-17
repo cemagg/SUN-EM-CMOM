@@ -44,31 +44,31 @@ void serialEDDCBFM(std::map<std::string, std::string> &const_map,
                     nodes);
 
     // Print prim
-    for (int i = 0; i < num_domains; i++)
-    {
-        std::cout << "JPRIM " << i << std::endl;
-        for (int j = 0; j < domain_size; j++)
-        {
-            std::cout << v_vec.j_prim[i][j] << std::endl;
-        }
-        std::cout << "+++++++++++++++++++++++++++++++" << std::endl;
-    }
+    // for (int i = 0; i < num_domains; i++)
+    // {
+    //     std::cout << "JPRIM " << i << std::endl;
+    //     for (int j = 0; j < domain_size; j++)
+    //     {
+    //         std::cout << v_vec.j_prim[i][j] << std::endl;
+    //     }
+    //     std::cout << "+++++++++++++++++++++++++++++++" << std::endl;
+    // }
     //Print sec
-    for (int i = 0; i < num_domains; i++)
-    {
-        for (int j = 0; j < num_domains; j++)
-        {
-            if (j != i)
-            {
-                std::cout << "JSEC " << i <<" " << j << std::endl; 
-                for (int k = 0; k < domain_size; k++)
-                {
-                    std::cout << v_vec.j_sec[i][j][k] << std::endl;
-                }
-                std::cout << "+++++++++++++++++++++" << std::endl;
-            }
-        }
-     }
+    // for (int i = 0; i < num_domains; i++)
+    // {
+    //     for (int j = 0; j < num_domains; j++)
+    //     {
+    //         if (j != i)
+    //         {
+    //             std::cout << "JSEC " << i <<" " << j << std::endl; 
+    //             for (int k = 0; k < domain_size; k++)
+    //             {
+    //                 std::cout << v_vec.j_sec[i][j][k] << std::endl;
+    //             }
+    //             std::cout << "+++++++++++++++++++++" << std::endl;
+    //         }
+    //     }
+    //  }
     
     
     // Do SVD if required, else skip
@@ -76,10 +76,15 @@ void serialEDDCBFM(std::map<std::string, std::string> &const_map,
     cbf_sizes.resize(num_domains);
     int red_size = 0;
     
-    bool svd = false;
+    bool svd = true;
     if (svd)
     {
-        
+        serialReduceCBFsWithSVD(v_vec,
+                                cbf_sizes,
+                                red_size,
+                                num_domains,
+                                domain_size);
+        std::cout << "RED_SIZE: " << red_size << std::endl;
     }
     else
     {

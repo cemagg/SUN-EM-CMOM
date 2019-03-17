@@ -55,16 +55,16 @@ void serialZVReducerForEDD(CBFMZMatrices &z,
                    &c_one, v.j_cbfm[i], &domain_size, c_temp, &domain_size, &c_zero,
                    z.z_red[i][j], &sizes[i].n_cbfs);
             
-            for (int m = 0; m < 3; m++)
-            {
-                for (int n = 0; n < 3; n++)
-                {
-                    std::cout << z.z_red[i][j][n + m * 3];
-                }
-                std::cout << std::endl;
+            // for (int m = 0; m < 3; m++)
+            // {
+            //     for (int n = 0; n < 3; n++)
+            //     {
+            //         std::cout << z.z_red[i][j][n + m * 3];
+            //     }
+            //     std::cout << std::endl;
                 
-            }
-            std::cout << "=========================================" << std::endl;
+            // }
+            // std::cout << "=========================================" << std::endl;
             for (int k = 0; k < sizes[i].n_cbfs; k++)
             {
 

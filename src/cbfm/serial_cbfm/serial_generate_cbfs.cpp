@@ -57,17 +57,17 @@ void generateEDDCBFs(CBFMZMatrices &z,
             }
         }
     }
-    for (int m = 0; m < num_domains; m++)
-    {
-        std::cout << "======   " << m << std::endl;
-        for(int i = 0; i < num_domains; i++)
-        {
-            for(int j = 0; j < domain_size; j++)
-            {
-                std::cout << v.j_cbfm[m][j + i * domain_size];
-            }
-            std::cout << std::endl;
-        }
-        std::cout << "====================" << std::endl;
-    }
+    // for (int m = 0; m < num_domains; m++)
+    // {
+    //     std::cout << "======   " << m << std::endl;
+    //     for(int i = 0; i < num_domains; i++)
+    //     {
+    //         for(int j = 0; j < domain_size; j++)
+    //         {
+    //             std::cout << v.j_cbfm[m][j + i * domain_size];
+    //         }
+    //         std::cout << std::endl;
+    //     }
+    //     std::cout << "====================" << std::endl;
+    // }
 }

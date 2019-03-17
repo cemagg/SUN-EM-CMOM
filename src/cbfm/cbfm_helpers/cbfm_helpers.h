@@ -29,7 +29,7 @@ struct CBFMVectors
 
 struct SizeMap
 {
-    int n_cbfs;
+    int n_cbfs = 0;
 };
 
 void resizeCBFMZMatricesForEqualDomains(CBFMZMatrices &z_matrices, int num_domains, int num_edges_per_domain);

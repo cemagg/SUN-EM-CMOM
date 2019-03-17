@@ -12,7 +12,7 @@ void serialSolveIlhsCBFM(CBFMZMatrices &z,
     
     for (int i = 0; i < num_domains; i++)
     {
-        sum_cbfs += sizes[0].n_cbfs;
+        sum_cbfs += sizes[i].n_cbfs;
     }
 
     int z_red_piv[sum_cbfs];
@@ -37,12 +37,9 @@ void serialSolveIlhsCBFM(CBFMZMatrices &z,
         f << std::endl;
         f << std::endl;
         f << std::endl;
-    std::cout << "info: " << info << std::endl;
     zgetrf_(&sum_cbfs, &sum_cbfs, z.z_red_concat, &sum_cbfs, z_red_piv, &info);
-    std::cout << "info: " << info << std::endl;
     zgetrs_(&norm, &sum_cbfs, &one, z.z_red_concat, &sum_cbfs, z_red_piv,
             v.v_red_concat, &sum_cbfs, &info);
-    std::cout << "info: " << info << std::endl;
     for (int i = 0; i < sum_cbfs; i++)
     {
         for (int j = 0; j < sum_cbfs; j++)
@@ -53,31 +50,40 @@ void serialSolveIlhsCBFM(CBFMZMatrices &z,
     }
     f.close();
     //Print ICBFM
-     std::cout << std::endl;
-     std::cout << std::endl;
-     std::cout << std::endl;
+    //  std::cout << std::endl;
+    //  std::cout << std::endl;
+    //  std::cout << std::endl;
+    std::cout << sum_cbfs << std::endl;
+    std::cout << "=====================" << std::endl;
     for (int i = 0; i < sum_cbfs; i++)
     {
         std::cout << v.v_red_concat[i] << std::endl;
     }
+    std::cout << "=====================" << std::endl;
     
-    int index = 0;
     int rwg_pos = 0;
+    int prim_index = 0;
+    int sec_index  = 0;
+    
     for (int i = 0; i < num_domains; i++)
     {
-        zaxpy_(&domain_size, &v.v_red_concat[index], v.j_prim[i], &one,
-               ilhs + rwg_pos, &one);
-        index++;
-        
+               
         for (int j = 0; j < sizes[i].n_cbfs; j++)
         {
-            if(j != i)
+            if (j == i)
             {
-                zaxpy_(&domain_size, &v.v_red_concat[index], v.j_sec[i][j], &one,
+                zaxpy_(&domain_size, &v.v_red_concat[prim_index], v.j_prim[i], &one,
                        ilhs + rwg_pos, &one);
-                index++;
+                prim_index += sizes[i].n_cbfs;
             }
+            else
+            {
+                zaxpy_(&domain_size, &v.v_red_concat[sec_index], v.j_sec[i][j], &one,
+                       ilhs + rwg_pos, &one);
+            }
+            sec_index++;
         }
         rwg_pos += domain_size;
     }
+    
 }
