@@ -15,6 +15,7 @@
 
 #include "fill_self_matrices_vectors.h"
 #include "serial_generate_cbfs.h"
+#include "serial_cbf_reducer.h"
 #include "serial_z_v_reducer.h"
 #include "serial_cbfm_solve_ilhs.h"
 
