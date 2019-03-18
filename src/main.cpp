@@ -87,18 +87,7 @@ int main(int argc, char **argv)
                     reader.nodes,
                     ilhs);
         
-        // tperformCBFM(reader.const_map,
-        //             reader.label_map,
-        //             reader.triangles,
-        //             reader.edges,
-        //             reader.nodes,
-        //             ilhs,
-        //             false);  
         // Write the solution to a .sol file
-        for(int i = 0; i < reader.edges.size(); i++)
-        {
-            std::cout << ilhs[i] << std::endl;
-        }
         writeIlhsToFile(ilhs, reader.edges.size(), args::get(file_name_arg));   
         std::cout << "SOLVER COMPLETE" << std::endl;
 
