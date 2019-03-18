@@ -13,7 +13,6 @@
 #ifndef PARALLEL
 #include "mom/serial_mom/mom.h"
 #include "cbfm/serial_cbfm/cbfm.h"
-#include "cbfm/serial_cbfm/tmp_cbfm.h"
 #endif
 
 #ifdef PARALLEL
@@ -31,6 +30,7 @@ int main(int argc, char **argv)
     args::Group group(parser, "");
     args::Flag cbfm(group, "cbfm", "TBD", {"cbfm"}); // Decide whether to use CBFM
     args::Flag fpga(group, "fpga", "TBD", {"fpga"}); // Decide whether to use an FPGA
+    args::Flag svd(group, "svd", "TBD", {"svd"}); // Decide whether to use an FPGA
 
     //----------------------------------------
     // Command line argument parser
