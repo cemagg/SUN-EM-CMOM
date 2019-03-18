@@ -25,7 +25,7 @@ extern "C"
 
 
 	
-	int numroc_(int*, int*, int*, int*, int*);
+	 int numroc_(int*, int*, int*, int*, int*);
 }
 void mpiPerformMoM(std::map<std::string, std::string> &const_map,
                    std::map<int, Label> &label_map,
