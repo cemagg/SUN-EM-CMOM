@@ -1,6 +1,10 @@
 #ifndef MPI_SCALAPACK_EDD_CBFM_H
 #define MPI_SCALAPACK_EDD_CBFM_H
 
+#include <map>
+#include <complex>
+#include <vector>
+
 #include "../../../data_structures/node.h"
 #include "../../../data_structures/edge.h"
 #include "../../../data_structures/triangle.h"
