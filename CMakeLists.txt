@@ -33,6 +33,8 @@ if(MPI)
     set(SOURCES lib/args/args.hxx
                 src/data_structures/edge.h
                 src/data_structures/node.h
+                src/data_structures/label.h
+                src/data_structures/cblacs_config.h
                 src/data_structures/triangle.h
                 src/file_io/mom_file_reader.cpp
                 src/file_io/mom_file_writer.cpp
