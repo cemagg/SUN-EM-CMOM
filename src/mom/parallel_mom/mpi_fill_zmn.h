@@ -9,6 +9,7 @@
 
 #include "../../data_structures/node.h"
 #include "../../data_structures/edge.h"
+#include "../../data_structures/label.h"
 #include "../../data_structures/triangle.h"
 #include "../mom_helpers/quadrature.h"
 #include "../mom_helpers/zmn_by_face.h"
@@ -30,6 +31,8 @@ void mpiFillZmn(std::complex<double> *zmn,
                 std::map<std::string, std::string> &const_map,
                 std::vector<Triangle> &triangles,
                 std::vector<Edge> &edges,
-                std::vector<Node<double>> nodes);
+                std::vector<Node<double>> nodes,
+                Label &source_label,
+                Label &observ_label);
 
 #endif

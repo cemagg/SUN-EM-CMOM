@@ -2,6 +2,7 @@
 
 
 void mpiPerformMoM(std::map<std::string, std::string> &const_map,
+                   std::map<int, Label> &label_map,
                    std::vector<Triangle> &triangles,
                    std::vector<Edge> &edges,
                    std::vector<Node<double>> &nodes,
@@ -68,7 +69,9 @@ void mpiPerformMoM(std::map<std::string, std::string> &const_map,
                const_map,
                triangles,
                edges,
-               nodes);
+               nodes,
+               label_map[0],
+               label_map[0]);
 
     mpiFillIlhs(zmn,
          vrhs,
