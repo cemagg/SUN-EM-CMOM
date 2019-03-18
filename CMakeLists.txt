@@ -44,6 +44,14 @@ if(MPI)
                 src/mom/parallel_mom/mpi_fill_zmn.cpp
                 src/mom/parallel_mom/mpi_fill_ilhs.cpp
                 src/mom/parallel_mom/mpi_mom.cpp
+                src/cbfm/cbfm_helpers/cbfm_helpers.cpp
+                src/cbfm/parallel_cbfm/mpi_scalapack_cbfm/mpi_scalapack_cbf_reducer.cpp
+                src/cbfm/parallel_cbfm/mpi_scalapack_cbfm/mpi_scalapack_solve_ilhs.cpp
+                src/cbfm/parallel_cbfm/mpi_scalapack_cbfm/mpi_scalapack_edd_cbfm.cpp
+                src/cbfm/parallel_cbfm/mpi_scalapack_cbfm/mpi_scalapack/fill_self_matrices_vectors.cpp
+                src/cbfm/parallel_cbfm/mpi_scalapack_cbfm/mpi_scalapack_generate_cbfs.cpp
+                src/cbfm/parallel_cbfm/mpi_scalapack_cbfm/mpi_scalapack_z_v_reducer.cpp
+                src/cbfm/parallel_cbfm/mpi_cbfm.cpp
                 src/main.cpp)
     add_executable(mom_mpi ${SOURCES})
 
