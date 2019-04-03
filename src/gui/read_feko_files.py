@@ -191,19 +191,15 @@ class FEKOFileReader:
 def readFEKOStrFile(file_name, cwd):
 
     cwd = cwd + "bin/"
-    print(cwd)
     file_separator = file_name.rsplit('/', 1) 
     file_separator[1] = "ascii_" + file_separator[1]
 
     ascii_file_name = file_separator[0] + '/' + file_separator[1]
 
     if os.path.isfile(ascii_file_name) != True:
-        print("FILE NOT FOUND")
         cmd = "%sstr2ascii %s -r > %s 2>&1" % (cwd, file_name, ascii_file_name)
-        print(cmd)
         process = subprocess.Popen(cmd,stdout=subprocess.PIPE, shell=True)
         proc_stdout = process.communicate()[0].strip()
-        print(str(proc_stdout, 'utf-8'))
 
     file = open(ascii_file_name, "r")
     line = file.readline()

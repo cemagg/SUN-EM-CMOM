@@ -84,22 +84,22 @@ else()
                 src/data_structures/label.h
                 src/file_io/mom_file_reader.cpp
                 src/file_io/mom_file_writer.cpp
-                src/mom/mom_helpers/quadrature.cpp
-                src/mom/mom_helpers/vrhs.cpp
-                src/mom/mom_helpers/zmn_by_face.cpp
+                src/solvers/mom/mom_helpers/quadrature.cpp
+                src/solvers/mom/mom_helpers/vrhs.cpp
+                src/solvers/mom/mom_helpers/zmn_by_face.cpp
                 src/helpers/globals.cpp
-                src/mom/serial_mom/fill_vrhs.cpp
-                src/mom/serial_mom/fill_zmn.cpp
-                src/mom/serial_mom/fill_ilhs.cpp
-                src/mom/serial_mom/mom.cpp
-                src/cbfm/cbfm_helpers/cbfm_helpers.cpp
-                src/cbfm/serial_cbfm/cbfm.cpp
-                src/cbfm/serial_cbfm/serial_edd_cbfm.cpp
-                src/cbfm/serial_cbfm/fill_self_matrices_vectors.cpp
-                src/cbfm/serial_cbfm/serial_cbf_reducer.cpp
-                src/cbfm/serial_cbfm/serial_cbfm_solve_ilhs.cpp
-                src/cbfm/serial_cbfm/serial_generate_cbfs.cpp
-                src/cbfm/serial_cbfm/serial_z_v_reducer.cpp
+                src/solvers/mom/serial_mom/fill_vrhs.cpp
+                src/solvers/mom/serial_mom/fill_zmn.cpp
+                src/solvers/mom/serial_mom/fill_ilhs.cpp
+                src/solvers/mom/serial_mom/mom.cpp
+                src/solvers/cbfm/cbfm_helpers/cbfm_helpers.cpp
+                src/solvers/cbfm/serial_cbfm/cbfm.cpp
+                src/solvers/cbfm/serial_cbfm/serial_edd_cbfm.cpp
+                src/solvers/cbfm/serial_cbfm/fill_self_matrices_vectors.cpp
+                src/solvers/cbfm/serial_cbfm/serial_cbf_reducer.cpp
+                src/solvers/cbfm/serial_cbfm/serial_cbfm_solve_ilhs.cpp
+                src/solvers/cbfm/serial_cbfm/serial_generate_cbfs.cpp
+                src/solvers/cbfm/serial_cbfm/serial_z_v_reducer.cpp
                 src/main.cpp)
     add_executable(mom ${SOURCES})
     target_link_libraries(mom   -L/${CMAKE_CURRENT_SOURCE_DIR}/lib/scalapack

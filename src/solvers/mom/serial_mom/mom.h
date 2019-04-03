@@ -7,10 +7,10 @@
 #include "fill_vrhs.h"
 #include "fill_zmn.h"
 #include "fill_ilhs.h"
-#include "../../data_structures/node.h"
-#include "../../data_structures/edge.h"
-#include "../../data_structures/triangle.h"
-#include "../../data_structures/label.h"
+#include "../../../data_structures/node.h"
+#include "../../../data_structures/edge.h"
+#include "../../../data_structures/triangle.h"
+#include "../../../data_structures/label.h"
 
 void mpiPerformMoM(std::map<std::string, std::string> &const_map,
 				   std::map<int, Label> &label_map,

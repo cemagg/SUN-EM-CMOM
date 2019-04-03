@@ -5,9 +5,9 @@
 #include <cmath>
 #include <vector>
 
-#include "../../data_structures/node.h"
-#include "../../data_structures/edge.h"
-#include "../../data_structures/triangle.h"
+#include "../../../data_structures/node.h"
+#include "../../../data_structures/edge.h"
+#include "../../../data_structures/triangle.h"
 
 struct IncidentPlaneWave
 {

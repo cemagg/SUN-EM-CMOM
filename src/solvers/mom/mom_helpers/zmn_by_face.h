@@ -6,9 +6,9 @@
 #include <cmath>
 
 #include "quadrature.h"
-#include "../../data_structures/triangle.h"
-#include "../../data_structures/node.h"
-#include "../../data_structures/edge.h"
+#include "../../../data_structures/triangle.h"
+#include "../../../data_structures/node.h"
+#include "../../../data_structures/edge.h"
 
 std::vector<std::complex<double>> calculateIpqWithoutSingularity(int &observation_triangle_index,
                                                                  int &source_triangle_index,
