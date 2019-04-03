@@ -28,3 +28,9 @@ cbfm\.txt
 doc/latex/
 
 doc/html/
+
+test/\.build/
+
+src/gui/__pycache__/
+
+test/__pycache__/

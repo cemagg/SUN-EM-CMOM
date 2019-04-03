@@ -7,10 +7,10 @@
 #include <string>
 
 #include "../mom_helpers/vrhs.h"
-#include "../../data_structures/triangle.h"
-#include "../../data_structures/edge.h"
-#include "../../data_structures/label.h"
-#include "../../helpers/globals.h"
+#include "../../../data_structures/triangle.h"
+#include "../../../data_structures/edge.h"
+#include "../../../data_structures/label.h"
+#include "../../../helpers/globals.h"
 
 
 void serialFillVrhs(std::map<std::string, std::string> &const_map,

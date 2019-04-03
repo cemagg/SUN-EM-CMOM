@@ -14,6 +14,8 @@ from read_feko_files import readFEKOStrFile
 from read_feko_files import errNormPercentage
 from mom_file_writer import writeMoMFIle
 from mom_file_reader import readMoMFile
+from run_cmom        import consoleCommand
+from run_cmom        import CMoM
 
 from log import log
 

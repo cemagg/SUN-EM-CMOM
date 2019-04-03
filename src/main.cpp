@@ -11,8 +11,8 @@
 #include "file_io/mom_file_writer.h"
 
 #ifndef PARALLEL
-#include "mom/serial_mom/mom.h"
-#include "cbfm/serial_cbfm/cbfm.h"
+#include "solvers/mom/serial_mom/mom.h"
+#include "solvers/cbfm/serial_cbfm/cbfm.h"
 #endif
 
 #ifdef PARALLEL
