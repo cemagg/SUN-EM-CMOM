@@ -157,6 +157,9 @@ class FEKOFileReader:
                     line = file.readline() # row no label x1 y1 z1 edges 
                     content = line.split()
 
+                    if "@" in content[1]:
+                        content[1] = content[1][content[1].index("@"):]
+
                     if content[1] in label_list:
                         label = label_list.index(content[1])
                     else:
