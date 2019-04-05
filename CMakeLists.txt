@@ -82,6 +82,7 @@ else()
                 src/data_structures/node.h
                 src/data_structures/triangle.h
                 src/data_structures/label.h
+                src/data_structures/excitation.h
                 src/file_io/mom_file_reader.cpp
                 src/file_io/mom_file_writer.cpp
                 src/solvers/mom/mom_helpers/quadrature.cpp
