@@ -79,7 +79,12 @@ class FEKOFileReader:
                 content = line.split()
 
                 for i in range(4,len(content)):
-                    portEdges.append(int(content[i]))
+                    if int(content[i]) < 0:
+                        port = int(content[i]) + 1
+                    else:
+                        port = int(content[i]) - 1
+
+                    portEdges.append(port)
                 
                 excitation.edgePort(portEdges, emag)
                 self.excitations.append(excitation)
