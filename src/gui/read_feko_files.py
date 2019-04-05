@@ -20,9 +20,9 @@ class FEKOFileReader:
         self.const["srcFile"] = self.file_name
         self.const["numFreq"] = 0
         self.const["freq"] = []
-
-        incident_flag = True
-        field_strength_flag = True
+        self.const["numPortEdges"] = 0
+        self.const["portEdges"] = []
+        
 
         try:
             file = open(self.file_name, "r")
@@ -46,36 +46,87 @@ class FEKOFileReader:
                 content = line.split()
                 number_of_edges = int(content[13])
 
- 
-            # get frequency
-            if "Frequency in Hz:" in line:
-                self.const["numFreq"] = self.const["numFreq"] + 1
+            if "EXCITATION BY VOLTAGE SOURCE AT AN EDGE" in line:
+                line = file.readline() # read empty line
+                line = file.readline() # read name
+                line = file.readline() # read index
                 content = line.split()
-                self.const["freq"].append(float(content[5]))
+                self.const["numExcitation"] = int(content[2])
+               
+                
+                line = file.readline() # read freq
+                content = line.split()
 
-            # get excitation angle
-            if "Direction of incidence:" in line:
-                if incident_flag:
-                    content = line.split()
-                    self.const['phi'] = content[8]
-                    self.const['theta'] = content[5]
-                    incident_flag = False
-            
-            # get magnitude of excitation
-            if "Field strength in V/m:" in line:
-                if field_strength_flag:
-                    content = line.split()
-                    e_x = float(content[6])
+                if self.const["numExcitation"] == 1:
+                    self.const["numFreq"] = self.const["numFreq"] + 1
+                    self.const["freq"].append(float(content[5]))
+                else:
+                    if float(content[5]) not in self.const["freq"]:
+                        self.const["numFreq"] = self.const["numFreq"] + 1
+                        self.const["freq"].append(float(content[5]))
 
-                    line = file.readline()
-                    content = line.split()
-                    e_y = float(content[5])
+                line = file.readline() # read wavelength
+                
+                line = file.readline() # read voltage
+                content = line.split()
+                self.const["emag"] = float(content[7])
+                
+                line = file.readline() # read phase
+                line = file.readline() # read attached port
+                line = file.readline() # read port edge length
 
-                    line = file.readline()
-                    content = line.split()
-                    e_z = float(content[2])
+                line = file.readline() # read edge indices
+                content = line.split()
 
-                    self.const["emag"] = math.sqrt(pow(e_x, 2) + pow(e_y, 2) + pow(e_z, 2))
+                for i in range(4,len(content)):
+                    self.const["portEdges"].append(content[i])
+
+            if "EXCITATION BY INCIDENT PLANE ELECTROMAGNETIC WAVE" in line:
+                line = file.readline() # read empty line
+                line = file.readline() # read name
+                line = file.readline() # read index
+                content = line.split()
+                self.const["numExcitation"] = int(content[2])
+
+                line = file.readline() # read freq
+                content = line.split()
+
+                if self.const["numExcitation"] == 1:
+                    self.const["numFreq"] = self.const["numFreq"] + 1
+                    self.const["freq"].append(float(content[5]))
+                else:
+                    if float(content[5]) not in self.const["freq"]:
+                        self.const["numFreq"] = self.const["numFreq"] + 1
+                        self.const["freq"].append(float(content[5]))
+
+                line = file.readline() # read wavelength
+
+                line = file.readline() # read direction of incidence
+                content = line.split()
+                self.const['phi'] = content[8]
+                self.const['theta'] = content[5]
+                
+                line = file.readline() # read polarisation
+                line = file.readline() # read axial ratio
+                line = file.readline() # read polarisation angle
+                line = file.readline() # read direction of propagation 1
+                line = file.readline() # read direction of propagation 2
+                line = file.readline() # read direction of propagation 3
+                line = file.readline() # read wave number
+
+                line = file.readline() # read field strength 1
+                content = line.split()
+                e_x = float(content[6])
+
+                line = file.readline() # read field strength 2
+                content = line.split()
+                e_y = float(content[5])
+
+                line = file.readline() # read field strength 3
+                content = line.split()
+                e_z = float(content[2])
+
+                self.const["emag"] = math.sqrt(pow(e_x, 2) + pow(e_y, 2) + pow(e_z, 2))
 
             # Get next line
             line = file.readline() 
@@ -83,6 +134,8 @@ class FEKOFileReader:
         # Close the file
         file.close()
         self.const["numEdges"] = number_of_edges
+        self.const["numPortEdges"] = len(self.const["portEdges"])
+        
 
         # Second pass through file to read edge, triangle and source data
         file = open(self.file_name, "r")
@@ -229,8 +282,10 @@ def errNormPercentage(isol, iref):
 
 
 
-# freader = FEKOFileReader("C:\\Users\\Tameez\\Documents\\git\\SUN-EM\\examples\\two_plate_array\\pec_plate.out")
-# freader.readFEKOOutFile()
-# print("hello")
+if __name__ == "__main__":
+    # freader = FEKOFileReader("C:\\Users\\Tameez\\Documents\\git\\SUN-EM\\examples\\two_plate_array\\pec_plate.out")
+    freader = FEKOFileReader("C:\\Users\\Tameez\\Documents\\git\\SUN-EM-CMOM\\test\\test_cases\\strip_dipole_array\\strip_dipole_array.out")
+    freader.readFEKOOutFile()
+
 
 #readFEKOStrFile("/home/tameez/github/SUN-EM-CMOM/examples/two_plate_array/two_plate_array_coarse.str")
