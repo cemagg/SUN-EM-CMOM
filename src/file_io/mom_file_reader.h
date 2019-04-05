@@ -13,6 +13,7 @@
 #include "../data_structures/edge.h"
 #include "../data_structures/triangle.h"
 #include "../data_structures/label.h"
+#include "../data_structures/excitation.h"
 
 class MoMFileReader
 {
@@ -29,10 +30,9 @@ class MoMFileReader
         std::vector<Node<double>> nodes;
         std::vector<Triangle> triangles;
         std::vector<Edge> edges;
+        std::vector<Excitation> excitations;
 
     protected:
-
-
         std::vector<std::string> constLineReader(std::string line);
         std::vector<std::string> numberLineReader(std::string line, int num_values);
 };
