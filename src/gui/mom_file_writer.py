@@ -3,7 +3,7 @@ from data_structures import Node
 from data_structures import Triangle
 from data_structures import Edge
 
-def writeMoMFIle(file_name, const, nodes, triangles, edges):
+def writeMoMFIle(file_name, const, nodes, triangles, edges, excitations):
     file = open(file_name, 'w+')
 
     # write header
@@ -90,5 +90,43 @@ def writeMoMFIle(file_name, const, nodes, triangles, edges):
     
     file.write("EDGES END\n")
     file.write("FEKO_DATA END\n\n")
+
+    # write excitations
+    file.write("EXCITATIONS START\n")
+    file.write("%-20s\t\t%d\n\n" % ("NUM_EXCITATIONS", len(excitations)))
+    
+    
+    for excitation in excitations:
+        label = -1
+
+        if excitation.type == 2:
+            for port in excitation.ports:
+                tmp_label = triangles[edges[abs(port)].tm].label
+
+                if label == -1:
+                    label = tmp_label
+                else:
+                    if tmp_label != label:
+                        quit()
+
+
+        file.write("%-30s\t\t%s\n" % ("index", str(excitation.index)))
+        file.write("%-30s\t\t%s\n" % ("type", str(excitation.type)))
+        file.write("%-30s\t\t%s\n" % ("label", str(label)))
+        file.write("%-30s\t\t%s\n" % ("emag", str(excitation.emag)))
+        
+        if excitation.type == 1:
+            file.write("%-30s\t\t%s\n" % ("theta", str(excitation.theta)))
+            file.write("%-30s\t\t%s\n" % ("phi", str(excitation.phi)))
+        
+        elif excitation.type == 2:
+            file.write("%-30s\t\t%s\n" % ("numPorts", str(len(excitation.ports))))
+            
+            for port in excitation.ports:
+                file.write("%-30s\t\t%s\n" % ("port", str(port)))
+        
+        file.write("\n")
+    
+    file.write("EXCITATIONS END\n")
 
     file.close()

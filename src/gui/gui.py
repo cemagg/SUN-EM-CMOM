@@ -26,7 +26,7 @@ class gui:
         # w = 400
         # h = 700
         working_dir = os.path.dirname(os.path.abspath(__file__))
-        sp = working_dir.split("src", 1);
+        sp = working_dir.split("src", 1)
         self.cwd = sp[0]
         self.master = master
         self.master.title("CMoM PreProcessor")
@@ -121,7 +121,7 @@ class gui:
                 self.printScreen("Unable to open file. See log for details")
 
             write_file_name = self.file_path_txt_var.get()[:-3] + "mom"
-            writeMoMFIle(write_file_name, self.reader.const, self.reader.nodes, self.reader.triangles, self.reader.edges)
+            writeMoMFIle(write_file_name, self.reader.const, self.reader.nodes, self.reader.triangles, self.reader.edges, self.reader.excitations)
             self.printScreen(".mom file written successfully")
 
         
