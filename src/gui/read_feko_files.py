@@ -14,6 +14,7 @@ class FEKOFileReader:
         self.triangles = []
         self.edges = []
         self.const = {}
+        self.excitations = []
     
     def readFEKOOutFile(self):
         
@@ -21,8 +22,6 @@ class FEKOFileReader:
         self.const["numFreq"] = 0
         self.const["freq"] = []
         self.const["numPortEdges"] = 0
-        self.const["portEdges"] = []
-        
 
         try:
             file = open(self.file_name, "r")
@@ -47,17 +46,18 @@ class FEKOFileReader:
                 number_of_edges = int(content[13])
 
             if "EXCITATION BY VOLTAGE SOURCE AT AN EDGE" in line:
+                portEdges = []
+
                 line = file.readline() # read empty line
                 line = file.readline() # read name
                 line = file.readline() # read index
                 content = line.split()
-                self.const["numExcitation"] = int(content[2])
-               
+                excitation = Excitation(int(content[2]) - 1)
                 
                 line = file.readline() # read freq
                 content = line.split()
 
-                if self.const["numExcitation"] == 1:
+                if not self.excitations:
                     self.const["numFreq"] = self.const["numFreq"] + 1
                     self.const["freq"].append(float(content[5]))
                 else:
@@ -69,7 +69,7 @@ class FEKOFileReader:
                 
                 line = file.readline() # read voltage
                 content = line.split()
-                self.const["emag"] = float(content[7])
+                emag = float(content[7])
                 
                 line = file.readline() # read phase
                 line = file.readline() # read attached port
@@ -79,19 +79,23 @@ class FEKOFileReader:
                 content = line.split()
 
                 for i in range(4,len(content)):
-                    self.const["portEdges"].append(int(content[i]))
+                    portEdges.append(int(content[i]))
+                
+                excitation.edgePort(portEdges, emag)
+                self.excitations.append(excitation)
 
             if "EXCITATION BY INCIDENT PLANE ELECTROMAGNETIC WAVE" in line:
                 line = file.readline() # read empty line
                 line = file.readline() # read name
                 line = file.readline() # read index
                 content = line.split()
-                self.const["numExcitation"] = int(content[2])
+                excitation = Excitation(int(content[2]) - 1)
+
 
                 line = file.readline() # read freq
                 content = line.split()
 
-                if self.const["numExcitation"] == 1:
+                if not self.excitations:
                     self.const["numFreq"] = self.const["numFreq"] + 1
                     self.const["freq"].append(float(content[5]))
                 else:
@@ -103,8 +107,8 @@ class FEKOFileReader:
 
                 line = file.readline() # read direction of incidence
                 content = line.split()
-                self.const['phi'] = content[8]
-                self.const['theta'] = content[5]
+                phi = content[8]
+                theta = content[5]
                 
                 line = file.readline() # read polarisation
                 line = file.readline() # read axial ratio
@@ -126,7 +130,10 @@ class FEKOFileReader:
                 content = line.split()
                 e_z = float(content[2])
 
-                self.const["emag"] = math.sqrt(pow(e_x, 2) + pow(e_y, 2) + pow(e_z, 2))
+                emag = math.sqrt(pow(e_x, 2) + pow(e_y, 2) + pow(e_z, 2))
+
+                excitation.planeWave(theta, phi, emag)
+                self.excitations.append(excitation)
 
             # Get next line
             line = file.readline() 
@@ -134,7 +141,6 @@ class FEKOFileReader:
         # Close the file
         file.close()
         self.const["numEdges"] = number_of_edges
-        self.const["numPortEdges"] = len(self.const["portEdges"])
         
 
         # Second pass through file to read edge, triangle and source data
