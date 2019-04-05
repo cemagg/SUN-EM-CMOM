@@ -45,6 +45,23 @@ class Edge:
         self.rcm = rho_c_minus
         self.rcp = rho_c_plus
 
+class Excitation:
+    def __init__(self, index):
+        self.index = index
+        self.type = 0
+
+    def planeWave(self, theta, phi, emag):
+        self.type = 1        
+        self.theta = theta
+        self.phi = phi
+        self.emag = emag
+
+    def edgePort(self, ports, emag):
+        self.type = 2
+        self.ports = ports
+        self.emag = emag
+
+
 def triangleCentreCalculator(vertices):
     return (1/3) * (vertices[0] + vertices[1] + vertices[2])
 
