@@ -79,7 +79,7 @@ class FEKOFileReader:
                 content = line.split()
 
                 for i in range(4,len(content)):
-                    self.const["portEdges"].append(content[i])
+                    self.const["portEdges"].append(int(content[i]))
 
             if "EXCITATION BY INCIDENT PLANE ELECTROMAGNETIC WAVE" in line:
                 line = file.readline() # read empty line
