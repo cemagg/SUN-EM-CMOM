@@ -24,6 +24,7 @@ void fillZVSelfForEDD(CBFMZMatrices &z,
                       std::map<int, Label> &label_map,
                       std::vector<Triangle> &triangles,
                       std::vector<Edge> &edges,
+                      std::vector<Excitation> &excitations,
                       std::vector<Node<double>> &nodes);
 
 #endif

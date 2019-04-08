@@ -1,4 +1,5 @@
 #include "vrhs.h"
+#include <iostream>
 
 IncidentPlaneWave getIncidentPlaneWave(double &theta,
                                        double &phi,
@@ -42,15 +43,17 @@ std::complex<double> getVrhsValueForIncidentPlaneWave(int edge_index,
     int positive_triangle_index = edges[edge_index].plus_triangle_index;
     int negative_triangle_index = edges[edge_index].minus_triangle_index;
 
-    Node<std::complex<double>> e_plus = scalarMultiplication(plane_wave.e_field,
-                                                             std::exp(std::complex<double>(0,1) *
-                                                             dotProduct(plane_wave.propagation_vector,
-                                                             triangles[positive_triangle_index].centre)));
+    Node<std::complex<double>> e_plus =
+        scalarMultiplication(plane_wave.e_field,
+                             std::exp(std::complex<double>(0,1) *
+                             dotProduct(plane_wave.propagation_vector,
+                             triangles[positive_triangle_index].centre)));
     
-    Node<std::complex<double>> e_minus = scalarMultiplication(plane_wave.e_field,
-                                                              (std::exp(std::complex<double>(0,1) *
-                                                              dotProduct(plane_wave.propagation_vector,
-                                                              triangles[negative_triangle_index].centre))));
+    Node<std::complex<double>> e_minus =
+        scalarMultiplication(plane_wave.e_field,
+                             (std::exp(std::complex<double>(0,1) *
+                             dotProduct(plane_wave.propagation_vector,
+                             triangles[negative_triangle_index].centre))));
 
     return (0.5 * dotProduct(e_plus, edges[edge_index].rho_c_plus) +
             0.5 * dotProduct(e_minus, edges[edge_index].rho_c_minus)) *
@@ -59,7 +62,7 @@ std::complex<double> getVrhsValueForIncidentPlaneWave(int edge_index,
 
 std::complex<double> getVrhsValueForDeltaGap(double &edge_length, double &efield_magnitude)
 {
-    return -1 * edge_length * efield_magnitude;
+    return edge_length * efield_magnitude;
 }
 
 

@@ -7,9 +7,9 @@ struct Excitation
 {
 	int type;
 	int label;
-	float emag;
-	float theta;
-	float phi;
+	double emag;
+	double theta;
+	double phi;
 	std::vector<int> ports;
 };
 
