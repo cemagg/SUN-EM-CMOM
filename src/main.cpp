@@ -85,6 +85,7 @@ int main(int argc, char **argv)
                     reader.triangles,
                     reader.edges,
                     reader.nodes,
+                    reader.excitations,
                     ilhs);
         
         // Write the solution to a .sol file
@@ -117,11 +118,12 @@ int main(int argc, char **argv)
 
         // Do the actual MoM computation
         mpiPerformMoM(reader.const_map,
-                        reader.label_map,
-                        reader.triangles,
-                        reader.edges,
-                        reader.nodes,
-                        ilhs);      
+                      reader.label_map,
+                      reader.triangles,
+                      reader.edges,
+                      reader.nodes,
+                      reader.excitations,
+                      ilhs);      
 
         if(rank == 0)
         {

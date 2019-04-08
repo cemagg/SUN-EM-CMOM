@@ -11,7 +11,11 @@ if __name__ == "__main__":
     print("CMoM".center(TWIDTH))
     print(TWIDTH * "=")
     
+    CMoMTest("pec_plate")
+    CMoMTest("non_origin_plane_wave_plate")
+    CMoMTest("rotated_plate")
     CMoMTest("cbfm_debug", cbfm=True)
+    CMoMTest("random_plate_array", cbfm=True)
 
 
 
