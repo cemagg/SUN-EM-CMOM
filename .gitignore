@@ -34,3 +34,5 @@ test/\.build/
 src/gui/__pycache__/
 
 test/__pycache__/
+
+omp_build/
