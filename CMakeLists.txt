@@ -6,6 +6,7 @@ project(mom CXX C Fortran)
 option(MPI "Compile with MPI" OFF)
 option(ATLAS "Use optimized BLAS" OFF)
 option(PARALLEL "Explicit Parallel Atlas" OFF)
+option(OpMP "Compile with OMP" OFF)
 
 if(MPI)
     MESSAGE("COMPILING WITH MPI")
@@ -77,6 +78,9 @@ if(MPI)
 
 else()
     MESSAGE("COMPILING WITHOUT MPI")
+    if(OpMP)
+        add_definitions(-DOMP)
+    endif(OpMP)
     set(SOURCES lib/args/args.hxx
                 src/data_structures/edge.h
                 src/data_structures/node.h
@@ -101,13 +105,33 @@ else()
                 src/solvers/cbfm/serial_cbfm/serial_cbfm_solve_ilhs.cpp
                 src/solvers/cbfm/serial_cbfm/serial_generate_cbfs.cpp
                 src/solvers/cbfm/serial_cbfm/serial_z_v_reducer.cpp
+                src/solvers/dgfm/dgfm_helpers/dgfm_helpers.cpp
+                src/solvers/dgfm/dgfm_helpers/dgfm_weights.cpp
+                src/solvers/dgfm/serial_dgfm/dgfm_row.cpp
+                src/solvers/dgfm/serial_dgfm/dgfm.cpp
                 src/main.cpp)
     add_executable(mom ${SOURCES})
-    target_link_libraries(mom   -L/${CMAKE_CURRENT_SOURCE_DIR}/lib/scalapack
-                                -lreflapack
-                                -lrefblas
-                                -ltmg 
-                                -L/usr/bin
-                                -lgfortran)
+
+    if(OpMP)
+        find_package(OpenMP REQUIRED)
+        target_link_libraries(mom   OpenMP::OpenMP_CXX
+                                    -L/${CMAKE_CURRENT_SOURCE_DIR}/lib/scalapack
+                                    -lreflapack
+                                    -lrefblas
+                                    -ltmg 
+                                    -L/usr/bin
+                                    -lgfortran)
+
+
+    else()
+
+        target_link_libraries(mom   -L/${CMAKE_CURRENT_SOURCE_DIR}/lib/scalapack
+                                    -lreflapack
+                                    -lrefblas
+                                    -ltmg 
+                                    -L/usr/bin
+                                    -lgfortran)
+    endif(OpMP)
+
 endif(MPI)
 unset(MPI CACHE)

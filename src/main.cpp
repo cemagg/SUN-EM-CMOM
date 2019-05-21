@@ -13,12 +13,14 @@
 #ifndef PARALLEL
 #include "solvers/mom/serial_mom/mom.h"
 #include "solvers/cbfm/serial_cbfm/cbfm.h"
+#include "solvers/dgfm/serial_dgfm/dgfm.h"
 #endif
 
 #ifdef PARALLEL
 #include "mom/parallel_mom/mpi_mom.h"
 #include <mpi.h>
 #endif
+
 //**********************************
 
 int main(int argc, char **argv)
@@ -31,6 +33,7 @@ int main(int argc, char **argv)
     args::Flag cbfm(group, "cbfm", "TBD", {"cbfm"}); // Decide whether to use CBFM
     args::Flag fpga(group, "fpga", "TBD", {"fpga"}); // Decide whether to use an FPGA
     args::Flag svd(group, "svd", "TBD", {"svd"}); // Decide whether to use an FPGA
+    args::Flag dgfm(group, "dgfm", "TBD", {"dgfm"}); // Decide whether to use an FPGA
 
     //----------------------------------------
     // Command line argument parser
@@ -67,7 +70,14 @@ int main(int argc, char **argv)
     #endif
 
     // Read the .mom file
-    MoMFileReader reader(args::get(file_name_arg), cbfm);
+
+    // TODO FIX THIS PROPERLY
+    bool domain_decomp = false;
+    if (cbfm || dgfm)
+    {
+        domain_decomp = true;
+    }
+    MoMFileReader reader(args::get(file_name_arg), domain_decomp);
     
     // Create the array to store the MoM solution
     std::complex<double> *ilhs; 
@@ -93,6 +103,21 @@ int main(int argc, char **argv)
         std::cout << "SOLVER COMPLETE" << std::endl;
 
         // Cleanup
+        delete [] ilhs;
+        #endif
+    }
+    else if (dgfm)
+    {
+        #ifndef PARALLEL
+        ilhs = new std::complex<double>[reader.edges.size()]();
+        performDGFM(reader.const_map,
+                    reader.label_map,
+                    reader.triangles,
+                    reader.edges,
+                    reader.nodes,
+                    reader.excitations,
+                    ilhs);
+                  
         delete [] ilhs;
         #endif
     }
