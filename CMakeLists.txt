@@ -133,7 +133,7 @@ else()
         if(COMP)
         find_package(OpenMP REQUIRED)
 
-        set(CMAKE_CXX_FLAGS "-fast -mp -Minfo ")
+        set(CMAKE_CXX_FLAGS "-fast -mp -std=c++11 ")
 
         target_link_libraries(mom OpenMP::OpenMP_CXX
                                   ${BLAS_LIBRARIES}
