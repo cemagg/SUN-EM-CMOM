@@ -24,3 +24,4 @@ void allocateDGFMExcitations(DGFMExcitations &dgfm_excitations, int num_domains,
 		dgfm_excitations.excitations[i] = new std::complex<double>[domain_size];
 	}
 }
+

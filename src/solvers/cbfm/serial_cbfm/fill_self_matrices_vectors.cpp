@@ -31,3 +31,4 @@ void fillZVSelfForEDD(CBFMZMatrices &z,
         std::copy(v.v_self[i], v.v_self[i] + domain_size, v.j_prim[i]);
     }
 }
+

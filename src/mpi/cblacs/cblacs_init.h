@@ -16,3 +16,4 @@ void cblacsGridSize(int &total_proc_rows, int &total_proc_cols, int n_procs);
 void cblacsBlockSize(int &block_size, int matrix_size);
 
 #endif
+

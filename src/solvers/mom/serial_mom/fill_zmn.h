@@ -25,3 +25,4 @@ void serialFillZmn(std::complex<double> *z_mn,
  				   bool cbfm);
 
 #endif // FILL_ZMN_H
+
