@@ -128,7 +128,9 @@ else()
         find_package(BLAS REQUIRED)
 
         target_link_libraries(mom ${BLAS_LIBRARIES}
-                                  ${LAPACK_LIBRARIES})
+                                  ${LAPACK_LIBRARIES}
+				  -L/apps/compilers/gcc/4.9.0/bin
+				  -lgfortran)
 
 
     else()
