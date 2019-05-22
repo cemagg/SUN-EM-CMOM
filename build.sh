@@ -3,4 +3,4 @@
 cd build/
 cmake ..
 make
-./mom ../examples/dgfm_small/dgfm_small.mom --dgfm
+./mom ../examples/strip_dipole_array/strip_dipole_array.mom --dgfm
