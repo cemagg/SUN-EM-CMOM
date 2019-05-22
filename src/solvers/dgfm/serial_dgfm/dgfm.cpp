@@ -38,9 +38,9 @@ void performDGFM(std::map<std::string, std::string> &const_map,
     #pragma omp parallel for
  	for (int i = 0; i < num_domains; i++)
  	{
-        #ifdef OMP
-        std::cout << omp_get_num_threads() << std::endl;
-        #endif
+        //#ifdef OMP
+        //std::cout << omp_get_num_threads() << std::endl;
+        //#endif
  		calculateDGFMRow(dgfm_rows[i],
 					 	 dgfm_excitations,
 					 	 i,
@@ -58,9 +58,9 @@ void performDGFM(std::map<std::string, std::string> &const_map,
                   ilhs + (i * domain_size));
  	}
 
-    for (int i = 0; i < edges.size(); i++)
-    {
-        std::cout << ilhs[i] << std::endl;
-    }
+    // for (int i = 0; i < edges.size(); i++)
+    // {
+    //     std::cout << ilhs[i] << std::endl;
+    // }
 }                 
 
