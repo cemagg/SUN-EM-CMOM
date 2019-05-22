@@ -59,3 +59,4 @@ void serialReduceCBFsWithSVD(CBFMVectors &v,
     delete [] rwork;
     delete [] work;
 }
+

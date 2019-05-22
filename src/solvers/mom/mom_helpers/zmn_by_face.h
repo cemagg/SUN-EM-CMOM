@@ -44,3 +44,4 @@ std::complex<double> delta_zmn(int observation_triangle_index,
                                double &omega);
 
 #endif // ZMN_BY_FACE_H
+

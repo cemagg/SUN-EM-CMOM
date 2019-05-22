@@ -16,3 +16,5 @@ void cblacsInit(CBLACSConfig &config)
                     &config.proc_row, &config.proc_col);
 
 }
+
+

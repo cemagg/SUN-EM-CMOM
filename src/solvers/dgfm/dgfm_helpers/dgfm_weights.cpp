@@ -19,3 +19,4 @@ void calculateDGFMWeights(DGFMRow &row,
 		}
 	}	
 }
+

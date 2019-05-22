@@ -10,3 +10,4 @@ std::vector<std::array<double, 4>> getQuadratureWeightsAndValues(int num_quadrat
 std::vector<std::array<double, 2>> getGaussLegendreQuadratureWeightsAndValues(int num_quadrature_points);
 
 #endif // QUADRATURE_H
+

@@ -80,3 +80,4 @@ std::vector<std::array<double, 2>> getGaussLegendreQuadratureWeightsAndValues(in
     }
     return quadrature_weights_values;
 }
+

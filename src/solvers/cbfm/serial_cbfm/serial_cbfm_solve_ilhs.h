@@ -23,3 +23,4 @@ void serialSolveIlhsCBFM(CBFMZMatrices &z,
                          int domain_size,
                          std::complex<double> *ilhs);
 #endif
+

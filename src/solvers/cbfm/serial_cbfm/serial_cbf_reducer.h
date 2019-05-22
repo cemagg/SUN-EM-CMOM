@@ -17,3 +17,4 @@ void serialReduceCBFsWithSVD(CBFMVectors &v,
                              int domain_size);
 
 #endif
+

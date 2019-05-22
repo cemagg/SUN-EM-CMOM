@@ -40,3 +40,5 @@ void writeIlhsToFile(std::complex<double> *ilhs,
 		file << ilhs[i] << std::endl;
 	}	
 }
+
+
