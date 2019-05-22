@@ -25,7 +25,7 @@ def errorString(error, threshold=5.00):
 
     return tmp_str.rjust(TWIDTH-1, '.') 
 
-def CMoMTest(name, serial=True, mpi=False, nprocs=4 , mom=True, cbfm=False):
+def CMoMTest(name, serial=True, mpi=False, nprocs=4 , mom=True, cbfm=False, dgfm=False):
 
         
     TWIDTH = os.get_terminal_size().columns
@@ -66,6 +66,16 @@ def CMoMTest(name, serial=True, mpi=False, nprocs=4 , mom=True, cbfm=False):
 
         if mpi:
             print("CBFM (mpi)", end="")
+            print(ERROR_STR)
+
+    if dgfm:
+        if serial:
+            print("DGFM (srl)", end="")
+            error, time = CMoM(exec_path, file_path, bin_path, serial=True, dgfm=True)
+            print(errorString(error))
+
+        if mpi:
+            print("DGFM (mpi)", end="")
             print(ERROR_STR)
   
     print(TWIDTH * "-")

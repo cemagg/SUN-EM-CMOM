@@ -13,7 +13,7 @@ def consoleCommand(command):
 
 
 def CMoM(exec_path, file_path, bin_path, serial=False, mpi=False, nprocs=4, mom=False,
-         cbfm=False):
+         cbfm=False, dgfm=False):
 
     if serial:
         cmd  = exec_path + "mom " + file_path
@@ -22,6 +22,9 @@ def CMoM(exec_path, file_path, bin_path, serial=False, mpi=False, nprocs=4, mom=
 
     if cbfm:
         cmd = cmd + " --cbfm"
+
+    if dgfm:
+        cmd = cmd + " --dgfm"
 
     t_start = time.time()
     console_output = consoleCommand(cmd)
