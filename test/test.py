@@ -14,8 +14,10 @@ if __name__ == "__main__":
     CMoMTest("pec_plate")
     CMoMTest("non_origin_plane_wave_plate")
     CMoMTest("rotated_plate")
-    CMoMTest("cbfm_debug", cbfm=True)
-    CMoMTest("random_plate_array", cbfm=True)
+    CMoMTest("cbfm_debug", dgfm=True)
+    CMoMTest("strip_dipole_array", dgfm=True)
+    CMoMTest("bow_tie_array", dgfm=True)
+    #CMoMTest("random_plate_array", dgfm=True)
 
 
 
