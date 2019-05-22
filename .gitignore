@@ -21,8 +21,6 @@ cbfm\.txt
 
 *.rhs
 
-*.mom
-
 *.sol
 
 doc/latex/
