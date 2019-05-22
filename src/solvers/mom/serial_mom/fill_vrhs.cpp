@@ -14,23 +14,60 @@ void serialFillVrhs(std::map<std::string, std::string> &const_map,
                     std::vector<Edge> &edges,
                     std::vector<Excitation> &excitations,
                     std::complex<double> *vrhs,
-                    Label label)
+                    int domain_index,
+                    Label label,
+                    bool cbfm)
 {
 
     // std::vector<std::complex<double>> vrhs;
     // vrhs.resize(edges.size()); 
-    bool port = false;
-    if(port)
+    
+    if(excitations[domain_index].type == 2)
     {
-        int delta_gap_index = std::stoi(const_map["feed_edge"]) - 1;
-        double efield_magnitude = std::stod(const_map["emag"]);
+        int port_index = 0;
+        std::vector<int> relative_ports;
 
+        relative_ports.resize(excitations[domain_index].ports.size()); 
+
+
+        for (int i = 0; i < relative_ports.size(); i++)
+        {
+            if (cbfm)
+            {
+                relative_ports[i] = distance(label.edge_indices.begin(),
+                                            std::find(label.edge_indices.begin(),
+                                            label.edge_indices.end(),
+                                            std::abs(excitations[domain_index].ports[i]))); 
+            }
+            else
+            {
+                relative_ports[i] = excitations[domain_index].ports[i];
+            }
+        }
+        
         for (int i = 0; i < label.edge_indices.size(); i++)
         {
-            
+
+            if (i == std::abs(relative_ports[port_index]))
+            {
+                if (excitations[domain_index].ports[port_index] < 0)
+                {
+                    vrhs[i] = getVrhsValueForDeltaGap(edges[std::abs(excitations[domain_index].ports[port_index])].length,
+                                                      excitations[domain_index].emag);
+                }
+                else
+                {
+                    vrhs[i] =   std::complex<double>(-1.0, 0.0) * 
+                                getVrhsValueForDeltaGap(edges[std::abs(excitations[domain_index].ports[port_index])].length,
+                                                        excitations[domain_index].emag);
+                }
+                port_index++;
+            }
+            else
+            {
+                vrhs[i] = std::complex<double>(0.0,0.0);    
+            }
         }
-        vrhs[delta_gap_index] = getVrhsValueForDeltaGap(edges[delta_gap_index].length,
-                                                        efield_magnitude);
     }
     else
     {

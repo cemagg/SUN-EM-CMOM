@@ -25,7 +25,7 @@ void fillZVSelfForEDD(CBFMZMatrices &z,
 
     for (int i = 0; i < num_domains; i++)
     {
-        serialFillVrhs(const_map, triangles, edges, excitations, v.v_self[i], label_map[i]);
+        serialFillVrhs(const_map, triangles, edges, excitations, v.v_self[i], i, label_map[i], true);
 
         // Copy to j_prim for future calculations because of LAPACK overwrite
         std::copy(v.v_self[i], v.v_self[i] + domain_size, v.j_prim[i]);

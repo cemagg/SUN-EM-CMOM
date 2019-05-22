@@ -58,9 +58,9 @@ void performDGFM(std::map<std::string, std::string> &const_map,
                   ilhs + (i * domain_size));
  	}
 
-    // for (int i = 0; i < edges.size(); i++)
-    // {
-    //     std::cout << ilhs[i] << std::endl;
-    // }
+    for (int i = 0; i < edges.size(); i++)
+    {
+        std::cout << ilhs[i] << std::endl;
+    }
 }                 
 

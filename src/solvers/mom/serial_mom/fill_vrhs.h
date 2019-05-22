@@ -5,6 +5,9 @@
 #include <complex>
 #include <map>
 #include <string>
+#include <iostream>
+#include <cmath>
+#include <algorithm>
 
 #include "../mom_helpers/vrhs.h"
 #include "../../../data_structures/triangle.h"
@@ -14,10 +17,12 @@
 
 
 void serialFillVrhs(std::map<std::string, std::string> &const_map,
-                    std::vector<Triangle> &triangles,
+                    std::vector<Triangle> &triangles, 
                     std::vector<Edge> &edges,
                     std::vector<Excitation> &excitations,
                     std::complex<double> *vrhs,
-                    Label label);
+                    int domain_index,
+                    Label label,
+                    bool cbfm);
 
 #endif // FILL_VRHS_H
