@@ -8,6 +8,9 @@ option(ATLAS "Use optimized BLAS" OFF)
 option(PARALLEL "Explicit Parallel Atlas" OFF)
 option(OpMP "Compile with OMP" OFF)
 option(CHPC "Compile with OMP" OFF)
+option(COMP "Compile with OMP" OFF)
+option(CACC "Compile with OMP" OFF)
+
 
 if(MPI)
     MESSAGE("COMPILING WITH MPI")
@@ -127,10 +130,24 @@ else()
         find_package(LAPACK REQUIRED)
         find_package(BLAS REQUIRED)
 
-        target_link_libraries(mom ${BLAS_LIBRARIES}
+        if(COMP)
+        find_package(OpenMP REQUIRED)
+
+        set(CMAKE_CXX_FLAGS "-fast -mp -Minfo ")
+
+        target_link_libraries(mom OpenMP::OpenMP_CXX
+                                  ${BLAS_LIBRARIES}
                                   ${LAPACK_LIBRARIES}
-				  -L/apps/compilers/gcc/4.9.0/bin
-				  -lgfortran)
+                                  -L/apps/compilers/pgi/linux86-64/19.4/bin/
+                                  -lpgfortran)
+        elseif(CACC)
+        else()
+
+            target_link_libraries(mom ${BLAS_LIBRARIES}
+                                      ${LAPACK_LIBRARIES}
+				                      -L/apps/compilers/gcc/4.9.0/bin
+				                      -lgfortran)
+        endif()
 
 
     else()

@@ -11,5 +11,7 @@ lapack/gcc/64/3.6.0
 chpc/openbabel/2.3.1/cmake-3.7.1/gcc-4.9.0
 chpc/netcdf/4.4.4-F/gfortran/gfortran-6.1.0
 
+chpc/pgi/19.4
 
 /apps/compilers/gcc/4.9.0/bin/gfortran
+/apps/compilers/pgi/linux86-64/19.4/bin/pgc++
