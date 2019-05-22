@@ -27,6 +27,6 @@ std::complex<double> getVrhsValueForIncidentPlaneWave(int edge_index,
 													  std::vector<Triangle> &triangles,
 													  std::vector<Edge> &edges);
 
-std::complex<double> getVrhsValueForDeltaGap(double &edge_length, double &efield_magnitude);
+std::complex<double> getVrhsValueForDeltaGap(double edge_length, double efield_magnitude);
 
 #endif // VRHS_H

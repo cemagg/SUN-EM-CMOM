@@ -17,7 +17,9 @@ void fillDGFMExcitations(DGFMExcitations &v_vectors,
            		        edges,
                		    excitations,
                    		v_vectors.excitations[i],
-                   		label_map[i]);	
+                   		i,
+                   		label_map[i],
+                   		true);	
 	}	
 }
 

@@ -331,6 +331,8 @@ MoMFileReader::MoMFileReader(std::string file_path, bool cbfm)
         getline(file, str);
         if (str == "EXCITATIONS START")
         {
+            std::vector<int> all_ports;
+
             getline(file, str);
             line_vector = this->constLineReader(str);
             num_fields = std::stoi(line_vector[1]);
@@ -376,13 +378,25 @@ MoMFileReader::MoMFileReader(std::string file_path, bool cbfm)
                     {
                         getline(file, str); // ports
                         line_vector = this->constLineReader(str);
-                        tmp_excitation.ports.push_back(std::stoi(line_vector[1]));
+                        if (cbfm)
+                        {
+                            tmp_excitation.ports.push_back(std::stoi(line_vector[1]));
+                        }
+                        else
+                        {
+                            all_ports.push_back(std::stoi(line_vector[1]));
+                        }
                     }
                 }
                 
                 this->excitations.push_back(tmp_excitation);
                 
                 getline(file, str); // read empty line
+            }
+
+            if (!cbfm)
+            {
+                this->excitations[0].ports = all_ports;
             }
             
         }
