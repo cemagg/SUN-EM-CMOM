@@ -7,6 +7,7 @@ option(MPI "Compile with MPI" OFF)
 option(ATLAS "Use optimized BLAS" OFF)
 option(PARALLEL "Explicit Parallel Atlas" OFF)
 option(OpMP "Compile with OMP" OFF)
+option(CHPC "Compile with OMP" OFF)
 
 if(MPI)
     MESSAGE("COMPILING WITH MPI")
@@ -121,6 +122,13 @@ else()
                                     -ltmg 
                                     -L/usr/bin
                                     -lgfortran)
+
+    elseif(CHPC)
+        find_package(LAPACK REQUIRED)
+        find_package(BLAS REQUIRED)
+
+        target_link_libraries(mom ${BLAS_LIBRARIES}
+                                  ${LAPACK_LIBRARIES})
 
 
     else()
