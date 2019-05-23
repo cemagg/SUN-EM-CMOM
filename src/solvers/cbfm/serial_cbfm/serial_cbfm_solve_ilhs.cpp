@@ -19,8 +19,6 @@ void serialSolveIlhsCBFM(CBFMZMatrices &z,
     int info;
     int one = 1;
     char norm = 'N';
-    char tran = 'T';
-
     
     zgetrf_(&sum_cbfs, &sum_cbfs, z.z_red_concat, &sum_cbfs, z_red_piv, &info);
     zgetrs_(&norm, &sum_cbfs, &one, z.z_red_concat, &sum_cbfs, z_red_piv,
