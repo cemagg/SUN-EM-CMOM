@@ -141,6 +141,7 @@ else()
                                   -lgfortran)
         elseif(CACC)
         else()
+            set(CMAKE_CXX_FLAGS "-acc -ta=tesla:managed -std=c++11 ")
 
             target_link_libraries(mom ${BLAS_LIBRARIES}
                                       ${LAPACK_LIBRARIES}
