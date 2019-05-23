@@ -145,8 +145,8 @@ else()
 
             target_link_libraries(mom ${BLAS_LIBRARIES}
                                       ${LAPACK_LIBRARIES}
-				                      -L/apps/compilers/gcc/4.9.0/bin
-				                      -lgfortran)
+				      -L/apps/compilers/pgi/linux86-64/19.4/bin
+				      -lgfortran)
         endif()
 
 
