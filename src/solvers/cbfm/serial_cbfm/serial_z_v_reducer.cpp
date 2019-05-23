@@ -23,7 +23,6 @@ void serialZVReducerForEDD(CBFMZMatrices &z,
     dindex.resize(num_domains);
     
     int disp_index = 0;
-    int sum_cbf_sizes = 0;
     int v_index = 0;
 
     for (int i = 0; i < num_domains; i++)
@@ -34,7 +33,6 @@ void serialZVReducerForEDD(CBFMZMatrices &z,
 
         for (int j = 0; j < num_domains; j++)
         {
-             int nd2 = num_domains * num_domains;
             
             c_temp = new std::complex<double>[domain_size * sizes[i].n_cbfs];
 
