@@ -135,8 +135,7 @@ else()
 
         set(CMAKE_CXX_FLAGS "-fast -mp -std=c++11 ")
 
-        target_link_libraries(mom OpenMP::OpenMP_CXX
-                                  ${BLAS_LIBRARIES}
+        target_link_libraries(mom ${BLAS_LIBRARIES}
                                   ${LAPACK_LIBRARIES}
                                   -L/apps/compilers/pgi/linux86-64/19.4/bin/
                                   -lpgfortran)
