@@ -133,20 +133,22 @@ else()
         if(COMP)
         find_package(OpenMP REQUIRED)
 
-        set(CMAKE_CXX_FLAGS "-mp -std=c++11 ")
+        set(CMAKE_CXX_FLAGS "-mp -pgf90libs -std=c++11 ")
 
         target_link_libraries(mom ${BLAS_LIBRARIES}
-                                  ${LAPACK_LIBRARIES}
-                                  -L/apps/compilers/pgi/linux86-64/19.4/bin/
-                                  -lpgfortran)
+                                  ${LAPACK_LIBRARIES})
+
         elseif(CACC)
+		set(CMAKE_CXX_FLAGS "-acc -ta=tesla:managed -pgf90libs -std=c++11 ")
+
+        	target_link_libraries(mom ${BLAS_LIBRARIES}
+                	                  ${LAPACK_LIBRARIES})
+
         else()
-            set(CMAKE_CXX_FLAGS "-acc -ta=tesla:managed -std=c++11 ")
+            set(CMAKE_CXX_FLAGS "-pgf90libs -std=c++11 ")
 
             target_link_libraries(mom ${BLAS_LIBRARIES}
-                                      ${LAPACK_LIBRARIES}
-				      -L/apps/compilers/pgi/linux86-64/19.4/bin
-				      -lgfortran)
+                                      ${LAPACK_LIBRARIES})
         endif()
 
 
