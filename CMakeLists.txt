@@ -67,8 +67,17 @@ if(MPI)
                                     ${SCALAPACK_LIBRARIES}
                                     ${BLAS_LIBRARIES}
                                     ${LAPACK_LIBRARIES})
+    elseif(CHPC)
+        find_package(LAPACK REQUIRED)
+        find_package(BLAS REQUIRED)
+        set(CMAKE_CXX_FLAGS "-mp -pgf90libs -std=c++11 ")
+
+        target_link_libraries(mom ${MPI_LIBRARIES}
+                                  ${BLAS_LIBRARIES}
+                                  ${LAPACK_LIBRARIES})
     else()
         target_link_libraries(mom_mpi ${MPI_LIBRARIES}
+                                    OpenMP::OpenMP_CXX
                                     -L/${CMAKE_CURRENT_SOURCE_DIR}/lib/scalapack
                                     -lscalapack
                                     -lrefblas
