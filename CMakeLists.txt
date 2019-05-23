@@ -43,22 +43,21 @@ if(MPI)
                 src/data_structures/triangle.h
                 src/file_io/mom_file_reader.cpp
                 src/file_io/mom_file_writer.cpp
-                src/mom/mom_helpers/quadrature.cpp
-                src/mom/mom_helpers/vrhs.cpp
-                src/mom/mom_helpers/zmn_by_face.cpp
+                src/solvers/mom/mom_helpers/quadrature.cpp
+                src/solvers/mom/mom_helpers/vrhs.cpp
+                src/solvers/mom/mom_helpers/zmn_by_face.cpp
                 src/helpers/globals.cpp
-                src/mom/parallel_mom/mpi_fill_vrhs.cpp
-                src/mom/parallel_mom/mpi_fill_zmn.cpp
-                src/mom/parallel_mom/mpi_fill_ilhs.cpp
-                src/mom/parallel_mom/mpi_mom.cpp
-                src/cbfm/cbfm_helpers/cbfm_helpers.cpp
-                src/cbfm/parallel_cbfm/mpi_scalapack_cbfm/mpi_scalapack_cbf_reducer.cpp
-                src/cbfm/parallel_cbfm/mpi_scalapack_cbfm/mpi_scalapack_cbfm_solve_ilhs.cpp
-                src/cbfm/parallel_cbfm/mpi_scalapack_cbfm/mpi_scalapack_edd_cbfm.cpp
-                src/cbfm/parallel_cbfm/mpi_scalapack_cbfm/mpi_scalapack_fill_self_matrices_vectors.cpp
-                src/cbfm/parallel_cbfm/mpi_scalapack_cbfm/mpi_scalapack_generate_cbfs.cpp
-                src/cbfm/parallel_cbfm/mpi_scalapack_cbfm/mpi_scalapack_z_v_reducer.cpp
-                src/cbfm/parallel_cbfm/mpi_cbfm.cpp
+                src/solvers/mom/parallel_mom/mpi_fill_vrhs.cpp
+                src/solvers/mom/parallel_mom/mpi_fill_zmn.cpp
+                src/solvers/mom/parallel_mom/mpi_fill_ilhs.cpp
+                src/solvers/mom/parallel_mom/mpi_mom.cpp
+                src/solvers/mom/serial_mom/fill_vrhs.cpp
+                src/solvers/mom/serial_mom/fill_zmn.cpp
+                src/solvers/mom/serial_mom/fill_ilhs.cpp
+                src/solvers/dgfm/dgfm_helpers/dgfm_helpers.cpp
+                src/solvers/dgfm/dgfm_helpers/dgfm_weights.cpp
+                src/solvers/dgfm/serial_dgfm/dgfm_row.cpp
+                src/solvers/dgfm/parallel_dgfm/mpi_dgfm.cpp
                 src/main.cpp)
     add_executable(mom_mpi ${SOURCES})
 
