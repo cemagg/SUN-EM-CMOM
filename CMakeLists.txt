@@ -69,7 +69,6 @@ if(MPI)
                                     ${LAPACK_LIBRARIES})
     else()
         target_link_libraries(mom_mpi ${MPI_LIBRARIES}
-                                    OpenMP::OpenMP_CXX
                                     -L/${CMAKE_CURRENT_SOURCE_DIR}/lib/scalapack
                                     -lscalapack
                                     -lrefblas
