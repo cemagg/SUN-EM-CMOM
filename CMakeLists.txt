@@ -133,12 +133,12 @@ else()
         if(COMP)
         find_package(OpenMP REQUIRED)
 
-        set(CMAKE_CXX_FLAGS "-fopenmp -std=c++11 ")
+        set(CMAKE_CXX_FLAGS "-mp -std=c++11 ")
 
         target_link_libraries(mom ${BLAS_LIBRARIES}
                                   ${LAPACK_LIBRARIES}
-                                  -L/apps/compilers/gcc/4.9.0/bin/
-                                  -lgfortran)
+                                  -L/apps/compilers/pgi/linux86-64/19.4/bin/
+                                  -lpgfortran)
         elseif(CACC)
         else()
             set(CMAKE_CXX_FLAGS "-acc -ta=tesla:managed -std=c++11 ")
