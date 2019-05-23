@@ -40,21 +40,21 @@ void calculateDGFMRow(DGFMRow &row,
 	calculateDGFMWeights(row, v_vectors, num_domains, excitation_index, domain_index);	
 
 	// Calcualte Z Matrices
-	#pragma acc parallel loop
-	for (int i = 0; i < num_domains; i++)
+	for (int n = 0; n < num_domains; n++)
 	{
-		serialFillZmn( 	row.z_matrices[i],
+		serialFillZmn( 	row.z_matrices[n],
         	          	edges,
             	      	triangles,
                 	  	nodes,
                    		const_map,
-                   		label_map[i],
+                   		label_map[n],
                    		label_map[domain_index],
                    		true);	
 	}
 
 	// Sum Z Matrices
 	int index = 0;
+	#pragma acc parallel loop
 	for (int i = 0; i < num_domains; i++)
 	{
 		if (i != domain_index)
