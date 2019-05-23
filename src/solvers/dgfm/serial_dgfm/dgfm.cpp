@@ -35,6 +35,7 @@ void performDGFM(std::map<std::string, std::string> &const_map,
                  	  	excitations);	
 
     // Calc Rows
+    #pragma acc parallel loop 
     #pragma omp parallel for
  	for (int i = 0; i < num_domains; i++)
  	{
