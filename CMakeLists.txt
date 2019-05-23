@@ -139,7 +139,7 @@ else()
                                   ${LAPACK_LIBRARIES})
 
         elseif(CACC)
-		set(CMAKE_CXX_FLAGS "-acc -ta=tesla:managed -pgf90libs -std=c++11 ")
+		set(CMAKE_CXX_FLAGS "-acc -ta=tesla:managed -Minfo=accel -pgf90libs -std=c++11 ")
 
         	target_link_libraries(mom ${BLAS_LIBRARIES}
                 	                  ${LAPACK_LIBRARIES})
