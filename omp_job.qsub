@@ -1,0 +1,18 @@
+#!/bin/bash
+#PBS -l select=1:ncpus=10:ngpus=1
+#PBS -P CSCI1214
+#PBS -q gpu_1
+#PBS -l walltime=1:00:00
+#PBS -o /mnt/lustre/users/tebrahim/SUN-EM-CMOM/omp_bts.out
+#PBS -e /mnt/lustre/users/tebrahim/SUN-EM-CMOM/omp_bts.err
+#PBS -m abe
+#PBS -M 17650739@sun.ac.za
+
+ulimit -s unlimited
+source /etc/profile.d/modules.sh
+
+cd /mnt/lustre/users/tebrahim/SUN-EM-CMOM/omp_build
+
+export OMP_NUM_THREADS=1
+time ./mom ../examples/bow_tie_array/bow_tie_array_small.mom --dgfm
+

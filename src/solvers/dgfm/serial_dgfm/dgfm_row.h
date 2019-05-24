@@ -4,6 +4,7 @@
 #include <vector>
 #include <complex>
 #include <map>
+#include <chrono>
 
 #include "../dgfm_helpers/dgfm_helpers.h"
 #include "../dgfm_helpers/dgfm_weights.h"

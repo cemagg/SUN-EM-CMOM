@@ -53,6 +53,9 @@ void calculateDGFMRow(DGFMRow &row,
 	}
 
 	// Sum Z Matrices
+	#ifndef PARALLEL
+	auto start = std::chrono::steady_clock::now();
+	#endif
 	for (int i = 0; i < num_domains; i++)
 	{
 		if (i != domain_index)
@@ -67,6 +70,10 @@ void calculateDGFMRow(DGFMRow &row,
 			}
 		}
 	}
+	#ifndef PARALLEL
+	auto end = std::chrono::steady_clock::now();
+	std::cout << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << std::endl; 
+	#endif
 
 	// Solve for I
 
