@@ -12,7 +12,7 @@ void allocateDGFMRowMemory(DGFMRow &row, int num_domains, int domain_size)
 	}
 
 	// Allocate Weights
-	row.dgfm_weights = new std::complex<double>[num_domains - 1];
+	row.dgfm_weights = new std::complex<double>[num_domains];
 }
 
 void allocateDGFMExcitations(DGFMExcitations &dgfm_excitations, int num_domains, int domain_size)
