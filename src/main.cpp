@@ -12,12 +12,12 @@
 
 #ifndef PARALLEL
 #include "solvers/mom/serial_mom/mom.h"
-#include "solvers/cbfm/serial_cbfm/cbfm.h"
 #include "solvers/dgfm/serial_dgfm/dgfm.h"
 #endif
 
 #ifdef PARALLEL
-#include "mom/parallel_mom/mpi_mom.h"
+#include "solvers/mom/parallel_mom/mpi_mom.h"
+#include "solvers/dgfm/parallel_dgfm/mpi_dgfm.h"
 #include <mpi.h>
 #endif
 
@@ -120,6 +120,31 @@ int main(int argc, char **argv)
                   
         delete [] ilhs;
         #endif
+        
+        #ifdef PARALLEL
+        if(rank == 0)
+        {
+            ilhs = new std::complex<double>[reader.edges.size()];
+        }
+
+        mpiPerformDGFM( reader.const_map,
+                        reader.label_map,
+                        reader.triangles,
+                        reader.edges,
+                        reader.nodes,
+                        reader.excitations,
+                        ilhs); 
+
+        if(rank == 0)
+        {
+            // Write the solution to a .sol file
+            writeIlhsToFile(ilhs, reader.edges.size(), args::get(file_name_arg));   
+            
+            // Cleanup
+            delete [] ilhs;
+        } 
+
+        #endif
     }
     else
     {
@@ -141,24 +166,25 @@ int main(int argc, char **argv)
         }
         #endif
 
+        // TODO FIX FOR NEW IMPLEMENTATION OF EXCITATIONS AND LABELS
         // Do the actual MoM computation
-        mpiPerformMoM(reader.const_map,
-                      reader.label_map,
-                      reader.triangles,
-                      reader.edges,
-                      reader.nodes,
-                      reader.excitations,
-                      ilhs);      
+        // mpiPerformMoM(reader.const_map,
+        //               reader.label_map,
+        //               reader.triangles,
+        //               reader.edges,
+        //               reader.nodes,
+        //               reader.excitations,
+        //               ilhs);      
 
-        if(rank == 0)
-        {
-            // Write the solution to a .sol file
-            writeIlhsToFile(ilhs, reader.edges.size(), args::get(file_name_arg));   
-            std::cout << "SOLVER COMPLETE" << std::endl;
+        // if(rank == 0)
+        // {
+        //     // Write the solution to a .sol file
+        //     writeIlhsToFile(ilhs, reader.edges.size(), args::get(file_name_arg));   
+        //     std::cout << "SOLVER COMPLETE" << std::endl;
             
-            // Cleanup
-            delete ilhs;
-        } 
+        //     // Cleanup
+        //     delete ilhs;
+        // } 
 
     }
 
