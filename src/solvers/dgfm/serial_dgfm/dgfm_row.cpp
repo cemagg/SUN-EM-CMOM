@@ -53,17 +53,18 @@ void calculateDGFMRow(DGFMRow &row,
 	}
 
 	// Sum Z Matrices
-	int index = 0;
-	#pragma acc parallel loop
 	for (int i = 0; i < num_domains; i++)
 	{
 		if (i != domain_index)
 		{
+			#ifndef PARALLEL
+			#pragma acc parallel loop
+			#pragma omp parallel for
+			#endif
 			for (int j = 0; j < (domain_size * domain_size); j++)
 			{
-				row.z_matrices[domain_index][j] += row.dgfm_weights[index] * row.z_matrices[i][j]; 
+				row.z_matrices[domain_index][j] += row.dgfm_weights[i] * row.z_matrices[i][j]; 
 			}
-			index++;
 		}
 	}
 

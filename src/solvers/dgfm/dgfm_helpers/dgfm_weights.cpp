@@ -8,15 +8,9 @@ void calculateDGFMWeights(DGFMRow &row,
 {
 	// For now just allocate 1+0i for all weights for expediency (sp?)
 
-	int index = 0;
-
 	for (int i = 0; i < num_domains; i++)
 	{
-		if (i != domain_index)
-		{
-			row.dgfm_weights[index] = std::complex<double>(1.0, 0.0);
-			index++;
-		}
+		row.dgfm_weights[i] = std::complex<double>(1.0, 0.0);
 	}	
 }
 
