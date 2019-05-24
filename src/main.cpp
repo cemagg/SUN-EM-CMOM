@@ -119,7 +119,7 @@ int main(int argc, char **argv)
                     reader.excitations,
                     ilhs);
                   
-        writeIlhsToFile(ilhs, reader.edges.size(), args::get(file_name_arg));   
+        // writeIlhsToFile(ilhs, reader.edges.size(), args::get(file_name_arg));   
         delete [] ilhs;
         #endif
         
