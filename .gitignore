@@ -36,3 +36,5 @@ test/__pycache__/
 omp_build/
 
 abuild/
+
+acc_build/

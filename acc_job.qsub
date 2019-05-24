@@ -3,17 +3,16 @@
 #PBS -P CSCI1214
 #PBS -q gpu_1
 #PBS -l walltime=5:00:00
-#PBS -o /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc_results/omp_bts_lll.out
-#PBS -e /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc_results/omp_bts_lll.err
+#PBS -o /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc_results/acc_btl.out
+#PBS -e /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc_results/acc_btl.err
 #PBS -m abe
 #PBS -M 17650739@sun.ac.za
-#PBS -N sbta2_lll
+#PBS -N sbta2_acc_l
 
 ulimit -s unlimited
 source /etc/profile.d/modules.sh
 
-cd /mnt/lustre/users/tebrahim/SUN-EM-CMOM/omp_build
+cd /mnt/lustre/users/tebrahim/SUN-EM-CMOM/acc_build
 
-export OMP_NUM_THREADS=12
 time ./mom ../examples/bow_tie_array/bow_tie_array_small.mom --dgfm
 
