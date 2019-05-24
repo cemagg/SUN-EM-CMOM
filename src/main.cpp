@@ -13,6 +13,7 @@
 #ifndef PARALLEL
 #include "solvers/mom/serial_mom/mom.h"
 #include "solvers/dgfm/serial_dgfm/dgfm.h"
+#include "solvers/cbfm/serial_cbfm/cbfm.h"
 #endif
 
 #ifdef PARALLEL
@@ -118,6 +119,7 @@ int main(int argc, char **argv)
                     reader.excitations,
                     ilhs);
                   
+        writeIlhsToFile(ilhs, reader.edges.size(), args::get(file_name_arg));   
         delete [] ilhs;
         #endif
         

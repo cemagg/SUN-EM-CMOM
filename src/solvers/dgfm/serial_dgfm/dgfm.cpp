@@ -56,11 +56,6 @@ void performDGFM(std::map<std::string, std::string> &const_map,
                   dgfm_excitations.excitations[i] + domain_size,
                   ilhs + (i * domain_size));
  	}
-
-    for (int i = 0; i < edges.size(); i++)
-    {
-        std::cout << ilhs[i] << std::endl;
-    }
 }                 
 
 
