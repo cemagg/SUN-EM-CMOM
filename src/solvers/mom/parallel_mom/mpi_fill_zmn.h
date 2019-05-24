@@ -7,13 +7,13 @@
 #include <iostream>
 #include <fstream>
 
-#include "../../data_structures/node.h"
-#include "../../data_structures/edge.h"
-#include "../../data_structures/label.h"
-#include "../../data_structures/triangle.h"
+#include "../../../data_structures/node.h"
+#include "../../../data_structures/edge.h"
+#include "../../../data_structures/label.h"
+#include "../../../data_structures/triangle.h"
 #include "../mom_helpers/quadrature.h"
 #include "../mom_helpers/zmn_by_face.h"
-#include "../../helpers/globals.h"
+#include "../../../helpers/globals.h"
 
 extern "C"
 {
