@@ -62,7 +62,7 @@ void calculateDGFMRow(DGFMRow &row,
 	// int n_workers = (max_gang_size / n_vectors > 32) ? 32 : (max_gang_size / n_vectors);
 	
 	int n_vectors = 1024;
-	int num_workers = 1;	
+	int n_workers = 1;	
 
 	#pragma acc parallel loop device_type(nvidia) vector_length(n_vectors) gang worker num_workers(n_workers)
 	for (int i = 0; i < num_domains; i++)
