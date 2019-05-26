@@ -38,3 +38,11 @@ omp_build/
 abuild/
 
 acc_build/
+
+chpc/acc_build/
+
+chpc/omp_build/
+
+chpc/mpi_build/
+
+chpc/ompi_build/
