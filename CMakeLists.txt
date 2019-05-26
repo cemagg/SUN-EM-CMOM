@@ -10,7 +10,7 @@ option(OpMP "Compile with OMP" OFF)
 option(CHPC "Compile with OMP" OFF)
 option(COMP "Compile with OMP" OFF)
 option(CACC "Compile with OMP" OFF)
-
+option(PGGG "Compile with OMP" OFF)
 
 if(MPI)
     MESSAGE("COMPILING WITH MPI")
@@ -132,6 +132,12 @@ else()
                                     -ltmg 
                                     -L/usr/bin
                                     -lgfortran)
+    elseif(PGGG)
+        find_package(LAPACK REQUIRED)
+        find_package(BLAS REQUIRED)
+        set(CMAKE_CXX_FLAGS "-acc -ta=tesla:managed -Minfo=accel -pgf90libs -std=c++11 ")
+        target_link_libraries(mom ${BLAS_LIBRARIES}
+                                  ${LAPACK_LIBRARIES})
 
     elseif(CHPC)
         find_package(LAPACK REQUIRED)

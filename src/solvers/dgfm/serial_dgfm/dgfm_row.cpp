@@ -57,12 +57,10 @@ void calculateDGFMRow(DGFMRow &row,
 	auto start = std::chrono::steady_clock::now();
 	#endif
 
-	// int max_gang_size = 1024;
-	// int n_vectors = ((domain_size * domain_size / 32) + 1) * 32;
-	// int n_workers = (max_gang_size / n_vectors > 32) ? 32 : (max_gang_size / n_vectors);
 	#ifndef PARALLEL	
-	int n_vectors = 1024;
-	int n_workers = 1;	
+	int max_gang_size = 1024;
+	int n_vectors = ((domain_size * domain_size / 32) + 1) * 32;
+	int n_workers = (max_gang_size / n_vectors > 32) ? 32 : (max_gang_size / n_vectors);
 
 	#pragma acc parallel loop device_type(nvidia) vector_length(n_vectors) gang worker num_workers(n_workers)
 	#endif
