@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-bta_100 = np.array([12.09, 6.58, 4.47, 4.49])
+bta_100 = np.array([729, 418, 289, 289])
 amdahl = np.array([1, 2, 3, 4])
 
 
