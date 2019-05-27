@@ -1,0 +1,1 @@
+hybrid mpi-openmp on normal queue (19500 unknowns on 100 bow ties)
