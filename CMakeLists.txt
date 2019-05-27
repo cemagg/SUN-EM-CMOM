@@ -135,7 +135,7 @@ else()
     elseif(PGGG)
         find_package(LAPACK REQUIRED)
         find_package(BLAS REQUIRED)
-        set(CMAKE_CXX_FLAGS "-acc -ta=tesla:managed -Minfo=accel -pgf90libs -std=c++11 ")
+        set(CMAKE_CXX_FLAGS "-acc -ta=tesla:managed -fast -Minfo=accel -pgf90libs -std=c++11 ")
         target_link_libraries(mom ${BLAS_LIBRARIES}
                                   ${LAPACK_LIBRARIES})
 
