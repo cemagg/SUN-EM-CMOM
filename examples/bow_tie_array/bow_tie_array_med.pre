@@ -26,7 +26,7 @@
 ** Meshing                   **
 *******************************
 ** Mesh size
-#t_edge = #lam/15  ** #lam/15 creates 15 basis-functions per element
+#t_edge = #lam/30  ** #lam/15 creates 15 basis-functions per element
                    ** #lam/30 creates 28 basis-functions per element
 #s_rad = 4E-6
 #s_len = #lam/15
@@ -74,7 +74,7 @@ BQ   E    F    G    H
 
 ** Array dimensions
 #arr_N = 10       ** Number of elements along X-axis
-#arr_M = 1       ** Number of elements along Y-axis
+#arr_M = 100       ** Number of elements along Y-axis
 
 ** offsetts/spacings
 #arr_Noff = #L **0.4*#lam        ** Offset of elements along X-axis
@@ -97,7 +97,7 @@ FA: 0 : 3 : #arr_N : #arr_M :  : #arr_Noff : #arr_Moff
 EG   0    0    0                                                                                    0
 
 ** Control efficient/non-efficient fill of [A], requires the SU card
-PS: 0 : 1 : 1 : 0 : 0
+PS: 0 : 0 : 1 : 0 : 0
 
 ** Frequency
 FR   1                        #freq
