@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l select=2:ncpus=24:mpiprocs=24:nodetype=haswell_reg
+#PBS -l select=2:ncpus=24:mpiprocs=12:nodetype=haswell_reg
 #PBS -P CSCI1214
 #PBS -q normal
 #PBS -l walltime=1:00:00
