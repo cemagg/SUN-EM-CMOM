@@ -57,46 +57,51 @@ void calculateDGFMRow(DGFMRow &row,
 	auto start = std::chrono::steady_clock::now();
 	#endif
 
+	// #ifndef PARALLEL	
 	// int max_gang_size = 1024;
 	// int n_vectors = ((domain_size * domain_size / 32) + 1) * 32;
 	// int n_workers = (max_gang_size / n_vectors > 32) ? 32 : (max_gang_size / n_vectors);
-	#ifndef PARALLEL	
-	int n_vectors = 1024;
-	int n_workers = 1;	
 
-	#pragma acc parallel loop device_type(nvidia) vector_length(n_vectors) gang worker num_workers(n_workers)
-	#endif
-	for (int i = 0; i < num_domains; i++)
-	{
-		if (i != domain_index)
-		{
-			#ifndef PARALLEL
-			#pragma omp parallel for
-			#pragma acc loop device_type(nvidia) vector
-			#endif
-			for (int j = 0; j < (domain_size * domain_size); j++)
-			{
-				row.z_matrices[domain_index][j] += row.dgfm_weights[i] * row.z_matrices[i][j]; 
-			}
-		}
-	}
-
-	
 	// #pragma acc parallel loop device_type(nvidia) vector_length(n_vectors) gang worker num_workers(n_workers)
-	// for (int i = 0; i < (domain_size * domain_size); i++)
+	// #endif
+	// for (int i = 0; i < num_domains; i++)
 	// {
-	// 	std::complex<double> sum = std::complex<double>(0.0, 0.0);
-
-	// 	#pragma acc loop reduction(+:sum) device_type(nvidia) vector
-	// 	for (int j = 0; j < num_domains; j++)
+	// 	if (i != domain_index)
 	// 	{
-	// 		if (j != domain_index)
+	// 		#ifndef PARALLEL
+	// 		#pragma omp parallel for
+	// 		#pragma acc loop device_type(nvidia) vector
+	// 		#endif
+	// 		for (int j = 0; j < (domain_size * domain_size); j++)
 	// 		{
-	// 			sum += row.dgfm_weights[j] * row.z_matrices[j][i];
+	// 			row.z_matrices[domain_index][j] += row.dgfm_weights[i] * row.z_matrices[i][j]; 
 	// 		}
 	// 	}
-	// 	row.z_matrices[domain_index][i] = sum;	
 	// }
+
+	
+	#ifndef PARALLEL	
+	int max_gang_size = 1024;
+	int n_vectors = ((num_domains / 32) + 1) * 32;
+	int n_workers = (max_gang_size / n_vectors > 32) ? 32 : (max_gang_size / n_vectors);
+	#pragma acc parallel loop device_type(nvidia) vector_length(n_vectors) gang worker num_workers(n_workers)
+	#endif
+	for (int i = 0; i < (domain_size * domain_size); i++)
+	{
+		//std::complex<double> sum = std::complex<double>(0.0, 0.0);
+
+		#ifndef PARALLEL
+		#pragma acc loop device_type(nvidia) vector
+		#endif
+		for (int j = 0; j < num_domains; j++)
+		{
+			if (j != domain_index)
+			{
+				row.z_matrices[domain_index][i] += row.dgfm_weights[j] * row.z_matrices[j][i];
+			}
+		}
+		//row.z_matrices[domain_index][i] = sum;	
+	}
 
 	#ifndef PARALLEL
 	auto end = std::chrono::steady_clock::now();
