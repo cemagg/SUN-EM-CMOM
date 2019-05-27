@@ -45,10 +45,10 @@ void mpiPerformDGFM(std::map<std::string, std::string> &const_map,
 	DGFMExcitations dgfm_excitations;
 
 	dgfm_rows.resize(local_num_rows);
-	for (int i = 0; i < local_num_rows; i++)
-	{
-		allocateDGFMRowMemory(dgfm_rows[i], num_domains, domain_size);	
-	}
+	// for (int i = 0; i < local_num_rows; i++)
+	// {
+	// 	allocateDGFMRowMemory(dgfm_rows[i], num_domains, domain_size);	
+	// }
 
 	allocateDGFMExcitations(dgfm_excitations, num_domains, domain_size);
 
@@ -72,22 +72,25 @@ void mpiPerformDGFM(std::map<std::string, std::string> &const_map,
 	#pragma omp parallel for
 	for (int i = start_index; i < end_index; i++)
 	{
-	  calculateDGFMRow(dgfm_rows[i - start_index],
-					   dgfm_excitations,
-					   i,
-					   num_domains,
-					   domain_size,
-					   const_map,
-					   label_map,
-					   triangles,
-					   edges,
-					   nodes,
-					   excitations);
+		allocateDGFMRowMemory(dgfm_rows[i - start_index], num_domains, domain_size);	
+
+	  	calculateDGFMRow(dgfm_rows[i - start_index],
+						 dgfm_excitations,
+						 i,
+						 num_domains,
+						 domain_size,
+					   	 const_map,
+					   	 label_map,
+					   	 triangles,
+					   	 edges,
+					     nodes,
+					     excitations);
 
 		std::copy(dgfm_excitations.excitations[i],
 				  dgfm_excitations.excitations[i] + domain_size,
 				  local_ilhs + ((i - start_index) * domain_size));
 
+		deAllocateDGFMRowMemory(dgfm_rows[i - start_index], num_domains);	
 	}
 
 	// Gather to proc 0
