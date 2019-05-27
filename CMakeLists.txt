@@ -70,7 +70,7 @@ if(MPI)
     elseif(CHPC)
         find_package(LAPACK REQUIRED)
         find_package(BLAS REQUIRED)
-        set(CMAKE_CXX_FLAGS "-pgf90libs -std=c++11 ")
+        set(CMAKE_CXX_FLAGS "-pgf90libs -Mscalapack -std=c++11 ")
 
         target_link_libraries(mom_mpi ${MPI_LIBRARIES}
                                       ${BLAS_LIBRARIES}
