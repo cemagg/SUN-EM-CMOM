@@ -18,4 +18,6 @@ struct DGFMExcitations
 void allocateDGFMRowMemory(DGFMRow &row, int num_domains, int domain_size);
 void allocateDGFMExcitations(DGFMExcitations &dgfm_excitations, int num_domains, int domain_size);
 
+void deAllocateDGFMRowMemory(DGFMRow &row, int num_domains);
+
 #endif

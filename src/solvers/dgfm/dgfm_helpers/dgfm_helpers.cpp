@@ -25,3 +25,12 @@ void allocateDGFMExcitations(DGFMExcitations &dgfm_excitations, int num_domains,
 	}
 }
 
+void deAllocateDGFMRowMemory(DGFMRow &row, int num_domains)
+{
+	for (int i = 0; i < num_domains; i++)
+	{
+		delete[] row.z_matrices[i];
+	}
+
+	delete[] row.dgfm_weights;
+}
