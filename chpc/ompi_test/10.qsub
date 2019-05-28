@@ -2,7 +2,7 @@
 #PBS -l select=6:ncpus=24:mpiprocs=12:nodetype=haswell_reg
 #PBS -P CSCI1214
 #PBS -q normal
-#PBS -l walltime=1:00:00
+#PBS -l walltime=20:00:00
 #PBS -o /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/results/ompi/bt1k_72p_2t.out
 #PBS -e /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/results/ompi/bt1k_72p_2t.err
 #PBS -m abe
