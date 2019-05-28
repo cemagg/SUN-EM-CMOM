@@ -3,11 +3,11 @@
 #PBS -P CSCI1214
 #PBS -q normal
 #PBS -l walltime=20:00:00
-#PBS -o /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/feko/feko.out
-#PBS -e /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/feko/feko.err
+#PBS -o /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/feko/feko_m.out
+#PBS -e /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/feko/feko_m.err
 #PBS -m abe
 #PBS -M 17650739@sun.ac.za
-#PBS -N feko
+#PBS -N feko_m
 
 
 # FEKO PATH
@@ -27,4 +27,4 @@ export FEKO_CSV_RESOURCE_REPORTING_PRESET=use_envvars
 . $PATH_TO_FEKO/bin/initfeko
 export FEKO_WHICH_MPI=11
 
-runfeko bow_tie_array_med.pre --use-job-scheduler
+runfeko bow_tie_array_m.pre --use-job-scheduler
