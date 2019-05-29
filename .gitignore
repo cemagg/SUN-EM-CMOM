@@ -46,3 +46,9 @@ chpc/omp_build/
 chpc/mpi_build/
 
 chpc/ompi_build/
+
+chpc/feko/bow_tie_array_med.out
+
+chpc/feko/feko_5.out
+
+examples/bow_tie_array/bow_tie_array_med.mom

@@ -51,13 +51,14 @@ void mpiPerformDGFM(std::map<std::string, std::string> &const_map,
 	// }
 
 	allocateDGFMExcitations(dgfm_excitations, num_domains, domain_size);
+        std::cout << "after dgfm excitations" << std::endl;
 
 	std::complex<double> *local_ilhs = new std::complex<double>[local_num_rows * domain_size];
-
+	std::cout << "after local ilhs " << std::endl;
 	// Do the work
 	
 	fillDGFMExcitations( dgfm_excitations,
-						 num_domains,
+			      num_domains,
 						 domain_size,
 						 const_map,
 						 label_map,
@@ -66,13 +67,17 @@ void mpiPerformDGFM(std::map<std::string, std::string> &const_map,
 						 nodes,
 						 excitations);
 
+	std::cout << "after vrhs fill " << std::endl;
 	int start_index = displs[rank];
 	int end_index = displs[rank] + local_num_rows;
+
+	std::cout << "displs " << std::endl;
 
 	#pragma omp parallel for
 	for (int i = start_index; i < end_index; i++)
 	{
 		allocateDGFMRowMemory(dgfm_rows[i - start_index], num_domains, domain_size);	
+		std::cout << "after memory alloc" << std::endl;
 
 	  	calculateDGFMRow(dgfm_rows[i - start_index],
 						 dgfm_excitations,
