@@ -1,0 +1,19 @@
+#!/bin/bash
+#PBS -l select=2:ncpus=24:mpiprocs=12:nodetype=haswell_reg
+#PBS -P CSCI1214
+#PBS -q normal
+#PBS -l walltime=10:00:00
+#PBS -o /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/results/ompi_small/bt5_24p_1t.out
+#PBS -e /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/results/ompi_small/bt5_24p_1t.err
+#PBS -m abe
+#PBS -M 17650739@sun.ac.za
+#PBS -N bt5_24p_1t
+
+ulimit -s unlimited
+
+nproc= cat $PBS_NODEFILE | wc -l
+
+
+cd /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/ompi_build
+
+time /apps/compilers/pgi/linux86-64/19.4/mpi/openmpi-3.1.3/bin/mpiexec -np 24 -machinefile $PBS_NODEFILE -x OMP_NUM_THREADS=1 mom_mpi ../../examples/bow_tie_array/bta5.mom --dgfm
