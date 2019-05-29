@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd mbuild
-time ./mom ../examples/dgfm_big/dgfm_big.mom --dgfm
+time ./mom ../examples/dgfm_small/dgfm_small.mom --dgfm

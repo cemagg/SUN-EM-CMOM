@@ -146,7 +146,7 @@ class FEKOFileReader:
         # Close the file
         file.close()
         self.const["numEdges"] = number_of_edges
-        
+        print("After first pass through") 
 
         # Second pass through file to read edge, triangle and source data
         file = open(self.file_name, "r")
@@ -156,6 +156,7 @@ class FEKOFileReader:
             
             # Get the triangle data
             if "DATA OF THE METALLIC TRIANGLES" in line:
+                print("STARTING TRIANGLES---------------------------------------------------------")
                 line = file.readline() # empty line
                 line = file.readline() # first header
                 line = file.readline() # second header
@@ -165,6 +166,7 @@ class FEKOFileReader:
                 label_list = []
 
                 for i in range(number_of_triangles):
+                    print(i)
                     line = file.readline() # row no label x1 y1 z1 edges 
                     content = line.split()
 
@@ -208,11 +210,13 @@ class FEKOFileReader:
                                                    label))
                     
             if "DATA OF THE METALLIC EDGES" in line:
+                print("STARTING EDGES---------------------------------------------------------")
                 line = file.readline() # empty line
                 line = file.readline() # first header
                 line = file.readline() # second header
 
                 for i in range(number_of_edges):
+                    print(i)
                     line = file.readline() # no type length KORP KORM
                     content = line.split()
 
@@ -246,13 +250,14 @@ class FEKOFileReader:
             line = file.readline()
         
         # check if all geometric elements are the same
+        print("STARTING LABELS---------------------------------------------------------")
         same_element_label_index = []
         for item in label_list:
             if "@" in item:
                 same_element_label_index.append(label_list.index(item))
         
         self.const["sameElem"] = same_element_label_index
-
+        print("after second pass through")
         return True
 
 def readFEKOStrFile(file_name, cwd):
