@@ -74,6 +74,9 @@ class FEKOFileReader:
                 line = file.readline() # read phase
                 line = file.readline() # read attached port
                 line = file.readline() # read port edge length
+                if "between" in line:
+                    line = file.readline()
+                    line = file.readline()
 
                 line = file.readline() # read edge indices
                 content = line.split()
