@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -l select=1:ncpus=12:mpiprocs=1:nodetype=haswell_reg
+#PBS -P CSCI1214
+#PBS -q serial
+#PBS -l walltime=20:00:00
+#PBS -o /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/results/mpiVomp/12t.out
+#PBS -e /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/results/mpiVomp/12t.err
+#PBS -m abe
+#PBS -M 17650739@sun.ac.za
+#PBS -N 12t
+
+ulimit -s unlimited
+
+nproc= cat $PBS_NODEFILE | wc -l
+
+cd /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/omp_build
+
+
+export OMP_NUM_THREADS=12
+time ./mom ../../examples/bow_tie_array/bow_tie_array_small.mom --dgfm
