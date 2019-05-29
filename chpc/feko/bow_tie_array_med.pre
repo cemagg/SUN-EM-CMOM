@@ -73,7 +73,7 @@ BQ   E    F    G    H
 *******************************
 
 ** Array dimensions
-#arr_N = 10       ** Number of elements along X-axis
+#arr_N = 5       ** Number of elements along X-axis
 #arr_M = 100       ** Number of elements along Y-axis
 
 ** offsetts/spacings
