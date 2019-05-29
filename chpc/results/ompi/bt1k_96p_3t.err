@@ -1,7 +1,13 @@
 libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
 libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
-Warning: Permanently added 'cnode0469,172.18.2.156' (ECDSA) to the list of known hosts.
-Warning: Permanently added 'cnode0492,172.18.2.179' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0393,172.18.2.80' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0388,172.18.2.75' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0366,172.18.2.53' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0389,172.18.2.76' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0373,172.18.2.60' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0377,172.18.2.64' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0381,172.18.2.68' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0372,172.18.2.59' (ECDSA) to the list of known hosts.
 libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
 libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
 libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
@@ -32,9 +38,9 @@ If you are not interested in CUDA-aware support, then run with
 in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
 of libcuda.so.1 to get passed this issue.
 --------------------------------------------------------------------------
-[cnode0433:145089] 95 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
-[cnode0433:145089] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[cnode0355:87946] 95 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[cnode0355:87946] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
 
-real	0m2.862s
-user	0m2.175s
-sys	0m3.886s
+real	0m2.904s
+user	0m2.501s
+sys	0m4.024s
