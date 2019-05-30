@@ -1,0 +1,89 @@
+libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
+libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+Warning: Permanently added 'cnode0064,172.18.1.7' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0055,172.18.0.254' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0119,172.18.1.62' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0093,172.18.1.36' (ECDSA) to the list of known hosts.
+libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
+libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
+libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
+libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
+libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
+libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
+libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
+libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
+libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
+libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+[cnode0007:58020] 95 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[cnode0007:58020] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+Killed by signal 15.
+Killed by signal 15.
+Killed by signal 15.
+Killed by signal 15.
+Killed by signal 15.
+Killed by signal 15.
+Killed by signal 15.
+Killed by signal 15.
+Killed by signal 15.
+--------------------------------------------------------------------------
+ORTE was unable to reliably start one or more daemons.
+This usually is caused by:
+
+* not finding the required libraries and/or binaries on
+  one or more nodes. Please check your PATH and LD_LIBRARY_PATH
+  settings, or configure OMPI with --enable-orterun-prefix-by-default
+
+* lack of authority to execute on one or more specified nodes.
+  Please verify your allocation and authorities.
+
+* the inability to write startup files into /tmp (--tmpdir/orte_tmpdir_base).
+  Please check with your sys admin to determine the correct location to use.
+
+*  compilation of the orted with dynamic libraries when static are required
+  (e.g., on Cray). Please check your configure cmd line and consider using
+  one of the contrib/platform definitions for your system type.
+
+* an inability to create a connection back to mpirun due to a
+  lack of common network interfaces and/or no route found between
+  them. Please check network connectivity (including firewalls
+  and network routing requirements).
+--------------------------------------------------------------------------
+mpiexec: abort is already in progress...hit ctrl-c again to forcibly terminate
+
+[cnode0007:58020] *** Process received signal ***
+[cnode0007:58020] Signal: Segmentation fault (11)
+[cnode0007:58020] Signal code: Address not mapped (1)
+[cnode0007:58020] Failing at address: 0x30
+[cnode0007:58020] [ 0] /lib64/libpthread.so.0(+0xf370)[0x2aaaacfdd370]
+[cnode0007:58020] [ 1] /apps/compilers/pgi/linux86-64-llvm/2019/mpi/openmpi-3.1.3/bin/.bin/../../lib/libopen-pal.so.40(+0x1809ec)[0x2aaaab5799ec]
+[cnode0007:58020] [ 2] /apps/compilers/pgi/linux86-64-llvm/2019/mpi/openmpi-3.1.3/bin/.bin/../../lib/libopen-pal.so.40(OPAL_MCA_PMIX2X_PMIx_Finalize+0x45c)[0x2aaaab57779c]
+[cnode0007:58020] [ 3] /apps/compilers/pgi/linux86-64-llvm/2019/mpi/openmpi-3.1.3/bin/.bin/../../lib/libopen-pal.so.40(pmix2x_client_finalize+0x23c)[0x2aaaab529bbc]
+[cnode0007:58020] [ 4] /apps/compilers/pgi/linux86-64-llvm/2019/mpi/openmpi-3.1.3/bin/.bin/../../lib/libopen-rte.so.40(+0x76d6b)[0x2aaaaad43d6b]
+[cnode0007:58020] [ 5] /apps/compilers/pgi/linux86-64-llvm/2019/mpi/openmpi-3.1.3/bin/.bin/../../lib/libopen-pal.so.40(+0xe7f36)[0x2aaaab4e0f36]
+[cnode0007:58020] [ 6] /apps/compilers/pgi/linux86-64-llvm/2019/mpi/openmpi-3.1.3/bin/.bin/../../lib/libopen-pal.so.40(+0xe7a42)[0x2aaaab4e0a42]
+[cnode0007:58020] [ 7] /apps/compilers/pgi/linux86-64-llvm/2019/mpi/openmpi-3.1.3/bin/.bin/../../lib/libopen-pal.so.40(opal_libevent2022_event_base_loop+0x20e)[0x2aaaab4dc20e]
+[cnode0007:58020] [ 8] /apps/compilers/pgi/linux86-64-llvm/2019/mpi/openmpi-3.1.3/bin/.bin/mpiexec[0x4014d1]
+[cnode0007:58020] [ 9] /apps/compilers/pgi/linux86-64-llvm/2019/mpi/openmpi-3.1.3/bin/.bin/mpiexec[0x4011f2]
+[cnode0007:58020] [10] /lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaaad973b35]
+[cnode0007:58020] [11] /apps/compilers/pgi/linux86-64-llvm/2019/mpi/openmpi-3.1.3/bin/.bin/mpiexec[0x401119]
+[cnode0007:58020] *** End of error message ***
