@@ -2,7 +2,11 @@
 #PBS -l select=1:ncpus=24:mpiprocs=1:nodetype=haswell_reg
 #PBS -P CSCI1214
 #PBS -q serial
+<<<<<<< HEAD
 #PBS -l walltime=18:00:00
+=======
+#PBS -l walltime=20:00:00
+>>>>>>> 7340eb26c9535de034848f933bca3ace88c195a0
 #PBS -o /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/results/final/200/bta200_1p_1t.out
 #PBS -e /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/results/final/200/bta200_1p_1t.err
 #PBS -m abe
