@@ -77,6 +77,7 @@ class FEKOFileReader:
                 if "between" in line:
                     line = file.readline()
                     line = file.readline()
+                    line = file.readline()
 
                 line = file.readline() # read edge indices
                 content = line.split()
