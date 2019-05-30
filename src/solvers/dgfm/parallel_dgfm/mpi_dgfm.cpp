@@ -68,7 +68,6 @@ void mpiPerformDGFM(std::map<std::string, std::string> &const_map,
 	int start_index = displs[rank];
 	int end_index = displs[rank] + local_num_rows;
 
-	std::cout << "Before alloc" << std::endl;
 	#pragma omp parallel for
 	for (int i = start_index; i < end_index; i++)
 	{
