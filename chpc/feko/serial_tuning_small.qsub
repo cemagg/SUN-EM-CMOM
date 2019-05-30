@@ -27,4 +27,4 @@ export FEKO_CSV_RESOURCE_REPORTING_PRESET=use_envvars
 . $PATH_TO_FEKO/bin/initfeko
 export FEKO_WHICH_MPI=11
 
-runfeko bow_tie_array_200.pre --use-job-scheduler
+runfeko bow_tie_array_150.pre --use-job-scheduler
