@@ -1,5 +1,12 @@
 libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
 libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+Warning: Permanently added 'cnode0890,172.18.4.65' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0896,172.18.4.71' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0345,172.18.2.32' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0657,172.18.3.88' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0624,172.18.3.55' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0487,172.18.2.174' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0561,172.18.2.248' (ECDSA) to the list of known hosts.
 libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
 libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
 libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
@@ -14,6 +21,11 @@ libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
 libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
 libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
 libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
+libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
+libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+[cnode0303:174853] [[48190,0],0] ORTE_ERROR_LOG: Data unpack had inadequate space in file ../../orte/util/show_help.c at line 513
 --------------------------------------------------------------------------
 The library attempted to open the following supporting CUDA libraries,
 but each of them failed.  CUDA-aware support is disabled.
@@ -26,9 +38,9 @@ If you are not interested in CUDA-aware support, then run with
 in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
 of libcuda.so.1 to get passed this issue.
 --------------------------------------------------------------------------
-[cnode0274:165688] 7 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
-[cnode0274:165688] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[cnode0303:174853] 8 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[cnode0303:174853] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
 
-real	216m21.317s
-user	1728m48.997s
-sys	0m17.214s
+real	10m42.301s
+user	253m13.449s
+sys	0m32.315s

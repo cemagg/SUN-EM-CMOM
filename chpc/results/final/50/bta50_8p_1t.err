@@ -1,5 +1,10 @@
 libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
 libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+Warning: Permanently added 'cnode0880,172.18.4.55' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0606,172.18.3.37' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0605,172.18.3.36' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0879,172.18.4.54' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'cnode0833,172.18.4.8' (ECDSA) to the list of known hosts.
 libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
 libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
 libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
@@ -26,9 +31,9 @@ If you are not interested in CUDA-aware support, then run with
 in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
 of libcuda.so.1 to get passed this issue.
 --------------------------------------------------------------------------
-[cnode0274:165688] 7 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
-[cnode0274:165688] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[cnode0604:135184] 7 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[cnode0604:135184] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
 
-real	216m21.317s
-user	1728m48.997s
-sys	0m17.214s
+real	4m20.324s
+user	29m59.357s
+sys	0m4.676s
