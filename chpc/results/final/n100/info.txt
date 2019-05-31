@@ -1,0 +1,1 @@
+Testing 100 ele array when moving alloc out of loop
