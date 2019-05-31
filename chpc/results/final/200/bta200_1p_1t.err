@@ -12,7 +12,3 @@ If you are not interested in CUDA-aware support, then run with
 in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
 of libcuda.so.1 to get passed this issue.
 --------------------------------------------------------------------------
-
-real	200m21.634s
-user	200m17.520s
-sys	0m2.962s
