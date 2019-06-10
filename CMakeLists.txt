@@ -11,6 +11,7 @@ option(CHPC "Compile with OMP" OFF)
 option(COMP "Compile with OMP" OFF)
 option(CACC "Compile with OMP" OFF)
 option(PGGG "Compile with OMP" OFF)
+option(CATL "Compile with OMP" OFF)
 
 if(MPI)
     MESSAGE("COMPILING WITH MPI")
@@ -80,6 +81,18 @@ if(MPI)
         target_link_libraries(mom_mpi ${MPI_LIBRARIES}
                                       ${BLAS_LIBRARIES}
                                       ${LAPACK_LIBRARIES})
+    elseif(CATL)
+            #set(CMAKE_CXX_FLAGS "-fopenmp ")
+            target_link_libraries(mom_mpi ${MPI_LIBRARIES}
+                                  OpenMP::OpenMP_CXX
+                                  -L/${CMAKE_CURRENT_SOURCE_DIR}/lib/scalapack
+                                  -lscalapack
+                                  -L/apps/libs/atlas/3.10.3/gcc-6.1.0/lib
+                                  -lptcblas
+                                  -llapack
+                                  -L/cm/local/apps/gcc/6.1.0/bin/gfortran
+                                  -lgfortran)
+
     else()
         target_link_libraries(mom_mpi ${MPI_LIBRARIES}
                                     OpenMP::OpenMP_CXX

@@ -40,6 +40,7 @@ void calculateDGFMRow(DGFMRow &row,
 	calculateDGFMWeights(row, v_vectors, num_domains, excitation_index, domain_index);	
 
 	// Calcualte Z Matrices
+	#pragma omp parallel for
 	for (int n = 0; n < num_domains; n++)
 	{
 		serialFillZmn( 	row.z_matrices[n],
@@ -53,14 +54,11 @@ void calculateDGFMRow(DGFMRow &row,
 	}
 
 	// Sum Z Matrices
+	#pragma omp parallel for
 	for (int i = 0; i < num_domains; i++)
 	{
 		if (i != domain_index)
 		{
-			#ifndef PARALLEL
-			#pragma omp parallel for
-			#pragma acc loop device_type(nvidia) vector
-			#endif
 			for (int j = 0; j < (domain_size * domain_size); j++)
 			{
 				row.z_matrices[domain_index][j] += row.dgfm_weights[i] * row.z_matrices[i][j]; 

@@ -1,0 +1,258 @@
+libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
+libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+Warning: Permanently added 'cnode0261,172.18.1.204' (ECDSA) to the list of known hosts.
+libibverbs: Warning: couldn't open config directory '/usr/etc/libibverbs.d'.
+libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca mpi_cuda_support 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+[cnode0260:129744] *** Process received signal ***
+[cnode0260:129744] Signal: Segmentation fault (11)
+[cnode0260:129744] Signal code: Address not mapped (1)
+[cnode0260:129744] Failing at address: (nil)
+[cnode0260:129753] *** Process received signal ***
+[cnode0260:129753] Signal: Segmentation fault (11)
+[cnode0260:129753] Signal code: Address not mapped (1)
+[cnode0260:129753] Failing at address: (nil)
+[cnode0260:129745] *** Process received signal ***
+[cnode0260:129745] Signal: Segmentation fault (11)
+[cnode0260:129745] Signal code: Address not mapped (1)
+[cnode0260:129745] Failing at address: (nil)
+[cnode0260:129747] *** Process received signal ***
+[cnode0260:129747] Signal: Segmentation fault (11)
+[cnode0260:129747] Signal code: Address not mapped (1)
+[cnode0260:129747] Failing at address: (nil)
+[cnode0260:129750] *** Process received signal ***
+[cnode0260:129750] Signal: Segmentation fault (11)
+[cnode0260:129750] Signal code: Address not mapped (1)
+[cnode0260:129750] Failing at address: (nil)
+[cnode0260:129752] *** Process received signal ***
+[cnode0260:129752] Signal: Segmentation fault (11)
+[cnode0260:129752] Signal code: Address not mapped (1)
+[cnode0260:129752] Failing at address: (nil)
+[cnode0260:129745] [ 0] [cnode0260:129753] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0260:129753] [ 1] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0260:129745] [ 1] mom_mpi[0x430805]
+[cnode0260:129745] [ 2] [cnode0260:129752] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0260:129752] [ 1] mom_mpi[0x430805]
+[cnode0260:129752] [ 2] [cnode0260:129744] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0260:129744] [ 1] mom_mpi[0x430805]
+[cnode0260:129753] [ 2] mom_mpi[0x437061]
+[cnode0260:129753] [ 3] mom_mpi[0x439359]
+[cnode0260:129753] [ 4] mom_mpi[0x440ade]
+[cnode0260:129753] [ 5] [cnode0260:129747] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0260:129747] [ 1] mom_mpi[0x430805]
+[cnode0260:129747] [ 2] [cnode0260:129750] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0260:129750] [ 1] mom_mpi[0x430805]
+[cnode0260:129750] [ 2] mom_mpi[0x437061]
+[cnode0260:129750] [ 3] mom_mpi[0x437061]
+[cnode0260:129745] [ 3] mom_mpi[0x439359]
+[cnode0260:129745] [ 4] mom_mpi[0x440ade]
+[cnode0260:129745] [ 5] mom_mpi[0x439359]
+[cnode0260:129750] [ 4] mom_mpi[0x440ade]
+[cnode0260:129750] [ 5] mom_mpi[0x437061]
+[cnode0260:129752] [ 3] mom_mpi[0x439359]
+[cnode0260:129752] [ 4] mom_mpi[0x440ade]
+[cnode0260:129752] [ 5] mom_mpi[0x430805]
+[cnode0260:129744] [ 2] mom_mpi[0x437061]
+[cnode0260:129744] [ 3] mom_mpi[0x437061]
+[cnode0260:129747] [ 3] mom_mpi[0x439359]
+[cnode0260:129747] [ 4] mom_mpi[0x440ade]
+[cnode0260:129747] [ 5] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0260:129745] [ 6] mom_mpi[0x40fc19]
+[cnode0260:129745] *** End of error message ***
+/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0260:129747] [ 6] mom_mpi[0x40fc19]
+[cnode0260:129747] *** End of error message ***
+[cnode0260:129741] *** Process received signal ***
+[cnode0260:129741] Signal: Segmentation fault (11)
+[cnode0260:129741] Signal code: Address not mapped (1)
+[cnode0260:129741] Failing at address: (nil)
+/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0260:129750] [ 6] mom_mpi[0x40fc19]
+[cnode0260:129750] *** End of error message ***
+/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0260:129752] [ 6] mom_mpi[0x40fc19]
+[cnode0260:129752] *** End of error message ***
+/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0260:129753] [ 6] mom_mpi[0x40fc19]
+[cnode0260:129753] *** End of error message ***
+mom_mpi[0x439359]
+[cnode0260:129744] [ 4] mom_mpi[0x440ade]
+[cnode0260:129744] [ 5] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0260:129744] [ 6] mom_mpi[0x40fc19]
+[cnode0260:129744] *** End of error message ***
+[cnode0260:129741] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0260:129741] [ 1] mom_mpi[0x430805]
+[cnode0260:129741] [ 2] mom_mpi[0x437061]
+[cnode0260:129741] [ 3] mom_mpi[0x439359]
+[cnode0260:129741] [ 4] mom_mpi[0x440ade]
+[cnode0260:129741] [ 5] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0260:129741] [ 6] mom_mpi[0x40fc19]
+[cnode0260:129741] *** End of error message ***
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+[cnode0261:09624] *** Process received signal ***
+[cnode0261:09624] Signal: Segmentation fault (11)
+[cnode0261:09624] Signal code: Address not mapped (1)
+[cnode0261:09624] Failing at address: (nil)
+[cnode0261:09624] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0261:09624] [ 1] mom_mpi[0x430805]
+[cnode0261:09624] [ 2] mom_mpi[0x437061]
+[cnode0261:09624] [ 3] mom_mpi[0x439359]
+[cnode0261:09624] [ 4] mom_mpi[0x440ade]
+[cnode0261:09624] [ 5] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0261:09624] [ 6] mom_mpi[0x40fc19]
+[cnode0261:09624] *** End of error message ***
+[cnode0261:09625] *** Process received signal ***
+[cnode0261:09625] Signal: Segmentation fault (11)
+[cnode0261:09625] Signal code: Address not mapped (1)
+[cnode0261:09625] Failing at address: (nil)
+[cnode0261:09625] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0261:09625] [ 1] mom_mpi[0x430805]
+[cnode0261:09625] [ 2] mom_mpi[0x437061]
+[cnode0261:09625] [ 3] mom_mpi[0x439359]
+[cnode0261:09625] [ 4] mom_mpi[0x440ade]
+[cnode0261:09625] [ 5] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0261:09625] [ 6] mom_mpi[0x40fc19]
+[cnode0261:09625] *** End of error message ***
+[cnode0261:09626] *** Process received signal ***
+[cnode0261:09626] Signal: Segmentation fault (11)
+[cnode0261:09626] Signal code: Address not mapped (1)
+[cnode0261:09626] Failing at address: (nil)
+[cnode0261:09626] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0261:09626] [ 1] mom_mpi[0x430805]
+[cnode0261:09626] [ 2] mom_mpi[0x437061]
+[cnode0261:09626] [ 3] mom_mpi[0x439359]
+[cnode0261:09626] [ 4] mom_mpi[0x440ade]
+[cnode0261:09626] [ 5] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0261:09626] [ 6] mom_mpi[0x40fc19]
+[cnode0261:09626] *** End of error message ***
+[cnode0261:09627] *** Process received signal ***
+[cnode0261:09627] Signal: Segmentation fault (11)
+[cnode0261:09627] Signal code: Address not mapped (1)
+[cnode0261:09627] Failing at address: (nil)
+[cnode0261:09627] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0261:09627] [ 1] mom_mpi[0x430805]
+[cnode0261:09627] [ 2] mom_mpi[0x437061]
+[cnode0261:09627] [ 3] mom_mpi[0x439359]
+[cnode0261:09627] [ 4] mom_mpi[0x440ade]
+[cnode0261:09627] [ 5] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0261:09627] [ 6] mom_mpi[0x40fc19]
+[cnode0261:09627] *** End of error message ***
+[cnode0261:09628] *** Process received signal ***
+[cnode0261:09628] Signal: Segmentation fault (11)
+[cnode0261:09628] Signal code: Address not mapped (1)
+[cnode0261:09628] Failing at address: (nil)
+[cnode0261:09628] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0261:09628] [ 1] mom_mpi[0x430805]
+[cnode0261:09628] [ 2] mom_mpi[0x437061]
+[cnode0261:09628] [ 3] mom_mpi[0x439359]
+[cnode0261:09628] [ 4] mom_mpi[0x440ade]
+[cnode0261:09628] [ 5] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0261:09628] [ 6] mom_mpi[0x40fc19]
+[cnode0261:09628] *** End of error message ***
+[cnode0261:09629] *** Process received signal ***
+[cnode0261:09629] Signal: Segmentation fault (11)
+[cnode0261:09629] Signal code: Address not mapped (1)
+[cnode0261:09629] Failing at address: (nil)
+[cnode0261:09629] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0261:09629] [ 1] mom_mpi[0x430805]
+[cnode0261:09629] [ 2] mom_mpi[0x437061]
+[cnode0261:09629] [ 3] mom_mpi[0x439359]
+[cnode0261:09629] [ 4] mom_mpi[0x440ade]
+[cnode0261:09629] [ 5] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0261:09629] [ 6] mom_mpi[0x40fc19]
+[cnode0261:09629] *** End of error message ***
+[cnode0261:09630] *** Process received signal ***
+[cnode0261:09630] Signal: Segmentation fault (11)
+[cnode0261:09630] Signal code: Address not mapped (1)
+[cnode0261:09630] Failing at address: (nil)
+[cnode0261:09630] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0261:09630] [ 1] mom_mpi[0x430805]
+[cnode0261:09630] [ 2] mom_mpi[0x437061]
+[cnode0261:09630] [ 3] mom_mpi[0x439359]
+[cnode0261:09630] [ 4] mom_mpi[0x440ade]
+[cnode0261:09630] [ 5] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0261:09630] [ 6] mom_mpi[0x40fc19]
+[cnode0261:09630] *** End of error message ***
+[cnode0261:09631] *** Process received signal ***
+[cnode0261:09631] Signal: Segmentation fault (11)
+[cnode0261:09631] Signal code: Address not mapped (1)
+[cnode0261:09631] Failing at address: (nil)
+[cnode0261:09631] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0261:09631] [ 1] mom_mpi[0x430805]
+[cnode0261:09631] [ 2] mom_mpi[0x437061]
+[cnode0261:09631] [ 3] mom_mpi[0x439359]
+[cnode0261:09631] [ 4] mom_mpi[0x440ade]
+[cnode0261:09631] [ 5] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0261:09631] [ 6] mom_mpi[0x40fc19]
+[cnode0261:09631] *** End of error message ***
+[cnode0261:09633] *** Process received signal ***
+[cnode0261:09633] Signal: Segmentation fault (11)
+[cnode0261:09633] Signal code: Address not mapped (1)
+[cnode0261:09633] Failing at address: (nil)
+[cnode0261:09633] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0261:09633] [ 1] mom_mpi[0x430805]
+[cnode0261:09633] [ 2] mom_mpi[0x437061]
+[cnode0261:09633] [ 3] mom_mpi[0x439359]
+[cnode0261:09633] [ 4] mom_mpi[0x440ade]
+[cnode0261:09633] [ 5] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0261:09633] [ 6] mom_mpi[0x40fc19]
+[cnode0261:09633] *** End of error message ***
+[cnode0261:09634] *** Process received signal ***
+[cnode0261:09634] Signal: Segmentation fault (11)
+[cnode0261:09634] Signal code: Address not mapped (1)
+[cnode0261:09634] Failing at address: (nil)
+[cnode0261:09634] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0261:09634] [ 1] mom_mpi[0x430805]
+[cnode0261:09634] [ 2] mom_mpi[0x437061]
+[cnode0261:09634] [ 3] mom_mpi[0x439359]
+[cnode0261:09634] [ 4] mom_mpi[0x440ade]
+[cnode0261:09634] [ 5] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0261:09634] [ 6] mom_mpi[0x40fc19]
+[cnode0261:09634] *** End of error message ***
+[cnode0261:09635] *** Process received signal ***
+[cnode0261:09635] Signal: Segmentation fault (11)
+[cnode0261:09635] Signal code: Address not mapped (1)
+[cnode0261:09635] Failing at address: (nil)
+[cnode0261:09635] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0261:09635] [ 1] mom_mpi[0x430805]
+[cnode0261:09635] [ 2] mom_mpi[0x437061]
+[cnode0261:09635] [ 3] mom_mpi[0x439359]
+[cnode0261:09635] [ 4] mom_mpi[0x440ade]
+[cnode0261:09635] [ 5] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0261:09635] [ 6] mom_mpi[0x40fc19]
+[cnode0261:09635] *** End of error message ***
+[cnode0261:09636] *** Process received signal ***
+[cnode0261:09636] Signal: Segmentation fault (11)
+[cnode0261:09636] Signal code: Address not mapped (1)
+[cnode0261:09636] Failing at address: (nil)
+[cnode0261:09636] [ 0] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libpthread.so.0(+0xf370)[0x2aaaaff87370]
+[cnode0261:09636] [ 1] mom_mpi[0x430805]
+[cnode0261:09636] [ 2] mom_mpi[0x437061]
+[cnode0261:09636] [ 3] mom_mpi[0x439359]
+[cnode0261:09636] [ 4] mom_mpi[0x440ade]
+[cnode0261:09636] [ 5] /usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaab0e27b35]
+[cnode0261:09636] [ 6] mom_mpi[0x40fc19]
+[cnode0261:09636] *** End of error message ***
+--------------------------------------------------------------------------
+mpiexec noticed that process rank 11 with PID 0 on node cnode0260 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+[cnode0260:129735] 23 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[cnode0260:129735] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+
+real	0m3.776s
+user	0m23.457s
+sys	0m4.064s
