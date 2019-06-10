@@ -85,10 +85,11 @@ if(MPI)
             #set(CMAKE_CXX_FLAGS "-fopenmp ")
             target_link_libraries(mom_mpi ${MPI_LIBRARIES}
                                   OpenMP::OpenMP_CXX
-                                  -L/${CMAKE_CURRENT_SOURCE_DIR}/lib/scalapack
+                                  -L/apps/scalapack/gcc/current/lib64
                                   -lscalapack
                                   -L/apps/libs/atlas/3.10.3/gcc-6.1.0/lib
                                   -lptcblas
+				  -lptf77blas
                                   -llapack
                                   -L/cm/local/apps/gcc/6.1.0/bin/gfortran
                                   -lgfortran)
