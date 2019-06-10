@@ -15,5 +15,7 @@ nproc= cat $PBS_NODEFILE | wc -l
 
 cd /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/ompi_build
 
+module add chpc/openmpi/4.0.0/gcc/6.1.0 
+
 export OPENBLAS_NUM_THREADS=2
-time /apps/compilers/pgi/linux86-64/19.4/mpi/openmpi-3.1.3/bin/mpiexec -np 2 -machinefile $PBS_NODEFILE -x OMP_NUM_THREADS=1 mom_mpi ../../examples/bow_tie_array/bow_tie_array_50.mom --dgfm
+time mpiexec -np 2 -machinefile $PBS_NODEFILE -x OMP_NUM_THREADS=1 mom_mpi ../../examples/bow_tie_array/bow_tie_array_50.mom --dgfm
