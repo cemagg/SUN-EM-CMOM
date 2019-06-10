@@ -54,3 +54,7 @@ chpc/feko/feko_5.out
 examples/bow_tie_array/bow_tie_array_med.mom
 
 examples/bow_tie_array/bta5.mom
+
+chpc/a/
+
+chpc/nompi_build/
