@@ -40,7 +40,7 @@ if(MPI)
                 src/data_structures/edge.h
                 src/data_structures/node.h
                 src/data_structures/label.h
-                src/data_structures/cblacs_config.h
+                #src/data_structures/cblacs_config.h
                 src/data_structures/triangle.h
                 src/file_io/mom_file_reader.cpp
                 src/file_io/mom_file_writer.cpp
@@ -48,10 +48,10 @@ if(MPI)
                 src/solvers/mom/mom_helpers/vrhs.cpp
                 src/solvers/mom/mom_helpers/zmn_by_face.cpp
                 src/helpers/globals.cpp
-                src/solvers/mom/parallel_mom/mpi_fill_vrhs.cpp
-                src/solvers/mom/parallel_mom/mpi_fill_zmn.cpp
-                src/solvers/mom/parallel_mom/mpi_fill_ilhs.cpp
-                src/solvers/mom/parallel_mom/mpi_mom.cpp
+                #src/solvers/mom/parallel_mom/mpi_fill_vrhs.cpp
+                #src/solvers/mom/parallel_mom/mpi_fill_zmn.cpp
+                #src/solvers/mom/parallel_mom/mpi_fill_ilhs.cpp
+                #src/solvers/mom/parallel_mom/mpi_mom.cpp
                 src/solvers/mom/serial_mom/fill_vrhs.cpp
                 src/solvers/mom/serial_mom/fill_zmn.cpp
                 src/solvers/mom/serial_mom/fill_ilhs.cpp

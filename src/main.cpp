@@ -17,7 +17,7 @@
 #endif
 
 #ifdef PARALLEL
-#include "solvers/mom/parallel_mom/mpi_mom.h"
+// #include "solvers/mom/parallel_mom/mpi_mom.h"
 #include "solvers/dgfm/parallel_dgfm/mpi_dgfm.h"
 #include <mpi.h>
 #endif
