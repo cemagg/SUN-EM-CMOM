@@ -4,7 +4,7 @@ from data_structures import Triangle
 from data_structures import Edge
 
 def writeMoMFIle(file_name, const, nodes, triangles, edges, excitations):
-    file = open(file_name, 'w+')
+    file = open(file_name, 'w+', newline="\n")
 
     # write header
     file.write("CMoM INPUT FILE\n")
