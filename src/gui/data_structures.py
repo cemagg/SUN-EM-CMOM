@@ -66,15 +66,16 @@ def triangleCentreCalculator(vertices):
     return (1/3) * (vertices[0] + vertices[1] + vertices[2])
 
 def getEdgeVertices(plus_triangle, minus_triangle):
+    # TODO LOOK AT FOR VERY SMALL MESHES
     edge_vertices = []
 
-    if plus_triangle.v1 == minus_triangle.v1 or plus_triangle.v1 == minus_triangle.v2 or plus_triangle.v1 == minus_triangle.v3:
+    if plus_triangle.v1 - minus_triangle.v1 < 1e-16 or plus_triangle.v1 - minus_triangle.v2 < 1e-16 or plus_triangle.v1 - minus_triangle.v3 < 1e-16:
         edge_vertices.append(plus_triangle.v1)
     
-    if plus_triangle.v2 == minus_triangle.v1 or plus_triangle.v2 == minus_triangle.v2 or plus_triangle.v2 == minus_triangle.v3:
+    if plus_triangle.v2 - minus_triangle.v1 < 1e-16 or plus_triangle.v2 - minus_triangle.v2 < 1e-16 or plus_triangle.v2 - minus_triangle.v3 < 1e-16:
         edge_vertices.append(plus_triangle.v2)
 
-    if plus_triangle.v3 == minus_triangle.v1 or plus_triangle.v3 == minus_triangle.v2 or plus_triangle.v3 == minus_triangle.v3:
+    if plus_triangle.v3 - minus_triangle.v1 < 1e-16 or plus_triangle.v3 - minus_triangle.v2 < 1e-16 or plus_triangle.v3 - minus_triangle.v3 < 1e-16:
         edge_vertices.append(plus_triangle.v3)
     
     return edge_vertices

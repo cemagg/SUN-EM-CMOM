@@ -228,9 +228,15 @@ class FEKOFileReader:
                     korp = int(content[6]) - 1 # plus triangle
                     korm = int(content[7]) - 1 # minus triangle
 
+                    if i == 284:
+                        x= 99
+                        #b = self.nodes[edge_vertices[0]]
+                        #c = self.nodes[edge_vertices[1]]
+
                     edge_vertices = getEdgeVertices(self.triangles[korp], self.triangles[korm])
                     
 
+                    
                     centre = edgeCentreCalculator(self.nodes[edge_vertices[0]], self.nodes[edge_vertices[1]])
 
                     plus_free_vertex = egdeGetFreeVertex(self.triangles[korp], edge_vertices)
