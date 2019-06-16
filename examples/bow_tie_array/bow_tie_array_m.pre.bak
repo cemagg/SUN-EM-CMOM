@@ -74,7 +74,7 @@ BQ   E    F    G    H
 
 ** Array dimensions
 #arr_N = 4       ** Number of elements along X-axis
-#arr_M = 1       ** Number of elements along Y-axis
+#arr_M = 2       ** Number of elements along Y-axis
 
 ** offsetts/spacings
 #arr_Noff = #L **0.4*#lam        ** Offset of elements along X-axis
