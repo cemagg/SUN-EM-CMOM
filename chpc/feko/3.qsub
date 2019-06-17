@@ -3,11 +3,11 @@
 #PBS -P CSCI1214
 #PBS -q normal
 #PBS -l walltime=10:00:00
-#PBS -o /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/results/feko_test/fbt8_4p.out
-#PBS -e /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/results/feko_test/fbt8_4p.err
+#PBS -o /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/results/feko_test/sfbt8_4p.out
+#PBS -e /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/results/feko_test/sfbt8_4p.err
 #PBS -m abe
 #PBS -M 17650739@sun.ac.za
-#PBS -N fbt8_4p
+#PBS -N sfbt8_4p
 
 
 # FEKO PATH
@@ -27,4 +27,4 @@ export FEKO_CSV_RESOURCE_REPORTING_PRESET=use_envvars
 . $PATH_TO_FEKO/bin/initfeko
 export FEKO_WHICH_MPI=11
 
-runfeko bow_tie_array_m.pre --use-job-scheduler
+runfeko bow_tie_array_small.pre --use-job-scheduler
