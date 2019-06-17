@@ -3,11 +3,11 @@
 #PBS -P CSCI1214
 #PBS -q serial
 #PBS -l walltime=10:00:00
-#PBS -o /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/results/feko_test/fbt8_1p.out
-#PBS -e /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/results/feko_test/fbt8_1p.err
+#PBS -o /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/results/feko_test/sfbt8_1p.out
+#PBS -e /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/results/feko_test/sfbt8_1p.err
 #PBS -m abe
 #PBS -M 17650739@sun.ac.za
-#PBS -N fbt8_1p
+#PBS -N sfbt8_1p
 
 
 # FEKO PATH
@@ -26,4 +26,4 @@ export ALTAIR_LICENSE_PATH=6200@chpcviz1
 export FEKO_CSV_RESOURCE_REPORTING_PRESET=use_envvars
 . $PATH_TO_FEKO/bin/initfeko
 
-runfeko bow_tie_array_m.pre 
+runfeko bow_tie_array_small.pre 
