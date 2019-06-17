@@ -1,0 +1,122 @@
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 515236
+max locked memory       (kbytes, -l) unlimited
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 2400
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) unlimited
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 515236
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+Altair Feko - RUNFEKO Version 2018.2.1-12 from 2018-10-19
+          Copyright (c) 1999-2014 Altair Development S.A. (Pty) Ltd
+          Copyright (c) 2014-2018 Altair Engineering, Inc.
+
+ 
+
+Altair Feko - Solver (par) Version 2018.2.1-566 from 2018-12-13
+          Copyright (c) 1999-2014 Altair Development S.A. (Pty) Ltd
+          Copyright (c) 2014-2018 Altair Engineering, Inc.
+
+License warning
+One or more of the required features checked out will expire in 14 day(s)
+
+License warning
+One or more of the required features checked out will expire in 14 day(s)
+
+License warning
+One or more of the required features checked out will expire in 14 day(s)
+
+License warning
+One or more of the required features checked out will expire in 14 day(s)
+
+License warning
+One or more of the required features checked out will expire in 14 day(s)
+
+License warning
+One or more of the required features checked out will expire in 14 day(s)
+
+License warning
+One or more of the required features checked out will expire in 14 day(s)
+
+License warning
+One or more of the required features checked out will expire in 14 day(s)
+
+File:     bow_tie_array_m
+Memory:   Unlimited, system allows maximum usage of 125.612 GByte
+          (for parallel runs memory limit is per process)
+          (installed memory 125.807 GByte, thereof free 116.708 GByte)
+
+---> Process    0 of 8 active on cnode0081                   (PID:   134573) using 1 threads
+---> Process    2 of 8 active on cnode0078                   (PID:    87323) using 1 threads
+---> Process    1 of 8 active on cnode0052                   (PID:    33995) using 1 threads
+---> Process    4 of 8 active on cnode0096                   (PID:     4792) using 1 threads
+---> Process    5 of 8 active on cnode0727                   (PID:   105011) using 1 threads
+---> Process    6 of 8 active on cnode0728                   (PID:    34881) using 1 threads
+---> Process    7 of 8 active on cnode0942                   (PID:   159211) using 1 threads
+---> Process    3 of 8 active on cnode0088                   (PID:   150890) using 1 threads
+ Creating the finite array geometry
+ Processing the geometrical data for triangles
+   Searching for duplicate triangles
+    0%  100%  
+   Creating edge interconnectivity data for triangles
+  100%  
+ Checking the geometrical input data
+   Checking the geometrical input data for triangles
+    0%  100%  
+ --- Processing frequency 1 of 1 ( 2.99792E+08 Hz)
+ Checking the geometrical input data (frequency dependent)
+--- Processing domain 1 to 8 of 8
+ Storing the matrix in main memory (storage scheme 1)
+ --> Currently a memory of 72.627 MByte has been allocated per process
+     In total, this corresponds to 580.980 MByte for all processes
+     (peak memory usage of 72.627 MByte per process so far)
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+    0%    1%    2%    3%    4%    5%    6%    7%    8%    9%   10%   11%   12%   13%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+    5%   11%   16%   22%   27%   33%   38%   44%   49%   55%   60%   65%   71%   76%   82%   87%   93%   98%  100%  
+ Calculation of the elements of right-hand side vector
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+   34%   74%  100%  
+   Estimating condition number
+   Backward substitution
+ Determination of the impedances and powers
+    0%  100%  
+ Determination of wire and surface currents
+ Calculate the far field
+   Grouping and boxing for far field calculations
+   Using fast far field calculations
+   Calculation of the far field directions
+   Calculation of the Legendre polynomials
+   13%  100%  
+   Precomputation of far field coefficients
+  100%  
+   Precomputation of far field tables
+  100%  
+   Computation of the far field values in the frequency domain
+  100%  
+   Exporting of the far field values
+  100%  
+ Calculate the far field
+   Using fast far field calculations
+   Precomputation of far field tables
+  100%  
+   Computation of the far field values in the frequency domain
+  100%  
+   Exporting of the far field values
+  100%  
+ Calculate the electric near field
+    0%   37%   76%  100%  
+ Calculate the electric near field
+   10%   51%   94%  100%  
+
+Finished

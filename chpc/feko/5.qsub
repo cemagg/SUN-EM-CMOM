@@ -25,6 +25,5 @@ ulimit -a
 export ALTAIR_LICENSE_PATH=6200@chpcviz1
 export FEKO_CSV_RESOURCE_REPORTING_PRESET=use_envvars
 . $PATH_TO_FEKO/bin/initfeko
-export FEKO_WHICH_MPI=11
 
-runfeko bow_tie_array_m.pre --use-job-scheduler
+runfeko bow_tie_array_m.pre 
