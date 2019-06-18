@@ -68,7 +68,10 @@ void mpiPerformDGFM(std::map<std::string, std::string> &const_map,
 	int start_index = displs[rank];
 	int end_index = displs[rank] + local_num_rows;
 
-	// #pragma omp parallel for
+	bool use_threading = (num_domains/3) <= size;
+	std::cout << "bool: " << use_threading << std::endl;
+
+	#pragma omp parallel for if(!use_threading)
 	for (int i = start_index; i < end_index; i++)
 	{
 		allocateDGFMRowMemory(dgfm_rows[i - start_index], num_domains, domain_size);	
@@ -78,6 +81,7 @@ void mpiPerformDGFM(std::map<std::string, std::string> &const_map,
 						 i,
 						 num_domains,
 						 domain_size,
+						 use_threading,
 					   	 const_map,
 					   	 label_map,
 					   	 triangles,
