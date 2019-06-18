@@ -68,7 +68,7 @@ void mpiPerformDGFM(std::map<std::string, std::string> &const_map,
 	int start_index = displs[rank];
 	int end_index = displs[rank] + local_num_rows;
 
-	bool use_threading = (num_domains/3) <= size;
+	bool use_threading = (num_domains/size) <= size;
 	std::cout << "bool: " << use_threading << std::endl;
 
 	#pragma omp parallel for if(!use_threading)
