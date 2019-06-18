@@ -1,5 +1,20 @@
 #include "dgfm_row.h"
 
+#define TIMING
+ 
+#ifdef TIMING
+#define INIT_TIMER auto start = std::chrono::high_resolution_clock::now();
+#define START_TIMER  start = std::chrono::high_resolution_clock::now();
+#define STOP_TIMER(name)  std::cout << "RUNTIME of " << name << ": " << \
+    std::chrono::duration_cast<std::chrono::milliseconds>( \
+            std::chrono::high_resolution_clock::now()-start \
+    ).count() << " ms " << std::endl; 
+#else
+#define INIT_TIMER
+#define START_TIMER
+#define STOP_TIMER(name)
+#endif
+
 void fillDGFMExcitations(DGFMExcitations &v_vectors,
 					  	int num_domains,
 					  	int domain_size,
@@ -36,12 +51,15 @@ void calculateDGFMRow(DGFMRow &row,
                  	  std::vector<Node<double>> &nodes,
                  	  std::vector<Excitation> &excitations)
 {
+	// INIT_TIMER
+	// START_TIMER
 	// Get Weights
 	int excitation_index = 0;
 	calculateDGFMWeights(row, v_vectors, num_domains, excitation_index, domain_index);	
-
+	// STOP_TIMER("Weights")
 	// Calcualte Z Matrices
-	#pragma omp parallel for if(use_threading)
+	// START_TIMER
+	// #pragma omp parallel for if(use_threading)
 	for (int n = 0; n < num_domains; n++)
 	{
 		serialFillZmn( 	row.z_matrices[n],
@@ -53,9 +71,10 @@ void calculateDGFMRow(DGFMRow &row,
                    		label_map[domain_index],
                    		true);	
 	}
-
+	// STOP_TIMER("Z FILL")
 	// Sum Z Matrices
-	#pragma omp parallel for if(use_threading)
+	
+	// #pragma omp parallel for if(use_threading)
 	for (int i = 0; i < num_domains; i++)
 	{
 		if (i != domain_index)
@@ -66,7 +85,7 @@ void calculateDGFMRow(DGFMRow &row,
 			}
 		}
 	}
-
+	// STOP_TIMER("ZACT")
 	// std::complex<double> sum = std::complex<double>(0.0, 0.0);
 
 	// #pragma omp parallel for
@@ -82,8 +101,9 @@ void calculateDGFMRow(DGFMRow &row,
 	// }
 
 	// Solve for I
-
+	
 	serialFillIlhs(row.z_matrices[domain_index],
                    v_vectors.excitations[domain_index],
                    domain_size);	
+	// STOP_TIMER("LUDC")
 }
