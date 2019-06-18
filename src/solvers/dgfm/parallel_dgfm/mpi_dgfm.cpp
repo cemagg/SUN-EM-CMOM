@@ -1,5 +1,18 @@
 #include "mpi_dgfm.h"
-
+#define TIMING
+ 
+#ifdef TIMING
+#define INIT_TIMER auto start = std::chrono::high_resolution_clock::now();
+#define START_TIMER  start = std::chrono::high_resolution_clock::now();
+#define STOP_TIMER(name)  std::cout << "RUNTIME of " << name << ": " << \
+    std::chrono::duration_cast<std::chrono::milliseconds>( \
+            std::chrono::high_resolution_clock::now()-start \
+    ).count() << " ms " << std::endl; 
+#else
+#define INIT_TIMER
+#define START_TIMER
+#define STOP_TIMER(name)
+#endif
 void mpiPerformDGFM(std::map<std::string, std::string> &const_map,
 					std::map<int, Label> &label_map,
 					std::vector<Triangle> &triangles,
@@ -68,12 +81,12 @@ void mpiPerformDGFM(std::map<std::string, std::string> &const_map,
 	int start_index = displs[rank];
 	int end_index = displs[rank] + local_num_rows;
 
-	bool use_threading = (num_domains/size) <= size;
-	std::cout << "bool: " << use_threading << std::endl;
-
-	#pragma omp parallel for if(!use_threading)
+	bool use_threading = (num_domains/size) < size;
+	#pragma omp parallel for //if(!use_threading)
 	for (int i = start_index; i < end_index; i++)
 	{
+		double start = omp_get_wtime();
+	
 		allocateDGFMRowMemory(dgfm_rows[i - start_index], num_domains, domain_size);	
 
 	  	calculateDGFMRow(dgfm_rows[i - start_index],
@@ -94,6 +107,10 @@ void mpiPerformDGFM(std::map<std::string, std::string> &const_map,
 				  local_ilhs + ((i - start_index) * domain_size));
 
 		deAllocateDGFMRowMemory(dgfm_rows[i - start_index], num_domains);	
+		double end = omp_get_wtime();
+
+		std::cout << "tid: " << omp_get_thread_num() << " time: " << end - start << std::endl;
+
 	}
 
 	// for (int i = 0; i < local_num_rows; i++)

@@ -94,13 +94,15 @@ if(MPI)
                                   -lgfortran)
 
     else()
+        set(CMAKE_CXX_FLAGS "-O3 ")
+
         target_link_libraries(mom_mpi ${MPI_LIBRARIES}
                                     OpenMP::OpenMP_CXX
                                     -L/${CMAKE_CURRENT_SOURCE_DIR}/lib/scalapack
-                                    #-lscalapack
+                                    -lscalapack
+                                    -lreflapack
                                     -lrefblas
                                     -ltmg
-                                    -lreflapack
                                     -L/usr/bin
                                     -lgfortran)
     endif()
