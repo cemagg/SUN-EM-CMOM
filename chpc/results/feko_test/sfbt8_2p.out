@@ -1,0 +1,736 @@
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 515236
+max locked memory       (kbytes, -l) unlimited
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 2400
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) unlimited
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 515236
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+Altair Feko - RUNFEKO Version 2018.2.1-12 from 2018-10-19
+          Copyright (c) 1999-2014 Altair Development S.A. (Pty) Ltd
+          Copyright (c) 2014-2018 Altair Engineering, Inc.
+
+ 
+
+Altair Feko - Solver (par) Version 2018.2.1-566 from 2018-12-13
+          Copyright (c) 1999-2014 Altair Development S.A. (Pty) Ltd
+          Copyright (c) 2014-2018 Altair Engineering, Inc.
+
+License warning
+One or more of the required features checked out will expire in 13 day(s)
+
+License warning
+One or more of the required features checked out will expire in 13 day(s)
+
+File:     bow_tie_array_small
+Memory:   Unlimited, system allows maximum usage of 62.612 GByte
+          (for parallel runs memory limit is per process)
+          (installed memory 125.807 GByte, thereof free 116.902 GByte)
+
+---> Process    0 of 2 active on cnode0982                   (PID:    27372) using 1 threads
+---> Process    1 of 2 active on cnode1133                   (PID:   119198) using 1 threads
+ Creating the finite array geometry
+ Processing the geometrical data for triangles
+   Searching for duplicate triangles
+    0%  100%  
+   Creating edge interconnectivity data for triangles
+  100%  
+ Checking the geometrical input data
+   Checking the geometrical input data for triangles
+   13%  100%  
+ --- Processing frequency 1 of 1 ( 2.99792E+08 Hz)
+ Checking the geometrical input data (frequency dependent)
+--- Processing domain 1 to 2 of 100
+ Storing the matrix in main memory (storage scheme 1)
+ --> Currently a memory of 6.791 MByte has been allocated per process
+     In total, this corresponds to 13.572 MByte for all processes
+     (peak memory usage of 6.791 MByte per process so far)
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+    0%    1%    2%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 3 to 4 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+    2%    3%    4%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 5 to 6 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+    4%    5%    6%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 7 to 8 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+    6%    7%    8%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 9 to 10 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+    8%    9%   10%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 11 to 12 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   10%   11%   12%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 13 to 14 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   12%   13%   14%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 15 to 16 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   14%   15%   16%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 17 to 18 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   16%   17%   18%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 19 to 20 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   18%   19%   20%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 21 to 22 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   20%   21%   22%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 23 to 24 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   22%   23%   24%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 25 to 26 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   24%   25%   26%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 27 to 28 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   26%   27%   28%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 29 to 30 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   28%   29%   30%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 31 to 32 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   30%   31%   32%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 33 to 34 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   32%   33%   34%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 35 to 36 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   34%   35%   36%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 37 to 38 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   36%   37%   38%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 39 to 40 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   38%   39%   40%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 41 to 42 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   40%   41%   42%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 43 to 44 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   42%   43%   44%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 45 to 46 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   44%   45%   46%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 47 to 48 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   46%   47%   48%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 49 to 50 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   48%   49%   50%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 51 to 52 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   50%   51%   52%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 53 to 54 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   52%   53%   54%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 55 to 56 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   54%   55%   56%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 57 to 58 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   56%   57%   58%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 59 to 60 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   58%   59%   60%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 61 to 62 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   60%   61%   62%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 63 to 64 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   62%   63%   64%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 65 to 66 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   64%   65%   66%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 67 to 68 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   66%   67%   68%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 69 to 70 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   68%   69%   70%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 71 to 72 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   70%   71%   72%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 73 to 74 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   72%   73%   74%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 75 to 76 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   74%   75%   76%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 77 to 78 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   76%   77%   78%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 79 to 80 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   78%   79%   80%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 81 to 82 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   80%   81%   82%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 83 to 84 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   82%   83%   84%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 85 to 86 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   84%   85%   86%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 87 to 88 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   86%   87%   88%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 89 to 90 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   88%   89%   90%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 91 to 92 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   90%   91%   92%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 93 to 94 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   92%   93%   94%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 95 to 96 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   94%   95%   96%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 97 to 98 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   96%   97%   98%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+--- Processing domain 99 to 100 of 100
+ Calculation of the elements of MoM submatrices
+   Efficient precalculation of triangle integrals
+   98%   99%  100%  100%  
+   Calculation of submatrices A1x (100% of the full matrix)
+   47%   94%  100%  
+ Calculation of the elements of right-hand side vector
+  100%  
+ Solution of the linear set of equations with LAPAGAU
+   LU decomposition of the matrix
+  100%  
+   Estimating condition number
+   Backward substitution
+ Determination of the impedances and powers
+  100%  
+ Determination of wire and surface currents
+ Calculate the far field
+   Grouping and boxing for far field calculations
+   Using fast far field calculations
+   Calculation of the far field directions
+   Calculation of the Legendre polynomials
+   14%  100%  
+   Precomputation of far field coefficients
+   78%  100%  
+   Precomputation of far field tables
+  100%  
+   Computation of the far field values in the frequency domain
+  100%  
+   Exporting of the far field values
+  100%  
+ Calculate the far field
+   Using fast far field calculations
+   Precomputation of far field tables
+  100%  
+   Computation of the far field values in the frequency domain
+  100%  
+   Exporting of the far field values
+  100%  
+ Calculate the electric near field
+    1%   14%   25%   37%   48%   59%   71%   82%   93%  100%  
+ Calculate the electric near field
+    4%   16%   28%   39%   51%   63%   74%   86%   97%  100%  
+
+Finished
