@@ -54,16 +54,30 @@ void calculateDGFMRow(DGFMRow &row,
 	}
 
 	// Sum Z Matrices
+	// #pragma omp parallel for
+	// for (int i = 0; i < num_domains; i++)
+	// {
+	// 	if (i != domain_index)
+	// 	{
+	// 		for (int j = 0; j < (domain_size * domain_size); j++)
+	// 		{
+	// 			row.z_matrices[domain_index][j] += row.dgfm_weights[i] * row.z_matrices[i][j]; 
+	// 		}
+	// 	}
+	// }
+
+	std::complex<double> sum = std::complex<double>(0.0, 0.0);
+
 	#pragma omp parallel for
-	for (int i = 0; i < num_domains; i++)
+	for (int i = 0; i < (domain_size * domain_size); i++)
 	{
-		if (i != domain_index)
+		for (int j = 0; j < num_domains; j++)
 		{
-			for (int j = 0; j < (domain_size * domain_size); j++)
-			{
-				row.z_matrices[domain_index][j] += row.dgfm_weights[i] * row.z_matrices[i][j]; 
-			}
+			sum += row.dgfm_weights[j] * row.z_matrices[j][i];
 		}
+
+		row.z_matrices[domain_index][i] = sum;
+		sum = std::complex<double>(0.0, 0.0);
 	}
 
 	// Solve for I
