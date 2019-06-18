@@ -28,6 +28,7 @@ void calculateDGFMRow(DGFMRow &row,
 					  int domain_index,
 					  int num_domains,
 					  int domain_size,
+					  bool use_threading,
 					  std::map<std::string, std::string> &const_map,
                  	  std::map<int, Label> &label_map,
                  	  std::vector<Triangle> &triangles,
@@ -40,7 +41,7 @@ void calculateDGFMRow(DGFMRow &row,
 	calculateDGFMWeights(row, v_vectors, num_domains, excitation_index, domain_index);	
 
 	// Calcualte Z Matrices
-	#pragma omp parallel for
+	#pragma omp parallel for if(use_threading)
 	for (int n = 0; n < num_domains; n++)
 	{
 		serialFillZmn( 	row.z_matrices[n],
@@ -54,31 +55,31 @@ void calculateDGFMRow(DGFMRow &row,
 	}
 
 	// Sum Z Matrices
-	// #pragma omp parallel for
-	// for (int i = 0; i < num_domains; i++)
-	// {
-	// 	if (i != domain_index)
-	// 	{
-	// 		for (int j = 0; j < (domain_size * domain_size); j++)
-	// 		{
-	// 			row.z_matrices[domain_index][j] += row.dgfm_weights[i] * row.z_matrices[i][j]; 
-	// 		}
-	// 	}
-	// }
-
-	std::complex<double> sum = std::complex<double>(0.0, 0.0);
-
-	#pragma omp parallel for
-	for (int i = 0; i < (domain_size * domain_size); i++)
+	#pragma omp parallel for if(use_threading)
+	for (int i = 0; i < num_domains; i++)
 	{
-		for (int j = 0; j < num_domains; j++)
+		if (i != domain_index)
 		{
-			sum += row.dgfm_weights[j] * row.z_matrices[j][i];
+			for (int j = 0; j < (domain_size * domain_size); j++)
+			{
+				row.z_matrices[domain_index][j] += row.dgfm_weights[i] * row.z_matrices[i][j]; 
+			}
 		}
-
-		row.z_matrices[domain_index][i] = sum;
-		sum = std::complex<double>(0.0, 0.0);
 	}
+
+	// std::complex<double> sum = std::complex<double>(0.0, 0.0);
+
+	// #pragma omp parallel for
+	// for (int i = 0; i < (domain_size * domain_size); i++)
+	// {
+	// 	for (int j = 0; j < num_domains; j++)
+	// 	{
+	// 		sum += row.dgfm_weights[j] * row.z_matrices[j][i];
+	// 	}
+
+	// 	row.z_matrices[domain_index][i] = sum;
+	// 	sum = std::complex<double>(0.0, 0.0);
+	// }
 
 	// Solve for I
 

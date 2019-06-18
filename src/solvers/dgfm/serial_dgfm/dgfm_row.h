@@ -24,15 +24,16 @@ void fillDGFMExcitations(DGFMExcitations &v_vectors,
                  	  	std::vector<Excitation> &excitations);
 
 void calculateDGFMRow(DGFMRow &row,
-					  DGFMExcitations &v_vectors,
-					  int domain_index,
-					  int num_domains,
-					  int domain_size,
-					  std::map<std::string, std::string> &const_map,
-                 	  std::map<int, Label> &label_map,
-                 	  std::vector<Triangle> &triangles,
-                 	  std::vector<Edge> &edges,
-                 	  std::vector<Node<double>> &nodes,
-                 	  std::vector<Excitation> &excitations);
+		      DGFMExcitations &v_vectors,
+		      int domain_index,
+		      int num_domains,
+		      int domain_size,
+                      bool use_threading,
+                      std::map<std::string, std::string> &const_map,
+                      std::map<int, Label> &label_map,
+                      std::vector<Triangle> &triangles,
+                      std::vector<Edge> &edges,
+                      std::vector<Node<double>> &nodes,
+                      std::vector<Excitation> &excitations);
 
 #endif
