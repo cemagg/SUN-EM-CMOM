@@ -87,10 +87,9 @@ if(MPI)
                                   OpenMP::OpenMP_CXX
                                   #-L/apps/scalapack/gcc/current/lib64
                                   #-lscalapack
-                                  -L/apps/libs/atlas/3.10.3/gcc-6.1.0/lib
-                                  -lptcblas
+                                  -L/apps/libs/openblas/0.2.19/gcc-6.1.0/lib
+                                  -lopenblas
                                   -llapack
-				  -ltatlas
                                   -L/cm/local/apps/gcc/6.1.0/bin/gfortran
                                   -lgfortran)
 
