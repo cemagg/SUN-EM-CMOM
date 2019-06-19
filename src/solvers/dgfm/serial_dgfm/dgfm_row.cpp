@@ -74,7 +74,7 @@ void calculateDGFMRow(DGFMRow &row,
 		
 		double end = omp_get_wtime();
 
-		std::cout << "tid: " << omp_get_thread_num() << " time: " << end - start << std::endl;
+		std::cout << "tid: " << omp_get_thread_num() <<"on: " << sched_getcpu() << " time: " << end - start << std::endl;
 	}
 	// STOP_TIMER("Z FILL")
 	// Sum Z Matrices

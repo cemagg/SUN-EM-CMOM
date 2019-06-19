@@ -18,5 +18,4 @@ cd /mnt/lustre/users/tebrahim/SUN-EM-CMOM/chpc/ompi_build
 module add chpc/openblas/0.2.19/gcc-6.1.0
 module add chpc/openmpi/4.0.0/gcc/6.1.0
 
-export OPENBLAS_NUM_THREADS=1
-time mpiexec -np 2 -machinefile $PBS_NODEFILE -x OMP_NUM_THREADS=1 mom_mpi ../../examples/bow_tie_array/bow_tie_array_m.mom --dgfm
+time mpiexec -np 2 -machinefile $PBS_NODEFILE mom_mpi ../../examples/bow_tie_array/bow_tie_array_m.mom --dgfm
