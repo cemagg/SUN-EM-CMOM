@@ -82,7 +82,8 @@ void mpiPerformDGFM(std::map<std::string, std::string> &const_map,
 	int end_index = displs[rank] + local_num_rows;
 
 	bool use_threading = (num_domains/size) < size;
-	#pragma omp parallel for //if(!use_threading)
+
+	// #pragma omp parallel for //if(!use_threading)
 	for (int i = start_index; i < end_index; i++)
 	{
 		double start = omp_get_wtime();
@@ -109,7 +110,7 @@ void mpiPerformDGFM(std::map<std::string, std::string> &const_map,
 		deAllocateDGFMRowMemory(dgfm_rows[i - start_index], num_domains);	
 		double end = omp_get_wtime();
 
-		std::cout << "tid: " << omp_get_thread_num() << " time: " << end - start << std::endl;
+		std::cout << "tid: " << "none" << " time: " << end - start << std::endl;
 
 	}
 

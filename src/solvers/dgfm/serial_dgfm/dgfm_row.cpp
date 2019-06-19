@@ -58,10 +58,11 @@ void calculateDGFMRow(DGFMRow &row,
 	calculateDGFMWeights(row, v_vectors, num_domains, excitation_index, domain_index);	
 	// STOP_TIMER("Weights")
 	// Calcualte Z Matrices
-	// START_TIMER
-	// #pragma omp parallel for if(use_threading)
+	// START_TIME
+	#pragma omp parallel for 
 	for (int n = 0; n < num_domains; n++)
 	{
+		double start = omp_get_wtime();
 		serialFillZmn( 	row.z_matrices[n],
         	          	edges,
             	      	triangles,
@@ -70,11 +71,15 @@ void calculateDGFMRow(DGFMRow &row,
                    		label_map[n],
                    		label_map[domain_index],
                    		true);	
+		
+		double end = omp_get_wtime();
+
+		std::cout << "tid: " << omp_get_thread_num() << " time: " << end - start << std::endl;
 	}
 	// STOP_TIMER("Z FILL")
 	// Sum Z Matrices
 	
-	// #pragma omp parallel for if(use_threading)
+	#pragma omp parallel for 
 	for (int i = 0; i < num_domains; i++)
 	{
 		if (i != domain_index)
