@@ -63,14 +63,14 @@ void calculateDGFMRow(DGFMRow &row,
 	for (int n = 0; n < num_domains; n++)
 	{
 		double start = omp_get_wtime();
-		// serialFillZmn( 	row.z_matrices[n],
-  //       	          	edges,
-  //           	      	triangles,
-  //               	  	nodes,
-  //                  		const_map,
-  //                  		label_map[n],
-  //                  		label_map[domain_index],
-  //                  		true);	
+		serialFillZmn( 	row.z_matrices[n],
+        	          	edges,
+            	      	triangles,
+                	  	nodes,
+                   		const_map,
+                   		label_map[n],
+                   		label_map[domain_index],
+                   		true);	
 		
 		double end = omp_get_wtime();
 
@@ -82,17 +82,17 @@ void calculateDGFMRow(DGFMRow &row,
 	// STOP_TIMER("Z FILL")
 	// Sum Z Matrices
 	
-	// #pragma omp parallel for 
-	// for (int i = 0; i < num_domains; i++)
-	// {
-	// 	if (i != domain_index)
-	// 	{
-	// 		for (int j = 0; j < (domain_size * domain_size); j++)
-	// 		{
-	// 			row.z_matrices[domain_index][j] += row.dgfm_weights[i] * row.z_matrices[i][j]; 
-	// 		}
-	// 	}
-	// }
+	#pragma omp parallel for 
+	for (int i = 0; i < num_domains; i++)
+	{
+		if (i != domain_index)
+		{
+			for (int j = 0; j < (domain_size * domain_size); j++)
+			{
+				row.z_matrices[domain_index][j] += row.dgfm_weights[i] * row.z_matrices[i][j]; 
+			}
+		}
+	}
 	// STOP_TIMER("ZACT")
 	// std::complex<double> sum = std::complex<double>(0.0, 0.0);
 
@@ -110,8 +110,8 @@ void calculateDGFMRow(DGFMRow &row,
 
 	// Solve for I
 	
-	// serialFillIlhs(row.z_matrices[domain_index],
- //                   v_vectors.excitations[domain_index],
- //                   domain_size);	
+	serialFillIlhs(row.z_matrices[domain_index],
+                   v_vectors.excitations[domain_index],
+                   domain_size);	
 	// STOP_TIMER("LUDC")
 }
