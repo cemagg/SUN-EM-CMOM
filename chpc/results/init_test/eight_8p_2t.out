@@ -1,73 +1,73 @@
 8
-tid: 0 time: 65.527
-tid: 1 time: 65.8665
-tid: 1 time: 65.8833
-tid: 1 time: 66.1175
-tid: 0 time: 66.2798
-tid: 0 time: 66.284
-tid: 0 time: 66.7067
-tid: 0 time: 66.7065
-tid: 1 time: 66.8452
-tid: 1 time: 67.4048
-tid: 1 time: 67.4834
-tid: 0 time: 67.7085
-tid: 0 time: 67.6907
-tid: 0 time: 67.7455
-tid: 1 time: 67.9342
-tid: 1 time: 68.4247
-tid: 0 time: 65.2738
-tid: 1 time: 65.1025
-tid: 1 time: 65.3765
-tid: 1 time: 65.7539
-tid: 0 time: 66.0061
-tid: 0 time: 66.2022
-tid: 0 time: 66.566
-tid: 0 time: 67.3876
-tid: 1 time: 67.3255
-tid: 1 time: 67.174
-tid: 1 time: 67.1297
-tid: 0 time: 66.952
-tid: 0 time: 67.4682
-tid: 0 time: 67.6314
-tid: 1 time: 67.6789
-tid: 1 time: 68.3104
-tid: 0 time: 65.2719
-tid: 1 time: 65.6655
-tid: 1 time: 65.419
-tid: 1 time: 64.9759
-tid: 0 time: 65.9956
-tid: 0 time: 66.0408
-tid: 0 time: 66.6453
-tid: 0 time: 67.474
-tid: 1 time: 67.4077
-tid: 1 time: 67.2655
-tid: 0 time: 66.808
-tid: 1 time: 67.3998
-tid: 0 time: 67.8359
-tid: 0 time: 67.6415
-tid: 1 time: 67.7484
-tid: 1 time: 68.3822
-tid: 0 time: 65.1805
-tid: 1 time: 64.7784
-tid: none time: 262.419
-tid: 1 time: 65.8042
-tid: 1 time: 65.668
-tid: 0 time: 66.1365
-tid: 0 time: 66.1335
-tid: none time: 265.384
-tid: none time: 265.607
-tid: 0 time: 65.9073
-tid: 0 time: 67.3456
-tid: 1 time: 67.3245
-tid: 1 time: 67.3286
-tid: 1 time: 67.1985
-tid: 0 time: 67.6676
-tid: 0 time: 67.7303
-tid: none time: 270.671
-tid: 0 time: 67.6528
-tid: 1 time: 67.6022
-tid: none time: 271.266
-tid: none time: 271.627
-tid: none time: 272.037
-tid: 1 time: 68.1877
-tid: none time: 274.447
+tid: 0on: 10 time: 65.571
+tid: 1on: 12 time: 66.0527
+tid: 1on: 12 time: 66.0971
+tid: 0on: 10 time: 66.1203
+tid: 1on: 8 time: 71.5588
+tid: 1on: 10 time: 71.6192
+tid: 0on: 20 time: 72.175
+tid: 0on: 8 time: 72.5406
+tid: 0on: 6 time: 72.6139
+tid: 0on: 0 time: 72.6221
+tid: 1on: 2 time: 72.7512
+tid: 1on: 22 time: 72.7902
+tid: 1on: 2 time: 72.8245
+tid: 0on: 20 time: 73.1069
+tid: 1on: 22 time: 73.5479
+tid: 0on: 0 time: 73.723
+tid: 0on: 10 time: 66.0414
+tid: 0on: 10 time: 65.6162
+tid: 1on: 12 time: 65.8757
+tid: 1on: 12 time: 66.0277
+tid: 1on: 8 time: 71.4491
+tid: 1on: 10 time: 71.5107
+tid: 0on: 20 time: 72.1223
+tid: 1on: 2 time: 71.9407
+tid: 0on: 8 time: 72.4778
+tid: 0on: 6 time: 72.4809
+tid: 0on: 0 time: 72.5185
+tid: 1on: 2 time: 72.699
+tid: 1on: 22 time: 73.3838
+tid: 0on: 20 time: 73.1861
+tid: 1on: 22 time: 73.5136
+tid: 0on: 0 time: 73.5774
+tid: 0on: 10 time: 66.0823
+tid: 1on: 12 time: 66.0021
+tid: 0on: 10 time: 66.3292
+tid: 1on: 12 time: 66.098
+tid: 1on: 10 time: 70.7957
+tid: 1on: 8 time: 71.397
+tid: 0on: 20 time: 72.097
+tid: 0on: 6 time: 71.7721
+tid: 1on: 2 time: 72.6505
+tid: 0on: 8 time: 72.4034
+tid: 0on: 0 time: 72.532
+tid: 1on: 2 time: 72.7041
+tid: 0on: 20 time: 73.1585
+tid: 1on: 22 time: 73.3608
+tid: 1on: 22 time: 73.4718
+tid: 0on: 0 time: 73.5117
+tid: 0on: 10 time: 65.933
+tid: 1on: 12 time: 65.9815
+tid: 1on: 12 time: 65.9507
+tid: 0on: 10 time: 66.3935
+tid: none time: 265.29
+tid: none time: 265.462
+tid: 1on: 10 time: 71.436
+tid: 1on: 8 time: 71.5257
+tid: 0on: 20 time: 72.1633
+tid: 0on: 6 time: 72.449
+tid: 0on: 8 time: 72.5625
+tid: 1on: 2 time: 72.6481
+tid: 0on: 0 time: 72.3538
+tid: none time: 290.376
+tid: 1on: 2 time: 72.0051
+tid: none time: 290.992
+tid: none time: 291.247
+tid: 0on: 20 time: 72.4174
+tid: 1on: 22 time: 73.3622
+tid: none time: 293.993
+tid: 1on: 22 time: 73.4873
+tid: 0on: 0 time: 73.5297
+tid: none time: 295.098
+tid: none time: 295.336

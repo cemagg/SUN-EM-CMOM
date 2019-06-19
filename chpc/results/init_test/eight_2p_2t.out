@@ -1,73 +1,73 @@
 2
-tid: 1 time: 132.491
-tid: 0 time: 133.102
-tid: 1 time: 134.804
-tid: 0 time: 135.187
-tid: 0 time: 132.89
-tid: 1 time: 133.589
-tid: 1 time: 134.641
-tid: 0 time: 135.955
-tid: 0 time: 132.696
-tid: 1 time: 133.707
-tid: 1 time: 134.549
-tid: 0 time: 136.13
-tid: 0 time: 132.701
-tid: 1 time: 132.528
-tid: none time: 533.35
-tid: 1 time: 134.629
-tid: 0 time: 133.812
-tid: none time: 542.095
-tid: 0 time: 132.717
-tid: 1 time: 133.533
-tid: 1 time: 134.571
-tid: 0 time: 136.101
-tid: 0 time: 132.429
-tid: 1 time: 132.014
-tid: 1 time: 134.384
-tid: 0 time: 134.619
-tid: 0 time: 132.482
-tid: 1 time: 133.508
-tid: 1 time: 134.484
-tid: 0 time: 135.954
-tid: 0 time: 132.387
-tid: 1 time: 132.137
-tid: none time: 532.163
-tid: 1 time: 134.514
-tid: 0 time: 133.614
-tid: none time: 541.28
-tid: 0 time: 132.674
-tid: 1 time: 133.566
-tid: 1 time: 134.377
-tid: 0 time: 135.834
-tid: 0 time: 132.67
-tid: 1 time: 133.447
-tid: 1 time: 134.398
-tid: 0 time: 135.582
-tid: 0 time: 132.335
-tid: 1 time: 132.122
-tid: 1 time: 134.223
-tid: 0 time: 134.353
-tid: 0 time: 132.456
-tid: 1 time: 132.199
-tid: none time: 532.289
-tid: 1 time: 134.505
-tid: 0 time: 133.699
-tid: none time: 540.447
-tid: 0 time: 132.629
-tid: 1 time: 133.421
-tid: 1 time: 134.535
-tid: 0 time: 135.769
-tid: 0 time: 132.571
-tid: 1 time: 133.243
-tid: 1 time: 134.456
-tid: 0 time: 135.472
-tid: 0 time: 132.543
-tid: 1 time: 133.415
-tid: 1 time: 134.379
-tid: 0 time: 135.494
-tid: 0 time: 132.446
-tid: 1 time: 131.089
-tid: none time: 532.134
-tid: 1 time: 134.408
-tid: 0 time: 132.616
-tid: none time: 540.331
+tid: 0on: 0 time: 132.349
+tid: 1on: 0 time: 132.561
+tid: 0on: 0 time: 134.16
+tid: 1on: 0 time: 134.392
+tid: 0on: 0 time: 133.298
+tid: 1on: 0 time: 133.83
+tid: 0on: 0 time: 134.197
+tid: 1on: 0 time: 134.177
+tid: 0on: 0 time: 133.036
+tid: 1on: 0 time: 133.885
+tid: 0on: 0 time: 134.06
+tid: 1on: 0 time: 133.982
+tid: 0on: 0 time: 133.185
+tid: 1on: 0 time: 133.864
+tid: 1on: 0 time: 131.599
+tid: none time: 535.238
+tid: 0on: 0 time: 132.826
+tid: none time: 536.344
+tid: 0on: 0 time: 133.234
+tid: 1on: 0 time: 134.013
+tid: 1on: 0 time: 133.859
+tid: 0on: 0 time: 134.185
+tid: 0on: 0 time: 132.081
+tid: 1on: 0 time: 132.487
+tid: 1on: 0 time: 134.065
+tid: 0on: 0 time: 134.143
+tid: 0on: 0 time: 133.36
+tid: 1on: 0 time: 133.964
+tid: 1on: 0 time: 134.168
+tid: 0on: 0 time: 134.182
+tid: 0on: 0 time: 133.287
+tid: 1on: 0 time: 131.807
+tid: none time: 535.13
+tid: 1on: 0 time: 133.862
+tid: 0on: 0 time: 132.787
+tid: none time: 536.419
+tid: 0on: 0 time: 133.014
+tid: 1on: 0 time: 133.984
+tid: 1on: 0 time: 133.838
+tid: 0on: 0 time: 134.069
+tid: 0on: 0 time: 133.177
+tid: 1on: 0 time: 133.999
+tid: 1on: 0 time: 133.782
+tid: 0on: 0 time: 134.126
+tid: 0on: 0 time: 131.81
+tid: 1on: 0 time: 133.922
+tid: 1on: 0 time: 132.405
+tid: 0on: 0 time: 133.937
+tid: 0on: 0 time: 133.176
+tid: 1on: 0 time: 131.656
+tid: none time: 534.66
+tid: 1on: 0 time: 133.861
+tid: 0on: 0 time: 132.82
+tid: none time: 536.078
+tid: 0on: 0 time: 133.066
+tid: 1on: 0 time: 133.963
+tid: 1on: 0 time: 133.862
+tid: 0on: 0 time: 134.127
+tid: 0on: 0 time: 133.18
+tid: 1on: 0 time: 133.884
+tid: 1on: 0 time: 133.817
+tid: 0on: 0 time: 134.212
+tid: 0on: 0 time: 133.08
+tid: 1on: 0 time: 133.914
+tid: 1on: 0 time: 133.772
+tid: 0on: 0 time: 134.13
+tid: 0on: 0 time: 131.825
+tid: 1on: 0 time: 131.648
+tid: none time: 534.521
+tid: 1on: 0 time: 132.438
+tid: 0on: 0 time: 132.647
+tid: none time: 536.203
