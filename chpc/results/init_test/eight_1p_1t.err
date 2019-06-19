@@ -4,7 +4,7 @@ are not used by default.  The intent is to use UCX for these devices.
 You can override this policy by setting the btl_openib_allow_ib MCA parameter
 to true.
 
-  Local host:              cnode1020
+  Local host:              cnode0307
   Local adapter:           mlx4_0
   Local port:              1
 
@@ -12,10 +12,10 @@ to true.
 --------------------------------------------------------------------------
 WARNING: There was an error initializing an OpenFabrics device.
 
-  Local host:   cnode1020
+  Local host:   cnode0307
   Local device: mlx4_0
 --------------------------------------------------------------------------
 
-real	77m32.525s
-user	77m30.672s
-sys	0m1.145s
+real	71m50.384s
+user	71m46.037s
+sys	0m1.274s
