@@ -1,73 +1,73 @@
 2
-cnode0156 tid: 0 on cpu: 0 time: 132.206
-cnode0443 tid: 1 on cpu: 0 time: 132.979
-cnode0156 tid: 1 on cpu: 0 time: 134.338
-cnode0443 tid: 0 on cpu: 0 time: 135.287
-cnode0156 tid: 0 on cpu: 0 time: 133.184
-cnode0443 tid: 1 on cpu: 0 time: 134.221
-cnode0156 tid: 1 on cpu: 0 time: 134.295
-cnode0443 tid: 0 on cpu: 0 time: 135.223
-cnode0156 tid: 0 on cpu: 0 time: 133.182
-cnode0443 tid: 1 on cpu: 0 time: 134.241
-cnode0156 tid: 1 on cpu: 0 time: 134.358
-cnode0443 tid: 0 on cpu: 0 time: 134.881
-cnode0156 tid: 0 on cpu: 0 time: 133.373
-cnode0156 tid: 1 on cpu: 0 time: 131.614
-tid: none time: 535.694
-cnode0443 tid: 1 on cpu: 0 time: 134.3
-cnode0443 tid: 0 on cpu: 0 time: 132.667
-tid: none time: 539.141
-cnode0156 tid: 0 on cpu: 0 time: 133.149
-cnode0156 tid: 1 on cpu: 0 time: 134.428
-cnode0443 tid: 1 on cpu: 0 time: 134.231
-cnode0443 tid: 0 on cpu: 0 time: 135.215
-cnode0156 tid: 0 on cpu: 0 time: 131.818
-cnode0156 tid: 1 on cpu: 0 time: 134.486
-cnode0443 tid: 1 on cpu: 0 time: 132.743
-cnode0443 tid: 0 on cpu: 0 time: 135.134
-cnode0156 tid: 0 on cpu: 0 time: 133.263
-cnode0156 tid: 1 on cpu: 0 time: 134.715
-cnode0443 tid: 1 on cpu: 0 time: 134.182
-cnode0443 tid: 0 on cpu: 0 time: 134.875
-cnode0156 tid: 0 on cpu: 0 time: 133.202
-cnode0156 tid: 1 on cpu: 0 time: 131.152
-tid: none time: 535.857
-cnode0443 tid: 1 on cpu: 0 time: 134.152
-cnode0443 tid: 0 on cpu: 0 time: 132.505
-tid: none time: 538.852
-cnode0156 tid: 0 on cpu: 0 time: 133.04
-cnode0156 tid: 1 on cpu: 0 time: 134.193
-cnode0443 tid: 1 on cpu: 0 time: 134.183
-cnode0443 tid: 0 on cpu: 0 time: 135.245
-cnode0156 tid: 0 on cpu: 0 time: 133.167
-cnode0156 tid: 1 on cpu: 0 time: 134.358
-cnode0443 tid: 1 on cpu: 0 time: 134.155
-cnode0443 tid: 0 on cpu: 0 time: 135.381
-cnode0156 tid: 0 on cpu: 0 time: 131.764
-cnode0156 tid: 1 on cpu: 0 time: 134.367
-cnode0443 tid: 1 on cpu: 0 time: 132.754
-cnode0443 tid: 0 on cpu: 0 time: 134.894
-cnode0156 tid: 0 on cpu: 0 time: 133.121
-cnode0156 tid: 1 on cpu: 0 time: 131.271
-tid: none time: 535.275
-cnode0443 tid: 1 on cpu: 0 time: 134.065
-cnode0443 tid: 0 on cpu: 0 time: 132.282
-tid: none time: 538.906
-cnode0156 tid: 0 on cpu: 0 time: 133.112
-cnode0156 tid: 1 on cpu: 0 time: 134.208
-cnode0443 tid: 1 on cpu: 0 time: 134.138
-cnode0443 tid: 0 on cpu: 0 time: 135.057
-cnode0156 tid: 0 on cpu: 0 time: 133.13
-cnode0156 tid: 1 on cpu: 0 time: 134.335
-cnode0443 tid: 1 on cpu: 0 time: 134.043
-cnode0443 tid: 0 on cpu: 0 time: 135.146
-cnode0156 tid: 0 on cpu: 0 time: 133.128
-cnode0156 tid: 1 on cpu: 0 time: 134.474
-cnode0443 tid: 1 on cpu: 0 time: 134.001
-cnode0443 tid: 0 on cpu: 0 time: 134.873
-cnode0156 tid: 0 on cpu: 0 time: 131.789
-cnode0156 tid: 1 on cpu: 0 time: 131.188
-tid: none time: 535.298
-cnode0443 tid: 1 on cpu: 0 time: 132.691
-cnode0443 tid: 0 on cpu: 0 time: 132.285
-tid: none time: 538.472
+cnode1238 tid: cnode1238 tid: 0 on cpu: 10 time:  on cpu: 1 time: 3.07104e-073.64147e-07
+
+cnode1238cnode1238 tid: 0 on cpu: 0 time:  tid: 6.49597e-08
+cnode1238 tid: 0 on cpu: 0 time: 3.79514e-08
+cnode1238 tid: 0 on cpu: 0 time: 3.79514e-08
+1 on cpu: 1 time: 1.10129e-07
+cnode1238 tid: 1 on cpu: 1 time: 8.40519e-08
+cnode1238 tid: 1 on cpu: 1 time: 8.40519e-08
+cnode1097 tid: cnode1097 tid: 0 on cpu: 0 time: 1 on cpu: 1 time: 2.2701e-073.84171e-07
+
+cnode1097 tid: 1 on cpu: 1 time: 8.70787e-08
+cnode1097 tid: 1 on cpu: 1 time: 8.28877e-08cnode1097
+cnode1097 tid: 1 on cpu: 1 time: 8.70787e-08
+ tid: 0 on cpu: 0 time: 5.61122e-08
+cnode1097 tid: 0 on cpu: 0 time: 4.19095e-08
+cnode1097 tid: 0 on cpu: 0 time: 3.81842e-08
+tid: none time: 0.177365
+tid: none time: 0.178523
+cnode1238 tid: 0 on cpu: 0 time: cnode1238 tid: 1 on cpu: 1 time: 2.44938e-07
+cnode1238 tid: 0 on cpu: 0 time: 3.91155e-08
+cnode1238 tid: 0 on cpu: 0 time: 3.79514e-08
+cnode1238 tid: 0 on cpu: 0 time: 3.79514e-08
+1.36904e-07
+cnode1238 tid: 1 on cpu: 1 time: 8.61473e-08
+cnode1238 tid: 1 on cpu: 1 time: 8.28877e-08
+cnode1238 tid: 1 on cpu: 1 time: 8.40519e-08
+tid: none time: 0.17658
+cnode1097 tid: 0 on cpu: 0 time: cnode1097 tid: 1 on cpu: 1 time: 1.09896e-07
+cnode1097 tid: 1 on cpu: 1 time: 8.40519e-08
+cnode1097 tid: 12.2701e-07 on cpu: 1 time: 
+cnode1097 tid: 0 on cpu: 0 time: 3.88827e-08
+cnode1097 tid: 0 on cpu: 0 time: 3.79514e-08
+cnode1097 tid: 0 on cpu: 0 time: 3.79514e-08
+8.40519e-08
+cnode1097 tid: 1 on cpu: 1 time: 8.40519e-08
+tid: none time: 0.177767
+cnode1238 tid: 0 on cpu: 0 time: cnode1238 tid: 1 on cpu: 1 time: 9.38307e-08
+cnode1238 tid: 1 on cpu: 1 time: 8.31205e-08
+cnode1238 tid: 1 on cpu: 1 time: 2.06986e-078.28877e-08
+cnode1238 tid: 1 on cpu: 1 time: 
+cnode1238 tid: 0 on cpu: 0 time: 3.49246e-08
+cnode1238 tid: 0 on cpu: 0 time: 3.28291e-08
+cnode1238 tid: 0 on cpu: 0 time: 3.39933e-08
+8.31205e-08
+tid: none time: 0.169359
+cnode1097 tid: 0 on cpu: 0 time: cnode1097 tid: 1 on cpu: 1 time: 1.96043e-071.10129e-07
+cnode1097 tid: 0 on cpu: 0 time: 3.39933e-08
+cnode1097 tid: 0 on cpu: 0 time: 3.21306e-08
+cnode1097 tid: 0 on cpu: 0 time: 
+cnode1097 tid: 1 on cpu: 1 time: 3.18978e-08
+9.10368e-08
+cnode1097 tid: 1 on cpu: 1 time: 8.31205e-08
+cnode1097 tid: 1 on cpu: 1 time: 8.28877e-08
+tid: none time: 0.170114
+cnode1238 tid: 0 on cpu: 0 time: cnode1238 tid: 1 on cpu: 1 time: 2.00002e-071.1106e-07
+cnode1238 tid: 0 on cpu: 0 time: 3.28291e-08
+cnode1238 tid: 0 on cpu: 0 time: 3.3062e-08
+cnode1238 tid: 0 on cpu: 0 time: 3.3062e-08
+
+cnode1238 tid: 1 on cpu: 1 time: 1.01048e-07
+cnode1238 tid: 1 on cpu: 1 time: 8.28877e-08
+cnode1238 tid: 1 on cpu: 1 time: 8.28877e-08
+tid: none time: 0.142852
+cnode1097 tid: 0 on cpu: 0 time: cnode1097 tid: 1 on cpu: 1 time: 1.86032e-079.01055e-08
+cnode1097 tid: 0 on cpu: 0 time: 3.3062e-08
+cnode1097 tid: 0 on cpu: 0 time: 3.3062e-08
+cnode1097 tid: 0 on cpu: 0 time: 3.3062e-08
+
+cnode1097 tid: 1 on cpu: 1 time: 8.98726e-08
+cnode1097 tid: 1 on cpu: 1 time: 8.49832e-08
+cnode1097 tid: 1 on cpu: 1 time: 8.28877e-08
+tid: none time: 0.143474
