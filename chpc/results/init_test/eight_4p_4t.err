@@ -4,7 +4,7 @@ are not used by default.  The intent is to use UCX for these devices.
 You can override this policy by setting the btl_openib_allow_ib MCA parameter
 to true.
 
-  Local host:              cnode0488
+  Local host:              cnode1131
   Local adapter:           mlx4_0
   Local port:              1
 
@@ -12,13 +12,13 @@ to true.
 --------------------------------------------------------------------------
 WARNING: There was an error initializing an OpenFabrics device.
 
-  Local host:   cnode0488
+  Local host:   cnode1131
   Local device: mlx4_0
 --------------------------------------------------------------------------
-[cnode0401:31972] 3 more processes have sent help message help-mpi-btl-openib.txt / ib port not selected
-[cnode0401:31972] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
-[cnode0401:31972] 3 more processes have sent help message help-mpi-btl-openib.txt / error in device init
+[cnode1131:123137] 3 more processes have sent help message help-mpi-btl-openib.txt / ib port not selected
+[cnode1131:123137] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[cnode1131:123137] 3 more processes have sent help message help-mpi-btl-openib.txt / error in device init
 
-real	5m0.637s
-user	19m26.119s
-sys	0m0.619s
+real	5m2.544s
+user	19m27.627s
+sys	0m1.667s

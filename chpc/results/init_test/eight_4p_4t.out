@@ -1,73 +1,73 @@
 4
-tid: 1 time: 69.4464
-tid: 2 time: 69.7067
-tid: 0 time: 70.3591
-tid: 1 time: 70.6034
-tid: 2 time: 70.6255
-tid: 3 time: 70.7911
-tid: 0 time: 70.9454
-tid: 3 time: 71.5264
-tid: 2 time: 71.7429
-tid: 3 time: 72.3802
-tid: 1 time: 72.5559
-tid: 3 time: 72.6169
-tid: 1 time: 72.7047
-tid: 0 time: 72.7343
-tid: 0 time: 72.7426
-tid: 2 time: 72.9826
-tid: 1 time: 69.9735
-tid: 2 time: 70.2297
-tid: 0 time: 70.4189
-tid: 1 time: 70.4916
-tid: 2 time: 70.466
-tid: 3 time: 70.5623
-tid: 0 time: 70.9317
-tid: 2 time: 71.4599
-tid: 3 time: 72.0483
-tid: 3 time: 72.0286
-tid: 3 time: 72.4177
-tid: 1 time: 72.3617
-tid: 0 time: 72.3578
-tid: 1 time: 72.549
-tid: none time: 145.517
-tid: 2 time: 72.8201
-tid: none time: 146.072
-tid: none time: 146.152
-tid: 0 time: 73.3758
-tid: none time: 147.124
-tid: 1 time: 70.0924
-tid: 2 time: 70.6723
-tid: 0 time: 70.1277
-tid: 0 time: 70.7825
-tid: 2 time: 70.3894
-tid: 1 time: 70.7025
-tid: 3 time: 70.7833
-tid: 2 time: 71.8108
-tid: 3 time: 72.4646
-tid: 3 time: 72.2861
-tid: 0 time: 72.4443
-tid: 1 time: 72.7835
-tid: 3 time: 72.598
-tid: 1 time: 72.6074
-tid: 2 time: 72.9207
-tid: 0 time: 73.3255
-tid: 1 time: 69.2448
-tid: 2 time: 69.5421
-tid: 0 time: 70.1682
-tid: 2 time: 70.4495
-tid: 0 time: 70.7614
-tid: 1 time: 70.5337
-tid: 3 time: 70.5396
-tid: 2 time: 71.4928
-tid: 3 time: 71.2648
-tid: 3 time: 71.9683
-tid: 0 time: 72.0949
-tid: none time: 145.516
-tid: 1 time: 72.3341
-tid: none time: 145.504
-tid: 3 time: 72.4176
-tid: none time: 146.179
-tid: 1 time: 72.6062
-tid: 2 time: 72.6949
-tid: 0 time: 72.5932
-tid: none time: 146.864
+cnode1131 tid: 0 on cpu: 10 time: 72.1597
+cnode1131 tid: 2 on cpu: 14 time: 72.2111
+cnode1131 tid: 1 on cpu: 12 time: 72.3337
+cnode1143 tid: 3 on cpu: 6 time: 72.8637
+cnode1132 tid: 3 on cpu: 2 time: 72.9518
+cnode1141 tid: 3 on cpu: 2 time: 73.0702
+cnode1132 tid: 0 on cpu: 20 time: 73.1558
+cnode1132 tid: 1 on cpu: 22 time: 73.201
+cnode1132 tid: 2 on cpu: 0 time: 73.6673
+cnode1143 tid: 1 on cpu: 2 time: 73.6895
+cnode1141 tid: 0 on cpu: 20 time: 73.6995
+cnode1141 tid: 1 on cpu: 22 time: 73.7454
+cnode1143 tid: 2 on cpu: 4 time: 73.8759
+cnode1131 tid: 3 on cpu: 16 time: 74.2188
+cnode1141 tid: 2 on cpu: 0 time: 74.3141
+cnode1143 tid: 0 on cpu: 0 time: 74.8095
+cnode1131 tid: 2 on cpu: 14 time: 72.1568
+cnode1131 tid: 1 on cpu: 12 time: 72.231
+cnode1131 tid: 0 on cpu: 10 time: 72.8953
+cnode1132 tid: 3 on cpu: 2 time: 72.9175
+cnode1141 tid: 3 on cpu: 2 time: 72.925
+cnode1132 tid: 0 on cpu: 20 time: 73.0832
+cnode1143 tid: 3 on cpu: 6 time: 73.4654
+cnode1132 tid: 1 on cpu: 22 time: 73.8503
+cnode1143 tid: 1 on cpu: 2 time: 73.447
+cnode1141 tid: 0 on cpu: 20 time: 73.5507
+cnode1132 tid: 2 on cpu: 0 time: 73.6821
+cnode1141 tid: 1 on cpu: 22 time: 73.6352
+cnode1143 tid: 2 on cpu: 4 time: 73.6923
+tid: none time: 148.383
+cnode1131 tid: 3 on cpu: 16 time: 74.0619
+tid: none time: 149.373
+cnode1141 tid: 2 on cpu: 0 time: 74.8962
+cnode1143 tid: 0 on cpu: 0 time: 74.9306
+tid: none time: 150.261
+tid: none time: 150.756
+cnode1132 tid: 0 on cpu: 20 time: 73.0236
+cnode1132 tid: 3 on cpu: 2 time: 73.05
+cnode1131 tid: 1 on cpu: 12 time: 72.1872
+cnode1131 tid: 2 on cpu: 14 time: 72.1969
+cnode1132 tid: 2 on cpu: 0 time: 73.7561
+cnode1131 tid: 0 on cpu: 10 time: 72.7623
+cnode1132 tid: 1 on cpu: 22 time: 73.9912
+cnode1141 tid: 3 on cpu: 2 time: 73.0576
+cnode1131 tid: 3 on cpu: 16 time: 74.1998
+cnode1141 tid: 0 on cpu: 20 time: 73.6001
+cnode1141 tid: 1 on cpu: 22 time: 73.8155
+cnode1143 tid: 3 on cpu: 6 time: 73.5908
+cnode1143 tid: 1 on cpu: 2 time: 73.8304
+cnode1143 tid: 2 on cpu: 4 time: 73.924
+cnode1141 tid: 2 on cpu: 0 time: 75.02
+cnode1143 tid: 0 on cpu: 0 time: 74.7269
+cnode1131 tid: 2 on cpu: 14 time: 72.0113
+cnode1131 tid: 1 on cpu: 12 time: 72.0883
+cnode1131 tid: 0 on cpu: 10 time: 72.0759
+cnode1132 tid: 3 on cpu: 2 time: 72.8626
+cnode1132 tid: 0 on cpu: 20 time: 72.962
+cnode1132 tid: 1 on cpu: 22 time: 73.1261
+cnode1132 tid: 2 on cpu: 0 time: 73.7495
+cnode1141 tid: 3 on cpu: 2 time: 72.8988
+tid: none time: 148.505
+cnode1143 tid: 3 on cpu: 6 time: 72.7119
+cnode1141 tid: 0 on cpu: 20 time: 73.2963
+cnode1131 tid: 3 on cpu: 16 time: 74.0282
+cnode1141 tid: 1 on cpu: 22 time: 73.6008
+cnode1143 tid: 1 on cpu: 2 time: 73.4867
+cnode1143 tid: 2 on cpu: 4 time: 73.6914
+tid: none time: 149.285
+cnode1141 tid: 2 on cpu: 0 time: 74.1718
+cnode1143 tid: 0 on cpu: 0 time: 74.729
+tid: none time: 150.199
+tid: none time: 150.435
