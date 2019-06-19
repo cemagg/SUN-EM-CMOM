@@ -83,7 +83,6 @@ if(MPI)
                                       ${LAPACK_LIBRARIES})
     elseif(CATL)
             set(CMAKE_CXX_FLAGS "-O3 ")
-            #set(CMAKE_CXX_FLAGS "-fopenmp ")
             target_link_libraries(mom_mpi ${MPI_LIBRARIES}
                                   OpenMP::OpenMP_CXX
                                   #-L/apps/scalapack/gcc/current/lib64

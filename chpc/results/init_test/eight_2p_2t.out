@@ -1,3 +1,9 @@
 2
-bool: 0
-bool: 0
+tid: 1 time: 1077.63
+tid: 0 time: 1077.98
+tid: 0 time: 1151.98
+tid: 1 time: 1165.9
+tid: 0 time: 1076.62
+tid: 1 time: 1078.52
+tid: 0 time: 1150.85
+tid: 1 time: 1151.22
