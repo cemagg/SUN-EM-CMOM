@@ -62,7 +62,7 @@ void calculateDGFMRow(DGFMRow &row,
 	#pragma omp parallel for 
 	for (int n = 0; n < num_domains; n++)
 	{
-		double start = omp_get_wtime();
+		// double start = omp_get_wtime();
 		serialFillZmn( 	row.z_matrices[n],
         	          	edges,
             	      	triangles,
@@ -72,12 +72,12 @@ void calculateDGFMRow(DGFMRow &row,
                    		label_map[domain_index],
                    		true);	
 		
-		double end = omp_get_wtime();
+		// double end = omp_get_wtime();
 
-	   	char processor_name[MPI_MAX_PROCESSOR_NAME];
-    	int name_len;
-    	MPI_Get_processor_name(processor_name, &name_len);	
-		std::cout << processor_name << " tid: " << omp_get_thread_num() <<" on cpu: " << sched_getcpu() << " time: " << end - start << std::endl;
+	   	// char processor_name[MPI_MAX_PROCESSOR_NAME];
+    	// int name_len;
+    	// MPI_Get_processor_name(processor_name, &name_len);	
+		// std::cout << processor_name << " tid: " << omp_get_thread_num() <<" on cpu: " << sched_getcpu() << " time: " << end - start << std::endl;
 	}
 	// STOP_TIMER("Z FILL")
 	// Sum Z Matrices
