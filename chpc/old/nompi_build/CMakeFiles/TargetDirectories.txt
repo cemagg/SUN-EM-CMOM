@@ -1,3 +1,0 @@
-/home/tebrahim/lustre/SUN-EM-CMOM/chpc/nompi_build/CMakeFiles/rebuild_cache.dir
-/home/tebrahim/lustre/SUN-EM-CMOM/chpc/nompi_build/CMakeFiles/edit_cache.dir
-/home/tebrahim/lustre/SUN-EM-CMOM/chpc/nompi_build/CMakeFiles/mom_mpi.dir

@@ -1,1 +1,0 @@
-Comparing MPI vs OMP on CHPC Serial Node
