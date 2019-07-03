@@ -1,60 +1,19 @@
-
-src/build-mom-Desktop_Qt_5_12_0_MinGW_64_bit-Debug/
-
 build/
 
 build_mpi/
 
-cmom\.sublime-project
+examples/**/*.out
 
-cmom\.sublime-workspace
+examples/**/*.mat
 
-src/pre_processor/log\.txt
+examples/**/*.rhs
 
-src/pre_processor/__pycache__/
+examples/**/*.bof
 
-cbfm_build/
+examples/**/*.str
 
-log\.txt
+examples/**/*.sol
 
-cbfm\.txt
-
-*.rhs
-
-*.sol
-
-doc/latex/
-
-doc/html/
-
-test/\.build/
+examples/**/*.mom
 
 src/gui/__pycache__/
-
-test/__pycache__/
-
-omp_build/
-
-abuild/
-
-acc_build/
-
-chpc/acc_build/
-
-chpc/omp_build/
-
-chpc/mpi_build/
-
-chpc/ompi_build/
-
-chpc/feko/bow_tie_array_med.out
-
-chpc/feko/feko_5.out
-
-examples/bow_tie_array/bow_tie_array_med.mom
-
-examples/bow_tie_array/bta5.mom
-
-chpc/a/
-
-chpc/nompi_build/
