@@ -1,6 +1,10 @@
+
 #ifndef CBLACS_CONFIG_H
 #define CBLACS_CONFIG_H
 
+/**
+ * @brief      A struct used to package the various CBLACS parameters
+ */
 struct CBLACSConfig
 {
     int context;

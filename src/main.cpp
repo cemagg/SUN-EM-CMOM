@@ -31,10 +31,10 @@ int main(int argc, char **argv)
 	args::HelpFlag help(parser, "help", "Display this menu", {'h', "help"});
 	args::Positional<std::string> file_name_arg(parser, "file_path", "The path to the .mom file");
     args::Group group(parser, "");
-    args::Flag cbfm(group, "cbfm", "TBD", {"cbfm"}); // Decide whether to use CBFM
-    args::Flag fpga(group, "fpga", "TBD", {"fpga"}); // Decide whether to use an FPGA
-    args::Flag svd(group, "svd", "TBD", {"svd"}); // Decide whether to use an FPGA
-    args::Flag dgfm(group, "dgfm", "TBD", {"dgfm"}); // Decide whether to use an FPGA
+    args::Flag cbfm(group, "cbfm", "TBD", {"cbfm"}); 
+    args::Flag fpga(group, "fpga", "TBD", {"fpga"}); 
+    args::Flag svd(group, "svd", "TBD", {"svd"});
+    args::Flag dgfm(group, "dgfm", "TBD", {"dgfm"});
 
     //----------------------------------------
     // Command line argument parser
