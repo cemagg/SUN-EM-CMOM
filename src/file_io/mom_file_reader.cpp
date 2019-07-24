@@ -325,6 +325,84 @@ MoMFileReader::MoMFileReader(std::string file_path, bool cbfm)
             std::cout << "ERROR: THERE IS SOMETHING WRONG WITH THE FILE" << std::endl;
             std::cout << "ERROR: FEKO_DATA HAS NOT ENDED" << std::endl;
         }      
+
+
+        // Read excitations
+        getline(file, str);
+        getline(file, str);
+        if (str == "EXCITATIONS START")
+        {
+            std::vector<int> all_ports;
+
+            getline(file, str);
+            line_vector = this->constLineReader(str);
+            num_fields = std::stoi(line_vector[1]);
+
+            getline(file, str); // read empty line
+
+            for (int i = 0; i < num_fields; i++)
+            {
+                Excitation tmp_excitation;
+                getline(file, str); // index
+
+                getline(file, str); // type
+                line_vector = this->constLineReader(str);
+                tmp_excitation.type = std::stoi(line_vector[1]);
+                
+                getline(file, str); // label
+                line_vector = this->constLineReader(str);
+                tmp_excitation.label = std::stoi(line_vector[1]);
+
+                getline(file, str); // emag
+                line_vector = this->constLineReader(str);
+                tmp_excitation.emag = std::stod(line_vector[1]);
+
+                if (tmp_excitation.type == 1)
+                {
+                    getline(file, str); // theta
+                    line_vector = this->constLineReader(str);
+                    tmp_excitation.theta = std::stod(line_vector[1]);
+                    
+                    getline(file, str); // phi
+                    line_vector = this->constLineReader(str);
+                    tmp_excitation.phi = std::stod(line_vector[1]);
+
+                }
+
+                if (tmp_excitation.type == 2)
+                {
+                    getline(file, str); // numPorts
+                    line_vector = this->constLineReader(str);
+                    int num_ports = std::stoi(line_vector[1]);
+
+                    for (int j = 0; j < num_ports; j++)
+                    {
+                        getline(file, str); // ports
+                        line_vector = this->constLineReader(str);
+                        if (cbfm)
+                        {
+                            tmp_excitation.ports.push_back(std::stoi(line_vector[1]));
+                        }
+                        else
+                        {
+                            all_ports.push_back(std::stoi(line_vector[1]));
+                        }
+                    }
+                }
+                
+                this->excitations.push_back(tmp_excitation);
+                
+                getline(file, str); // read empty line
+            }
+
+            if (!cbfm)
+            {
+                this->excitations[0].ports = all_ports;
+            }
+            
+        }
+        // TODO: Add in end check for excitations
+        
     }
     else
     {

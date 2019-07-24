@@ -20,4 +20,8 @@ struct Label
 	std::vector<int> edge_indices;		// Vector storing assosciated MoM edge indices
 };
 
+
 #endif
+
+
+

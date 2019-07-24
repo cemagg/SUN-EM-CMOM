@@ -3,4 +3,5 @@
 cd build/
 cmake ..
 make
-./mom ../examples/pec_plate.mom
+
+time ./mom ../examples/dgfm_big/dgfm_big.mom --dgfm

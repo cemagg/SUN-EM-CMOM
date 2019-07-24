@@ -11,14 +11,18 @@
 #include "file_io/mom_file_writer.h"
 
 #ifndef PARALLEL
-#include "mom/serial_mom/mom.h"
-#include "cbfm/serial_cbfm/cbfm.h"
+
+#include "solvers/mom/serial_mom/mom.h"
+#include "solvers/dgfm/serial_dgfm/dgfm.h"
+#include "solvers/cbfm/serial_cbfm/cbfm.h"
 #endif
 
 #ifdef PARALLEL
-#include "mom/parallel_mom/mpi_mom.h"
+// #include "solvers/mom/parallel_mom/mpi_mom.h"
+#include "solvers/dgfm/parallel_dgfm/mpi_dgfm.h"
 #include <mpi.h>
 #endif
+
 //**********************************
 
 int main(int argc, char **argv)
@@ -28,8 +32,12 @@ int main(int argc, char **argv)
 	args::HelpFlag help(parser, "help", "Display this menu", {'h', "help"});
 	args::Positional<std::string> file_name_arg(parser, "file_path", "The path to the .mom file");
     args::Group group(parser, "");
-    args::Flag cbfm(group, "cbfm", "TBD", {"cbfm"}); // Decide whether to use CBFM
-    args::Flag fpga(group, "fpga", "TBD", {"fpga"}); // Decide whether to use an FPGA
+
+    args::Flag cbfm(group, "cbfm", "TBD", {"cbfm"}); 
+    args::Flag fpga(group, "fpga", "TBD", {"fpga"}); 
+    args::Flag svd(group, "svd", "TBD", {"svd"});
+    args::Flag dgfm(group, "dgfm", "TBD", {"dgfm"});
+
 
     //----------------------------------------
     // Command line argument parser
@@ -66,7 +74,16 @@ int main(int argc, char **argv)
     #endif
 
     // Read the .mom file
-    MoMFileReader reader(args::get(file_name_arg), cbfm);
+
+
+    // TODO FIX THIS PROPERLY
+    bool domain_decomp = false;
+    if (cbfm || dgfm)
+    {
+        domain_decomp = true;
+    }
+    MoMFileReader reader(args::get(file_name_arg), domain_decomp);
+
     
     // Create the array to store the MoM solution
     std::complex<double> *ilhs; 
@@ -84,15 +101,59 @@ int main(int argc, char **argv)
                     reader.triangles,
                     reader.edges,
                     reader.nodes,
-                    ilhs,
-                    fpga);  
+
+                    reader.excitations,
+                    ilhs);
+
         
         // Write the solution to a .sol file
         writeIlhsToFile(ilhs, reader.edges.size(), args::get(file_name_arg));   
         std::cout << "SOLVER COMPLETE" << std::endl;
 
         // Cleanup
-        delete ilhs;
+
+        delete [] ilhs;
+        #endif
+    }
+    else if (dgfm)
+    {
+        #ifndef PARALLEL
+        ilhs = new std::complex<double>[reader.edges.size()]();
+        performDGFM(reader.const_map,
+                    reader.label_map,
+                    reader.triangles,
+                    reader.edges,
+                    reader.nodes,
+                    reader.excitations,
+                    ilhs);
+                  
+        // writeIlhsToFile(ilhs, reader.edges.size(), args::get(file_name_arg));   
+        delete [] ilhs;
+        #endif
+        
+        #ifdef PARALLEL
+        if(rank == 0)
+        {
+            ilhs = new std::complex<double>[reader.edges.size()];
+        }
+
+        mpiPerformDGFM( reader.const_map,
+                        reader.label_map,
+                        reader.triangles,
+                        reader.edges,
+                        reader.nodes,
+                        reader.excitations,
+                        ilhs); 
+
+        if(rank == 0)
+        {
+            // Write the solution to a .sol file
+            writeIlhsToFile(ilhs, reader.edges.size(), args::get(file_name_arg));   
+            
+            // Cleanup
+            delete [] ilhs;
+        } 
+
         #endif
     }
     else
@@ -115,23 +176,27 @@ int main(int argc, char **argv)
         }
         #endif
 
-        // Do the actual MoM computation
-        mpiPerformMoM(reader.const_map,
-                        reader.label_map,
-                        reader.triangles,
-                        reader.edges,
-                        reader.nodes,
-                        ilhs);      
 
-        if(rank == 0)
-        {
-            // Write the solution to a .sol file
-            writeIlhsToFile(ilhs, reader.edges.size(), args::get(file_name_arg));   
-            std::cout << "SOLVER COMPLETE" << std::endl;
+        // TODO FIX FOR NEW IMPLEMENTATION OF EXCITATIONS AND LABELS
+        // Do the actual MoM computation
+        // mpiPerformMoM(reader.const_map,
+        //               reader.label_map,
+        //               reader.triangles,
+        //               reader.edges,
+        //               reader.nodes,
+        //               reader.excitations,
+        //               ilhs);      
+
+        // if(rank == 0)
+        // {
+        //     // Write the solution to a .sol file
+        //     writeIlhsToFile(ilhs, reader.edges.size(), args::get(file_name_arg));   
+        //     std::cout << "SOLVER COMPLETE" << std::endl;
             
-            // Cleanup
-            delete ilhs;
-        } 
+        //     // Cleanup
+        //     delete ilhs;
+        // } 
+
 
     }
 
@@ -142,3 +207,4 @@ int main(int argc, char **argv)
 
     return 0;
 }
+

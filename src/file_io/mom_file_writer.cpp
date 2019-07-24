@@ -39,4 +39,6 @@ void writeIlhsToFile(std::complex<double> *ilhs,
 		// file << ilhs[i].real() << sign << temp_imag << "i" << std::endl;
 		file << ilhs[i] << std::endl;
 	}	
+
 }
+

@@ -1,0 +1,426 @@
+FEKO      Version 2017.2.4-545 from 2017-11-20
+          PREFEKO Version 2017.2.4-40 from 2017-11-20 [FEK: default 158; used 158] BINARY
+          CADFEKO version 2017.2.5-317065 (x64) from 2018-01-11                           
+          Copyright (c) 1999-2014 Altair Development S.A. (Pty) Ltd
+          Copyright (c) 2014-2017 Altair Engineering, Inc.
+          Intel(R) MKL version 11.3.4 (build 20160823) on Intel(R) Advanced Vector Extensions 2 (Intel(R) AVX2) enabled processors, Intel(R) 64 architecture (1 thread)
+Computer: PC WIN64 EM64T MKL -- pc
+          Microsoft Windows 8.1 Professional  (Build 9600), Version 6.3.9600 x64 (SP 0.0)
+          Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz; GenuineIntel family 6 model 12 stepping 3 brand id 0
+          1 physical CPU with a total of 8 processors found (multi-core CPU with max. 4 cores per physical CPU)
+Threads:  OpenMP threading not used
+Date:     2019-04-03 16:58:42                     
+File:     strip_dipole
+Memory:   Unlimited, system allows maximum usage of 7.682 GByte
+          (installed memory 7.878 GByte, thereof free 3.119 GByte)
+MD5 Check:5A5412C06EDFB4792F8AEBD6F0DFFDF1
+MD5 Total:CB886D85E73E42B7891317585E889503
+ Licence:  Altair HyperWorks
+
+ NOTE    35127: You are running a sequential version of FEKO, but it was detected that your CPU has more than one core. For best performance, it would be recommended to run the parallel FEKO kernel (your licence allows this)
+ NOTE    35179: Compatible graphics card (GPU) found on this machine for possible hardware acceleration (your FEKO license allows GPU usage). Please use the command line option --use-gpu to use or enable the checkbox in the GUI
+
+SPICE
+  Engine:      NGSPICE
+  Executable:  C:\Program Files\Altair\2017\feko\bin\vngspicec.exe
+
+          Surface of all triangles in m*m:     6.00000E-02
+
+
+                         DATA OF THE METALLIC TRIANGLES
+
+ no.       label     x1 in m     y1 in m     z1 in m       edges 
+          medium     x2 in m     y2 in m     z2 in m
+          medium     x3 in m     y3 in m     z3 in m
+                       nx          ny          nz          area in m*m
+        1 Union1   1.0000E-01  6.0000E-02  0.0000E+00            1                     
+          Free s   5.0000E-02  0.0000E+00  0.0000E+00
+          Free s   1.0000E-01  0.0000E+00  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.5000E-03
+        2 Union1   0.0000E+00  3.0000E-01  0.0000E+00            2         3           
+          Free s   0.0000E+00  2.4000E-01  0.0000E+00
+          Free s   5.0000E-02  3.0000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.5000E-03
+        3 Union1   1.0000E-01  2.4000E-01  0.0000E+00            4         5           
+          Free s   1.0000E-01  3.0000E-01  0.0000E+00
+          Free s   5.0000E-02  3.0000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.5000E-03
+        4 Union1   4.9026E-02  8.2484E-02  0.0000E+00            6         7           
+          Free s   1.0000E-01  6.0000E-02  0.0000E+00
+          Free s   1.0000E-01  1.2000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.5292E-03
+        5 Union1   4.9026E-02  2.1752E-01  0.0000E+00            8         9           
+          Free s   1.0000E-01  1.8000E-01  0.0000E+00
+          Free s   1.0000E-01  2.4000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.5292E-03
+        6 Union1   5.2144E-02  1.5000E-01  0.0000E+00           10        11           
+          Free s   0.0000E+00  1.8000E-01  0.0000E+00
+          Free s   0.0000E+00  1.2000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.5643E-03
+        7 Union1   5.0000E-02  0.0000E+00  0.0000E+00           12                     
+          Free s   0.0000E+00  6.0000E-02  0.0000E+00
+          Free s   0.0000E+00  0.0000E+00  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.5000E-03
+        8 Union1   4.9026E-02  2.1752E-01  0.0000E+00           -2        13        14 
+          Free s   5.0000E-02  3.0000E-01  0.0000E+00
+          Free s   0.0000E+00  2.4000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      2.0329E-03
+        9 Union1   4.9026E-02  2.1752E-01  0.0000E+00          -13        15           
+          Free s   0.0000E+00  2.4000E-01  0.0000E+00
+          Free s   0.0000E+00  1.8000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.4708E-03
+       10 Union1   1.0000E-01  1.2000E-01  0.0000E+00           16        17           
+          Free s   1.0000E-01  1.8000E-01  0.0000E+00
+          Free s   5.2144E-02  1.5000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.4357E-03
+       11 Union1   4.9026E-02  8.2484E-02  0.0000E+00          -12        18        19 
+          Free s   0.0000E+00  6.0000E-02  0.0000E+00
+          Free s   5.0000E-02  0.0000E+00  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      2.0329E-03
+       12 Union1   4.9026E-02  8.2484E-02  0.0000E+00          -18        20           
+          Free s   0.0000E+00  1.2000E-01  0.0000E+00
+          Free s   0.0000E+00  6.0000E-02  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.4708E-03
+       13 Union1   4.9026E-02  8.2484E-02  0.0000E+00           -1        -6       -19 
+          Free s   5.0000E-02  0.0000E+00  0.0000E+00
+          Free s   1.0000E-01  6.0000E-02  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      2.0913E-03
+       14 Union1   4.9026E-02  8.2484E-02  0.0000E+00          -10       -20        21 
+          Free s   5.2144E-02  1.5000E-01  0.0000E+00
+          Free s   0.0000E+00  1.2000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.7135E-03
+       15 Union1   4.9026E-02  2.1752E-01  0.0000E+00           -8       -16        22 
+          Free s   5.2144E-02  1.5000E-01  0.0000E+00
+          Free s   1.0000E-01  1.8000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.6623E-03
+       16 Union1   4.9026E-02  2.1752E-01  0.0000E+00           -4        -9       -14 
+          Free s   1.0000E-01  2.4000E-01  0.0000E+00
+          Free s   5.0000E-02  3.0000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      2.0913E-03
+       17 Union1   5.2144E-02  1.5000E-01  0.0000E+00          -11       -15       -22 
+          Free s   4.9026E-02  2.1752E-01  0.0000E+00
+          Free s   0.0000E+00  1.8000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.7135E-03
+       18 Union1   5.2144E-02  1.5000E-01  0.0000E+00           -7       -17       -21 
+          Free s   4.9026E-02  8.2484E-02  0.0000E+00
+          Free s   1.0000E-01  1.2000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.6623E-03
+       19 Union1   5.0000E-02  3.0000E-01  0.0000E+00           -3        23           
+          Free s   0.0000E+00  3.6000E-01  0.0000E+00
+          Free s   0.0000E+00  3.0000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.5000E-03
+       20 Union1   0.0000E+00  5.4000E-01  0.0000E+00           24                     
+          Free s   5.0000E-02  6.0000E-01  0.0000E+00
+          Free s   0.0000E+00  6.0000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.5000E-03
+       21 Union1   1.0000E-01  5.4000E-01  0.0000E+00           25                     
+          Free s   1.0000E-01  6.0000E-01  0.0000E+00
+          Free s   5.0000E-02  6.0000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.5000E-03
+       22 Union1   4.9027E-02  5.1757E-01  0.0000E+00           26        27           
+          Free s   1.0000E-01  4.8000E-01  0.0000E+00
+          Free s   1.0000E-01  5.4000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.5292E-03
+       23 Union1   5.2697E-02  4.5025E-01  0.0000E+00           28        29           
+          Free s   0.0000E+00  4.8000E-01  0.0000E+00
+          Free s   0.0000E+00  4.2000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.5809E-03
+       24 Union1   5.0000E-02  3.0000E-01  0.0000E+00          -23        30        31 
+          Free s   5.1016E-02  3.8250E-01  0.0000E+00
+          Free s   0.0000E+00  3.6000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      2.0929E-03
+       25 Union1   4.9027E-02  5.1757E-01  0.0000E+00          -24        32        33 
+          Free s   5.0000E-02  6.0000E-01  0.0000E+00
+          Free s   0.0000E+00  5.4000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      2.0316E-03
+       26 Union1   5.1016E-02  3.8250E-01  0.0000E+00          -30        34           
+          Free s   0.0000E+00  4.2000E-01  0.0000E+00
+          Free s   0.0000E+00  3.6000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.5305E-03
+       27 Union1   4.9027E-02  5.1757E-01  0.0000E+00          -32        35           
+          Free s   0.0000E+00  5.4000E-01  0.0000E+00
+          Free s   0.0000E+00  4.8000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.4708E-03
+       28 Union1   1.0000E-01  3.6000E-01  0.0000E+00           -5        36           
+          Free s   5.0000E-02  3.0000E-01  0.0000E+00
+          Free s   1.0000E-01  3.0000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.5000E-03
+       29 Union1   1.0000E-01  4.2000E-01  0.0000E+00           37        38           
+          Free s   1.0000E-01  4.8000E-01  0.0000E+00
+          Free s   5.2697E-02  4.5025E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.4191E-03
+       30 Union1   1.0000E-01  3.6000E-01  0.0000E+00           39        40           
+          Free s   1.0000E-01  4.2000E-01  0.0000E+00
+          Free s   5.1016E-02  3.8250E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.4695E-03
+       31 Union1   4.9027E-02  5.1757E-01  0.0000E+00          -26       -37        41 
+          Free s   5.2697E-02  4.5025E-01  0.0000E+00
+          Free s   1.0000E-01  4.8000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.6467E-03
+       32 Union1   4.9027E-02  5.1757E-01  0.0000E+00          -25       -27       -33 
+          Free s   1.0000E-01  5.4000E-01  0.0000E+00
+          Free s   5.0000E-02  6.0000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      2.0900E-03
+       33 Union1   5.2697E-02  4.5025E-01  0.0000E+00          -28       -35       -41 
+          Free s   4.9027E-02  5.1757E-01  0.0000E+00
+          Free s   0.0000E+00  4.8000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.7190E-03
+       34 Union1   5.2697E-02  4.5025E-01  0.0000E+00          -38       -39        42 
+          Free s   5.1016E-02  3.8250E-01  0.0000E+00
+          Free s   1.0000E-01  4.2000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.6280E-03
+       35 Union1   5.1016E-02  3.8250E-01  0.0000E+00          -29       -34       -42 
+          Free s   5.2697E-02  4.5025E-01  0.0000E+00
+          Free s   0.0000E+00  4.2000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      1.7598E-03
+       36 Union1   5.1016E-02  3.8250E-01  0.0000E+00          -31       -36       -40 
+          Free s   5.0000E-02  3.0000E-01  0.0000E+00
+          Free s   1.0000E-01  3.6000E-01  0.0000E+00
+                   0.0000E+00  0.0000E+00  1.0000E+00      2.0320E-03
+
+
+                         DATA OF THE METALLIC EDGES (with MoM)
+
+                                            triangle no.    points of tr.     information on symmetry
+    no.  type      length/m        media     KORP   KORM   POIP   POIM      yz     xz     xy  status
+        1   1    7.8102E-02  Free s     -1      1     13      3      1       0      0      0  unknown  
+        2   1    7.8102E-02  Free s     -1      2      8      1      1       0      0      0  unknown  
+        3   1    5.0000E-02  Free s     -1      2     19      2      2       0      0      0  unknown  
+        4   1    7.8102E-02  Free s     -1      3     16      2      1       0      0      0  unknown  
+        5   1    5.0000E-02  Free s     -1      3     28      1      1       0      0      0  unknown  
+        6   1    5.5712E-02  Free s     -1      4     13      3      2       0      0      0  unknown  
+        7   1    6.3291E-02  Free s     -1      4     18      2      1       0      0      0  unknown  
+        8   1    6.3291E-02  Free s     -1      5     15      3      2       0      0      0  unknown  
+        9   1    5.5712E-02  Free s     -1      5     16      2      3       0      0      0  unknown  
+       10   1    6.0158E-02  Free s     -1      6     14      2      1       0      0      0  unknown  
+       11   1    6.0158E-02  Free s     -1      6     17      3      2       0      0      0  unknown  
+       12   1    7.8102E-02  Free s     -1      7     11      3      1       0      0      0  unknown  
+       13   1    5.3936E-02  Free s     -1      8      9      2      3       0      0      0  unknown  
+       14   1    8.2489E-02  Free s     -1      8     16      3      2       0      0      0  unknown  
+       15   1    6.1734E-02  Free s     -1      9     17      2      1       0      0      0  unknown  
+       16   1    5.6482E-02  Free s     -1     10     15      1      1       0      0      0  unknown  
+       17   1    5.6482E-02  Free s     -1     10     18      2      2       0      0      0  unknown  
+       18   1    5.3936E-02  Free s     -1     11     12      3      2       0      0      0  unknown  
+       19   1    8.2489E-02  Free s     -1     11     13      2      3       0      0      0  unknown  
+       20   1    6.1734E-02  Free s     -1     12     14      3      2       0      0      0  unknown  
+       21   1    6.7588E-02  Free s     -1     14     18      3      3       0      0      0  unknown  
+       22   1    6.7588E-02  Free s     -1     15     17      3      3       0      0      0  unknown  
+       23   1    7.8102E-02  Free s     -1     19     24      3      2       0      0      0  unknown  
+       24   1    7.8102E-02  Free s     -1     20     25      3      1       0      0      0  unknown  
+       25   1    7.8102E-02  Free s     -1     21     32      2      1       0      0      0  unknown  
+       26   1    6.3321E-02  Free s     -1     22     31      3      2       0      0      0  unknown  
+       27   1    5.5690E-02  Free s     -1     22     32      2      3       0      0      0  unknown  
+       28   1    6.0513E-02  Free s     -1     23     33      3      2       0      0      0  unknown  
+       29   1    6.0764E-02  Free s     -1     23     35      2      1       0      0      0  unknown  
+       30   1    5.5756E-02  Free s     -1     24     26      1      2       0      0      0  unknown  
+       31   1    8.2504E-02  Free s     -1     24     36      3      3       0      0      0  unknown  
+       32   1    5.3916E-02  Free s     -1     25     27      2      3       0      0      0  unknown  
+       33   1    8.2438E-02  Free s     -1     25     32      3      2       0      0      0  unknown  
+       34   1    6.3317E-02  Free s     -1     26     35      3      2       0      0      0  unknown  
+       35   1    6.1766E-02  Free s     -1     27     33      2      1       0      0      0  unknown  
+       36   1    7.8102E-02  Free s     -1     28     36      3      1       0      0      0  unknown  
+       37   1    5.5879E-02  Free s     -1     29     31      1      1       0      0      0  unknown  
+       38   1    5.6151E-02  Free s     -1     29     34      2      2       0      0      0  unknown  
+       39   1    6.1692E-02  Free s     -1     30     34      1      1       0      0      0  unknown  
+       40   1    5.3904E-02  Free s     -1     30     36      2      2       0      0      0  unknown  
+       41   1    6.7414E-02  Free s     -1     31     33      3      3       0      0      0  unknown  
+       42   1    6.7777E-02  Free s     -1     34     35      3      3       0      0      0  unknown  
+
+
+                                DATA FOR MEMORY USAGE
+
+ Number of metallic triangles:              36                                max. triangles:    MAXNDR    =       36
+ Number of dielectric triangles:             0
+ Number of aperture triangles:               0
+ Number of RL-GO triangles:                  0
+ Number of windscreen triangles:             0
+ Number of FEM surface triangles:            0
+ Number of modal port triangles:             0
+ Number of metallic segments:                0                                max. segments:     MAXNSEG   =        0
+ Number of combined MoM/MTL segments:        0
+ Number of dielectr./magnet. cuboids:        0                                max. cuboids:      MAXNQUA   =        0
+ Number of tetrahedra:                       0                                max. tetrahedra:   MAXNTETRA =        0
+ Number of edges in PO region:               0                                max. edges:        MAXPOKA   =        0
+ Number of wedges in PO region:              0                                max. wedges:       MAXPOKL   =        0
+ Number of Fock regions:                     0                                max. Fock regions: MAXFOGE   =        0
+ Number of polygonal surfaces:               0                                max. surfaces:     MAXPOLYF  =        0
+                                                                              max. corner pts.:  MAXPOLYP  =        0
+ Number of UTD cylinders:                    0
+
+ Number of metallic edges (MoM):            42  unknown:       42 (electr.)   max. edges:        MAXNKA    =       42
+                                             0  unknown:        0 (magnet.)
+ Number of metallic edges (PO):              0  unknown:        0 (electr.)
+                                                unknown:        0 (magnet.)
+ Number of dielectric edges (MoM):           0  unknown:        0 (electr.)
+                                             0                  0 (magnet.)
+ Number of dielectric edges (PO):            0  unknown:        0 (electr.)
+                                                unknown:        0 (magnet.)
+ Number of aperture edges (MoM):             0  unknown:        0 (magnet.) 
+ Number of edges FEM/MoM surface:            0  unknown:        0 (electr.)
+                                             0                  0 (magnet.)
+ Number of nodes between segments:           0  unknown:        0             max. nodes:        MAXNKNO   =        0
+ Number of connection points:                0  unknown:        0             max. conn.:        MAXNV     =        0
+ Number of dielectric cuboids:               0  unknown:        0             max. cuboids:      MAXNQUA   =        0
+ Number of magnetic cuboids:                 0  unknown:        0
+ Number of dielectric faces (VEP):           0  unknown:        0
+ Number of magnetic faces (VEP):             0  unknown:        0
+
+ Number of basis funct. for MoM:            42  unknown:       42             max. basisf.       MAXNZEILE =       54
+ Number of basis funct. for PO:              0  unknown:        0             max. basisf.       MAXNKAPO  =        0
+
+ read from input file:
+PS       0    0    1    1    0 1.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+ read from input file:
+CG      -1    0   -1    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00-1.000E+00-1.000E+00 0.000E+00 0.000E+00
+ read from input file:
+DI       0    0   -1    0    0 1.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 1.000E+03 0.000E+00 0.000E+00
+ read from input file:
+PW       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+ read from input file:
+AE       0    2    1    0    1 1.000E+00 0.000E+00 5.000E+01 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+ read from input file:
+FR       0    0    0    0    0 2.998E+08 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+ read from input file:
+NC       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+ read from input file:
+DA       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+ read from input file:
+OS       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+ 
+ 
+      ==============
+      CONFIGURATION: StandardConfiguration1
+      ==============
+
+
+                                   DATA FOR DIELECTRIC MEDIA
+
+internal  relative     relative  conductivity   tan(delta)    tan(delta)    wavelength   mass density    volume     medium
+index  permittivity permeability   in S/m       (electric)    (magnetic)       in m       in kg/m^3      in m^3
+    0      1.00000      1.00000  0.00000E+00   0.00000E+00   0.00000E+00   1.00000E+00   1.00000E+03    infinite    Free space
+
+
+
+                    EXCITATION BY VOLTAGE SOURCE AT AN EDGE
+
+ Name:                          VoltageSource1
+ Excitation index:              1
+ Frequency in Hz:               FREQ =    2.99792E+08
+ Wavelength in m:               LAMBDA =  1.00000E+00
+ Open circuit voltage in V:     |U0| =    1.00000E+00 
+ Phase in degrees:              ARG(U0) =        0.00
+ Attached to port:              Edge port
+ Port edge length in m:         1.00000E-01
+ Indices of the edges:          -3   -5
+
+
+                         DATA FOR THE GREEN'S FUNCTION
+
+                                   free space
+
+
+               All segments and triangles are perfectly conducting.
+
+
+                          DATA FOR STORAGE OF THE MATRIX
+
+ Storage using double precision
+
+ Memory requirement for MoM matrix:        48 rows *       42 columns =        2016 complex numbers
+ For the MoM matrix, a memory of         2016 complex numbers is used (i.e. 31.500 kByte)
+ Storing the matrix and solving the linear set of equations in main memory (storage scheme 1)
+
+     A total of 63.718 kByte of memory has been allocated dynamically
+     (peak memory usage of 63.718 kByte so far)
+
+
+
+               PRE-CONDITIONING OF THE LINEAR SET OF EQUATIONS
+
+               Selected preconditioner algorithm: 1
+
+     CPU time for preconditioning:       0.000 seconds
+
+
+                    SOLUTION OF THE LINEAR SET OF EQUATIONS WITH LAPAGAU
+
+               Condition number of the matrix:  1.89685E+02
+
+               Floating point performance for LU decomposition:
+                    Not determined since computation time too short
+
+     CPU time for solving the linear set of equations:       0.008 seconds
+
+
+                         DATA OF THE VOLTAGE SOURCE NO. 1
+
+                    real part  imag. part   magnitude       phase
+ Current   in A    4.6722E-03  3.1940E-04  4.6831E-03        3.91
+ Admitt.   in A/V  4.6722E-03  3.1940E-04  4.6831E-03        3.91
+ Impedance in Ohm  2.1303E+02 -1.4563E+01  2.1353E+02       -3.91
+ Capacitance in F  3.6453E-11
+
+                         Power in Watt: 2.33612E-03
+
+
+                              SCATTERING PARAMETERS
+
+       ports                                        magnitude          phase 
+    sink source     real part   imag. part      linear      in dB     in deg.
+ S     1      1   6.20984E-01 -2.09849E-02   6.21338E-01   -4.1334     -1.94
+         Sum |S|^2 of these S-parameters:    3.86061E-01   -4.1334
+         Reference impedance in Ohm:  5.00000E+01
+
+
+
+
+                              SUMMARY OF LOSSES
+
+          Metallic elements:                          0.0000E+00 W
+          Dielectric:                                 0.0000E+00 W
+          Mismatch at feed:                           0.0000E+00 W
+          Non-radiating networks:                     0.0000E+00 W
+          Cables:                                     0.0000E+00 W
+          Backward power at passive waveguide ports:  0.0000E+00 W
+          Backward power at passive modal ports:      0.0000E+00 W
+                                                     -------------
+                Sum of all losses:                    0.0000E+00 W
+
+          Efficiency of the antenna:                    100.0000 %
+          (based on a total active power:             2.3361E-03 W)
+
+ read from input file:
+EN       0    0    0    0    0 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+
+
+                    SUMMARY OF REQUIRED TIMES IN SECONDS
+
+                                             CPU-time       runtime
+ Reading and constructing the geometry          0.017         0.017
+ Checking the geometry                          0.000         0.000
+ Initialisation of the Green's function         0.000         0.000
+ Calcul. of coupling for PO/Fock                0.000         0.000
+ Transformation to equivalent sources           0.000         0.000
+ Ray launching/tracing phase of RL-GO           0.000         0.000
+ Calcul. of matrix elements                     0.013         0.013
+ Calcul. of right-hand side vector              0.001         0.001
+ Preconditioning system of linear eqns.         0.000         0.000
+ Solution of the system of linear eqns.         0.008         0.008
+ Eigensolution for characteristic modes         0.000         0.000
+ Determination of surface currents              0.000         0.000
+ Calcul. of impedances/powers/losses            0.003         0.003
+ Calcul. of averaged SAR values                 0.000         0.000
+ Calcul. of power receiving antenna             0.000         0.000
+ Calcul. of cable coupling                      0.000         0.000
+ Calcul. of error estimates                     0.000         0.000
+ Calcul. of electric near field                 0.000         0.000
+ Calcul. of magnetic near field                 0.000         0.000
+ Calcul. of far field                           0.000         0.000
+                            other               0.041         0.041
+                                         ------------  ------------
+                         total times:           0.083         0.083
+               (total times in hours:           0.000         0.000)
+
+ Peak memory usage during the whole solution: 65.851 kByte
+
+Finished: 2019-04-03 16:58:42                     
