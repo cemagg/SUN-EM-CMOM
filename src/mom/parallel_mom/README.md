@@ -1,1 +1,0 @@
-# Folder - parallel_mom
